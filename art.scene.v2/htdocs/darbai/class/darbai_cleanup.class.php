@@ -7,7 +7,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class darbai_cleanup extends avColumn
 {
-	var $version = '$Id: darbai_cleanup.class.php,v 1.8 2005/01/07 13:10:30 pukomuko Exp $';
+	var $version = '$Id: darbai_cleanup.class.php,v 1.9 2005/01/07 14:14:50 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $block_admin = 'work.deleted.admin';
@@ -44,7 +44,7 @@ class darbai_cleanup extends avColumn
 
 			$this->db->clear_cache_tables(array('avworkvotes', 'avworks', 'avcomments'));
 		}
-		//redirect($HTTP_REFERER);
+		redirect($HTTP_REFERER);
 	}
 
 
