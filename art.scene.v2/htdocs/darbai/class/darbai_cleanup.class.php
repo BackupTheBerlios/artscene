@@ -7,7 +7,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class darbai_cleanup extends avColumn
 {
-	var $version = '$Id: darbai_cleanup.class.php,v 1.6 2004/10/05 13:48:23 pukomuko Exp $';
+	var $version = '$Id: darbai_cleanup.class.php,v 1.7 2004/10/05 13:52:15 pukomuko Exp $';
 	var $table = 'avworks';
 
 
@@ -76,7 +76,7 @@ class darbai_cleanup extends avColumn
 			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, thumbnail,  w.file as file
 			FROM avworkvotes v, avworks w, u_users u
 			WHERE v.work_id=w.id AND u.id=w.submiter AND
-				DATE_SUB( NOW(), INTERVAL 1 DAY ) < w.posted
+				DATE_SUB( NOW(), INTERVAL 1 DAY ) > w.posted
 			GROUP BY w.id
 			HAVING summark < 0
 			");
@@ -96,7 +96,7 @@ class darbai_cleanup extends avColumn
 			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username,  thumbnail,  w.file as file
 			FROM avworkvotes v, avworks w, u_users u
 			WHERE v.work_id=w.id AND u.id=w.submiter AND
-				DATE_SUB( NOW(), INTERVAL 7 DAY ) < w.posted
+				DATE_SUB( NOW(), INTERVAL 7 DAY ) > w.posted
 			GROUP BY w.id
 			HAVING avgmark < 1.5
 			");
@@ -139,7 +139,7 @@ class darbai_cleanup extends avColumn
 			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username,  thumbnail,  w.file as file
 			FROM avworkvotes v, avworks w, u_users u
 			WHERE v.work_id=w.id AND u.id=w.submiter AND w.category_id=5 AND
-				DATE_SUB( NOW(), INTERVAL 7 DAY ) < w.posted
+				DATE_SUB( NOW(), INTERVAL 7 DAY ) > w.posted
 			GROUP BY w.id
 			HAVING avgmark < 3
 			");
@@ -162,7 +162,7 @@ class darbai_cleanup extends avColumn
 			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, thumbnail,  w.file as file
 			FROM avworkvotes v, avworks w, u_users u
 			WHERE v.work_id=w.id AND u.id=w.submiter AND w.category_id=5 AND
-				DATE_SUB( NOW(), INTERVAL 1 DAY ) < w.posted
+				DATE_SUB( NOW(), INTERVAL 1 DAY ) > w.posted
 			GROUP BY w.id
 			HAVING avgmark < 2
 			");
