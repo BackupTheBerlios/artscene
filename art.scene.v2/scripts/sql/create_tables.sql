@@ -9,7 +9,7 @@
 -- 
 -- Database : `artscene`
 -- 
--- $Id: create_tables.sql,v 1.3 2004/09/28 20:53:36 pukomuko Exp $
+-- $Id: create_tables.sql,v 1.4 2004/09/29 00:54:19 pukomuko Exp $
 
 -- --------------------------------------------------------
 
@@ -558,26 +558,29 @@ CREATE TABLE IF NOT EXISTS `u_users` (
 ) TYPE=MyISAM PACK_KEYS=1;
 
 
-CREATE TABLE avworks_stat(
-id int( 11 ) unsigned NOT NULL AUTO_INCREMENT ,
-subject varchar( 255 ) NOT NULL default '',
-info text NOT NULL ,
-posted datetime NOT NULL default '0000-00-00 00:00:00',
-thumbnail varchar( 255 ) NOT NULL default '',
-FILE varchar( 255 ) NOT NULL default '',
-submiter int( 11 ) unsigned NOT NULL default '0',
-category_id int( 11 ) unsigned NOT NULL default '0',
-views int( 11 ) unsigned NOT NULL default '0',
-color varchar( 20 ) NOT NULL default '',
-file_size int( 11 ) NOT NULL default '0',
-work_id int( 11 ) unsigned NOT NULL ,
-submiter_name varchar( 255 ) NOT NULL default '',
-category_name varchar( 255 ) NOT NULL default '',
-vote_count int( 11 ) NOT NULL ,
-vote_sum int( 11 ) NOT NULL ,
-vote_avg float NOT NULL ,
-comment_count int NOT NULL ,
-PRIMARY KEY ( id ) ,
-KEY submiter( submiter ) ,
-KEY category_id( category_id )
-) TYPE = MYISAM PACK_KEYS =1;
+CREATE TABLE `avworks_stat` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `subject` varchar(255) NOT NULL default '',
+  `info` text NOT NULL,
+  `posted` datetime NOT NULL default '0000-00-00 00:00:00',
+  `thumbnail` varchar(255) NOT NULL default '',
+  `file` varchar(255) NOT NULL default '',
+  `submiter` int(11) unsigned NOT NULL default '0',
+  `category_id` int(11) unsigned NOT NULL default '0',
+  `views` int(11) unsigned NOT NULL default '0',
+  `color` varchar(20) NOT NULL default '',
+  `file_size` int(11) NOT NULL default '0',
+  `work_id` int(11) unsigned NOT NULL default '0',
+  `submiter_name` varchar(255) NOT NULL default '',
+  `category_name` varchar(255) NOT NULL default '',
+  `vote_count` int(11) NOT NULL default '0',
+  `vote_sum` int(11) NOT NULL default '0',
+  `vote_avg` float NOT NULL default '0',
+  `comment_count` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `work_id` (`work_id`),
+  KEY `submiter` (`submiter`),
+  KEY `category_id` (`category_id`),
+  KEY `vote_sum` (`vote_sum`),
+  KEY `vote_avg` (`vote_avg`)
+) TYPE=MyISAM PACK_KEYS=1 AUTO_INCREMENT=1;

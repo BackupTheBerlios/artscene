@@ -1,13 +1,13 @@
 </td></tr>
 <tr><td class="table-dark">
-<img src="../dot.gif" width="25" height="3" border=0 alt=""><span class="title">{item.subject}</span> // <a class="news-nick" href="page.userinfo;menuname.works_user;user.{item.user_id}">{item.nick}</a>
+<img src="../dot.gif" width="25" height="3" border=0 alt=""><span class="title">{item.subject}</span> // <a class="news-nick" href="page.userinfo;menuname.works_user;user.{item.user_id}">{item.username}</a>
 
 <span class="news-date">// {item.posted} // </span> <a href="page.works;menuname.works_category;category.{item.category_id}" class="news-category">{item.category}</a>
 <br>
-<img src="../dot.gif" width="25" height="3" border=0 alt="">{navigator}
+<img src="../dot.gif" width="25" height="3" border=0 alt="">
 
 
-
+<!-- $Id: workitem.html,v 1.2 2004/09/29 00:52:49 pukomuko Exp $ -->
 
 <script>
 
@@ -100,7 +100,6 @@ function original()
 		perþiûrëjo: {item.views}<br>
 		balsavo: {item.votes}<br>
 		balai:&nbsp;<b>{item.summark}</b>,&nbsp;{item.avgmark}<br>
-		taðkai: {item.score}<br>
 		<a id="fit" href="javascript:fit_to_window();" class="thread">sumaþinti</a> <a id="org" href="javascript:original();" style="visibility: hidden" class="thread">originalas</a>
 		</td>
 		<td class="table-light" width="80%" valign="top">{item.info}</td>
@@ -139,7 +138,7 @@ function original()
 	</table>
 </td></tr>
 </table>
-<img src="../dot.gif" width="25" height="3" border=0 alt="">{navigator}
+<img src="../dot.gif" width="25" height="3" border=0 alt="">
 <br>&nbsp;
 
 

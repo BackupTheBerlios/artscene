@@ -9,7 +9,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai_submit extends avColumn
 {
-	var $version = '$Id: darbai_submit.class.php,v 1.7 2004/09/26 19:45:29 pukomuko Exp $';
+	var $version = '$Id: darbai_submit.class.php,v 1.8 2004/09/29 00:54:57 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -268,6 +268,16 @@ class darbai_submit extends avColumn
 
 		$this->db->query("INSERT INTO avworks (subject, info, posted, thumbnail, file, submiter, category_id, color, file_size)
 							VALUES ('$subject', '$info', NOW(), '$thumbnail_name', '$work_name', $g_user_id, $category, '$color', $work_size)");
+
+		// TODO: update avworks_stat
+		$last_id = $this->db->get_insert_id();
+		$this->db->query("insert into avworks_stat 
+  (work_id, subject, info, posted, thumbnail, file, submiter, category_id, 
+  views, color, file_size, submiter_name, category_name) 
+select w.id, w.subject, w.info, w.posted, w.thumbnail, w.file, w.submiter, w.category_id, 
+  w.views, w.color, w.file_size, 
+  u.username, c.name from avworks w, u_users u, avworkcategory c
+where w.submiter = u.id AND c.id = w.category_id AND w.id=$last_id");
 
 		$g_tpl->set_file('new_work', 'darbai/tpl/mail_new_work.txt');
 		$g_tpl->set_var('id', $this->db->get_insert_id());

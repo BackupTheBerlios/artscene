@@ -7,7 +7,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class darbai_cleanup extends avColumn
 {
-	var $version = '$Id: darbai_cleanup.class.php,v 1.4 2004/09/27 11:35:01 pukomuko Exp $';
+	var $version = '$Id: darbai_cleanup.class.php,v 1.5 2004/09/29 00:54:56 pukomuko Exp $';
 	var $table = 'avworks';
 
 
@@ -57,6 +57,7 @@ class darbai_cleanup extends avColumn
 			}
 			
 			$this->db->query("DELETE FROM avworks  WHERE id = $work");
+			$this->db->query("DELETE FROM avworks_stat  WHERE work_id = $work");
 
 			$this->db->query("DELETE FROM avcomments  WHERE table_name='avworks' AND parent_id = $work");
 			$this->db->query("DELETE FROM avworkvotes  WHERE  work_id = $work");

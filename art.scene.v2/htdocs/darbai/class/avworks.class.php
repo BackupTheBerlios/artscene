@@ -47,7 +47,7 @@ include_once($RELPATH . 'control/class/avchidden.class.php');
 
 class avWorks extends avTable
 {
-	var $version = '$Id: avworks.class.php,v 1.2 2004/09/18 10:29:45 pukomuko Exp $';
+	var $version = '$Id: avworks.class.php,v 1.3 2004/09/29 00:54:56 pukomuko Exp $';
 
 	function avWorks()
 	{
@@ -117,6 +117,7 @@ class avWorks extends avTable
 
 			$this->db->query("DELETE FROM avcomments  WHERE table_name='$this->name' AND parent_id = " . implode(" OR parent_id = ",$id));
 			$this->db->query("DELETE FROM avworkvotes  WHERE  work_id = " . implode(" OR work_id = ",$id));
+			$this->db->query("DELETE FROM avworks_stat WHERE  work_id = " . implode(" OR work_id = ",$id));
 
 		}
 
