@@ -21,7 +21,7 @@ include_once( RELPATH . COREDIR . 'fuxmlini.class.php' );
 /**
 * system Kernel
 *
-* @version $Id: fukernel.class.php,v 1.1 2003/03/20 17:55:31 pukomuko Exp $
+* @version $Id: fukernel.class.php,v 1.2 2003/03/23 21:45:27 pukomuko Exp $
 */
 class fuKernel
 {
@@ -59,10 +59,19 @@ class fuKernel
 		debug('fuKernel: started.');
 	}
 	
+	
+	/**
+	* this method cannot be called from kernel contructor,
+	* that's why you have to pass &$this for core objects.
+	*
+	* @return refrence global kernel
+	*/
 	function &getInstance()
 	{
 		return $GLOBALS['g_kernel'];
 	}
+	
+	
 	/**
 	* put cookie post and get vars to global array
 	*/
@@ -126,7 +135,7 @@ class fuKernel
 	function loadApi( $apiname )
 	{
 		require_once( RELPATH . APIDIR . "$apiname.class.php" );
-		$this->api =& new $apiname( &$this );
+		$this->api =& new $apiname();
 	}
 	
 	/**
@@ -213,6 +222,6 @@ class fuKernel
 	}	
 }
 
-cvs_id('$Id: fukernel.class.php,v 1.1 2003/03/20 17:55:31 pukomuko Exp $');
+cvs_id('$Id: fukernel.class.php,v 1.2 2003/03/23 21:45:27 pukomuko Exp $');
 
 ?>
