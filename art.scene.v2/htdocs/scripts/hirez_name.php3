@@ -105,6 +105,3 @@ echo "$vardas PIEÐINIØ GALERIJA";
 <a href="/i_galerija.html">galerija</a> <br>
 
  
-<?
-    include("../in_footer.html");
-?>

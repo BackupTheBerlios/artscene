@@ -175,9 +175,6 @@ if ( $atgal ) { echo "<a href=\"hirez_name_browse.php3?iid=".$atgal."&vardas=$va
 <br>
 <br>
 
-<?
-include ("../in_footer.html")
-?>
 
 </BODY>
 </HTML>

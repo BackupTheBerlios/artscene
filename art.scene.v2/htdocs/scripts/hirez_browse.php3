@@ -168,9 +168,6 @@ if ( $atgal ) { echo "<a href=\"hirez_browse.php3?iid=".$atgal."\">atgal</a> | "
 <br>
 <br>
 
-<?
-include ("../in_footer.html")
-?>
 
 </BODY>
 </HTML>

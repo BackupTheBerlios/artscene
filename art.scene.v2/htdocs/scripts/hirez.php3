@@ -138,7 +138,3 @@ if ($i_seek) mysql_data_seek($result, $i_seek);
     if ($page==$i_pages) { echo $page." ] pirmyn";}
     else { echo "<a href=\"hirez.php3?page=".$i_pages."\">$i_pages</a> ] <a href=\"hirez.php3?page=".$pirmyn."\">pirmyn</a>";}
 ?>
- 
-<?
-    include("../in_footer.html");
-?>
