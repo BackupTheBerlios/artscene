@@ -18,7 +18,7 @@
 *
 * 2003.03.20 major rewrite to have no adodb
 *
-* @version $Id: fudb.class.php,v 1.2 2003/03/20 20:06:10 pukomuko Exp $
+* @version $Id: fudb.class.php,v 1.3 2003/03/24 22:47:35 pukomuko Exp $
 * @todo values from ini, error reporting
 */
 class fuDb
@@ -70,7 +70,7 @@ class fuDb
 	*/
 	function query($sql)
 	{
-		debug('SQL: ' . $sql, 2);
+		debug('SQL: ' . $sql, 5);
 		
 		$this->resultRows = 0;
 		
@@ -95,7 +95,7 @@ class fuDb
 	*/
 	function select($sql, $numrows = -1, $offset = -1)
 	{
-		debug('SQL: ' . $sql, 2);
+		debug('SQL: ' . $sql, 5);
 		$this->resultRows = 0;
 		$recordset =& $this->driver->selectLimit($sql, $numrows, $offset);
 		
@@ -160,6 +160,6 @@ class fuDb
 	}
 }
 
-cvs_id('$Id: fudb.class.php,v 1.2 2003/03/20 20:06:10 pukomuko Exp $');
+cvs_id('$Id: fudb.class.php,v 1.3 2003/03/24 22:47:35 pukomuko Exp $');
 
 ?>
