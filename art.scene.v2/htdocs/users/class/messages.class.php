@@ -1,10 +1,12 @@
 <?
 
 include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
-
+/**
+* userio þinutynas
+*/
 class messages extends avColumn
 {
-	var $version = '$Id: messages.class.php,v 1.2 2004/09/23 21:42:19 pukomuko Exp $';
+	var $version = '$Id: messages.class.php,v 1.3 2004/09/23 21:44:08 pukomuko Exp $';
 
 	var $table = 'blah';
 

@@ -23,14 +23,12 @@ CREATE TABLE u_user_info (
 /*
 flexiUpdate community version		
 */
-//!! login
-//! userside
 
 include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class login extends avColumn
 {
-	var $version = '$Id: login.class.php,v 1.2 2004/09/23 21:42:19 pukomuko Exp $';
+	var $version = '$Id: login.class.php,v 1.3 2004/09/23 21:44:08 pukomuko Exp $';
 
 	var $table = 'u_users';
 
