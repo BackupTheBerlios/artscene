@@ -48,11 +48,8 @@ class avBlock extends avTable
 		$this->controls[] = & new avcText( &$this, 'name', $g_lang['name'], '', 1, 1, 1, $g_lang['name'], 1, 40);
 		$this->controls[] = & new avcText( &$this, 'title', $g_lang['blocks_title'], '', 1, 1, 1, $g_lang['blocks_title'], 1, 40);
 		
-		if (!eregi("MSIE",$HTTP_USER_AGENT)) {
-			$this->controls[] = & new avcTextArea( &$this, 'html', $g_lang['blocks_html'], '', 1, 1, 0, $g_lang['blocks_html'], 1, 40, 25);	
-		} else {
-			$this->controls[] = & new avcTextArea_html( &$this, 'html', $g_lang['blocks_html'], '', 1, 1, 0, $g_lang['blocks_html'], 1, 40, 25);
-		}
+
+		$this->controls[] = & new avcTextArea( &$this, 'html', $g_lang['blocks_html'], '', 1, 1, 0, $g_lang['blocks_html'], 1, 40, 25);	
 		
 		
 		$this->controls[] = & new avcText( &$this, 'template', $g_lang['blocks_template'], 'block.html', 1, 1, 1, $g_lang['blocks_template'], 1, 40);
