@@ -11,15 +11,15 @@
 
 /**
 * abstract API
-* @version $Id: fuapi.class.php,v 1.1 2003/03/20 17:55:31 pukomuko Exp $
+* @version $Id: fuapi.class.php,v 1.2 2003/03/23 21:47:02 pukomuko Exp $
 */
 class fuApi
 {
 	var $kernel = null;
 	
-	function fuApi( &$kernel )
+	function fuApi()
 	{
-		$this->kernel =& $kernel;
+		$this->kernel =& fuKernel::getInstance();
 		
 		debug('fuApi[' . get_class($this) .']: starting...' );
 	}
@@ -34,5 +34,5 @@ class fuApi
 	}
 }
 
-cvs_id('$Id: fuapi.class.php,v 1.1 2003/03/20 17:55:31 pukomuko Exp $');
+cvs_id('$Id: fuapi.class.php,v 1.2 2003/03/23 21:47:02 pukomuko Exp $');
 ?>

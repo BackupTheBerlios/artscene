@@ -3,7 +3,7 @@ class testapi
 {
 	var $kernel = null;
 	
-	function testapi( &$kernel )
+	function testapi(  )
 	{
 		$this->kernel =& $kernel;
 		echo "uzloadyjo testapi";

@@ -24,9 +24,9 @@ class controlapi extends fuApi
 	/**
 	* @todo error :) kai ner modulio ka daryti
 	*/
-	function controlapi( &$kernel )
+	function controlapi()
 	{
-		parent::fuApi(&$kernel);
+		parent::fuApi();
 		
 		$module = $this->kernel->user->getEnabledModules();
 		if ($module) foreach ($module as $nameid) $this->kernel->loadModule($nameid['iname']);
@@ -104,5 +104,5 @@ class controlapi extends fuApi
 	
 }
 
-cvs_id('$Id: controlapi.class.php,v 1.1 2003/03/20 17:55:31 pukomuko Exp $');
+cvs_id('$Id: controlapi.class.php,v 1.2 2003/03/23 21:47:02 pukomuko Exp $');
 ?>

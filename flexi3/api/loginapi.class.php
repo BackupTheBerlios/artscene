@@ -20,9 +20,9 @@ class loginapi extends fuApi
 	
 	/**
 	*/
-	function loginapi( &$kernel )
+	function loginapi()
 	{
-		parent::fuApi(&$kernel);
+		parent::fuApi();
 	}
 	
 
@@ -81,5 +81,5 @@ class loginapi extends fuApi
 	}
 }
 
-cvs_id('$Id: loginapi.class.php,v 1.1 2003/03/20 17:55:31 pukomuko Exp $');
+cvs_id('$Id: loginapi.class.php,v 1.2 2003/03/23 21:47:02 pukomuko Exp $');
 ?>
