@@ -1,0 +1,201 @@
+P  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	font-weight : normal;
+	font-style : normal;
+	color : #C5C0B7;
+}
+
+H1  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : small;
+	font-weight : bold;
+	font-style : normal;
+	color : #B38C6D;
+}
+
+H2  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	font-weight : normal;
+	font-style : normal;
+	color : #C5C0B7;
+}
+
+H3  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	font-weight : normal;
+	font-style : normal;
+	color : #C5C0B7;
+}
+
+A  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	font-weight : normal;
+	font-style : normal;
+	color : #ADBCCD;
+}
+
+A:Visited  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-weight : normal;
+	font-style : normal;
+	color : #B39595;
+}
+
+A:Active  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-weight : normal;
+	font-style : normal;
+	color : #C5C0B7;
+}
+
+A:Hover  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-weight : normal;
+	font-style : normal;
+	color : #DBE3EC;
+}
+
+BODY  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	font-weight : normal;
+	font-style : normal;
+	color : #C5C0B7;
+}
+
+.text  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	color : #C5C0B7;
+}
+
+.textj  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	color : #C5C0B7;
+	text-align : justify;
+}
+
+.date  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	color : #CFB181;
+	text-align : justify;
+	font-weight : bold;
+}
+
+.ilink  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : xx-small;
+	color : #C5C0B7;
+}
+
+.iheader  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : small;
+	color : #A09180;
+	font-weight : bold;
+	font-style : normal;
+}
+
+.sheader  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	color : #C1A379;
+	font-weight : bold;
+}
+
+.sheader:Hover  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	color : #E2D8BC;
+	font-weight : bold;
+}
+
+.sheader:Visited  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	color : #B39595;
+	font-weight : bold;
+}
+
+TT  {
+	font-size : larger;
+	font-family : monospace;
+}
+
+.vardas  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	color : #ADBCCD;
+	text-align : justify;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+.vardas:Visited  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	color : #B39595;
+	text-align : justify;
+	font-weight : bold;
+	text-decoration : underline;
+}
+
+.vardas:Hover  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	color : #ADBCCD;
+	text-align : justify;
+	font-weight : bold;
+	text-decoration : underline;
+}
+
+.pavadinimas  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	color : #CEAF81;
+	text-align : justify;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+.ascii  {
+	font-family : 'monospace';
+	font-size : x-small;
+	font-weight : normal;
+	font-style : normal;
+	color : #DFDFDF;
+}
+
+.navig  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	color : #ADBCCD;
+	font-weight : bold;
+}
+
+.navig:Visited  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	color : #B39595;
+	font-weight : bold;
+	text-decoration : underline;
+}
+
+.navig:Hover  {
+	font-family : "Arial Baltic", "Helvetica LT", Arial;
+	font-size : x-small;
+	color : #DBE3EC;
+	font-weight : bold;
+}
+
+.alert
+{
+	font-weight: bold;
+	color: #FF0033;
+}
