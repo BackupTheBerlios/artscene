@@ -9,7 +9,7 @@
 -- 
 -- Database : `artscene`
 -- 
--- $Id: create_tables.sql,v 1.2 2004/09/26 22:20:30 pukomuko Exp $
+-- $Id: create_tables.sql,v 1.3 2004/09/28 20:53:36 pukomuko Exp $
 
 -- --------------------------------------------------------
 
@@ -556,3 +556,28 @@ CREATE TABLE IF NOT EXISTS `u_users` (
   `auto_login` varchar(40) NOT NULL default '',
   PRIMARY KEY  (`id`)
 ) TYPE=MyISAM PACK_KEYS=1;
+
+
+CREATE TABLE avworks_stat(
+id int( 11 ) unsigned NOT NULL AUTO_INCREMENT ,
+subject varchar( 255 ) NOT NULL default '',
+info text NOT NULL ,
+posted datetime NOT NULL default '0000-00-00 00:00:00',
+thumbnail varchar( 255 ) NOT NULL default '',
+FILE varchar( 255 ) NOT NULL default '',
+submiter int( 11 ) unsigned NOT NULL default '0',
+category_id int( 11 ) unsigned NOT NULL default '0',
+views int( 11 ) unsigned NOT NULL default '0',
+color varchar( 20 ) NOT NULL default '',
+file_size int( 11 ) NOT NULL default '0',
+work_id int( 11 ) unsigned NOT NULL ,
+submiter_name varchar( 255 ) NOT NULL default '',
+category_name varchar( 255 ) NOT NULL default '',
+vote_count int( 11 ) NOT NULL ,
+vote_sum int( 11 ) NOT NULL ,
+vote_avg float NOT NULL ,
+comment_count int NOT NULL ,
+PRIMARY KEY ( id ) ,
+KEY submiter( submiter ) ,
+KEY category_id( category_id )
+) TYPE = MYISAM PACK_KEYS =1;
