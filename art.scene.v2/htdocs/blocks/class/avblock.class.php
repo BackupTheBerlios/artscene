@@ -30,7 +30,7 @@ include_once($RELPATH . 'control/class/avcactions.class.php');
 
 class avBlock extends avTable
 {
-	var $version = '$Id: avblock.class.php,v 1.3 2005/01/07 12:30:32 pukomuko Exp $';
+	var $version = '$Id: avblock.class.php,v 1.4 2005/01/10 09:38:12 pukomuko Exp $';
 
 	function avBlock()
 	{
@@ -50,7 +50,7 @@ class avBlock extends avTable
 		$this->controls[] = & new avcText( &$this, 'title', $g_lang['blocks_title'], '', 1, 1, 1, $g_lang['blocks_title'], 1, 40);
 		
 
-		$this->controls[] = & new avcTextArea( &$this, 'html', $g_lang['blocks_html'], '', 1, 1, 0, $g_lang['blocks_html'], 1, 40, 25);	
+		$this->controls[] = & new avcTextArea( &$this, 'html', $g_lang['blocks_html'], '', 1, 1, 0, $g_lang['blocks_html'], 1, 70, 40);	
 		
 		
 		$this->controls[] = & new avcText( &$this, 'template', $g_lang['blocks_template'], 'block.html', 1, 1, 1, $g_lang['blocks_template'], 1, 40);
