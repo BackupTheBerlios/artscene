@@ -7,16 +7,16 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class darbai_cleanup extends avColumn
 {
-	var $version = '$Id: darbai_cleanup.class.php,v 1.1 2004/09/26 20:56:23 pukomuko Exp $';
+	var $version = '$Id: darbai_cleanup.class.php,v 1.2 2004/09/26 21:00:32 pukomuko Exp $';
 	var $table = 'avworks';
 
 
 	/**
 	* kai useris kliktelna savo puslapyje
 	*/
-	function event_delete_image()
+	function delete_image()
 	{
-		global $g_user_id, $REQUEST_URI, $work, $g_usr, $g_ini;
+		global $g_user_id, $HTTP_REFERER, $work, $g_usr, $g_ini;
 
 		// paziurim ar darbas sito userio
 		
@@ -35,9 +35,9 @@ class darbai_cleanup extends avColumn
 
 			$this->db->clear_cache_tables(array('avworkvotes', 'avworks', 'avcomments'));
 			
-			$url = substr($REQUEST_URI, 0, strpos($REQUEST_URI, 'event.'));
+			//$url = substr($REQUEST_URI, 0, strpos($REQUEST_URI, 'event.'));
 
-			redirect($url);
+			redirect($HTTP_REFERER);
 
 		}
 	}
