@@ -11,7 +11,7 @@
 
 
 
-include_once($RELPATH . 'avcdbselect.class.php');
+include_once($RELPATH . 'control/class/avcdbselect.class.php');
 
 
 //!! controls
