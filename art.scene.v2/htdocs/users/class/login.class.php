@@ -28,7 +28,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class login extends avColumn
 {
-	var $version = '$Id: login.class.php,v 1.6 2004/10/13 14:49:04 pukomuko Exp $';
+	var $version = '$Id: login.class.php,v 1.7 2004/10/13 14:59:00 pukomuko Exp $';
 
 	var $table = 'u_users';
 
@@ -263,8 +263,10 @@ class login extends avColumn
 		$this->tpl->set_var('user', $info);
 
 		$this->tpl->set_var('nonactive', '');
-		if (!$g_usr->active) 
+
+		if (!$info["active"]) 
 		{
+
 			$this->tpl->set_var('nonactive', 'atjungtas');
 		}
 
