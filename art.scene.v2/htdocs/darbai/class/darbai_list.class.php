@@ -9,7 +9,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai_list extends avColumn
 {
-	var $version = '$Id: darbai_list.class.php,v 1.2 2004/09/18 10:27:21 pukomuko Exp $';
+	var $version = '$Id: darbai_list.class.php,v 1.3 2004/10/05 13:40:25 pukomuko Exp $';
 
 	var $table = 'avworks';
 
@@ -47,7 +47,7 @@ class darbai_list extends avColumn
 			w.id AS id, subject, w.submiter AS user_id, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, wc.name AS category, category_id, thumbnail
 			FROM avworkvotes v, avworks w, u_users u, avworkcategory wc
 			WHERE v.work_id=w.id AND u.id=w.submiter AND w.category_id=wc.id AND
-				DATE_ADD(v.posted, INTERVAL 7 DAY) > NOW()
+				DATE_SUB( NOW(), INTERVAL 7 DAY ) < v.posted
 			GROUP BY w.id
 			ORDER BY summark DESC, avgmark DESC, w.score DESC
 			LIMIT $limit
