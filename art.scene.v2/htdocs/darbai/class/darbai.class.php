@@ -23,7 +23,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai extends avColumn
 {
-
+	var $version = '$Id: darbai.class.php,v 1.2 2004/09/18 10:27:21 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $result = '';

@@ -47,6 +47,7 @@ include_once($RELPATH . 'control/class/avchidden.class.php');
 
 class avWorks extends avTable
 {
+	var $version = '$Id: avworks.class.php,v 1.2 2004/09/18 10:29:45 pukomuko Exp $';
 
 	function avWorks()
 	{

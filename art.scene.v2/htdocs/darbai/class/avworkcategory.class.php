@@ -30,6 +30,7 @@ include_once($RELPATH . 'control/class/avcimage.class.php');
 
 class avWorkCategory extends avTable
 {
+	var $version = '$Id: avworkcategory.class.php,v 1.2 2004/09/18 10:29:45 pukomuko Exp $';
 
 	function avWorkCategory()
 	{

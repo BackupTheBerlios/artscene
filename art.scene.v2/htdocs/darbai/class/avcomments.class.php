@@ -30,6 +30,7 @@ include_once($RELPATH . 'control/class/avcdate.class.php');
 
 class avComments extends avTable
 {
+	var $version = '$Id: avcomments.class.php,v 1.2 2004/09/18 10:29:45 pukomuko Exp $';
 
 	function avComments()
 	{
