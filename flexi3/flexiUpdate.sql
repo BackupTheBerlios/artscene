@@ -3,7 +3,7 @@
 # http://www.phpmyadmin.net/ (download page)
 #
 # Host: localhost
-# Generation Time: Mar 17, 2003 at 09:46 PM
+# Generation Time: Mar 25, 2003 at 12:44 AM
 # Server version: 3.23.55
 # PHP Version: 4.2.3
 # Database : `flexiUpdate`
@@ -72,6 +72,35 @@ INSERT INTO fu_modules (id, iname, name, description) VALUES (1, 'control', 'Adm
 # --------------------------------------------------------
 
 #
+# Table structure for table `fu_pages`
+#
+
+DROP TABLE IF EXISTS fu_pages;
+CREATE TABLE fu_pages (
+  id int(11) unsigned NOT NULL auto_increment,
+  iname varchar(40) NOT NULL default '',
+  name varchar(150) NOT NULL default '',
+  template int(10) NOT NULL default '0',
+  type tinyint(4) NOT NULL default '0',
+  link varchar(255) NOT NULL default '',
+  content text NOT NULL,
+  definition text NOT NULL,
+  override tinyint(2) NOT NULL default '0',
+  override_childs tinyint(2) NOT NULL default '0',
+  override_definition text NOT NULL,
+  visible tinyint(2) NOT NULL default '0',
+  PRIMARY KEY  (id),
+  UNIQUE KEY iname (iname)
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `fu_pages`
+#
+
+INSERT INTO fu_pages (id, iname, name, template, type, link, content, definition, override, override_childs, override_definition, visible) VALUES (1, 'first', 'Pirmas', 1, 0, '', '', '', 0, 0, '', 0);
+# --------------------------------------------------------
+
+#
 # Table structure for table `fu_sessions`
 #
 
@@ -88,9 +117,30 @@ CREATE TABLE fu_sessions (
 # Dumping data for table `fu_sessions`
 #
 
-INSERT INTO fu_sessions (sid, expire, ip, DATA, user) VALUES ('8f34cf9c5218917a8add3436dac863e2', 1047902399, '', 'g_user_id|s:1:"1";', 0);
-INSERT INTO fu_sessions (sid, expire, ip, DATA, user) VALUES ('5cfaf3665d27347033b74bf24cb4a93a', 1047904663, '', '', 0);
-INSERT INTO fu_sessions (sid, expire, ip, DATA, user) VALUES ('724ea15897c5234a38d201f5cf34d8f2', 1047929124, '', 'g_user_id|s:1:"1";', 0);
+INSERT INTO fu_sessions (sid, expire, ip, DATA, user) VALUES ('f435dcda9fa52a26aa48661f57901564', 1048510783, '', '', 0);
+INSERT INTO fu_sessions (sid, expire, ip, DATA, user) VALUES ('f435dcda9fa52a26aa48661f57901564', 1048510783, '', '', 0);
+INSERT INTO fu_sessions (sid, expire, ip, DATA, user) VALUES ('f435dcda9fa52a26aa48661f57901564', 1048510783, '', '', 0);
+INSERT INTO fu_sessions (sid, expire, ip, DATA, user) VALUES ('f435dcda9fa52a26aa48661f57901564', 1048510783, '', '', 0);
+# --------------------------------------------------------
+
+#
+# Table structure for table `fu_templates`
+#
+
+DROP TABLE IF EXISTS fu_templates;
+CREATE TABLE fu_templates (
+  id int(10) unsigned NOT NULL auto_increment,
+  name varchar(20) NOT NULL default '',
+  definition text NOT NULL,
+  PRIMARY KEY  (id),
+  UNIQUE KEY name (name)
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `fu_templates`
+#
+
+INSERT INTO fu_templates (id, name, definition) VALUES (1, 'index', '');
 # --------------------------------------------------------
 
 #
@@ -118,7 +168,7 @@ CREATE TABLE fu_users (
 # Dumping data for table `fu_users`
 #
 
-INSERT INTO fu_users (id, username, password, name, email, phone, lastlogin, lasthost, active, group_id, properties) VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 0, 0, '636262', '2003-03-17 21:25:23', 'legba', 1, 1, '');
+INSERT INTO fu_users (id, username, password, name, email, phone, lastlogin, lasthost, active, group_id, properties) VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 0, 0, '636262', '2003-03-23 23:36:46', 'legba', 1, 1, '');
 # --------------------------------------------------------
 
 #
@@ -166,4 +216,8 @@ INSERT INTO fu_users_log (id, timehit, user, module, ip, message) VALUES (24, '2
 INSERT INTO fu_users_log (id, timehit, user, module, ip, message) VALUES (25, '2003-03-15 18:57:28', 1, 'control', '192.168.0.20', 'login from legba');
 INSERT INTO fu_users_log (id, timehit, user, module, ip, message) VALUES (26, '2003-03-17 13:59:58', 1, 'control', '192.168.0.20', 'login from legba');
 INSERT INTO fu_users_log (id, timehit, user, module, ip, message) VALUES (27, '2003-03-17 21:25:23', 1, 'control', '192.168.0.20', 'login from legba');
+INSERT INTO fu_users_log (id, timehit, user, module, ip, message) VALUES (28, '2003-03-17 21:54:53', 1, 'control', '192.168.0.20', 'login from legba');
+INSERT INTO fu_users_log (id, timehit, user, module, ip, message) VALUES (29, '2003-03-20 03:20:02', 1, 'control', '192.168.0.20', 'login from legba');
+INSERT INTO fu_users_log (id, timehit, user, module, ip, message) VALUES (30, '2003-03-20 03:33:00', 1, 'control', '192.168.0.20', 'login from legba');
+INSERT INTO fu_users_log (id, timehit, user, module, ip, message) VALUES (31, '2003-03-23 23:36:46', 1, 'control', '192.168.0.20', 'login from legba');
 
