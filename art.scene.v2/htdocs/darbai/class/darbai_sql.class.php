@@ -6,7 +6,7 @@
 
 class darbai_sql 
 {
-	var $version = '$Id: darbai_sql.class.php,v 1.7 2004/11/30 21:07:33 pukomuko Exp $';
+	var $version = '$Id: darbai_sql.class.php,v 1.8 2005/01/12 21:58:08 pukomuko Exp $';
 	var $db;
 	
 	function darbai_sql(&$db)
@@ -159,11 +159,14 @@ class darbai_sql
 	/**
 	* gal jau balsavo
 	*/
-	function has_voted_on($id)
+	function has_voted_on($id, $my_vote = false)
 	{
 		global $g_user_id;
-		$this->db->query("SELECT * FROM avworkvotes WHERE user_id=$g_user_id AND work_id=$id LIMIT 1");
-		return $this->db->not_empty();
+		$my_vote = 0;
+		$result = $this->db->get_array("SELECT mark FROM avworkvotes WHERE user_id=$g_user_id AND work_id=$id LIMIT 1");
+		if (!$result) return false;
+		$my_vote = $result['mark'];
+		return true;
 	}
 
 	/**
