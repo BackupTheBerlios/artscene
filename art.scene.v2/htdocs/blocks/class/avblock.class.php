@@ -30,6 +30,7 @@ include_once($RELPATH . 'control/class/avcactions.class.php');
 
 class avBlock extends avTable
 {
+	var $version = '$Id: avblock.class.php,v 1.3 2005/01/07 12:30:32 pukomuko Exp $';
 
 	function avBlock()
 	{
