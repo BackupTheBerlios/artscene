@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=windows-1257">
+<link rel="stylesheet" href="{RELPATH}css/naujas.css" type="text/css">
+
+<title>{header} || flexiUpdate {avms_version}</title>
+
+</head>
+
+<body topmargin="0" leftmargin="0" bgcolor="#DDDDDD">
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr bgcolor="#B7D73B">
+	<td align="left">
+		<table cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td><img src="{RELPATH}control/im/naujas_header_im.gif"></td>
+			<td><font size=1 face=verdana color="#789606"><b><a href="../process/">art.scene.v2</a> on flexiUpdate v{avms_version}</b></font></td>
+		</tr>
+		</table>
+	</td>
+	<td align="right">
+		<table cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td><font size=1 face=verdana color="black"><b>{lang.users_username}:&nbsp;</b>{user_name} | <b><a href="admin.php?page=users_online">{lang.users_online}</a>:&nbsp;</b>{users_online} | <a href="{RELPATH}control/logout.php"><font size=1 face=verdana color="black"><b>{lang.logout}</b></font></a> |&nbsp;</font></td>
+			<td><a href="{RELPATH}control/help.php?topic={table_inner_name}"><img src="{RELPATH}control/im/naujas_header_help.gif" border=0></a><font size=1 face=verdana color="black">&nbsp;</font></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+	<td bgcolor="black"><img src="{RELPATH}control/im/pxl.gif" width="1" height="1" border="0"></td>
+</tr>
+</table><table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+<!-- BEGIN MENU -->
+	<td width="150" valign="top" bgcolor="#EDF1F5">
+		<table cellpadding="3" cellspacing="0" border="0" width="100%">
+		<tr>
+			<td align="center" bgcolor="#CFE9AF"><font size=1 face=verdana><b>MENU</b></font></td>
+		</tr>
+		</table>
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td bgcolor="black"><img src="{RELPATH}control/im/pxl.gif" width="1" height="1" border="0"></td>
+			</tr>
+		</table>
+		{menu}<br>
+	</td>
+<!-- END MENU -->
+	<td width="1" bgcolor="black"><img src="{RELPATH}control/im/pxl.gif" width="1" height="1" border="0"></td>
+	<td width="10" bgcolor="#DDDDDD"><img src="{RELPATH}control/im/pxl.gif" width="10" height="1" border="0"></td>
+<!-- BEGIN CONTENT -->
+	<td valign="top"><br><font size="2">{form}</font></td>
+<!-- END CONTENT -->
+
+</tr>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td bgcolor="black"><img src="{RELPATH}control/im/pxl.gif" width="1" height="1" border="0"></td>
+			</tr>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td align="right"><font size=1 face=verdana>&copy; MMI <a href="http://www.avc.lt" target="_blank" class="small">Alternatyvus Valdymas</a> | E-mail: <a href="mailto:info@avc.lt?Subject=Administravimo klausimais:" class="small">info@avc.lt</a>&nbsp;&nbsp;</font></td>
+			</tr>
+</table>
+</body>
+</html>
+
+
+<!-- edit form -->
+
+<block name="edit_form">
+
+<script language="javascript">
+function script_on_submit()
+{
+	{script_on_submit}
+}
+</script>
+
+<form method="post" name="edit_form" action="{G_PHP_SELF}" enctype="multipart/form-data" onSubmit="script_on_submit();">
+
+<table cellpadding="2" cellspacing="0" border="0">
+<tr>
+	<td><img src="{RELPATH}control/im/naujas_header_openfolder.gif"></td>
+	<td><font size=2 face=verdana><b><a class="border" href="{G_PHP_SELF}?module={module}&table={table}&offset={offset}&order={order}&search={search}&pid={pid}&page=list">{header}</a></b></font></td>
+</tr>
+</table><img src="{RELPATH}control/im/pxl.gif" width="1" height="5" border="0"><table cellpadding="0" cellspacing="0" border="0" width="98%" bgcolor="black">
+<tr>
+	<td>
+	<table cellpadding="3" cellspacing="1" border="0" width="100%">
+	{edit_fields}
+	</table>
+	</td>
+</tr>
+</table><img src="{RELPATH}control/im/pxl.gif" width="1" height="10" border="0"><table cellpadding="0" cellspacing="0" border="0">
+<tr>
+	<td><input type="submit" name="submit" value="{lang.edit.submit}" style="font-size:11.5px;font-family:verdana;font-weight:bold;"><input type="hidden" name="submit" value="1">&nbsp;<input type="Reset" value="{lang.edit.reset}" style="font-size:11.5px;font-family:verdana;font-weight:bold;"></td>
+</tr>
+</table>
+
+<input type="hidden" name="module" value="{module}">
+<input type="hidden" name="table" value="{table}">
+<input type="hidden" name="offset" value="{offset}">
+<input type="hidden" name="order" value="{order}">
+<input type="hidden" name="search" value="{search}">
+<input type="hidden" name="pid" value="{pid}">
+
+<input type="hidden" name="new" value="{new}">
+
+<input type="hidden" name="page" value="edit">
+{edit_fields_hidden}
+
+
+
+<br>
+		<!--end of CONTENT TABLE-->
+
+
+
+</block name="edit_form">
+
+
+<block name="edit_row">
+
+{field}
+
+</block name="edit_row">
+
+
+
+<!-- list form -->
+
+<block name="list_form">
+
+
+			<form method=post action="{G_PHP_SELF}" name="list_form" enctype="multipart/form-data">
+
+
+
+<table cellpadding="2" cellspacing="0" border="0">
+<tr>
+	<td><img src="{RELPATH}control/im/naujas_header_openfolder.gif"></td>
+	<td><font size=2 face=verdana><b>&nbsp;{back}{header}&nbsp;</b></font></td>
+</tr>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" bgcolor="black" width="98%">
+<tr>
+	<td>
+	<table cellpadding="4" cellspacing="1" border="0" width="100%">
+	<tr>
+		<td bgcolor="#B7D73B">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td align="left">
+					<table cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td><img src="{RELPATH}control/im/naujas_header_newdoc.gif"><img src="{RELPATH}control/im/pxl.gif" width="5" height="1" border="0"></td>
+						<td><a href="{G_PHP_SELF}?module={module}&table={table}&offset={offset}&order={order}&search={search}&pid={pid}&page=edit&new=1"><font size=1><b>{lang.list.new}</b></font></a></td>
+					</tr>
+					</table>
+				</td>
+				<td align="right"><font size=1 face=verdana><b>{lang.list.search}</b>:</font> <input type="hidden" name="search_old" value="{search}"><input type="text" name="search" value="{search}" style="font-size:11.5px;font-family:verdana;"> <input type="image" name="submit" value="{lang.list.search}"  src="{RELPATH}control/im/naujas_header_search.gif">&nbsp;</td>
+			</tr>
+			</table>		
+		</td>
+	</tr>
+	</table>
+	</td>
+</tr>
+</table><img src="{RELPATH}control/im/pxl.gif" width="1" height="1" border="0"><table cellpadding="0" cellspacing="0" border="0" bgcolor="black" width="98%">
+<tr>
+	<td>
+		<table cellpadding="2" cellspacing="1" border="0" width="100%">
+		<tr bgcolor="#CFE9AF">
+			{list_headers}
+		</tr>
+			{list_rows}
+		</table>
+	</td>
+</tr>
+</table><img src="{RELPATH}control/im/pxl.gif" width="1" height="5" border="0"><table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+	<td align="center"><font size=2 face=verdana>{navigator}</font></td>
+</tr>
+</table>
+
+
+
+
+		<table width="98%" cellspacing="0" cellpadding="3" border="0"><tr><td class="border">
+
+		<!--CONTENT TABLE-->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+
+		<tr>
+		    <td class="action-list"><font size=2 face=verdana>{list_actions}</font></td>
+		</tr>
+		<tr>
+		    <td class="border"><img src="{RELPATH}images/spacer.gif" width="1" height="4" border=0 alt=""></td>
+		</tr>
+		<tr>
+		    <td class="border"><input type="submit" name="submit" value="{lang.list.submit}" style="font-family:verdana;font-weight:bold;font-size:11.5px">&nbsp;<input type="Reset" value="{lang.list.reset}" style="font-family:verdana;font-weight:bold;font-size:11.5px"></td>
+		</tr>
+		</table>
+
+		<input type="hidden" name="module" value="{module}">
+		<input type="hidden" name="table" value="{table}">
+		<input type="hidden" name="offset" value="{offset}">
+		<input type="hidden" name="order" value="{order}">
+		<input type="hidden" name="pid" value="{pid}">
+		<input type="hidden" name="page" value="list">
+
+		<!--end of CONTENT TABLE-->
+
+		</td></tr></table>
+		</form>
+
+
+</block name="list_form">
+
+
+<block name="list_header"><td {header_params} align="center">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+	<td>{order_down}<img src="{RELPATH}control/im/pxl.gif" width="3" height="1" border="0"></td>
+	<td><font size=1 face=verdana><b>{name}</b></font></td>
+	<td><img src="{RELPATH}control/im/pxl.gif" width="3" height="1" border="0">{order_up}</td>
+</tr>
+</table>
+</td></block name="list_header">
+
+<block name="list_row">
+<tr bgcolor="white">
+	{list_cells}
+</tr>
+</block name="list_row">
+
+<block name="list_cell">
+<td class="list-row-{style}" {list_params}><font size=2 face=Verdana>{item}</font></td>
+</block name="list_cell">
+
+
+
+<block name="order_up_block"><a href="{G_PHP_SELF}?module={module}&table={table}&offset={offset}&order={order_up_str}&search={search}&pid={pid}&page=list"><img src="{RELPATH}control/im/naujas_header_up.gif" width="9" height="10" border=0 alt=""></a></block name="order_up_block">
+
+<block name="order_down_block"><a href="{G_PHP_SELF}?module={module}&table={table}&offset={offset}&order={order_down_str}&search={search}&pid={pid}&page=list"><img src="{RELPATH}control/im/naujas_header_down.gif" width="9" height="10" border=0 alt=""></a></block name="order_down_block">
