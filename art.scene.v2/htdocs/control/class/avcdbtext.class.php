@@ -42,12 +42,14 @@ class avcDbText extends avcDbSelect
 	*/
 	function show_edit()
 	{
+		global $g_db;
 		$tmp = $g_db->get_array("SELECT $this->c_name AS o_name FROM $this->s_table WHERE $this->c_value='$this->value'");
 
 		$this->tpl->set_var('name', '_f_'.$this->name);
 		$this->tpl->set_var('description', $this->description);
 		$this->tpl->set_var('text', $tmp['o_name']);
 		$this->tpl->set_var('error', $this->error);
+		$this->tpl->set_var('value', $this->get_value_edit());
 
 		
 		$out = $this->tpl->process('temp', 'avcDbText_edit');
@@ -55,6 +57,7 @@ class avcDbText extends avcDbSelect
 		$this->tpl->drop_var('name');
 		$this->tpl->drop_var('description');
 		$this->tpl->drop_var('text');
+		$this->tpl->drop_var('value');
 		$this->tpl->drop_var('error');
 
 		return $out;

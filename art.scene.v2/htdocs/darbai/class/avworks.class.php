@@ -41,13 +41,14 @@ include_once($RELPATH . 'control/class/avctextarea_bbcode.class.php');
 include_once($RELPATH . 'control/class/avcdate.class.php');
 include_once($RELPATH . 'control/class/avcselect.class.php');
 include_once($RELPATH . 'control/class/avcdbselect.class.php');
+include_once($RELPATH . 'control/class/avcdbtext.class.php');
 include_once($RELPATH . 'control/class/avcactions.class.php');
 include_once($RELPATH . 'control/class/avcimage.class.php');
 include_once($RELPATH . 'control/class/avchidden.class.php');
 
 class avWorks extends avTable
 {
-	var $version = '$Id: avworks.class.php,v 1.3 2004/09/29 00:54:56 pukomuko Exp $';
+	var $version = '$Id: avworks.class.php,v 1.4 2004/11/30 23:14:46 pukomuko Exp $';
 
 	function avWorks()
 	{
@@ -73,7 +74,7 @@ class avWorks extends avTable
 
 
 		$this->controls[] = & new avcDbSelect( &$this, 'category_id', $g_lang['news_category'], '', 1, 1, 1, $g_lang['news_category'], 1, 'avworkcategory', 'id', 'name');
-		$this->controls[] = & new avcDbSelect( &$this, 'submiter', $g_lang['news_author'], $GLOBALS['g_user_id'], 1, 1, 1, $g_lang['news_author'], 1, 'u_users', 'id', 'username');
+		$this->controls[] = & new avcDbText( &$this, 'submiter', $g_lang['news_author'], $GLOBALS['g_user_id'], 1, 1, 1, $g_lang['news_author'], 1, 'u_users', 'id', 'username');
 
 
 		$this->controls[] = & new avcImage( &$this, 'thumbnail', 'Thumbnail', '', 0, 1, 0, $g_lang['news_image'], 1, $g_ini->read_var('avworks', 'thumbnails_dir'), $g_ini->read_var('avworks', 'thumbnails_url'), 110, 210);

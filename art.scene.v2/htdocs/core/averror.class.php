@@ -52,6 +52,11 @@ class avError
 		if ('halt' == $this->action || 'fatal' == $level) { exit; }
 	}
 
+	function report( $level, $msg ) 
+	{
+		$this->error($msg, $level);
+	}
+
 	/*!
 		empty error message
 	*/
