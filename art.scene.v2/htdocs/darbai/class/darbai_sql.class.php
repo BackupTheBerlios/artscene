@@ -88,7 +88,7 @@ class darbai_sql
 						  $near_where = " AND views $zenklas $work_info[views] AND w.work_id != $work_info[id] "; break;
 			case 'date':
 			default: $order = " id $kryptis ";
-					 $near_where = " AND work_id $zenklas $work_info[id] ";
+					 $near_where = " AND w.work_id $zenklas $work_info[id] ";
 		}
 		$limit = " LIMIT $offset, $count ";
 		$where = "";

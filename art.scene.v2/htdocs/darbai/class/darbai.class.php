@@ -11,7 +11,7 @@ include_once($RELPATH . 'darbai/class/darbai_sql.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.9 2004/10/04 12:05:21 pukomuko Exp $';
+	var $version = '$Id: darbai.class.php,v 1.10 2004/10/28 12:24:45 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -323,9 +323,12 @@ class darbai extends avColumn
 	*/
 	function get_near_works($info, $category, $search, $user, $order, $count, $offset, $g_error, $g_user_id)
 	{
+		if (!empty($GLOBALS['bench'])) echo "darbai::get_near_works()";
 		$near = array();
 
-		$near_left = @array_reverse($this->sql->get_full_list($category, 0, 3, $search, $order, $user, 'back', $info));
+		$reverse = $this->sql->get_full_list($category, 0, 3, $search, $order, $user, 'back', $info);
+		if (!$reverse) $reverse = array();
+		$near_left = array_reverse($reverse);
 		$near_right = $this->sql->get_full_list($category, 0, 3, $search, $order, $user, 'forth', $info);
 
 		$current = $info;
