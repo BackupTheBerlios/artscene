@@ -60,6 +60,8 @@ class page_users extends avTable
 		if (is_array($id))
 		{
 			$this->db->query("DELETE FROM u_user_info  WHERE uid = " . implode(" OR uid = ",$id));
+			$this->db->query("DELETE FROM avworks  WHERE submiter  = " . implode(" OR submiter  = ",$id));
+			$this->db->query("DELETE FROM avworks_stat  WHERE submiter  = " . implode(" OR submiter  = ",$id));
 			$this->db->query("DELETE FROM avcomments  WHERE user_id  = " . implode(" OR user_id  = ",$id));
 			$this->db->query("DELETE FROM avworkvotes  WHERE user_id  = " . implode(" OR user_id  = ",$id));
 			$this->db->query("DELETE FROM forum_thread_list WHERE author_id  = " . implode(" OR author_id  = ",$id));
