@@ -252,7 +252,9 @@ class darbai_sql
 
 		if ($update) 
 		{
-			$this->db->query("REPLACE avworks_stat (work_id, subject, info, thumbnail, file, views, color, submiter_name, category_name, comment_count, vote_count, vote_sum, vote_avg) VALUES($work, '$info[subject]', '$info[info]', '$info[thumbnail]', '$info[file]', '$info[views]', '$info[color]', '$info[username]', '$info[category]', $comment_count, $count, $sum, $avg )");
+			$this->db->query("UPDATE avworks_stat 
+			SET subject='$info[subject]', info='$info[info]', thumbnail='$info[thumbnail]', file='$info[file]', views='$info[views]', color='$info[color]', submiter_name='$info[username]', category_name='$info[category]', comment_count=$comment_count, vote_count=$count, vote_sum=$sum, vote_avg=$avg			
+			WHERE work_id=$work");
 		}
 
 		return $info;
