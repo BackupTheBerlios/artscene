@@ -23,7 +23,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.2 2004/09/18 10:27:21 pukomuko Exp $';
+	var $version = '$Id: darbai.class.php,v 1.3 2004/09/26 20:46:12 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -810,24 +810,9 @@ class darbai extends avColumn
 		if ( (in_array($g_usr->group_id, array(1, 4))) ||
 			 ($info['user_id'] == $g_user_id) )
 		{
-			$list = $this->db->get_result("SELECT file, thumbnail FROM avworks w WHERE id = $work");
+			$work_info = $this->db->get_array("SELECT file, thumbnail FROM avworks w WHERE id = $work");
+			$this->delete_work($work, $work_info['file'], $work_info['thumbnail']);
 
-			for ($i = 0; isset($list[$i]); $i++)
-			{
-
-				unlink( $g_ini->read_var('avworks', 'works_dir') . $list[$i]['file']);
-				if ('nothumbnail.gif' != $list[$i]['thumbnail'])
-				{
-					unlink( $g_ini->read_var('avworks', 'thumbnails_dir') . $list[$i]['thumbnail']);
-				}
-
-			}
-			
-			$this->db->query("DELETE FROM avworks  WHERE id = $work");
-
-			$this->db->query("DELETE FROM avcomments  WHERE table_name='avworks' AND parent_id = $work");
-			$this->db->query("DELETE FROM avworkvotes  WHERE  work_id = $work");
-			
 			$this->db->clear_cache_tables(array('avworkvotes', 'avworks', 'avcomments'));
 			
 			$url = substr($REQUEST_URI, 0, strpos($REQUEST_URI, 'event.'));
