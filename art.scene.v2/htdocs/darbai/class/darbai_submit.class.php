@@ -9,7 +9,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai_submit extends avColumn
 {
-	var $version = '$Id: darbai_submit.class.php,v 1.8 2004/09/29 00:54:57 pukomuko Exp $';
+	var $version = '$Id: darbai_submit.class.php,v 1.9 2004/10/28 12:43:45 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -47,8 +47,8 @@ class darbai_submit extends avColumn
 		// tiems kurie neturi devyniø darbø senesniø uþ savaitæ
 		$tmp = $this->db->get_array("SELECT COUNT(id) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND DATE_SUB(NOW(), INTERVAL 7 DAY) > posted ");
 		if ($tmp['kiekis'] < 9 ) {
-			$tmp = $this->db->get_array("SELECT COUNT(id) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND  DATE_ADD(posted, INTERVAL 1 DAY) > NOW()");
-			if ($tmp['kiekis'] > 0 ) return 'per ðias 24 valandas jau ádëjai vienà darbà, lauk rytdienos.';
+			$tmp = $this->db->get_array("SELECT COUNT(id) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND  DATE_ADD(posted, INTERVAL 18 HOUR) > NOW()");
+			if ($tmp['kiekis'] > 0 ) return 'per ðias 18 valandø jau ádëjai vienà darbà, lauk rytdienos.';
 		}
 		return false;
 	}
