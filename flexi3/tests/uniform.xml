@@ -1,0 +1,1800 @@
+<?xml version="1.0"?>
+<configurator>
+
+<uniform id="DC">
+	<office>Departmental Commander</office>
+	<rank>Brig. General</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Gold</chinstrap>
+	<capadornment>Single Laurels</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Baton and Gauntlet - 5131</sleevepatch>
+	<rankinsignia>One Gilt Star</rankinsignia>
+	<cuffstripe>1 1/2 inch Gold Braid</cuffstripe> 
+	<swordhandle>Officer</swordhandle> 
+	<gloves>Buff</gloves>
+	<specialribbon>5211</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="DDC">
+	<office>Deputy Department Commander</office>
+	<rank>Colonel</rank> 
+	<capdevice>Officer</capdevice> 
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment> 
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Baton and Gauntlet - 5131</sleevepatch>
+	<rankinsignia>Silver Eagle</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe> 
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="CoS">
+	<office>Chief of Staff</office>
+	<rank>Lt. Colonel</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Rampant Lion - 5133</sleevepatch>
+	<rankinsignia>Silver Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="ADJ">
+	<office>Adjutant</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Crossed Sword and Quill - 5137</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="QM">
+	<office>Quartermaster</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Money Pouch - 5141</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="INS">
+	<office>Inspector</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Eagles Head - 5139</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="MA">
+	<office>Military Advisor</office>
+	<rank>Lt. Col.</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Flaming Torch - 5135</sleevepatch>
+	<rankinsignia>Silver Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="AtGC">
+	<office>Aide to General Commanding</office> 
+	<rank>Lt. Colonel</rank> 
+	<capdevice>Officer</capdevice>
+	<chinstrap>Gold</chinstrap>
+	<capadornment>Single Laurels</capadornment> 
+	<citationcord>Purple</citationcord> 
+	<sleevepatch>Gold Leaf and Acorns - 5155</sleevepatch>
+	<rankinsignia>Silver Eagle</rankinsignia> 
+	<cuffstripe>1 inch Gold Braid</cuffstripe> 
+	<swordhandle>Officer</swordhandle> 
+	<gloves>White</gloves>
+	<specialribbon>5183</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and Four Stars</lapelinsignia>
+</uniform>
+
+<uniform id="BAN">
+	<office>Bannerette</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Crossed Flags - 5151</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="CHAP">
+	<office>Chaplain</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Open Bible - 5149</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="EO">
+	<office>Equipment Officer</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Crossed Swords - 5147</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="JA">
+	<office>Judge Advocate</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Balancing Scales - 5143</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+
+<uniform id="SURG">
+	<office>Surgeon</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Caduceus - 5145</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="MUS">
+	<office>Musician</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Bugle Trumpet - 5153</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="DADC">
+	<office>Department Aide De Camp</office>
+	<rank>Captain</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Oak Leaf and Acorns - 5155</sleevepatch>
+	<rankinsignia>Three Silver Bars</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="RC">
+	<office>Regiment Commander</office>
+	<rank>Colonel</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Red Baton and Gauntlet - 5132</sleevepatch>
+	<rankinsignia>Silver Eagle</rankinsignia> 
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5213</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="DRC">
+	<office>Deputy Regiment Commander</office>
+	<rank>Lt. Colonel</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Black</chinstrap>
+	<capadornment>Plain</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Red Baton and Gauntlet - 5132</sleevepatch>
+	<rankinsignia>Silver Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5213</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="BC">
+	<office>Battalion Commander</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Black</chinstrap>
+	<capadornment>Plain</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Red Baton and Gauntlet - 5132</sleevepatch>
+	<rankinsignia>Gold Oak Leaf </rankinsignia>
+	<cuffstripe>1 inch Gold Braid </cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5213</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CCPT">
+	<office>Canton Commandant</office>
+	<rank>Captain</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>Three Silver Bars</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CLT">
+	<office>Canton Lieutenant</office>
+	<rank>Lieutenant</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>Two Silver Bars</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CENS">
+	<office>Canton Ensign</office>
+	<rank>Ensign</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord> 
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>One Silver Bar</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CC">
+	<office>Canton Clerk</office>
+	<rank>Warrant Officer</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>None</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CA">
+	<office>Canton Accountant</office>
+	<rank>Warrant Officer</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>None</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CHEV">
+	<office>Chevalier</office>
+	<rank>None</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>None</rankinsignia>
+	<cuffstripe>1/2 inch Purple Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<specialribbon>None</specialribbon>
+	<gloves>White</gloves>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="DC">
+	<office>Departmental Commander</office>
+	<rank>Brig. General</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Gold</chinstrap>
+	<capadornment>Single Laurels</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Baton and Gauntlet - 5131</sleevepatch>
+	<rankinsignia>One Gilt Star</rankinsignia>
+	<cuffstripe>1 1/2 inch Gold Braid</cuffstripe> 
+	<swordhandle>Officer</swordhandle> 
+	<gloves>Buff</gloves>
+	<specialribbon>5211</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="DDC">
+	<office>Deputy Department Commander</office>
+	<rank>Colonel</rank> 
+	<capdevice>Officer</capdevice> 
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment> 
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Baton and Gauntlet - 5131</sleevepatch>
+	<rankinsignia>Silver Eagle</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe> 
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="CoS">
+	<office>Chief of Staff</office>
+	<rank>Lt. Colonel</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Rampant Lion - 5133</sleevepatch>
+	<rankinsignia>Silver Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="ADJ">
+	<office>Adjutant</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Crossed Sword and Quill - 5137</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="QM">
+	<office>Quartermaster</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Money Pouch - 5141</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="INS">
+	<office>Inspector</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Eagles Head - 5139</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="MA">
+	<office>Military Advisor</office>
+	<rank>Lt. Col.</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Flaming Torch - 5135</sleevepatch>
+	<rankinsignia>Silver Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="AtGC">
+	<office>Aide to General Commanding</office> 
+	<rank>Lt. Colonel</rank> 
+	<capdevice>Officer</capdevice>
+	<chinstrap>Gold</chinstrap>
+	<capadornment>Single Laurels</capadornment> 
+	<citationcord>Purple</citationcord> 
+	<sleevepatch>Gold Leaf and Acorns - 5155</sleevepatch>
+	<rankinsignia>Silver Eagle</rankinsignia> 
+	<cuffstripe>1 inch Gold Braid</cuffstripe> 
+	<swordhandle>Officer</swordhandle> 
+	<gloves>White</gloves>
+	<specialribbon>5183</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and Four Stars</lapelinsignia>
+</uniform>
+
+<uniform id="BAN">
+	<office>Bannerette</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Crossed Flags - 5151</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="CHAP">
+	<office>Chaplain</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Open Bible - 5149</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="EO">
+	<office>Equipment Officer</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Crossed Swords - 5147</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="JA">
+	<office>Judge Advocate</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Balancing Scales - 5143</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+
+<uniform id="SURG">
+	<office>Surgeon</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Caduceus - 5145</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="MUS">
+	<office>Musician</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Bugle Trumpet - 5153</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="DADC">
+	<office>Department Aide De Camp</office>
+	<rank>Captain</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Oak Leaf and Acorns - 5155</sleevepatch>
+	<rankinsignia>Three Silver Bars</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="RC">
+	<office>Regiment Commander</office>
+	<rank>Colonel</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Red Baton and Gauntlet - 5132</sleevepatch>
+	<rankinsignia>Silver Eagle</rankinsignia> 
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5213</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="DRC">
+	<office>Deputy Regiment Commander</office>
+	<rank>Lt. Colonel</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Black</chinstrap>
+	<capadornment>Plain</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Red Baton and Gauntlet - 5132</sleevepatch>
+	<rankinsignia>Silver Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5213</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="BC">
+	<office>Battalion Commander</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Black</chinstrap>
+	<capadornment>Plain</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Red Baton and Gauntlet - 5132</sleevepatch>
+	<rankinsignia>Gold Oak Leaf </rankinsignia>
+	<cuffstripe>1 inch Gold Braid </cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5213</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CCPT">
+	<office>Canton Commandant</office>
+	<rank>Captain</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>Three Silver Bars</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CLT">
+	<office>Canton Lieutenant</office>
+	<rank>Lieutenant</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>Two Silver Bars</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CENS">
+	<office>Canton Ensign</office>
+	<rank>Ensign</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord> 
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>One Silver Bar</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CC">
+	<office>Canton Clerk</office>
+	<rank>Warrant Officer</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>None</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CA">
+	<office>Canton Accountant</office>
+	<rank>Warrant Officer</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>None</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CHEV">
+	<office>Chevalier</office>
+	<rank>None</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>None</rankinsignia>
+	<cuffstripe>1/2 inch Purple Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<specialribbon>None</specialribbon>
+	<gloves>White</gloves>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="DC">
+	<office>Departmental Commander</office>
+	<rank>Brig. General</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Gold</chinstrap>
+	<capadornment>Single Laurels</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Baton and Gauntlet - 5131</sleevepatch>
+	<rankinsignia>One Gilt Star</rankinsignia>
+	<cuffstripe>1 1/2 inch Gold Braid</cuffstripe> 
+	<swordhandle>Officer</swordhandle> 
+	<gloves>Buff</gloves>
+	<specialribbon>5211</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="DDC">
+	<office>Deputy Department Commander</office>
+	<rank>Colonel</rank> 
+	<capdevice>Officer</capdevice> 
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment> 
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Baton and Gauntlet - 5131</sleevepatch>
+	<rankinsignia>Silver Eagle</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe> 
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="CoS">
+	<office>Chief of Staff</office>
+	<rank>Lt. Colonel</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Rampant Lion - 5133</sleevepatch>
+	<rankinsignia>Silver Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="ADJ">
+	<office>Adjutant</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Crossed Sword and Quill - 5137</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="QM">
+	<office>Quartermaster</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Money Pouch - 5141</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="INS">
+	<office>Inspector</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Eagles Head - 5139</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="MA">
+	<office>Military Advisor</office>
+	<rank>Lt. Col.</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Flaming Torch - 5135</sleevepatch>
+	<rankinsignia>Silver Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="AtGC">
+	<office>Aide to General Commanding</office> 
+	<rank>Lt. Colonel</rank> 
+	<capdevice>Officer</capdevice>
+	<chinstrap>Gold</chinstrap>
+	<capadornment>Single Laurels</capadornment> 
+	<citationcord>Purple</citationcord> 
+	<sleevepatch>Gold Leaf and Acorns - 5155</sleevepatch>
+	<rankinsignia>Silver Eagle</rankinsignia> 
+	<cuffstripe>1 inch Gold Braid</cuffstripe> 
+	<swordhandle>Officer</swordhandle> 
+	<gloves>White</gloves>
+	<specialribbon>5183</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and Four Stars</lapelinsignia>
+</uniform>
+
+<uniform id="BAN">
+	<office>Bannerette</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Crossed Flags - 5151</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="CHAP">
+	<office>Chaplain</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Open Bible - 5149</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="EO">
+	<office>Equipment Officer</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Crossed Swords - 5147</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="JA">
+	<office>Judge Advocate</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Balancing Scales - 5143</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+
+<uniform id="SURG">
+	<office>Surgeon</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Caduceus - 5145</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="MUS">
+	<office>Musician</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Bugle Trumpet - 5153</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="DADC">
+	<office>Department Aide De Camp</office>
+	<rank>Captain</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Oak Leaf and Acorns - 5155</sleevepatch>
+	<rankinsignia>Three Silver Bars</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="RC">
+	<office>Regiment Commander</office>
+	<rank>Colonel</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Red Baton and Gauntlet - 5132</sleevepatch>
+	<rankinsignia>Silver Eagle</rankinsignia> 
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5213</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="DRC">
+	<office>Deputy Regiment Commander</office>
+	<rank>Lt. Colonel</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Black</chinstrap>
+	<capadornment>Plain</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Red Baton and Gauntlet - 5132</sleevepatch>
+	<rankinsignia>Silver Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5213</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="BC">
+	<office>Battalion Commander</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Black</chinstrap>
+	<capadornment>Plain</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Red Baton and Gauntlet - 5132</sleevepatch>
+	<rankinsignia>Gold Oak Leaf </rankinsignia>
+	<cuffstripe>1 inch Gold Braid </cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5213</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CCPT">
+	<office>Canton Commandant</office>
+	<rank>Captain</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>Three Silver Bars</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CLT">
+	<office>Canton Lieutenant</office>
+	<rank>Lieutenant</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>Two Silver Bars</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CENS">
+	<office>Canton Ensign</office>
+	<rank>Ensign</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord> 
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>One Silver Bar</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CC">
+	<office>Canton Clerk</office>
+	<rank>Warrant Officer</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>None</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CA">
+	<office>Canton Accountant</office>
+	<rank>Warrant Officer</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>None</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CHEV">
+	<office>Chevalier</office>
+	<rank>None</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>None</rankinsignia>
+	<cuffstripe>1/2 inch Purple Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<specialribbon>None</specialribbon>
+	<gloves>White</gloves>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="DC">
+	<office>Departmental Commander</office>
+	<rank>Brig. General</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Gold</chinstrap>
+	<capadornment>Single Laurels</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Baton and Gauntlet - 5131</sleevepatch>
+	<rankinsignia>One Gilt Star</rankinsignia>
+	<cuffstripe>1 1/2 inch Gold Braid</cuffstripe> 
+	<swordhandle>Officer</swordhandle> 
+	<gloves>Buff</gloves>
+	<specialribbon>5211</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="DDC">
+	<office>Deputy Department Commander</office>
+	<rank>Colonel</rank> 
+	<capdevice>Officer</capdevice> 
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment> 
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Baton and Gauntlet - 5131</sleevepatch>
+	<rankinsignia>Silver Eagle</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe> 
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="CoS">
+	<office>Chief of Staff</office>
+	<rank>Lt. Colonel</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Rampant Lion - 5133</sleevepatch>
+	<rankinsignia>Silver Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="ADJ">
+	<office>Adjutant</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Crossed Sword and Quill - 5137</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="QM">
+	<office>Quartermaster</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Money Pouch - 5141</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="INS">
+	<office>Inspector</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Eagles Head - 5139</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="MA">
+	<office>Military Advisor</office>
+	<rank>Lt. Col.</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Flaming Torch - 5135</sleevepatch>
+	<rankinsignia>Silver Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="AtGC">
+	<office>Aide to General Commanding</office> 
+	<rank>Lt. Colonel</rank> 
+	<capdevice>Officer</capdevice>
+	<chinstrap>Gold</chinstrap>
+	<capadornment>Single Laurels</capadornment> 
+	<citationcord>Purple</citationcord> 
+	<sleevepatch>Gold Leaf and Acorns - 5155</sleevepatch>
+	<rankinsignia>Silver Eagle</rankinsignia> 
+	<cuffstripe>1 inch Gold Braid</cuffstripe> 
+	<swordhandle>Officer</swordhandle> 
+	<gloves>White</gloves>
+	<specialribbon>5183</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and Four Stars</lapelinsignia>
+</uniform>
+
+<uniform id="BAN">
+	<office>Bannerette</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Crossed Flags - 5151</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="CHAP">
+	<office>Chaplain</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Open Bible - 5149</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="EO">
+	<office>Equipment Officer</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Crossed Swords - 5147</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="JA">
+	<office>Judge Advocate</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Balancing Scales - 5143</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+
+<uniform id="SURG">
+	<office>Surgeon</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Caduceus - 5145</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="MUS">
+	<office>Musician</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Bugle Trumpet - 5153</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="DADC">
+	<office>Department Aide De Camp</office>
+	<rank>Captain</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Oak Leaf and Acorns - 5155</sleevepatch>
+	<rankinsignia>Three Silver Bars</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="RC">
+	<office>Regiment Commander</office>
+	<rank>Colonel</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Red Baton and Gauntlet - 5132</sleevepatch>
+	<rankinsignia>Silver Eagle</rankinsignia> 
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5213</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="DRC">
+	<office>Deputy Regiment Commander</office>
+	<rank>Lt. Colonel</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Black</chinstrap>
+	<capadornment>Plain</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Red Baton and Gauntlet - 5132</sleevepatch>
+	<rankinsignia>Silver Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5213</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="BC">
+	<office>Battalion Commander</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Black</chinstrap>
+	<capadornment>Plain</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Red Baton and Gauntlet - 5132</sleevepatch>
+	<rankinsignia>Gold Oak Leaf </rankinsignia>
+	<cuffstripe>1 inch Gold Braid </cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5213</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CCPT">
+	<office>Canton Commandant</office>
+	<rank>Captain</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>Three Silver Bars</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CLT">
+	<office>Canton Lieutenant</office>
+	<rank>Lieutenant</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>Two Silver Bars</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CENS">
+	<office>Canton Ensign</office>
+	<rank>Ensign</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord> 
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>One Silver Bar</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CC">
+	<office>Canton Clerk</office>
+	<rank>Warrant Officer</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>None</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CA">
+	<office>Canton Accountant</office>
+	<rank>Warrant Officer</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>None</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>None</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="CHEV">
+	<office>Chevalier</office>
+	<rank>None</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Red</citationcord>
+	<sleevepatch>Crown - 5157</sleevepatch>
+	<rankinsignia>None</rankinsignia>
+	<cuffstripe>1/2 inch Purple Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<specialribbon>None</specialribbon>
+	<gloves>White</gloves>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+<uniform id="DC">
+	<office>Departmental Commander</office>
+	<rank>Brig. General</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Gold</chinstrap>
+	<capadornment>Single Laurels</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Baton and Gauntlet - 5131</sleevepatch>
+	<rankinsignia>One Gilt Star</rankinsignia>
+	<cuffstripe>1 1/2 inch Gold Braid</cuffstripe> 
+	<swordhandle>Officer</swordhandle> 
+	<gloves>Buff</gloves>
+	<specialribbon>5211</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+<uniform id="DDC">
+	<office>Deputy Department Commander</office>
+	<rank>Colonel</rank> 
+	<capdevice>Officer</capdevice> 
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment> 
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Baton and Gauntlet - 5131</sleevepatch>
+	<rankinsignia>Silver Eagle</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe> 
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="CoS">
+	<office>Chief of Staff</office>
+	<rank>Lt. Colonel</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Rampant Lion - 5133</sleevepatch>
+	<rankinsignia>Silver Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="ADJ">
+	<office>Adjutant</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Crossed Sword and Quill - 5137</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="QM">
+	<office>Quartermaster</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Money Pouch - 5141</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="INS">
+	<office>Inspector</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Eagles Head - 5139</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="MA">
+	<office>Military Advisor</office>
+	<rank>Lt. Col.</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Flaming Torch - 5135</sleevepatch>
+	<rankinsignia>Silver Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="AtGC">
+	<office>Aide to General Commanding</office> 
+	<rank>Lt. Colonel</rank> 
+	<capdevice>Officer</capdevice>
+	<chinstrap>Gold</chinstrap>
+	<capadornment>Single Laurels</capadornment> 
+	<citationcord>Purple</citationcord> 
+	<sleevepatch>Gold Leaf and Acorns - 5155</sleevepatch>
+	<rankinsignia>Silver Eagle</rankinsignia> 
+	<cuffstripe>1 inch Gold Braid</cuffstripe> 
+	<swordhandle>Officer</swordhandle> 
+	<gloves>White</gloves>
+	<specialribbon>5183</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and Four Stars</lapelinsignia>
+</uniform>
+
+<uniform id="BAN">
+	<office>Bannerette</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Crossed Flags - 5151</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="CHAP">
+	<office>Chaplain</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Open Bible - 5149</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="EO">
+	<office>Equipment Officer</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Crossed Swords - 5147</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="JA">
+	<office>Judge Advocate</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Balancing Scales - 5143</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+
+<uniform id="SURG">
+	<office>Surgeon</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Caduceus - 5145</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="MUS">
+	<office>Musician</office>
+	<rank>Major</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Gold Bugle Trumpet - 5153</sleevepatch>
+	<rankinsignia>Gold Oak Leaf</rankinsignia>
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="DADC">
+	<office>Department Aide De Camp</office>
+	<rank>Captain</rank>
+	<capdevice>Crossed Crook and Sword</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Oak Leaf and Acorns - 5155</sleevepatch>
+	<rankinsignia>Three Silver Bars</rankinsignia>
+	<cuffstripe>1/2 inch Gold Braid</cuffstripe>
+	<swordhandle>Black</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5208</specialribbon>
+	<lapelinsignia>Shield with PM Emblem and One Star</lapelinsignia>
+</uniform>
+
+<uniform id="RC">
+	<office>Regiment Commander</office>
+	<rank>Colonel</rank>
+	<capdevice>Officer</capdevice>
+	<chinstrap>Plain</chinstrap>
+	<capadornment>None</capadornment>
+	<citationcord>Purple</citationcord>
+	<sleevepatch>Red Baton and Gauntlet - 5132</sleevepatch>
+	<rankinsignia>Silver Eagle</rankinsignia> 
+	<cuffstripe>1 inch Gold Braid</cuffstripe>
+	<swordhandle>Officer</swordhandle>
+	<gloves>White</gloves>
+	<specialribbon>5213</specialribbon>
+	<lapelinsignia>Regulation PM Emblem</lapelinsignia>
+</uniform>
+
+</configurator>

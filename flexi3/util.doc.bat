@@ -1,0 +1,1 @@
+c:\apache\php\php.exe -q d:\localhost\phpdoc\phpdoc.inc -o HTML:default:phpdoc.de -t d:\localhost\flexiUpdate\docs -f d:\localhost\flexiUpdate\*.php -i ado*

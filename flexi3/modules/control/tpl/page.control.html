@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>{site.name}</title>
+	</head>
+<body>
+
+<table border=1>
+	<tr>
+		<td colspan=2>
+		{module_menu}
+		</td>
+	</tr>
+	
+	<tr>
+		<td>{module_submenu}</td>
+		<td>{controlet_space}</td>
+	</tr>
+</table>
+
+</body>
+</html>
+
+<!--block name="module.menu"-->
+| {module.name}
+<!--/block name="module.menu"-->
+
+<!--block name="module.menu.active"-->
+| <b>{module.name}</b>
+<!--/block name="module.menu.active"-->

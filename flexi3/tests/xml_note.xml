@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="windows-1257"?>
+<!-- Edited with XML Spy v4.2 -->
+<note id="blahaha">
+	<archived date="2002.04" />
+	<to>Tove</to>
+	<cdataTo><![CDATA[ToveCdata]]></cdataTo>
+	<lit>ąčęėįšųū90-ž</lit>
+	<from>Jani</from>
+	<heading>Reminder</heading>
+	<body>Don't forget me this weekend!</body>
+	<test><onlineris/></test>
+</note>
