@@ -11,7 +11,7 @@ include_once($RELPATH . 'darbai/class/darbai_sql.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.10 2004/10/28 12:24:45 pukomuko Exp $';
+	var $version = '$Id: darbai.class.php,v 1.11 2004/10/28 12:34:05 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -508,7 +508,7 @@ class darbai extends avColumn
 		
 		$this->db->query("INSERT INTO avworkvotes (mark, user_id, work_id, posted) VALUES
 							($mark, $g_user_id, $parent_id, NOW())");
-		$this->db->query("UPDATE avworks_stat SET vote_count = vote_count + 1, vote_sum = vote_sum + $mark, vote_avg = vote_sum/vote_count WHERE work_id=$parent_id");
+		$this->db->query("UPDATE avworks_stat SET vote_count = vote_count + 1, vote_sum = vote_sum + $mark, vote_avg = ROUND(vote_sum/vote_count, 1) WHERE work_id=$parent_id");
 		// TODO: ar perskaièiuoti AVG ?
 		$this->db->clear_cache_tables('avworkvotes');
 
