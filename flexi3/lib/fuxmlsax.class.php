@@ -8,35 +8,26 @@
 	
 * @package core	
 */
+
+
 /**
-*	creates tree implemented in arrays from xml source, using expat library
-*
-*	$root['name']
-*		content
-*		attributes
-*		children = array
-*
-*	@version $Id: fuxmlsax.class.php,v 1.1 2003/03/20 17:55:31 pukomuko Exp $
 */
+include_once( RELPATH . LIBDIR . 'fuxmlnode.class.php' );
+
+/**
+*	@version $Id: fuxmlsax.class.php,v 1.2 2003/04/06 23:02:09 pukomuko Exp $
+*/
+
 class fuXmlSax
 {
 	var $parser = null;
 	var $trimspace = true;
 	var $tree = array();
 	
-	var $currNode = array();
-	
-	var $blankNode =  array(
-			'name'=>'', 
-			'type'=>'', 
-			'attributes'=>array(), 
-			'content'=>'',
-			'children'=>array()
-		);
 		
-	var $nodeStack = array();
-	var $stackPtr = 0;
-	var $wasData = false;
+	var $vals = false;
+	var $valcount = false;
+
 	
 	function fuXmlSax( $trimspace = true )
 	{
@@ -53,64 +44,120 @@ class fuXmlSax
 		xml_set_object($this->parser, &$this);
 		xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, 0);
 		if ($this->trimspace) xml_parser_set_option($this->parser, XML_OPTION_SKIP_WHITE, 1);
-		xml_set_element_handler($this->parser, "startElement", "endElement");
-        xml_set_character_data_handler($this->parser, "elementData");        
+
 	}
 	
 	/**
-	* parse given xml string and return arrayTree
+	* parse given xml string and return xmlnode tree
 	*
 	* @param string $str - content of file
-	* @return array
+	* @return fuXmlNode
 	*/
-	function parse($str)
+	function &parse($str)
 	{
-		$this->tree = array(
-			'name'=>'', 
-			'type'=>'', 
-			'attributes'=>array(), 
-			'content'=>'',
-			'children'=>array()
-		);
-		
-		xml_parse($this->parser, $str, true);
-		
-		$this->tree = false;
-		if (isset($this->nodeStack[0]['children'])) $this->tree = current($this->nodeStack[0]['children']);
-		
+		xml_parse_into_struct($this->parser, $str, &$this->vals, $index);
+		xml_parser_free($this->parser);
+
+		$this->valcount = count($this->vals);
+		$i = 0;
+
+
+	    $this->tree =& new fuXmlNode($this->vals[$i]['tag']);
+		if ( isset($this->vals[$i]['attributes']) )
+		{
+			$this->tree->setAttributes( $this->vals[$i]['attributes'] );
+		} 
+
+		$this->xml_depth(&$this->tree, $i);
+
+		unset($this->vals);
+
 		return $this->tree;
 	}
-	
-	function startElement($parser, $tag, $attributes)
+
+
+	/**
+	* returns array(children, content)
+	*/
+	function xml_depth(&$parent, &$i)
 	{
-		$this->nodeStack[$this->stackPtr] = $this->currNode;
-		$this->stackPtr++;
-		
-		$this->currNode = $this->blankNode;
-		$this->currNode['name'] = $tag;
-		$this->currNode['attributes'] = $attributes;
-		
-		$this->wasData = false;
+
+		if ( isset($this->vals[$i]['value']) )
+		{
+			$parent->setContent($this->vals[$i]['value']);
+		}
+
+
+		while (++$i < $this->valcount) 
+		{ 
+
+			switch ($this->vals[$i]['type']) 
+			{ 
+
+			   case 'open':
+
+					if ( isset ( $this->vals[$i]['tag'] ) )
+					{
+						$tagname = $this->vals[$i]['tag'];
+					} 
+					else 
+					{
+						$tagname = '';
+					}
+
+				    $node =& new fuXmlNode($tagname);
+
+					if ( isset ( $this->vals[$i]['attributes'] ) ) 
+					{
+						$node->setAttributes($this->vals[$i]['attributes']);
+					}
+					
+					$parent->addChild(&$node);
+
+					$this->xml_depth(&$node, &$i);
+
+				break; 
+
+
+				case 'cdata':
+					$parent->addContent( $this->vals[$i]['value'] );
+				break; 
+
+				case 'complete':
+					
+					$node =& new fuXmlNode($this->vals[$i]['tag']);
+
+					if( isset($this->vals[$i]['value']) )
+					{
+						$node->setContent($this->vals[$i]['value']);
+					} 
+					else 
+					{
+						$node->setType('oneliner');
+					}
+
+					if ( isset($this->vals[$i]['attributes']) ) 
+					{
+						$node->setAttributes($this->vals[$i]['attributes']);
+					}
+
+					$parent->addChild(&$node);
+
+				break; 
+
+				case 'close':
+					return true; 
+				break;
+			} 
+
+		} 
+
+		return true;
+
 	}
 	
-	function endElement($parser, $tag)
-	{
-		if (!$this->wasData && empty($this->currNode['children'])) $this->currNode['type'] = 'oneliner';
-		$this->nodeStack[$this->stackPtr] = $this->currNode;
-		$this->stackPtr--;
-		
-		$this->nodeStack[$this->stackPtr]['children'][$this->currNode['name']] = $this->currNode;
-		$this->nodeStack[$this->stackPtr]['children_array'][] = $this->currNode;
-		$this->currNode = $this->nodeStack[$this->stackPtr];
-	}
-	
-	function elementData($parser, $cdata)
-	{
-		$this->currNode['content'] .= $cdata;
-		$this->wasData = true;
-	}
 }
 
-cvs_id('$Id: fuxmlsax.class.php,v 1.1 2003/03/20 17:55:31 pukomuko Exp $');
+cvs_id('$Id: fuxmlsax.class.php,v 1.2 2003/04/06 23:02:09 pukomuko Exp $');
 
 ?>

@@ -11,21 +11,20 @@
 /**
 */
 
-include_once( RELPATH . LIBDIR . 'fuxml.class.php' );
 include_once( RELPATH . LIBDIR . 'fuxmlsax.class.php' );
 
 /**
 * provides ini functions for xml document
 *
-* @version $Id: fuxmlini.class.php,v 1.1 2003/03/20 17:55:31 pukomuko Exp $
+* @version $Id: fuxmlini.class.php,v 1.2 2003/04/06 23:02:09 pukomuko Exp $
 */
 class fuXmlIni
 {
 	/// dom tree
-	var $xmlTree;
+	var $xml_tree;
 
 	/// source string
-	var $xmlDoc = '';
+	var $xml_doc = '';
 
     var $filename =  ""; 
 
@@ -65,26 +64,14 @@ class fuXmlIni
     {
         $this->filename = $inifilename;
         
-        if( $this->write_access )
-            $fp = fopen( $inifilename, "r+" ); 
-        else
-            $fp = fopen( $inifilename, "r" );
+        $fp = fopen( $inifilename, "r" );
 
-        $this->xmlDoc = fread($fp, filesize($inifilename));
+        $this->xml_doc = fread($fp, filesize($inifilename));
         fclose( $fp ); 
 
-        if (function_exists('xml_parser_create'))
-        {
-        	$parser =& new fuXmlSax();
-        	$this->xmlTree = $parser->parse( $this->xmlDoc );
-        }
-        else 
-        {
-        	
-        	$this->xmlTree = fuXml::arrayTree( $this->xmlDoc );
-        }
-        
-        
+       	$parser =& new fuXmlSax();
+        $this->xml_tree =& $parser->parse( $this->xml_doc );
+       
 	} 
 
     /**
@@ -100,8 +87,7 @@ class fuXmlIni
             return false; 
         } 
         
-		include_once(RELPATH . LIBDIR . 'fuxml.class.php');
-		fwrite($fp, fuXML::writeTree($this->xmlTree, 1));
+		fwrite($fp, $this->xml_tree->toString(), 1);
         fclose($fp); 
     } 
 
@@ -110,40 +96,21 @@ class fuXmlIni
 	*/
 	function getValue($address, $report_error = false )
 	{
-		$tags = explode('/', $address);
-		$tmp =& $this->xmlTree;
-		$i = 0;
-		while ( isset($tags[$i]) && isset($tmp['children'][$tags[$i]]))
+		$tmp =& $this->xml_tree->getChildAt($address);
+		if ($tmp)
 		{
-			$tmp =& $tmp['children'][$tags[$i]];
-			$i++;
-		}
-
-		if ($tmp['name'] == $tags[count($tags)-1]) 
-		{
-			return $tmp['content'];
+			return $tmp->getContent();
 		}
 		else
 		{
 			if ($report_error) $this->error("valute at $address not found");
 			return false;
 		}
-		
 	}
 
 	function getIniValue($group, $name)
 	{
-		if (isset($this->xmlTree) && isset($this->xmlTree)
-			&& isset($this->xmlTree['children'][$group])
-			&& isset($this->xmlTree['children'][$group]['children'][$name]))
-		{
-			return $this->xmlTree['children'][$group]['children'][$name]['content'];
-		}
-		else
-		{
-			$this->error("no such record $group-$name");
-			return false;
-		}
+		return $this->getValue("$group/$name");
 	}
 
 	/**
@@ -151,20 +118,15 @@ class fuXmlIni
 	*/
 	function getParam($address, $name, $report_error = false)
 	{
-		$tags = explode('/', $address);
-		$tmp =& $this->xmlTree;
-		$i = 0;
-		while ( isset($tags[$i]) && isset($tmp['children'][$tags[$i]]))
-		{
-			$tmp =& $tmp['children'][$tags[$i]];
-			$i++;
-		}
 
-		if ($tmp['name'] == $tags[count($tags)-1]) 
+		$tmp =& $this->xml_tree->getChildAt($address);
+
+		if ($tmp) 
 		{
-			if (isset($tmp['attributes'][$name]))
+			$attr = $tmp->getAttributes();
+			if (isset($attr[$name]))
 			{
-				return $tmp['attributes'][$name];
+				return $attr[$name];
 			}
 			else
 			{
@@ -180,41 +142,14 @@ class fuXmlIni
 
 	}
 
-	/**
-	* return reference to the branch of xmlTree at $address
-	*/
-	function &getNode($address, $report_error = false)
-	{
-		$tags = explode('/', $address);
-		$tmp =& $this->xmlTree;
-		$i = 0;
-		while ( isset($tags[$i]) && isset($tmp['children'][$tags[$i]]))
-		{
-			$tmp =& $tmp['children'][$tags[$i]];
-			$i++;
-		}
-
-		if ($tmp['name'] == $tags[count($tags)-1]) 
-		{
-			return $tmp;
-		}
-		else
-		{
-			if ($report_error) $this->error("valute at $address not found");
-			return false;
-		}
-	}
 
     function getSimpleArray($address)
 	{
-		$node =& $this->getNode($address);
+		$node =& $this->xml_tree->getChildAt($address);
 		$out = false;
 		for( $child = 0; isset($node['children'][$child]); $child++ )
 		{
-			foreach($node['children'][$child]['children'] as $item)
-			{
-				$out[$child][$item['name']] = $item['content'];
-			}
+			$out[$node['children'][$child]->getName()] = $node['children'][$child]->getContent();
 		}
 		return $out;
 	}
@@ -239,6 +174,6 @@ class fuXmlIni
 
 } 
 
-cvs_id('$Id: fuxmlini.class.php,v 1.1 2003/03/20 17:55:31 pukomuko Exp $');
+cvs_id('$Id: fuxmlini.class.php,v 1.2 2003/04/06 23:02:09 pukomuko Exp $');
 
 ?>
