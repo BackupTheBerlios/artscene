@@ -1,5 +1,5 @@
 <?php
-// $Id: gui.php,v 1.1 2003/03/20 17:55:31 pukomuko Exp $
+// $Id: gui.php,v 1.2 2003/03/20 19:34:20 pukomuko Exp $
 // naujas branch'as niu o mes einam toliau?
 
 define('RELPATH', '../');
@@ -18,7 +18,7 @@ require_once 'sessiontest.php';
 // run test
 $suite = new PHPUnit_TestSuite();
 
-//$suite->addTestSuite('dbtest');
+$suite->addTestSuite('dbtest');
 $suite->addTestSuite('xmliniTest');
 $suite->addTestSuite('sessionTest');
 
