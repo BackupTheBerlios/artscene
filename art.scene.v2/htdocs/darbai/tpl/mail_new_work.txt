@@ -1,0 +1,11 @@
+naujas darbas http://art.scene.lt
+
+autorius: {username}
+uþvadinimas: {title}
+{info}
+http://art.scene.lt/process.php/page.workinfo;work.{id}
+
+art.scene paðto automatas
+
+Nebereik naujienø? Dar pagalvok ádëmiai. Galbût reik?
+Eik á http://art.scene.lt -> prisijunk -> nustatymai -> [èekbuoks]

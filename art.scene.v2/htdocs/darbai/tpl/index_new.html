@@ -1,0 +1,27 @@
+
+<div align="right"><a href="page.works"><img src="../design_images/nauju-darbu.gif" width="149" height="81" border=0 alt="nauji darbai"></a></div>
+
+<table border=0 cellpadding=2 cellspacing=3>
+
+
+
+<loop name="list">
+
+<tr>
+	<td align="right" valign="top">
+		<span class="news-date">{list.posted} // </span><a href="page.userinfo;menuname.works_user;user.{list.user_id}" class="nick">{list.username}</a> <br>
+		<span class="toptitle">{list.subject}</span><br>
+		<a href="page.works;menuname.works_category;category.{list.category_id}" class="news-category">{list.category}</a><br>
+	</td>
+	<td align="center" valign="middle"  width="120" class="table-dark"><a href="page.workinfo;work.{list.id}"><img src="{works_thumbs_url}{list.thumbnail}" border="0" align="center"></a></td>
+</tr>
+
+<noloop name="list">
+</noloop name="list">
+
+</loop name="list">
+
+
+
+</table>
+

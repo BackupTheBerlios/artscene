@@ -1,0 +1,34 @@
+<table border=0 cellpadding=2>
+
+<tr>
+	<td>
+		dalyvis
+	</td>
+	<td>
+		tyli jau
+	</td>
+	<td>
+		<!-- puslapyje -->
+	</td>
+	
+</tr>
+<loop name="users">
+<tr>
+<td>
+<a class="news-nick" href="page.userinfo;menuname.works_user;user.{users.id}">{users.username}</a>
+</td>
+<td>
+{users.idle} s
+</td>
+<td>
+<!-- <a href="{users.url}">{users.url}</a> -->
+</td>
+<noloop name="users">
+<tr><td colspan="3">ðiuo metu po puslapá nenarðo në vienas uþsiregsitravæs dalyvis.</td></tr>
+</noloop name="users">
+
+</tr>
+</loop name="users">
+</table>
+<br>
+anoniminiai narðytojai - {anonymous_online}.

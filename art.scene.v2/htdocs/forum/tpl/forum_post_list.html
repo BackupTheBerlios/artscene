@@ -1,0 +1,61 @@
+<div align="right">
+atgal á: <a href="page.simple;menuname.forum">forumus</a> | <a href="page.simple;menuname.forum;forum.{forum_id}">temas</a> {delete}
+</div>
+
+
+<table cellpadding=0 cellspacing=0 border=0 width="100%"><tr><td class="border-out">
+<table cellpadding=2 cellspacing=1 border=0 width="100%">
+<loop name="list">
+
+<tr>
+	<td width="20%" rowspan=2 align="right" valign="top" class="table-dark"><a class="news-nick" href="page.userinfo;menuname.works_user;user.{list.author_id}">{list.username}</a><br><span class="news-date">// {list.created_on_short}</span></td>
+	<td class="table-dark"><span class="posttitle{list.first}">{list.subject}</span></td>
+</tr>
+<tr>
+	<td class="table-light">{list.body}</td>
+</tr>
+
+<noloop name="list">
+<tr>
+	<td class="table-dark">komentarø dar nëra - bûk pirmas!</td>
+</tr>
+</noloop name="list">
+
+</loop name="list">
+
+
+</table>
+</td></tr></table>
+
+
+<br>
+
+{infotext}
+
+<block name="PleaseLogin">
+Primename kad norint dalyvauti forume reikia prisijungti prie sistemos. Jei Jûs vis dar neprisiregistravæ, praðom registruotis.
+</block name="PleaseLogin">
+
+
+<block name="NewPost">
+<b>raðykite naujà þinutæ:</b><br>
+<table border=0>
+<form method=post action="/process.php/page.simple;menuname.forum;thread.{thread_id}" onSubmit="submit.disabled=true;">
+<tr>
+	<td valign="top"><span class="NormalForumText">tema:</span></td>
+	<td><input name="subject" type="text" maxlength="250" value="{postext}" class="NormalForumText" style="width: 480px;"></td>
+</tr>
+<tr>
+	<td valign="top"><span class="NormalForumText" >þinutë:<br><a href="#" onclick="openWindow('../content/bbcode.html', '_blank', 300, 400, 1);" class="register">[bbcode]</a></span></td>
+	<td><textarea name="body" class="NormalForumText" class="inputarea" rows="5" cols="35" style="width: 480px;height:200px;">{postbody}</textarea></td>
+</tr>
+<tr>
+	<td></td>
+	<td><input type="submit" name="submit" value="  siøsti  " class="inputbutton2" ></td>
+</tr>
+<input type="hidden" name="event" value="submit_post">
+<input type="hidden" name="thread_id" value="{thread_id}">
+<input type="hidden" name="url" value="/process.php/page.simple;menuname.forum;thread.">
+</form>
+</table> 
+</block name="NewPost">

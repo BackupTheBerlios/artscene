@@ -1,0 +1,67 @@
+<block name="sign_up_form">
+
+Laukus paþymëtus '<b>*</b>' uþpildyti bûtina. Pasitikrink ar teisingai ávedei e-mailà, nes juo ateis slaptaþodis.
+<form method=post action="{SCRIPT_NAME}">
+<font color="#CC0066">{error}</font>
+<table border=0>
+<tr>
+	<td><b>*</b>vardas:</td>
+	<td><input type="text" name="username" value="{username}" class="inputfield" maxlength="25"> (nick, login, username ...)</td>
+</tr>
+<tr>
+	<td><b>*</b>e-mail:</td>
+	<td><input type="text" name="email" value="{email}" class="inputfield"></td>
+</tr>
+<tr>
+	<td>vardas pavardë:</td>
+	<td><input type="text" name="lastname" value="{lastname}" class="inputfield"></td>
+</tr>
+<tr>
+	<td>web:</td>
+	<td><input type="text" name="webpage" value="{webpage}" class="inputfield"></td>
+</tr>
+<tr>
+	<td>icq:</td>
+	<td><input type="text" name="icq" value="{icq}" class="inputfield"></td>
+</tr>
+<tr>
+	<td>naujienos paðtu:</td>
+	<td><input type="checkbox" name="mail_news" value="1" {mail_news}></td>
+</tr>
+<tr>
+	<td>praneðimai apie naujus darbus  paðtu:</td>
+	<td><input type="checkbox" name="mail_works" value="1" {mail_works}></td>
+</tr>
+<tr>
+	<td>komentarai paðtu:</td>
+	<td><input type="checkbox" name="mail_comments" value="1" {mail_comments}></td>
+</tr>
+
+<tr>
+	<td><input type="submit" name="submit" value="registruokis"  class="inputbutton2"></td>
+	<td></td>
+</tr>
+
+</table>
+
+
+
+
+
+
+<input type="hidden" name="event" value="login_signup">
+<input type="hidden" name="page" value="{page}">
+<input type="hidden" name="menuitem" value="{menuitem}">
+</form>
+
+</block name="sign_up_form">
+
+
+
+<block name="sign_up_success">
+
+sveikiname! vartotojas <b>{username}</b> prijungtas prie <b>art.scene</b> dalyviø armijos. tavo slaptaþodis  tuoj atkeliaus á {email} paðto dëþutæ.
+<br><br>
+patariu ið karto prisijungti ir pasikeisti slaptaþodá á labiau ásimintinà. jeigu po registracijos per 30 dienø në karto neprisijungsi tavo accountas bus panaikintas.
+
+</block name="sign_up_success">

@@ -1,0 +1,288 @@
+</td></tr>
+<tr><td class="table-dark">
+<img src="../dot.gif" width="25" height="3" border=0 alt=""><span class="title">{item.subject}</span> // <a class="news-nick" href="page.userinfo;menuname.works_user;user.{item.user_id}">{item.nick}</a>
+
+<span class="news-date">// {item.posted} // </span> <a href="page.works;menuname.works_category;category.{item.category_id}" class="news-category">{item.category}</a>
+<br>
+<img src="../dot.gif" width="25" height="3" border=0 alt="">{navigator}
+
+
+
+
+<script>
+
+
+
+
+function fit_to_window() 
+{
+   var wpObj = document.getElementById("wp");
+
+
+   wp_w = wpObj.width;
+   wp_h = wpObj.height;
+
+
+   var inner_w = window.document.body.clientWidth ? window.document.body.clientWidth : window.innerWidth;
+   var inner_h = window.innerHeight ? window.innerHeight : window.document.body.clientHeight;
+
+   var optimal_w  = (inner_w > wp_w) ? wp_w : inner_w;
+   var optimal_h = Math.round(optimal_w*wp_h/wp_w);
+
+   if (!optimal_h) optimal_h=0;
+
+   if (optimal_h > inner_h)
+   {
+		optimal_h = inner_h - 20;
+		optimal_w = Math.round(optimal_h*wp_w / wp_h);
+
+		if (!optimal_w) optimal_w=0;
+   }
+
+	wpObj.style.display = "none";
+
+   wpObj.style.width = optimal_w;
+   wpObj.style.height = optimal_h;
+
+	wpObj.style.display = "inline";
+
+	var orgObj = document.getElementById("org");
+	orgObj.style.visibility = "visible";
+	var fitObj = document.getElementById("fit");
+	fitObj.style.visibility = "hidden";
+
+}
+
+function original()
+{
+   var wpObj = document.getElementById("wp");
+   wpObj.style.width = wp_w;
+   wpObj.style.height = wp_h;
+	var fitObj = document.getElementById("fit");
+	fitObj.style.visibility = "visible";
+	var orgObj = document.getElementById("org");
+	orgObj.style.visibility = "hidden";
+}
+
+</script>
+
+
+
+
+
+
+<table width="100%" border=0 cellpadding=20 cellspacing=5>
+<tr>
+	<td align="center" valign="middle" bgcolor="#{item.color}">
+	{work_file}
+	</td>
+</tr>
+</table>
+
+</td></tr>
+<tr><td>
+
+	<table width="100%" border=0 cellpadding=0 cellspacing=0> <!-- linija -->
+	<tr>
+		<td class="border-out" valign="top" align="left"><img src="../dot.gif" width="769" height="5" border=0 alt=""></td>
+	</tr>
+	</table> <!-- linija -->
+<br>
+
+<table width="900" border="0" cellpadding="3" cellspacing=1>
+<tr><td width="1"><img src="../dot.gif" width="17" height="1" border=0 alt=""></td>
+<td>
+
+	<table cellpadding=0 cellspacing=0 border=0 width="100%"><tr><td class="border-out">
+	<table cellpadding=2 cellspacing=1 border=0 width="100%">
+	<tr>
+		<td class="table-dark" width="20%" valign="top">
+		perþiûrëjo: {item.views}<br>
+		balsavo: {item.votes}<br>
+		balai:&nbsp;<b>{item.summark}</b>,&nbsp;{item.avgmark}<br>
+		taðkai: {item.score}<br>
+		<a id="fit" href="javascript:fit_to_window();" class="thread">sumaþinti</a> <a id="org" href="javascript:original();" style="visibility: hidden" class="thread">originalas</a>
+		</td>
+		<td class="table-light" width="80%" valign="top">{item.info}</td>
+	</tr>
+	</table>
+	</td></tr></table>
+<br>
+{vote_line}
+</td>
+</tr>
+<tr><td width="1"><img src="../dot.gif" width="17" height="1" border=0 alt=""></td>
+<td valign="top">
+{comments}
+<br>
+	<table border=0 cellpadding=1 cellspacing=0 width="100%"><tr><td class="border-out">
+		<table border=0 cellspacing=0 cellpadding=3 width="100%"><tr><td class="table-light">
+		<font color="#CC0000">{comment_error}</font>
+		{post_comment}
+		</td></tr></table>
+	</td></tr></table>
+
+<br>
+</td>
+<td valign="top"><br>
+	<table border=0 cellspacing=1 cellpadding=1 width="100%">
+	<loop name="voting">
+
+		<tr>
+			<td align="right" width="16" nowrap class="table-{voting.class}">{voting.mark}</td>
+			<td><a class="news-nick" href="page.userinfo;menuname.works_user;user.{voting.user_id}">{voting.username}</a>&nbsp;<span class="news-date">//&nbsp;{voting.posted}</span></td>
+		</tr>
+		<noloop name="voting">
+		<tr><td>niekas nebalsavo</td></tr>
+		</noloop name="voting">
+	</loop name="voting">
+	</table>
+</td></tr>
+</table>
+<img src="../dot.gif" width="25" height="3" border=0 alt="">{navigator}
+<br>&nbsp;
+
+
+<table border="0" cellpadding="3" cellspacing=1>
+<tr>
+	<td>
+	<img src="../dot.gif" width="19" height="3" border=0 alt="">
+	</td>
+	<loop name="near">
+	<td valign="middle" class="table-dark">
+		<a href="{near.nearlink}" title="{near.subject}"><img src="{works_thumbs_url}{near.thumbnail}" border="0" alt="{near.subject}"></a>
+	</td>
+		
+
+
+	<noloop name="near">
+	<td></td>
+	</noloop name="near">
+	</loop name="near">
+</tr>
+</table>
+
+
+<block name="image_file"><img id="wp" border=0 alt="{item.filesize} kb" src="{works_url}{item.file}"></block name="image_file">
+
+<block name="flash_file">
+
+<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="{flash_width}" height="{flash_height}">
+<PARAM NAME="movie" VALUE="{works_url}{item.file}">
+<PARAM NAME="quality" VALUE="high">
+<PARAM NAME="bgcolor" VALUE="#{item.color}">
+<EMBED src="{works_url}{item.file}" loop="false" menu="false" quality="autohigh" quality="high" bgcolor="#{item.color}"  TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" width="{flash_width}" height="{flash_height}"></EMBED>
+</OBJECT>
+
+</block name="flash_file">
+
+
+
+
+
+<block name="comments_block">
+<br>
+<table cellpadding=0 cellspacing=0 border=0 width="100%"><tr><td class="border-out">
+<table cellpadding=2 cellspacing=1 border=0 width="100%">
+<loop name="list">
+
+<tr>
+	<td width="20%" rowspan=2 align="right" valign="top" class="table-dark"><a class="news-nick" href="page.userinfo;menuname.works_user;user.{list.user_id}">{list.username}</a><br><span class="news-date">// {list.posted}</span></td>
+	<td class="table-dark"><b>{list.subject}</b></td>
+</tr>
+<tr>
+	<td class="table-light">{list.info}</td>
+</tr>
+
+<noloop name="list">
+<tr>
+	<td class="table-dark">komentarø dar nëra - bûk pirmas!</td>
+</tr>
+</noloop name="list">
+
+</loop name="list">
+
+
+</table>
+</td></tr></table> <!-- 'black' -->
+
+</block name="comments_block">
+
+<block name="register_block">
+nori dalyvauti diskusijose? pareikðti savo nuomonæ, balsuoti uþ pieðinius? velkam :] tik pirmiausia <a href="page.{register_page};menuname.signup">prisiregistuok</a>. jei jau esi prisiregistravæs - tiesiog prisijunk per formà virðuje.
+</block name="register_block">
+
+<block name="post_comment_block">
+
+<table border=0>
+<form method=post action="{SCRIPT_NAME}">
+
+<tr>
+	<td>antraðtë:</td>
+	<td><input type="text" name="subject"  size="40" value="re: {item.subject}" class="inputfield"></td>
+</tr>
+
+<tr>
+	<td valign="top">komentaras:<br><a href="#" onclick="openWindow('../content/bbcode.html', '_blank', 300, 400, 1);" class="register">[bbcode]</a></td>
+	<td><textarea name="comment" class="inputarea" rows="5" cols="40"></textarea></td>
+</tr>
+<tr>
+	<td><input type="submit" name="submit" value="komentuok"  class="inputbutton2"></td>
+	<td></td>
+</tr>
+<input type="hidden" name="event" value="work_comment">
+<input type="hidden" name="parent_id" value="{item.id}">
+<input type="hidden" name="work" value="{item.id}">
+<input type="hidden" name="page" value="{page}">
+<input type="hidden" name="url" value="{url}">
+</form>
+
+</table>
+</block name="post_comment_block">
+
+<block name="vote_block">
+
+
+<script>
+	function vote(id, mark)
+	{
+		openWindow('http://art.scene.lt/process.php/page.workinfo;event.work_vote;parent_id.'+ id +';mark.' + mark, 'process', 300, 250, 1);
+		var vlObj = document.getElementById("vote_line");
+		vlObj.style.visibility = "hidden";
+	}
+</script>
+<div id="vote_line">
+<table cellpadding = 0>
+<tr>
+	<td rowspan=2 valign="middle">ávertink darbà:</td>
+	<td align="center" bgcolor="#257393"><a href="javascript:vote({item.id}, -5);" title="-5"><img src="../dot.gif" width="16" height="10" border=0 alt="-5"></a></td>
+	<td align="center" bgcolor="#2981A5"><a href="javascript:vote({item.id}, -4);" title="-4"><img src="../dot.gif" width="16" height="10" border=0 alt="-4"></a></td>
+	<td align="center" bgcolor="#3995BB"><a href="javascript:vote({item.id}, -3);" title="-3"><img src="../dot.gif" width="16" height="10" border=0 alt="-3"></a></td>
+	<td align="center" bgcolor="#6CAECA"><a href="javascript:vote({item.id}, -2);" title="-2"><img src="../dot.gif" width="16" height="10" border=0 alt="-2"></a></td>
+	<td align="center" bgcolor="#97C1D3"><a href="javascript:vote({item.id}, -1);" title="-1"><img src="../dot.gif" width="16" height="10" border=0 alt="-1"></a></td>
+	<td align="center" bgcolor=""       ><a href="javascript:vote({item.id}, 0);" title="0"><img src="../dot.gif" width="10" height="10" border=0 alt="0"></td>
+	<td align="center" bgcolor="#DCAAAE"><a href="javascript:vote({item.id}, 1);" title="1"><img src="../dot.gif" width="16" height="10" border=0 alt="1"></a></td>
+	<td align="center" bgcolor="#E68C92"><a href="javascript:vote({item.id}, 2);" title="2"><img src="../dot.gif" width="16" height="10" border=0 alt="2"></a></td>
+	<td align="center" bgcolor="#E0747C"><a href="javascript:vote({item.id}, 3);" title="3"><img src="../dot.gif" width="16" height="10" border=0 alt="3"></a></td>
+	<td align="center" bgcolor="#D8525B"><a href="javascript:vote({item.id}, 4);" title="4"><img src="../dot.gif" width="16" height="10" border=0 alt="4"></a></td>
+	<td align="center" bgcolor="#B62832"><a href="javascript:vote({item.id}, 5);" title="5"><img src="../dot.gif" width="16" height="10" border=0 alt="5"></a></td>
+</tr>
+<tr>
+	<td align="center"><font size="-2">-5</font></td>
+	<td align="center"><font size="-2">-4</font></td>
+	<td align="center"><font size="-2">-3</font></td>
+	<td align="center"><font size="-2">-2</font></td>
+	<td align="center"><font size="-2">-1</font></td>
+	<td align="center"><font size="-2">0</font></td>
+	<td align="center"><font size="-2">+1</font></td>
+	<td align="center"><font size="-2">+2</font></td>
+	<td align="center"><font size="-2">+3</font></td>
+	<td align="center"><font size="-2">+4</font></td>
+	<td align="center"><font size="-2">+5</font></td>
+
+</tr>
+</table>
+</div>
+
+
+</block name="vote_block">

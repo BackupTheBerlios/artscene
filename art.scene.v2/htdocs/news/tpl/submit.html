@@ -1,0 +1,64 @@
+<block name="submit_form">
+
+taigi, sumàstei atsiøsti naujienà? labai liuks.<br>
+bûtø smagu, jei atkreiptum, kad svetainëje nedominuoja didþiosios raidës. =]<br>
+jokiu bûdu nereikia oficialaus tono. kuo daugiau naujienø, tuo gyvesnë svetainë, tad siøsk, kas tik uþlips ant lieþuvio galo.<br>
+galbût tavo naujiena taip ir nepasirodys svetainëje, bet tai juk ne prieþastis nepabandyti dar kartà su kita naujiena?
+
+
+
+<form method=post action="{SCRIPT_NAME}">
+<font color="#CC0066">{error}</font>
+<table border=0>
+<tr>
+	<td><b>*</b>antraðtë:</td>
+	<td><input type="text" name="subject" value="{subject}" class="inputfield"></td>
+</tr>
+<tr>
+	<td><b>*</b>tema:</td>
+	<td><select name="category" class="inputfield">
+			<loop name="category">
+			<option value="{category.id}">{category.name}</option>
+			</loop name="category">
+		</select>
+	</td>
+</tr>
+<tr>
+	<td valign="top"><b>*</b>santrauka:<br><a href="#" onclick="openWindow('../content/bbcode.html', '_blank', 300, 400, 1);" class="register">[bbcode]</a></td>
+	<td><textarea name="info" rows="6" cols="40" class="inputarea">{info}</textarea></td>
+</tr>
+<tr>
+	<td valign="top">tekstas:<br><a href="#" onclick="openWindow('../content/bbcode.html', '_blank', 300, 400, 1);" class="register">[bbcode]</a></td>
+	<td><textarea name="text" rows="20" cols="40" class="inputarea">{text}</textarea></td>
+</tr>
+<tr>
+	<td valign="top">raktiniai&nbsp;þodþiai:</td>
+	<td><input type="text" name="keywords" value="{keywords}" class="inputfield"><br><font size="-2">keletas þodþiø atskirtø kableliu ir tarpu ', ', kurie tiksliau apibûdina naujienà. turinèios sutampanèiø raktiniø þodþiø naujienos bus iðvardintos ðalia tavo pateiktosios.</font></td>
+</tr>
+
+<tr>
+	<td><input type="submit" name="submit" value="atsiøsk!"  class="inputbutton2"></td>
+	<td></td>
+</tr>
+
+</table>
+
+
+
+
+
+
+<input type="hidden" name="event" value="news_submit">
+<input type="hidden" name="page" value="{page}">
+<input type="hidden" name="menuitem" value="{menuitem}">
+</form>
+&nbsp;
+</block name="submit_form">
+
+
+
+<block name="thank_you">
+
+aèiû uþ naujienà, jà artimiausiu metu perþvelgs kaþkuris ið naujienø administratoriø. jei viskas tvarkoje, netrukus pamatysi savo naujienà pirmajame puslapyje.
+
+</block name="thank_you">

@@ -1,0 +1,150 @@
+<table border="0" width="100%" cellpadding=0 cellspacing=0>
+<tr>
+	<td align="left" valign="top">
+		<span class="title">{title}</span>	
+	</td>
+	<form method=post action="{SCRIPT_NAME}">
+	<td align="right" valign="middle">
+		puslapyje: {count_sel} rûðavimas pagal: {sort_sel}
+		paieðka: <input type="text" name="search" value="{search}" size="8" class="inputfield"><input type="submit" value="atnaujinti" class="inputbutton2">
+		<input type="hidden" name="page" value="{page}">
+		<input type="hidden" name="menuname" value="{menuname}">
+		<input type="hidden" name="category" value="{category}">
+		<input type="hidden" name="user" value="{user}">
+	</td>
+	</form>
+</tr>
+</table>
+
+
+<br>
+{category_info_info}
+<br>
+{navigator}
+<br><br>
+
+{list_block}
+
+<br><br>
+{navigator}
+<br>&nbsp;
+
+
+
+<block name="norm_item_image">
+<td align="left" valign="bottom">
+	<a href="page.workinfo;work.{item.id};order.{order};count.{count};search.{search};"><img src="{works_thumbs_url}{item.thumbnail}" border="0"></a>
+</td>
+</block name="norm_item_image">
+
+<block name="norm_item_description">
+<td align="left" valign="top">
+<a href="page.userinfo;menuname.works_user;user.{item.user_id}" class="nick">{item.nick}</a> <span class="news-date">// {item.posted}<br></span>
+<span class="toptitle">{item.subject}</span><br>
+<a href="page.works;menuname.works_category;category.{item.category_id}" class="news-category">{item.category}</a><br>
+<span class="news-date">
+komentavo: {item.comments}<br>
+perþiûrëjo: {item.views}<br>
+balsai: {item.votes}, <span class="list-work-mark">{item.summark}</span>, {item.avgmark}<br>
+taðkai: {item.score}<br>
+dydis: {item.filesize} kb<br>
+</span>
+</td>
+</block name="norm_item_description">
+
+
+<block name="category_item_image">
+<td align="left" valign="bottom">
+	<a href="page.workinfo;work.{item.id};order.{order};count.{count};category.{category};search.{search};"><img src="{works_thumbs_url}{item.thumbnail}" border="0"></a>
+</td>
+</block name="category_item_image">
+
+<block name="category_item_description">
+<td align="left" valign="top">
+<a href="page.userinfo;menuname.works_user;user.{item.user_id}" class="nick">{item.nick}</a> <span class="news-date">// {item.posted}<br></span>
+<span class="toptitle">{item.subject}</span><br>
+<span class="news-date">
+komentavo: {item.comments}<br>
+perþiûrëjo: {item.views}<br>
+balsai: {item.votes}, <span class="list-work-mark">{item.summark}</span>, {item.avgmark}<br>
+taðkai: {item.score}<br>
+dydis: {item.filesize} kb<br>
+</span>
+</td>
+</block name="category_item_description">
+
+<block name="user_item_image">
+<td align="left" valign="bottom">
+	<a href="page.workinfo;work.{item.id};order.{order};count.{count};user.{user};search.{search};"><img src="{works_thumbs_url}{item.thumbnail}" border="0"></a>
+</td>
+</block name="user_item_image">
+
+<block name="user_item_description">
+<td align="left" valign="top">
+
+<span class="toptitle">{item.subject}</span> <span class="news-date">// {item.posted}<br></span>
+<a href="page.works;menuname.works_category;category.{item.category_id}" class="news-category">{item.category}</a><br>
+<span class="news-date">
+komentavo: {item.comments}<br>
+perþiûrëjo: {item.views}<br>
+balsai: {item.votes}, <span class="list-work-mark">{item.summark}</span>, {item.avgmark}<br>
+taðkai: {item.score}<br>
+dydis: {item.filesize} kb<br>
+{delete_link}
+</span>
+</td>
+</block name="user_item_description">
+
+<block name="delete_url">
+<a href="page.userinfo;menuname.works_user;user.{user};event.delete_image;work.{item.id}">trinti</a>
+</block name="delete_url">
+
+
+
+<block name="fav_item_image">
+<td align="left" valign="bottom">
+	<a href="page.workinfo;work.{item.id};order.{order};count.{count};search.{search};user.{user};category.favourites"><img src="{works_thumbs_url}{item.thumbnail}" border="0"></a>
+</td>
+</block name="fav_item_image">
+
+<block name="fav_item_description">
+<td align="left" valign="top">
+<a href="page.userinfo;menuname.works_user;user.{item.user_id}" class="nick">{item.nick}</a> <span class="news-date">// {item.posted}<br></span>
+<span class="toptitle">{item.subject}</span><br>
+<a href="page.works;menuname.works_category;category.{item.category_id}" class="news-category">{item.category}</a><br>
+<span class="news-date">
+komentavo: {item.comments}<br>
+perþiûrëjo: {item.views}<br>
+balsai: {item.votes}, <span class="list-work-mark">{item.summark}</span>, {item.avgmark}<br>
+taðkai: {item.score}<br>
+dydis: {item.filesize} kb<br>
+</span>
+</td>
+</block name="fav_item_description">
+
+
+
+<block name="list_table">
+
+<table width="100%" cellspacing=5 cellpadding=1 border=0>
+	{list_rows}
+</table>
+
+</block name="list_table">
+
+
+<block name="list_row">
+<tr>
+	{list_images}
+</tr>
+<tr>
+	{list_descriptions}
+</tr>
+<tr>
+	<td colspan="{list_cols}"><img src="../dot.gif" width="1" height="5" border=0 alt=""></td>
+</td>
+</block name="list_row">
+
+<block name="list_empty">
+tokiø darbø dar nëra.
+</block name="list_empty">

@@ -1,0 +1,95 @@
+<span class="title">{info.subject}</span><br>
+<span class="news-date">paskelbë</span> <a class="news-nick" href="page.userinfo;menuname.works_user;user.{info.submiter}">{info.username}</a> <span class="news-date">// {info.posted} // </span> <a href="page.{newslist_page};menuname.newscategory;category.{info.category_id}" class="news-category">{info.category}</a><br>
+<br>
+{info.file}
+<i>{info.info}</i>
+<br clear="all"><br>
+{info.full_text}
+
+<br>
+{similiar}
+
+
+{comments}
+<br>
+
+
+<table border=0 cellpadding=1 cellspacing=0 width="100%"><tr><td class="border-out">
+	<table border=0 cellspacing=0 cellpadding=3 width="100%"><tr><td class="table-light">
+	<font color="#CC0000">{comment_error}</font>
+	{post_comment}
+	</td></tr></table>
+</td></tr></table>
+
+&nbsp;
+
+<block name="comments_block">
+<br>
+<table cellpadding=0 cellspacing=0 border=0 width="100%"><tr><td class="border-out">
+<table cellpadding=2 cellspacing=1 border=0 width="100%">
+<loop name="list">
+
+<tr>
+	<td width="20%" rowspan=2 align="right" valign="top" class="table-dark"><a class="news-nick" href="page.userinfo;menuname.works_user;user.{list.user_id}">{list.username}</a><br><span class="news-date">// {list.posted}</span></td>
+	<td class="table-dark"><b>{list.subject}</b></td>
+</tr>
+<tr>
+	<td class="table-light">{list.info}</td>
+</tr>
+
+<noloop name="list">
+<tr>
+	<td class="table-dark">komentarø dar nëra - bûk pirmas!</td>
+</tr>
+</noloop name="list">
+
+</loop name="list">
+
+
+</table>
+</td></tr></table> <!-- 'black' -->
+
+</block name="comments_block">
+
+<block name="register_block">
+nori dalyvauti diskusijose? pareikðti savo nuomonæ? velkam :] tik pirmiausia <a href="page.{register_page};menuname.signup">prisiregistuok</a>. jei jau esi prisiregistravæs - tiesiog prisijunk per formà virðuje.
+</block name="register_block">
+
+<block name="post_comment_block">
+
+<table border=0>
+<form method=post action="{SCRIPT_NAME}">
+
+<tr>
+	<td>antraðtë:</td>
+	<td><input type="text" name="subject"  size="40" value="re: {info.subject}" class="inputfield"></td>
+</tr>
+
+<tr>
+	<td valign="top">komentaras:<br><a href="#" onclick="openWindow('../content/bbcode.html', '_blank', 300, 400, 1);" class="register">[bbcode]</a></td>
+	<td><textarea name="comment" class="inputarea" rows="5" cols="40"></textarea></td>
+</tr>
+<tr>
+	<td><input type="submit" name="submit" value="komentuok"  class="inputbutton"></td>
+</tr>
+<input type="hidden" name="event" value="news_comment">
+<input type="hidden" name="parent_id" value="{info.id}">
+<input type="hidden" name="news" value="{info.id}">
+<input type="hidden" name="page" value="{page}">
+<input type="hidden" name="menuname" value="newsitem">
+<input type="hidden" name="url" value="{url}">
+</form>
+
+</table>
+</block name="post_comment_block">
+
+
+<block name="similiar_block">
+
+<b>panaðios naujienos:</b><br>
+<loop name="list">
+<a href="page.{newslist_page};menuname.newsitem;news.{list.id}">{list.subject}</a>&nbsp;<span class="news-date">// {list.posted}</span> <br>
+
+</loop name="list">
+
+</block name="similiar_block">

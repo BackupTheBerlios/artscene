@@ -1,0 +1,15 @@
+<artscene>
+<top>
+<loop name="list">
+	<work>
+		<id>{list.id}</id>
+		<file>{list.thumbnail}</file>
+		<subject>{list.subject}</subject>
+		<date>{list.posted}</date>
+		<author>{list.username}</author>
+		<authorid>{list.user_id}</authorid>
+		<mark>{list.summark}</mark>
+	</work>
+</loop name="list">
+</top>
+</artscene>

@@ -1,0 +1,73 @@
+<block name="settings_form">
+
+
+jei nori pasikeisti slaptaþodá, naujà suvesk du kartus. Jei slaptaþodþio keisti nenori palik laukus tuðèius.
+
+<form method=post action="{SCRIPT_NAME}">
+<font color="#CC0066">{error}</font>
+<table border=0>
+<tr>
+	<td><b>*</b>e-mail:</td>
+	<td><input type="text" name="email" value="{email}" class="inputfield"></td>
+</tr>
+<tr>
+	<td><b>*</b>senas slaptaþodis:</td>
+	<td><input type="password" name="oldpass" class="inputfield"></td>
+</tr>
+<tr>
+	<td>vardas pavardë:</td>
+	<td><input type="text" name="lastname" value="{lastname}" class="inputfield"></td>
+</tr>
+<tr>
+	<td>web:</td>
+	<td><input type="text" name="webpage" value="{webpage}" class="inputfield"></td>
+</tr>
+<tr>
+	<td>icq:</td>
+	<td><input type="text" name="icq" value="{icq}" class="inputfield"></td>
+</tr>
+<tr>
+	<td>naujienos paðtu:</td>
+	<td><input type="checkbox" name="mail_news" value="1" {mail_news}></td>
+</tr>
+<tr>
+	<td>praneðimai apie naujus darbus  paðtu:</td>
+	<td><input type="checkbox" name="mail_works" value="1" {mail_works}></td>
+</tr>
+<tr>
+	<td>komentarai paðtu:</td>
+	<td><input type="checkbox" name="mail_comments" value="1" {mail_comments}></td>
+</tr>
+<tr>
+	<td>naujas slaptaþodis:</td>
+	<td><input type="password" name="newpass" class="inputfield"><br>
+		<input type="password" name="newpass2" class="inputfield">
+	</td>
+</tr>
+
+<tr>
+	<td><input type="submit" name="submit" value="pakeisk"  class="inputbutton2"></td>
+	<td></td>
+</tr>
+
+</table>
+
+
+
+
+
+
+<input type="hidden" name="event" value="login_settings">
+<input type="hidden" name="page" value="{page}">
+<input type="hidden" name="menuitem" value="{menuitem}">
+</form>
+
+</block name="settings_form">
+
+
+
+<block name="settings_success">
+
+pakeitimai ávykdyti.
+
+</block name="settings_success">

@@ -1,0 +1,21 @@
+sveika(s),
+
+praneðame, kad uþsiregistravai á http://art.scene.lt sistemà.
+
+ðtai jûsø duomenys:
+
+   vardas:      {username}
+   slaptaþodis: {password}
+
+patariame nueiti á http://art.scene.lt , prisijungti á sistemà 
+ðiuo vardu ir slaptaþodþiu ir nieko nedelsiant spausti ant nuorodos
+'nustatymai' ir pasikeisti slaptaþodá á ásimintinesná.
+
+jei per 30 dienø neprisijungsit ðis vartotojas 
+bus panaikintas ið sistemos.
+
+net jei niekad negirdëjai apie ðià svetainæ, ir, matomai, 
+kaþkas tau iðkrëtë kvailà pokðtà, uþsuk - galbût tau patiks?
+
+
+art.scene elektroniniai viduriai

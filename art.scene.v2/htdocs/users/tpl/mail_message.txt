@@ -1,0 +1,11 @@
+asmeninë þinutë
+
+{username} // {title}
+{info}
+
+nori atsakyti? prisijunk èia: http://art.scene.lt/process.php/page.userinfo;menuname.works_user;user.{user_id}
+
+art.scene paðto automatas
+
+Nebereik praneðimø? Dar pagalvok ádëmiai. Galbût reik?
+Eik á http://art.scene.lt -> prisijunk -> nustatymai -> [èekbuoks]

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="windows-1257"?>
+<rss version="2.0" 
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+xmlns:admin="http://webns.net/mvcb/"
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<channel>
+
+<title>art.scene.lt</title>
+<description>nauji darbai</description>
+<link>http://art.scene.lt/</link>
+<language>lt</language>
+<generator>flexiUpdate artscene Edition</generator>
+<managingEditor>art@scene.lt</managingEditor>
+<webMaster>art@scene.lt</webMaster>
+
+
+
+<loop name="list">
+
+<item>
+<title>{list.subject} ({list.username})</title>
+<description><![CDATA[{list.info} <br/> <br/> <img src="http://art.scene.lt/files/thumbs/{list.thumbnail}" /> 
+				<br/> <b>Autorius:</b> {list.username}]]></description>
+<dc:subject>{list.category}</dc:subject>
+<pubDate>{list.posted_rfc}</pubDate>
+<link>http://art.scene.lt/process.php/page.workinfo;work.{list.id}</link>
+</item>
+
+</loop name="list">
+
+</channel>
+</rss>

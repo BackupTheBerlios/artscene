@@ -1,0 +1,8 @@
+svetainëje http://art.scene.lt uþpyldyta daþnai uþduodamo klausimo anketa:
+
+vardas: {name}
+emai: {email}
+klausimas: {question}
+
+
+http://art.scene.lt/control/

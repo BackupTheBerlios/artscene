@@ -1,0 +1,68 @@
+<block name="head.menu">
+
+
+<script language="javascript">
+function openWindow( page, winName, width, height, center) {
+xposition=70; yposition=40;
+    if ((parseInt(navigator.appVersion) >= 4 ) && (center)){
+        xposition = (screen.width - width) / 2;
+        yposition = (screen.height - height) / 2;
+    }
+    args = "width=" + width + "," 
+    + "height=" + height + "," 
+    + "location=0," 
+    + "menubar=0,"
+    + "resizable=1,"
+    + "scrollbars=1,"
+    + "status=0," 
+    + "titlebar=0,"
+    + "toolbar=0,"
+    + "hotkeys=0,"
+    + "screenx=" + xposition + ","  //NN Only
+    + "screeny=" + yposition + ","  //NN Only
+    + "left=" + xposition + ","     //IE Only
+    + "top=" + yposition;           //IE Only
+
+    window.open( page, winName, args );
+}
+</script>
+			<img src="../dot.gif" width="8" height="4" border=0 alt=""><br>
+
+			<a href="page.simple;menuname.about"><img src="../design_images/menu.apie.gif" width="109" height="18" border=0 alt="apie"></a><br>
+			<a href="page.news"><img src="../design_images/menu.naujienos.gif" width="109" height="18" border=0 alt="naujienos"></a><br>
+
+			<a href="page.simple;menuname.faq"><img src="../design_images/menu.faq.gif" width="109" height="18" border=0 alt="faq"></a><br>
+			
+			<a href="page.simple;menuname.forum"><img src="../design_images/menu.forumai.gif" width="109" height="18" border=0 alt="forumai"></a><br>
+
+			<a href="page.works"><img src="../design_images/menu.darbai.gif" width="109" height="18" border=0 alt="darbai"></a><br>
+			<a href="../i_galerija.php"><img src="../design_images/menu.galerija.gif" width="109" height="18" border=0 alt="galerija"></a>
+
+</block name="head.menu">
+
+
+<block name="head.darbai">
+
+		<div class="header-darbai"><img src="../design_images/login.left.box.gif" width="25" height="25" align="top" border=0 alt=""><img src="../dot.gif" width="8" height="1" border=0 alt=""><a href="page.works;menuname.works_category;category.1" class="header-darbai">manip</a> <span class="copyright">· 
+		<a href="page.works;menuname.works_category;category.2" class="header-darbai">paiðalai</a> · 
+		<a href="page.works;menuname.works_category;category.3" class="header-darbai">trad. media</a> · 
+		<a href="page.works;menuname.works_category;category.4" class="header-darbai">3d</a> · 
+		<a href="page.works;menuname.works_category;category.5" class="header-darbai">foto</a> ·
+		<a href="page.works;menuname.works_category;category.6" class="header-darbai">flash</a>
+		</span></div>
+
+</block name="head.darbai">
+
+
+<block name="bottom.copyright">
+
+
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td align="right"  class="copyright">
+		visos kûriniø teisës priklauso jø autoriams, dël darbø ir komentarø turinio <a href="mailto:art@scene.lt" class="copyright">art.scene kolektyvas</a> neatsako.<br>
+		projektà remia <a href="http://www.fluxus.lt" target="_blank" class="copyright">fluxus.lt</a>, mûsø draugai <a href="http://www.d117.net" target="_blank" class="copyright">d117</a>, <a href="http://www.drumclub.lt" target="_blank" class="copyright">drumclub</a>, <a href="http://www.kitoks.lt" target="_blank" class="copyright">KitoKs</a>, <a href="http://jazz.scene.lt" target="_blank" class="copyright">.Jazz</a>.
+	</td>
+</tr>
+</table>
+</block name="bottom.copyright">

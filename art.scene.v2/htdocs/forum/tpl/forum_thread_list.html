@@ -1,0 +1,67 @@
+<div align="right">
+atgal á: <a href="page.simple;menuname.forum">forumus</a>
+</div>
+
+
+<table border="0" cellspacing="1" cellpadding="2" width="100%">
+<tr>
+		<td class="border-out" width="70%"><B>tema // autorius</B></td>
+
+		<td align="center" class="border-out"><B>þinutës</B></td>
+
+		<td align="right" class="border-out"><B>paskutinë</B></td>
+</tr>
+<loop name="list">
+
+<tr>
+		
+		<td class="table-dark"><IMG SRC="../forum/img/{list.image}.gif" BORDER="0" align="absmiddle" />&nbsp;<a href="page.simple;menuname.forum;thread.{list.id}" class="thread">{list.name}</a>&nbsp;<nobr>»&nbsp;<a href="page.simple;menuname.forum;thread.{list.id}">{list.username}</a></nobr></td>
+
+		<td class="table-dark"  align="center">{list.kiek}</td>
+
+		<td class="table-dark" align="center">{list.last_post_short}</td>
+</tr>
+<noloop name="list">
+<tr>
+		<td colspan="3" class="table-dark" align="center">forume nëra þinuèiø, tad turi progà bûti pirmas!</td>
+</tr>
+</noloop name="list">
+
+</loop name="list">
+
+</table>
+<br>
+{navigator}
+<br>
+<br>
+
+
+{infotext}
+
+<block name="PleaseLogin">
+<span class="NormalForumText">Primename kad norint dalyvauti forume reikia prisijungti prie sistemos. Jei Jûs vis dar neprisiregistravæ, praðom registruotis.</span>
+</block name="PleaseLogin">
+
+
+<block name="NewThread">
+<b>sukurkite naujà temà</b><br>
+<table border=0>
+<form method=post action="/process.php/page.simple;menuname.forum;forum.{forum_id}" onSubmit="submit.disabled=true;">
+<tr>
+	<td valign="top"><span class="NormalForumText">tema:</span></td>
+	<td><input name="subject" type="text" maxlength="250" value="{threadtext}" class="NormalForumText" style="width: 480px;"></td>
+</tr>
+<tr>
+	<td valign="top"><span class="NormalForumText" >þinutë:<br><a href="#" onclick="openWindow('../content/bbcode.html', '_blank', 300, 400, 1);" class="register">[bbcode]</a></span></td>
+	<td><textarea name="body" class="NormalForumText" class="inputarea" rows="5" cols="35" style="width: 480px;height:200px;">{threadbody}</textarea></td>
+</tr>
+<tr>
+	<td></td>
+	<td><input type="submit" name="submit" value="  siøsti  " class="inputbutton2" ></td>
+</tr>
+<input type="hidden" name="event" value="submit_thread">
+<input type="hidden" name="forum_id" value="{forum_id}">
+<input type="hidden" name="url" value="page.simple;menuname.forum;thread.">
+</form>
+</table> 
+</block name="NewThread">

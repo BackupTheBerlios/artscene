@@ -1,0 +1,28 @@
+<loop name="letters">
+<a href="page.{page};menuitem.{menuitem};user_letter.{letters.letter_url};">{letters.letter}</a> 
+</loop name="letters">
+<br><br>
+<table border=0>
+	<tr>
+		<td>vardas</td>
+		<td>web</td>
+		<td>icq</td>
+		<td>lankësi</td>
+	</tr>
+<loop name="users">
+
+<tr>
+	<td><a class="news-nick" href="page.userinfo;menuname.works_user;user.{users.id}">{users.username}</a></td>
+	<td><a href="{users.url}" target="_blank">{users.url}</a></td>
+	<td>{users.icq}</td>
+	<td>{users.lastlogin}</td>
+</tr>
+
+<noloop name="users">
+<tr><td>tokiø vartotojø sistemoje nëra.</td></tr>
+</noloop name="users">
+</loop name="users">
+
+</table>
+
+<br>

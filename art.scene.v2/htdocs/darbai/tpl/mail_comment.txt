@@ -1,0 +1,13 @@
+naujas komentaras apie tavo darbà
+
+darbas: {work_title}
+http://art.scene.lt/process.php/page.workinfo;work.{id}
+
+
+{username} // {title}
+{info}
+
+art.scene paðto automatas
+
+Nebereik praneðimø? Dar pagalvok ádëmiai. Galbût reik?
+Eik á http://art.scene.lt -> prisijunk -> nustatymai -> [èekbuoks]

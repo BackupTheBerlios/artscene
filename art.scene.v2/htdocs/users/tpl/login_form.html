@@ -1,0 +1,86 @@
+
+
+
+
+
+
+			<form method=post action="{SCRIPT_NAME}">
+			<table border=0 cellpadding=0 cellspacing=0> <!-- login box -->
+			<tr>
+				<td valign="middle"><span class="username">&nbsp;</span><br><img src="../design_images/login.left.box.gif" width="25" height="18" border=0 alt=""></td>
+
+				<td><img src="../dot.gif" width="8" height="1" border=0 alt=""></td>
+				<td align="left" valign="middle"><span class="username">v&nbsp;a&nbsp;r&nbsp;d&nbsp;a&nbsp;s</span><br>
+					<input type="text" name="username" class="inputusername" value="{cookie_user_name}"></td>
+				
+				<td><img src="../dot.gif" width="8" height="1" border=0 alt=""></td>
+				<td valign="middle"><span class="username">s&nbsp;l&nbsp;a&nbsp;p&nbsp;t&nbsp;a&nbsp;þ&nbsp;o&nbsp;d&nbsp;i&nbsp;s</span><br>
+					<input type="password" name="password" class="inputusername"></td>
+
+				<td><img src="../dot.gif" width="8" height="1" border=0 alt=""></td>
+				<td valign="middle"><span class="username">&nbsp;</span><br>
+					<input type="submit" class="inputlogin" value="prisijunk"></td>
+				<td valign="middle"><span class="username">&nbsp;</span><br><input type="checkbox" name="auto_login" value="yes">&nbsp;prisiminti</td>
+
+			</tr>
+
+			<tr>
+				<td colspan="8"><img src="../dot.gif" width="32" height="3" border=0 alt=""><font style="font-size: 9px" color="#990000">{error}</font></td>
+			</tr>
+
+			<tr>
+				<td valign="middle"><img src="../design_images/login.left.box.gif" width="25" height="8" border=0 alt=""></td>
+
+				<td></td>
+				<td align="left" valign="middle"><a href="page.{users_page};menuname.lostpassword" class="register">pamirðai slaptaþodá?</a></td>
+				
+				<td></td>
+				<td valign="middle"><img src="../design_images/login.left.box.gif" width="120" height="8" border=0 alt=""></td>
+
+				<td></td>
+				<td valign="middle"><a href="page.{users_page};menuname.signup" class="register"> &nbsp;registruokis!</a></td>
+				<td></td>
+
+			</tr>
+			<tr>
+				<td colspan="8"><img src="../dot.gif" width="8" height="2" border=0 alt=""></td>
+			</tr>
+
+			<tr>
+				<td valign="middle"><img src="../design_images/login.left.box.gif" width="25" height="8" border=0 alt=""></td>
+
+				<td></td>
+				<td align="left" valign="middle"><a href="page.{users_page};menuname.userslist" class="register">prisiregistravæ {total_users}</a></td>
+				
+				<td></td>
+				<td valign="middle"><a href="page.{users_page};menuname.online" class="register">dabar narðo {visitors_online} ({users_online})</a></td>
+
+				<td></td>
+				<td valign="middle"><img src="../design_images/login.left.box.gif" width="60" height="8" border=0 alt=""></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="8"><img src="../dot.gif" width="8" height="5" border=0 alt=""></td>
+			</tr>
+
+			<tr>
+				<td valign="middle"><img src="../design_images/login.left.box.gif" width="25" height="8" border=0 alt=""></td>
+
+				<td></td>
+				<td></td>				
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="8"><img src="../dot.gif" width="8" height="6" border=0 alt=""></td>
+			</tr>
+
+			<input type="hidden" name="event" value="login_login">
+			<input type="hidden" name="page" value="{page}">
+			<input type="hidden" name="url" value="{url}">
+			
+			</form>
+			</table> <!-- login box -->

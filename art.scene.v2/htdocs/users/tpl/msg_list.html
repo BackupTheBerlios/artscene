@@ -1,0 +1,136 @@
+<block name="msg_list">
+
+<div class="title" align="right">þinutës dalyviui {username}</div>
+
+<br>
+
+
+
+<br>
+<table cellpadding=0 cellspacing=0 border=0 width="100%"><tr><td class="border-out">
+<table cellpadding=2 cellspacing=1 border=0 width="100%">
+<loop name="msg">
+<tr>
+	<td width="20%" rowspan=2 align="right" valign="top" class="table-dark"><a class="news-nick" href="page.userinfo;menuname.works_user;user.{msg.user_id}">{msg.username}</a><br><span class="news-date">//&nbsp;{msg.posted}</span></td>
+	<td class="table-dark" width="95%"><b>{msg.subject}</b></td>
+	<td class="table-dark" width="1"><a href="page.userinfo;menuname.messagereply;user.{user_id};message.{msg.id}"><img src="../design_images/reply.gif" width="16" height="16" border=0 alt=""></a></td>
+	<td class="table-dark" width="1"><a href="page.userinfo;menuname.usermessages;user.{user_id};event.delete_message;message.{msg.id}"><img src="../design_images/delete.gif" width="15" height="14" border=0 alt="trinti"></a></td>
+</tr>
+<tr>
+	<td class="table-light" colspan=3>{msg.info}</td>
+</tr>
+
+<noloop name="msg">
+<tr>
+	<td class="table-dark">nëra jokiø þinuèiø.</td>
+</tr>
+</noloop name="msg">
+
+</loop name="msg">
+
+
+</table>
+</td></tr></table> <!-- 'black' -->
+
+
+
+</block name="msg_list">
+
+
+
+<block name="nomsg">
+kol neprisiloginsi, þinuèiø negausi.
+</block name="nomsg">
+
+
+
+<block name="send_msg">
+<span class="title">siøsk þinutæ</span><br>
+
+<font color="#CC0000">{error_str}</font>
+<table border=0>
+<form method=post action="{SCRIPT_NAME}">
+
+<tr>
+	<td>antraðtë:</td>
+</tr>
+<tr>
+	<td><input type="text" name="subject"  size="30" value="{subject}" class="inputfield"></td>
+</tr>
+
+<tr>
+	<td valign="top">þinutë: <a href="#" onclick="openWindow('../content/bbcode.html', '_blank', 300, 400, 1);" class="register">[bbcode]</a></td>
+</tr>
+<tr>
+	<td><textarea name="comment" class="inputarea" rows="5" cols="30">{comment}</textarea></td>
+</tr>
+<tr>
+	<td><input type="submit" name="submit" value="siøsk"  class="inputbutton2"></td>
+</tr>
+<input type="hidden" name="event" value="send_message">
+<input type="hidden" name="parent_id" value="{user}">
+<input type="hidden" name="user" value="{user}">
+<input type="hidden" name="menuitem" value="{menuitem}">
+<input type="hidden" name="page" value="{page}">
+<input type="hidden" name="url" value="{url}">
+</form>
+
+</table>
+
+
+</block name="send_msg">
+
+<block name="msg_info">
+<span class="title">þinutës</span><br>
+
+<a href="page.userinfo;menuname.usermessages;user.{user_id}">neperskaitytos: {messages.unread}<br>
+viso: {messages.total}
+</a>
+<br>
+</block name="msg_info">
+
+<block name="msg_register">
+<span class="title">þinutës</span><br>
+
+nori paraðyti autoriui? velkam :] tik pirmiausia <a href="page.{register_page};menuname.signup">prisiregistuok</a>. jei jau esi prisiregistravæs - tiesiog prisijunk per formà virðuje.
+<br>
+</block name="msg_register">
+
+
+
+<block name="reply_msg">
+<span class="title">siøsk þinutæ</span><br>
+
+<font color="#CC0000">{error_str}</font>
+<table border=0>
+<form method=post action="{SCRIPT_NAME}">
+
+<tr>
+	<td>adresatas:</td>
+	<td><a class="news-nick" href="page.userinfo;menuname.works_user;user.{msg.user_id}">{msg.username}</a></td>
+
+</tr>
+
+<tr>
+	<td>antraðtë:</td>
+	<td><input type="text" name="subject"  size="40" value="{subject}" class="inputfield"></td>
+</tr>
+
+<tr>
+	<td valign="top">þinutë:<br><a href="#" onclick="openWindow('../content/bbcode.html', '_blank', 300, 400, 1);" class="register">[bbcode]</a></td>
+	<td><textarea name="comment" class="inputarea" rows="25" cols="60">{comment}</textarea></td>
+</tr>
+<tr>
+	<td><input type="submit" name="submit" value="atsakyk"  class="inputbutton2"></td>
+</tr>
+<input type="hidden" name="event" value="reply_message">
+<input type="hidden" name="message" value="{msg.id}">
+<input type="hidden" name="menuitem" value="{menuitem}">
+<input type="hidden" name="page" value="{page}">
+<input type="hidden" name="url" value="{url}">
+</form>
+
+</table>
+
+
+</block name="reply_msg">

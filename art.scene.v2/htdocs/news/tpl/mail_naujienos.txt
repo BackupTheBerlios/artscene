@@ -1,0 +1,12 @@
+galbût ðvieþios naujienos ið http://art.scene.lt
+
+<loop name="news_list">
+// {news_list.posted} // {news_list.subject}
+{news_list.info}
+plaèiau: http://art.scene.lt/process.php/page.news;menuname.newsitem;news.{news_list.id}
+
+</loop name="news_list">
+art.scene paðto automatas
+
+Nebereik naujienø? Dar pagalvok ádëmiai. Galbût reik?
+Eik á http://art.scene.lt -> prisijunk -> nustatymai -> [èekbuoks]

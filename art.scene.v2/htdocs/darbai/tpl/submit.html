@@ -1,0 +1,104 @@
+<block name="submit_form">
+
+net jei mûsø oficiali politika - visø darbø iðsaugojimas, art.scene pasilieka teisæ trinti <u>ðlamðtà</u> bei suspendinti vartotojus, kurie siunèia niekalus, nes norime palaikyti nors ir minimalø, bet ðioká toká darbø lygá ðioje svetainëje. darbai ne savo kategorijoje irgi nebus toleruojami.
+
+<br><br>
+darbai priimami tik ðiø formatø: JPG, GIF, PNG, SWF. jokie kiti formatai netinka. sistema negeneruoja maþo paveiksliuko SWF failams, tad ðiam formatui reikia kartu atsiøsti ir maþà paveiksliukà 120x90px, didesnius sistema pati sumaþins. jei kitiems formatams siunèiamas maþas paveiksliukas, jis bus naudojamas vietoj sugeneruoto sistemos.<br>
+<br>
+nepriimami maþesni nei 10kb darbai, virðutinë riba - 300kb, iðskyrus 'flash' kategorijà, kuri neturi virðutinës ribos.<br> brandus darbas turëtø bûti pakankamos kokybës ir detalumo, bet neperdidelio, kad dauguma vartotojø ilgai nelaukdami galëtø pasiþiûrëti.
+
+<br><br>
+ðtai gero elgesio taisyklës suraðytos <b>untitled</b>, o <b>pukomuko</b> primygtinai pataria laikytis:
+<ul>
+<li> pieðinius i art.scene gali dëti tik pieðiniø autorius. daugiau niekas. nei mama, nei tëtë, nei sekretorius ar atstovas spaudai.
+èia ne delfis kur gali inmesti internete rastà bajeriukà ar paveiksliukà. 
+
+<li> pieðiniai turi bûti dedami tik á jiems skirtas kategorijas. arogantiðkieji mianininkai, maiðtaujantis prieð tvarka ir
+ðiuolaikinæ visuomenæ ir balsuojantys uþ chaosà bei þodþio laisvæ, pasikelkite auksèiau savo beretes ir ramiai perskaitykite
+kategorijø pavadinimus. Taip jûs sukelsite maþiau rûpesèiø art.scene tvarkytojams.
+
+<li> Jei pieðinius ne savo kategorijose suras art.scene tvarkytojas, labai tikëtina kad jie bus iðtrinti.
+
+<li> nedëkite ðlamðto, kelis kartus pervaryto per filtriukus.
+
+<li> nedëkite savo kûrinio pakartotinai, jei jis jau buvo iðtrintas. garantuotai jis bus iðtrintas vël.
+netyèia gali iðnykti ir jûsø uþregistruotas nikas.
+
+<li> kûrinio vagystës atveju (kuomet dedamas svetimas pieðinys ar foto ar kitokio pobûdþio darbas) - nikas iðnykti gali ir tyèia.
+</ul>
+laikui bëgant punktø gali padaugëti :]
+
+<script> window.focus(); </script>
+<form method=post action="{SCRIPT_NAME}" enctype="multipart/form-data" onSubmit="openWindow('../content/uploading.html', 'process', 300, 250, 1);">
+<font color="#CC0066">{error}</font>
+<table border=0>
+<tr>
+	<td><b>*</b>pavadinimas:</td>
+	<td><input type="text" name="subject" value="{subject}" size="40" class="inputfield"></td>
+</tr>
+<tr>
+	<td><b>*</b>kategorija:</td>
+	<td><select name="category" class="inputfield">
+			<option value="">--pasirink--</option>
+			<loop name="category">
+			<option value="{category.id}" {category.selected}>{category.name}</option>
+			</loop name="category">
+		</select>
+	</td>
+</tr>
+
+<tr>
+	<td valign="top"><b>*</b>darbas:</td>
+	<td><input type="file" name="work" class="inputfield"></td>
+</tr>
+
+<tr>
+	<td valign="top">apraðymas:<br><a href="#" onclick="openWindow('../content/bbcode.html', '_blank', 300, 400, 1);" class="register">[bbcode]</a></td>
+	<td><textarea name="info" rows="6" cols="40" class="inputarea">{info}</textarea></td>
+</tr>
+
+<tr>
+	<td valign="top">maþ. pav.:</td>
+	<td><input type="file" name="thumbnail" class="inputfield"> nebûtinas, jei darbas neflashas</td>
+</tr>
+
+<tr>
+	<td valign="top">spalva:</td>
+	<td>#<input type="text" name="color" value="{color}" class="inputfield"> (#A5B0B0)</td>
+</tr>
+
+
+<tr>
+	<td><input type="submit" name="submit" value="atsiøsk!"  class="inputbutton2"></td>
+	<td></td>
+</tr>
+
+</table>
+
+
+<br>
+á flasho kategorija eina tik flaðiniai darbai, nes kitø ten nesimatys.<br>
+
+
+
+<input type="hidden" name="event" value="work_submit">
+<input type="hidden" name="page" value="{page}">
+<input type="hidden" name="menuitem" value="{menuitem}">
+</form>
+&nbsp;
+</block name="submit_form">
+
+
+
+<block name="thank_you">
+
+aèiû uþ naujà darbà, jau dabar jis turëtø matytis pirmajame puslapyje tarp naujø pieðiniø. tikëkis, kad uþ já gerai balsuos ir maþai peiks komentuodami :]
+
+</block name="thank_you">
+
+
+<block name="not_logged_in">
+
+darbus gali atsiøsti tik uþsiregistravæ dalyviai. jei jau uþsiregistravai - prisijunk ir pamatysi nuorodà dalyvavimui.
+
+</block name="not_logged_in">

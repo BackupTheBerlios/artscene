@@ -1,0 +1,45 @@
+<br>
+<span class="title">saviakai&draugeliai</span><br>
+
+<table border=0>
+<tr>
+
+<td valign="top">
+
+	saviakai:
+	<table border=0>
+	<loop name="drg">
+
+	<tr>
+		<td><a class="news-nick" href="page.userinfo;menuname.works_user;user.{drg.user_id}">{drg.username}</a></td>
+		<td>{drg.suma}</td>
+	</tr>
+
+	<noloop name="drg">
+	<tr><td>neturi saviakø.</td></tr>
+	</noloop name="drg">
+	</loop name="drg">
+
+	</table>
+
+</td>
+
+<td valign="top">
+	draugeliai:
+	<table border=0>
+	<loop name="sav">
+
+	<tr>
+		<td><a class="news-nick" href="page.userinfo;menuname.works_user;user.{sav.submiter}">{sav.username}</a></td>
+		<td>{sav.suma}</td>
+	</tr>
+
+	<noloop name="sav">
+	<tr><td>neturi draugeliø.</td></tr>
+	</noloop name="sav">
+	</loop name="sav">
+
+	</table>
+
+</tr>
+</table>

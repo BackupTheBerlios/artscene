@@ -1,0 +1,42 @@
+<block name="news_header">
+
+<table border="0" width="100%" cellpadding=0 cellspacing=0>
+<tr>
+	<td align="left" valign="top">
+		<span class="title">{page_title}</span>	
+	</td>
+	<form method=post action="">
+	<td align="right" valign="bottom">
+		<input type="text" name="search" value="{search}" size="10" class="inputfield"><input type="submit" value="paieğka" class="inputbutton2"><input type="hidden" name="page" value="{newslist_page}">
+
+	</td>
+	</form>
+</tr>
+</table>
+<br>
+{category_info_info}
+<br>
+
+</block name="news_header">
+
+{news_header_block}
+
+<loop name="list">
+<a href="page.{newslist_page};menuname.newsitem;news.{list.id}" class="news-title">{list.subject}</a><br>
+<span class="news-date">paskelbë</span> <a class="news-nick" href="page.userinfo;menuname.works_user;user.{list.user_id}">{list.username}</a> <span class="news-date">// {list.posted} // </span> <a href="page.{newslist_page};menuname.newscategory;category.{list.category_id}" class="news-category">{list.category}</a><br>
+{list.file} {list.info}<br clear=="all">
+<div align="right"><a href="page.{newslist_page};menuname.newsitem;news.{list.id}" class="news-comments">&gt;&gt;&gt; komentarai {list.comments}{list.read_more}</a></div><br clear="all">
+
+
+<noloop name="list">
+panağu, kad tokiø naujienø kaip ir nëra.<br><br>
+</noloop name="list">
+
+</loop name="list">
+
+{navigator}
+
+<br>&nbsp;
+
+
+<block name="read_more"> &gt;&gt; skaityk toliau ...</block name="read_more">
