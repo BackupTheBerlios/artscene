@@ -6,7 +6,7 @@
 
 class darbai_sql 
 {
-	var $version = '$Id';
+	var $version = '$Id: darbai_sql.class.php,v 1.6 2004/10/28 12:25:15 pukomuko Exp $';
 	var $db;
 	
 	function darbai_sql(&$db)
