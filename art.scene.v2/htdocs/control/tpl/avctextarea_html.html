@@ -1,0 +1,204 @@
+<tr>
+	<td class="list-row-{style}">{description}:</td>
+	<td class="list-row-{style}">
+	
+	<SCRIPT language="JavaScript">
+	// DzHiBaS
+
+	// Microsoft standartai
+ 	DECMD_BOLD =                      5000
+ 	DECMD_FINDTEXT =                  5008 
+ 	DECMD_FONT =                      5009  
+ 	DECMD_COPY =                      5002 
+ 	DECMD_CUT =                       5003 
+ 	DECMD_HYPERLINK =                 5016 
+ 	DECMD_ITALIC =                    5023 
+ 	DECMD_JUSTIFYCENTER =             5024 
+ 	DECMD_JUSTIFYLEFT =               5025 
+ 	DECMD_JUSTIFYRIGHT =              5026 
+ 	DECMD_ORDERLIST =                 5030 
+ 	DECMD_PASTE =                     5032 
+ 	DECMD_REDO =                      5033 
+ 	DECMD_UNDERLINE =                 5048 
+ 	DECMD_UNDO =                      5049 
+ 	DECMD_UNORDERLIST =               5051 
+ 	
+ 	DECMD_SETFONTNAME =               5044 
+ 	DECMD_SETFONTSIZE =               5045 
+ 	
+ 	OLECMDEXECOPT_DODEFAULT =         0  
+ 	OLECMDEXECOPT_PROMPTUSER =        1 
+ 	OLECMDEXECOPT_DONTPROMPTUSER =    2 
+ 
+
+	function on_load() {
+			edit_form.tbCE.DocumentHTML = "{value}";
+	}
+	
+	// Funkcijos HTML editinimui 
+	
+	// + bold, italic, underline
+	function italic()
+	{ 
+	 edit_form.tbCE.ExecCommand(DECMD_ITALIC,OLECMDEXECOPT_DODEFAULT); 
+	 return false; 
+	} 
+	 
+	function underline()
+	{ 
+	 edit_form.tbCE.ExecCommand(DECMD_UNDERLINE,OLECMDEXECOPT_DODEFAULT); 
+	 return false; 
+	} 
+	function bold()
+	{ 
+	 edit_form.tbCE.ExecCommand(DECMD_BOLD,OLECMDEXECOPT_DODEFAULT); 
+	 return false;
+	} 
+	
+	
+	// + alignai, (center, left, right)
+	function left_align()
+	{ 
+	 	edit_form.tbCE.ExecCommand(DECMD_JUSTIFYLEFT,OLECMDEXECOPT_DODEFAULT); 
+		return false; 
+	}
+	function center_align(){ 
+	 	edit_form.tbCE.ExecCommand(DECMD_JUSTIFYCENTER,OLECMDEXECOPT_DODEFAULT); 
+		return false; 
+	}
+	function right_align(){ 
+	 	edit_form.tbCE.ExecCommand(DECMD_JUSTIFYRIGHT,OLECMDEXECOPT_DODEFAULT); 
+		return false; 
+	}
+	  
+	// + find function, praktishkai tas pats kas ctrl+f
+	function find(){ 
+		edit_form.tbCE.ExecCommand(DECMD_FINDTEXT,OLECMDEXECOPT_DODEFAULT); 
+	 	return false; 
+	}
+ 
+
+ 	function hyperlink()
+ 	{ 
+ 		edit_form.tbCE.ExecCommand(DECMD_HYPERLINK,OLECMDEXECOPT_DODEFAULT); 
+ 		return false; 
+ 	}
+ 	
+ 	function order_method(){ 
+ 		edit_form.tbCE.ExecCommand(DECMD_ORDERLIST,OLECMDEXECOPT_DODEFAULT); 
+ 		return false; 
+ 	} 
+ 	
+ 	function cut() {
+		edit_form.tbCE.ExecCommand(DECMD_CUT,OLECMDEXECOPT_DODEFAULT); 
+ 		return false;  
+ 	}
+ 	
+ 	function copy() {
+ 		edit_form.tbCE.ExecCommand(DECMD_COPY,OLECMDEXECOPT_DODEFAULT); 
+ 		return false; 
+ 	}
+ 	
+ 	function paste_method() {
+ 		edit_form.tbCE.ExecCommand(DECMD_PASTE,OLECMDEXECOPT_DODEFAULT); 
+ 		return false; 
+ 	}
+ 	
+ 	
+ 	function undo() {
+ 		edit_form.tbCE.ExecCommand(DECMD_UNDO,OLECMDEXECOPT_DODEFAULT); 
+ 		return false; 
+ 	}
+ 	
+ 	function redo() {
+ 		edit_form.tbCE.ExecCommand(DECMD_REDO,OLECMDEXECOPT_DODEFAULT); 
+ 		return false; 
+ 	}
+ 	
+ 	function font() { 
+ 		edit_form.tbCE.ExecCommand(DECMD_FONT,OLECMDEXECOPT_DODEFAULT); 
+ 		return false; 
+ 	} 
+ 	
+ 	function get_html() {
+ 		var obj_ed = eval("document." + "edit_form.tbCE"); 
+ 		var cont = obj_ed.DocumentHTML; 
+ 		var texto = "" + cont 
+ 	
+ 	 	return cont 
+ 	}
+ 	
+ 	function send_input() {
+		var cont = get_html();
+		edit_form.{name}.value = cont;
+		return false; 	
+ 	} 
+ 	
+ 	function show () {
+ 		alert(edit_form.{name}.value);
+ 		return false;
+ 	}
+ 	
+ 	function FontName_onchange() { 
+ 		var ty = edit_form.tbCE_FontName.options[edit_form.tbCE_FontName.selectedIndex].value; 
+ 		if( ty != 0 ){ 
+ 			edit_form.tbCE.ExecCommand(DECMD_SETFONTNAME, OLECMDEXECOPT_DODEFAULT, ty); 
+ 		} 
+ 		edit_form.tbCE_FontName.options[0].selected = true 
+ 	} 
+ 	
+ 	function FontSize_onchange() { 
+ 		var sz = edit_form.tbCE_FontSize.options[edit_form.tbCE_FontSize.selectedIndex].value; 
+ 		if( sz != 0 ){ 
+ 			edit_form.tbCE.ExecCommand(DECMD_SETFONTSIZE, OLECMDEXECOPT_DODEFAULT, sz); 
+ 		} 
+ 		edit_form.tbCE_FontSize.options[0].selected = true 
+ 	}
+ 	
+</SCRIPT>
+
+
+<!--<form name="sux">-->
+<A href="JavaScript:void(0);" onclick="obj_editor=tbCE; bold(); return false;"><img src="im/bold.gif" width="16" height="13" border="0"></A>
+<A href="./" onclick="obj_editor=tbCE; italic(); return false;"><img src="im/italic.gif" width="16" height="13" border="0"></A>
+<A href="./" onclick="obj_editor=tbCE; underline(); return false;"><img src="im/underline.gif" width="16" height="13" border="0"></A>&nbsp;&nbsp;&nbsp;
+
+<A href="./" onclick="obj_editor=tbCE; left_align(); return false;"><img src="im/left_align.gif" width="16" height="13" border="0"></A>
+<A href="./" onclick="obj_editor=tbCE; center_align(); return false;"><img src="im/center_align.gif" width="16" height="13" border="0"></A>
+<A href="./" onclick="obj_editor=tbCE; right_align(); return false;"><img src="im/right_align.gif" width="16" height="13" border="0"></A>&nbsp;&nbsp;&nbsp;
+
+<A href="./" onclick="obj_editor=tbCE; hyperlink(); return false;"><img src="im/hyperlink.gif" width="16" height="13" border="0"></A>&nbsp;&nbsp;&nbsp;
+ 
+ <A href="./" onclick="obj_editor=tbCE; cut(); return false;"><img src="im/cut.gif" width="16" height="13" border="0"></A>
+ <A href="./" onclick="obj_editor=tbCE; copy(); return false;"><img src="im/copy.gif" width="16" height="13" border="0"></A>
+ <A href="./" onclick="obj_editor=tbCE; paste_method(); return false;"><img src="im/paste.gif" width="16" height="13" border="0"></A>&nbsp;&nbsp;&nbsp;
+  
+ <A href="./" onclick="obj_editor=tbCE; order_method(); return false;"><img src="im/order.gif" width="16" height="13" border="0"></A>&nbsp;&nbsp;&nbsp;
+ 
+ <A href="./" onclick="obj_editor=tbCE; undo(); return false;"><img src="im/undo.gif" width="16" height="13" border="0"></A>
+ <A href="./" onclick="obj_editor=tbCE; redo(); return false;"><img src="im/redo.gif" width="16" height="13" border="0"></A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+  <SELECT language=javascript name=tbCE_FontName 
+            onchange="obj_editor=tbCE; return FontName_onchange()" 
+            style="WIDTH: 140px;font-family:verdana;" title="Font Name"> <OPTION selected 
+              value=0>Select font<OPTION value=Verdana>Verdana<OPTION 
+              value=Arial>Arial<OPTION value=Tahoma>Tahoma<OPTION 
+              value="Courier New">Courier New<OPTION 
+              value="Times New Roman">Times New Roman<OPTION 
+              value=Wingdings>Wingdings</OPTION></SELECT> 
+              
+  <SELECT language=javascript name=tbCE_FontSize 
+            onchange="obj_editor = tbCE; return FontSize_onchange(this)" 
+            style="WIDTH: 50px;font-family:verdana;" title="Font Size"> <OPTION selected 
+              value=0>Size<OPTION value=1>1<OPTION value=2>2<OPTION 
+              value=3>3<OPTION value=4>4<OPTION value=5>5<OPTION 
+              value=6>6<OPTION value=7>7</OPTION></SELECT>&nbsp;&nbsp;&nbsp;
+ <!--<A href="./" onclick="obj_editor=tbCE; font(); return false;">font</A>-->&nbsp;&nbsp;
+ <!--<A href="./" onclick="send_input(); show(); return false;">HTML</A>-->
+ <br><br>
+<OBJECT classid=clsid:2D360201-FFF5-11D1-8D03-00A0C959BC0A height=400 id=tbCE width=600><PARAM NAME="Scrollbars" VALUE="true"></OBJECT>
+<input type="hidden" name="{name}" value="">
+<script language="JavaScript">on_load();</script>{error}
+
+</td>
+</tr>

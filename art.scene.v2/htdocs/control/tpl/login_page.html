@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=windows-1257">
+<link rel="stylesheet" href="{RELPATH}css/style.css" type="text/css">
+ 
+<title>{lang.login.header} || flexiUpdate</title>
+ 
+</head>
+ 
+<body topmargin="20" leftmargin="0" text="#000000" link="#000000">
+ 
+<table align="center" cellspacing="0" cellpadding="0" border="0">
+<tr>
+	<td>
+ 	
+	<form method=post action="{G_PHP_SELF}">
+ 
+ 	<table cellspacing="0" cellpadding="2" border="0">
+ 	<tr>
+ 	    <td class="border">
+ 	
+	   	<table cellpadding="0" cellspacing="0" border="0">
+ 	   	<tr>
+ 	   		<td class="border"><img src="../images/password.png" border="0"></td>
+			<td class="border">&nbsp;{lang.login.header}&nbsp;</td>
+		</tr>
+ 		</table>
+ 			    	
+ 		</td>
+ 		</tr>
+ 	</table>
+ 
+ 	
+ 	<table width="100%" cellspacing="0" cellpadding="3" border="0">
+	<tr>
+		<td class="border">
+ 
+	 	<!--CONTENT TABLE-->
+ 		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+	 	<tr>
+ 		    <td>
+ 			
+ 			<!--DATA TABLE-->
+	 		<table width="100%" cellspacing="0" cellpadding="1" border="0">
+	 		<tr>
+	 		    <td class="black-bg">
+	 	
+				<table width="100%" cellspacing="1" cellpadding="2" border="0">
+				<tr>
+					<td class="list-row-1">{lang.login.username}:</td>
+					<td class="list-row-1"><input type="text" name="user_name" value="{last_user_name}"></td>
+				</tr> 
+	 			<tr>
+					<td class="list-row-0">{lang.login.password}:</td>
+					<td class="list-row-0"><input type="password" name="user_password"></td>
+				</tr>
+	 			</table>
+	 				
+	 			</td>
+	 		</tr>
+	 		</table>
+ 			<!--end of DATA TABLE-->
+ 			
+ 			</td>
+ 		</tr>
+ 		<tr>
+ 	    	<td class="border"><img src="../images/spacer.gif" width="1" height="4" border=0 alt=""></td>
+ 		</tr>
+ 		<tr>
+ 	 	   <td class="border" align="right">&nbsp;<input type="submit" name="submit" value="{lang.login.login}"></td>
+	 	</tr>
+ 		</table>
+ 
+ 		<!--end of CONTENT TABLE-->
+
+ 
+	 	</td>
+	</tr>
+	</table>
+	</form>
+ 
+	{error} 
+ 	
+ 	</td>
+</tr>
+</table>
+ 
+</body>
+</html>

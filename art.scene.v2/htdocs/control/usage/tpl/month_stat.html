@@ -1,0 +1,50 @@
+<b>{stat_year} metai {stat_month} mënuo.  ið viso: {total_hits} apsilankymai</b>
+<br><br>
+
+
+
+<table border=0 cellpadding=1 cellspacing=1 bgcolor="#333333">
+
+<tr>
+
+<loop name="stat">
+<td valign="bottom" align="center" bgcolor="#DDDDDD">
+<font size="-2">
+<!-- {stat.percent}%<br> -->
+<img src="im/pxl.gif" width="2" height="10" border=0 alt=""><br>
+
+ {stat.visitors}<br>
+ <img src="im/green_dot.gif" width="6" height="{stat.height}" border=1 alt=""><br><img src="im/pxl.gif" width="12" height="1" border=0 alt=""></font></td>
+
+</loop name="stat">
+
+</tr>
+
+<tr>
+
+
+<loop name="stat_day">
+<td valign="bottom" align="center" bgcolor="#DDDDDD">
+<font size="-2">
+<a href="?page=usage&stat=day&year={stat_year}&month={stat_month}&day={stat_day.day}">{stat_day.day}</a>
+</font>
+</td>
+
+</loop name="stat_day">
+
+</tr>
+
+
+<tr>
+<td colspan=3 align="left"  bgcolor="#DDDDDD"><font size="-2"><a href="?page=usage&stat=month&year={prev_year}&month={prev_month}"><b>{prev_year}.{prev_month}</b></a></font></td>
+<td colspan=25 align="right"  bgcolor="#DDDDDD"><font size="-2">&nbsp;</td>
+<td colspan=3 align="right"  bgcolor="#DDDDDD"><font size="-2"><a href="?page=usage&stat=month&year={next_year}&month={next_month}"><b>{next_year}.{next_month}</b></a></font></td>
+</tr>
+
+</table>
+
+
+
+<block name="header">
+ka yra? ble
+</block name="header">

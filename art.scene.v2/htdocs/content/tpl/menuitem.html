@@ -1,0 +1,51 @@
+<block name="menu_block">
+	<loop name="menu_list">
+		<a href="{menu_list.url}" class="menu">{menu_list.name}</a> ::
+	</loop name="menu_list">
+</block name="menu_block">
+
+
+<block name="submenu_block">
+<table cellpadding="0" cellspacing="0" border="0" width="200">
+				
+				<tr>
+					<td bgcolor="#AFC0C2"><img src="../images/pxl.gif" width="186" height="1" border="0"></td>
+					<td><img src="../images/pxl.gif" width="1" height="1" border="0"></td>
+				</tr>
+				
+				<tr bgcolor="#BEDF3C">
+					<td align="left"><table cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td align="left"><img src="../images/demo_stuff.gif" width="29" height="6" border="0"></td>
+							<td align="right"><img src="../images/pxl.gif" width="1" height="1" border="0"><br><img src="../images/demo_menu_{submenu_id}.gif" border="0"><img src="../images/pxl.gif" width="3" height="1" border="0"></td>
+						</tr>
+						</table>
+					</td>
+					<td align="right"><img src="../images/demo_elipse.gif" width="6" height="14" border="0"></td>
+				</tr>
+				
+				<tr>
+					<td bgcolor="#AFC0C2"><img src="../images/pxl.gif" width="1" height="1" border="0"></td>
+					<td><img src="../images/pxl.gif" width="1" height="1" border="0"></td>
+				</tr>
+				
+				</table>
+				<table cellpadding="4" cellspacing="0" border="0">
+				<tr>
+					<td>
+						<table cellpadding="1" cellspacing="0" border="0">
+					<loop name="submenu_list">
+						<tr>
+							<td><img src="../images/demo_bullet.gif" width="4" height="4" border="0"></td>
+							<td><img src="../images/pxl.gif" width="5" height="1" border="0"></td>
+							<td><a href="{submenu_list.url}" class=menu><font size=1>{submenu_list.name}</font></a></td>
+						</tr>
+					</loop name="submenu_list">
+					</font>
+						</table>
+					</td>
+				</tr>
+</table>
+
+
+</block name="submenu_block">

@@ -1,0 +1,300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=windows-1257">
+<link rel="stylesheet" href="{RELPATH}css/style.css" type="text/css">
+
+<title>{header} || flexiUpdate {avms_version}</title>
+
+</head>
+
+<body topmargin="20" leftmargin="0" text="#000000" link="#000000">
+
+<table align="center" width="96%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+    <td>
+	
+	<!--MAIN TABLE-->
+	<table width="100%" cellspacing="1" cellpadding="5" border="0">
+	<tr>
+	    <td width="200" valign="top">
+
+
+
+		<table border=0 cellpadding=3 cellspacing=0>
+		<tr><td class="menu-outer">
+		<center>{lang.users_username}:&nbsp;<b>{user_name}</b>&nbsp;</center>
+			<table border=0 cellpadding=2 cellspacing=0 width="100%">
+			<tr><td class="menu-inner">
+
+
+				{menu}
+
+			</td></tr>
+			</table>
+
+
+		</td></tr>
+		</table>
+		<br>
+		<a href="">{lang.users_online}</a> {users_online}
+		</td>
+	    <td width="100%" valign="top">
+		
+
+			
+			{form}
+
+		
+		</td>
+	</tr>
+	</table>
+	<!--end of MAIN TABLE-->
+	
+	</td>
+</tr>
+</table>
+
+
+</body>
+</html>
+
+
+<!-- edit form -->
+
+<block name="edit_form">
+
+
+		<script language="javascript">
+		function script_on_submit()
+		{
+			{script_on_submit}
+		}
+		</script>
+
+
+			<form method="post" name="edit_form" action="{G_PHP_SELF}" enctype="multipart/form-data" onSubmit="script_on_submit();">
+
+
+			<table cellspacing="0" cellpadding="0" border="0" width="100%">
+			<tr>
+			    <td align="left">
+			<table cellspacing="0" cellpadding="2" border="0">
+			<tr>
+			    <td class="border">&nbsp;<a class="border" href="{G_PHP_SELF}?module={module}&table={table}&offset={offset}&order={order}&search={search}&pid={pid}&page=list">{header}</a>&nbsp;</td>
+			</tr>
+			</table>
+			    </td>
+			    <td align="right" valign="bottom">
+			    	<table cellpadding="0" cellspacing="0" border="0">
+			    	<tr>
+			    		<td class="border">&nbsp;<b><a href="{RELPATH}control/help.php?topic={table_inner_name}">?</a></b>&nbsp;</td>
+			    	</tr>
+			    	</table>
+				</td>
+			</tr>
+			</table>
+
+
+
+	
+		<table width="100%" cellspacing="0" cellpadding="3" border="0"><tr><td class="border">
+
+		<!--CONTENT TABLE-->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tr>
+		    <td>
+			
+			<!--DATA TABLE-->
+			<table width="100%" cellspacing="0" cellpadding="1" border="0">
+			<tr>
+			    <td class="black-bg">
+				
+				<table width="100%" cellspacing="1" cellpadding="2" border="0">
+
+					
+					{edit_fields}
+
+
+				</table>
+				
+				</td>
+			</tr>
+			</table>
+			<!--end of DATA TABLE-->
+			
+			</td>
+		</tr>
+		<tr>
+		    <td class="border"><img src="{RELPATH}images/spacer.gif" width="1" height="4" border=0 alt=""></td>
+		</tr>
+		<tr>
+		    <td class="border">&nbsp;<input type="submit" name="submit" value="{lang.edit.submit}"><input type="hidden" name="submit" value="1">&nbsp;<input type="Reset" value="{lang.edit.reset}"></td>
+		</tr>
+		</table>
+
+<input type="hidden" name="module" value="{module}">
+<input type="hidden" name="table" value="{table}">
+<input type="hidden" name="offset" value="{offset}">
+<input type="hidden" name="order" value="{order}">
+<input type="hidden" name="search" value="{search}">
+<input type="hidden" name="pid" value="{pid}">
+
+<input type="hidden" name="new" value="{new}">
+
+<input type="hidden" name="page" value="edit">
+{edit_fields_hidden}
+
+
+		<!--end of CONTENT TABLE-->
+
+		</td></tr></table>
+		</form>
+
+
+
+
+
+
+</block name="edit_form">
+
+
+<block name="edit_row">
+
+{field}
+
+</block name="edit_row">
+
+
+
+<!-- list form -->
+
+<block name="list_form">
+
+
+			<form method=post action="{G_PHP_SELF}" name="list_form" enctype="multipart/form-data">
+
+			<table cellspacing="0" cellpadding="0" border="0" width="100%">
+			<tr>
+			    <td align="left">
+			    	<table cellpadding="0" cellspacing="0" border="0">
+			    	<tr>
+			    		<td class="border">&nbsp;{back}{header}&nbsp;</td>
+			    	</tr>
+			    	</table>
+			    </td>
+			    <td align="right">
+			    	<table cellpadding="0" cellspacing="0" border="0">
+			    	<tr>
+			    		<td class="border">&nbsp;<b><a href="{RELPATH}control/help.php?topic={table_inner_name}">?</a></b>&nbsp;</td>
+			    	</tr>
+			    	</table>
+				</td>
+			</tr>
+			</table>
+
+	
+		<table width="100%" cellspacing="0" cellpadding="3" border="0"><tr><td class="border">
+
+		<!--CONTENT TABLE-->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tr>
+		    <td>
+
+
+			
+			<!--SEARCH TABLE-->
+			<table width="100%" cellspacing="0" cellpadding="2" border="0">
+			<tr>
+			    <td class="error-search"><a href="{G_PHP_SELF}?module={module}&table={table}&offset={offset}&order={order}&search={search}&pid={pid}&page=edit&new=1"><b>{lang.list.new}</b></a><!-- <br>{error}{action_report} --></td>
+				<td align="right" class="error-search"><input type="hidden" name="search_old" value="{search}"><input type="text" name="search" value="{search}"> <input type="submit" name="submit" value="{lang.list.search}">&nbsp;</td>
+			</tr>
+			</table>
+			<!--end of SEARCH TABLE-->
+
+			
+			</td>
+		</tr>
+		<tr>
+		    <td>
+			
+			<!--DATA TABLE-->
+			<table width="100%" cellspacing="0" cellpadding="1" border="0">
+			<tr>
+			    <td class="black-bg">
+				
+				<table width="100%" cellspacing="1" cellpadding="2" border="0">
+				
+				<tr>
+					{list_headers}
+				</tr>
+
+				{list_rows}
+
+
+				</table>
+				
+				</td>
+			</tr>
+			</table>
+			<!--end of DATA TABLE-->
+			
+			</td>
+		</tr>
+		<tr>
+		    <td align="center" class="navigator">
+			
+			<table border=0 cellspacing=0 cellpadding=3>
+			<tr>
+			<td class="navigator" align="center">{navigator}</td>
+			</tr>
+			</table>
+			
+			
+			</td>
+		</tr>
+		<tr>
+		    <td class="action-list">{list_actions}</td>
+		</tr>
+		<tr>
+		    <td class="border"><img src="{RELPATH}images/spacer.gif" width="1" height="4" border=0 alt=""></td>
+		</tr>
+		<tr>
+		    <td class="border">&nbsp;<input type="submit" name="submit" value="{lang.list.submit}">&nbsp;<input type="Reset" value="{lang.list.reset}"></td>
+		</tr>
+		</table>
+
+		<input type="hidden" name="module" value="{module}">
+		<input type="hidden" name="table" value="{table}">
+		<input type="hidden" name="offset" value="{offset}">
+		<input type="hidden" name="order" value="{order}">
+		<input type="hidden" name="pid" value="{pid}">
+		<input type="hidden" name="page" value="list">
+
+		<!--end of CONTENT TABLE-->
+
+		</td></tr></table>
+		</form>
+
+
+</block name="list_form">
+
+
+<block name="list_header"><td class="list-header" {header_params}>{order_down}{name}{order_up}</td></block name="list_header">
+
+<block name="list_row">
+<tr>
+	{list_cells}
+</tr>
+</block name="list_row">
+
+<block name="list_cell">
+<td class="list-row-{style}" {list_params}>{item}</td>
+</block name="list_cell">
+
+
+
+<block name="order_up_block"><a href="{G_PHP_SELF}?module={module}&table={table}&offset={offset}&order={order_up_str}&search={search}&pid={pid}&page=list"><img src="{RELPATH}images/up.gif" width="10" height="11" border=0 alt=""></a></block name="order_up_block">
+
+<block name="order_down_block"><a href="{G_PHP_SELF}?module={module}&table={table}&offset={offset}&order={order_down_str}&search={search}&pid={pid}&page=list"><img src="{RELPATH}images/down.gif" width="10" height="11" border=0 alt=""></a></block name="order_down_block">

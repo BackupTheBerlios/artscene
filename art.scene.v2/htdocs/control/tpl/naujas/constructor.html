@@ -1,0 +1,222 @@
+<block name="table_list">
+
+	<form method="post" name="edit_form" action="{G_PHP_SELF}" enctype="multipart/form-data">
+
+			<table cellspacing="0" cellpadding="2" border="0">
+			<tr>
+			    <td class="border">&nbsp;Duomenø bazës {db_name} lentelës&nbsp;</td>
+			</tr>
+			</table>
+
+	
+		<table width="100%" cellspacing="0" cellpadding="3" border="0"><tr><td class="border">
+
+		<!--CONTENT TABLE-->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tr>
+		    <td>
+			
+			<!--DATA TABLE-->
+			<table width="100%" cellspacing="0" cellpadding="1" border="0">
+			<tr>
+			    <td class="black-bg">
+				
+				<table width="100%" cellspacing="1" cellpadding="2" border="0">
+
+					<tr>
+						<td class="list-row-1">Pasirink lentelæ, kuriai norësi sukurti klasæ.</td>
+					</tr>
+
+					<loop name="table">
+					<tr>
+						<td class="list-row-0"><a href="{G_PHP_SELF}?step=step1&table={table.name}">{table.name}</a></td>
+					</tr>
+
+					</loop name="table">
+
+				</table>
+				
+				</td>
+			</tr>
+			</table>
+			<!--end of DATA TABLE-->
+			
+			</td>
+		</tr>
+		</table>
+
+		
+		<!--end of CONTENT TABLE-->
+
+		</td></tr></table>
+		</form>
+
+</block name="table_list">
+
+
+
+<block name="field_list">
+
+	<form method="post" name="edit_form" action="{G_PHP_SELF}" enctype="multipart/form-data">
+
+			<table cellspacing="0" cellpadding="2" border="0">
+			<tr>
+			    <td class="border">&nbsp;Lentelë {table_name}&nbsp;</td>
+			</tr>
+			</table>
+
+	
+		<table width="100%" cellspacing="0" cellpadding="3" border="0"><tr><td class="border">
+
+		<!--CONTENT TABLE-->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tr>
+		    <td>
+			
+			<!--DATA TABLE-->
+			<table width="100%" cellspacing="0" cellpadding="1" border="0">
+			<tr>
+			    <td class="black-bg">
+				
+				<table width="100%" cellspacing="1" cellpadding="2" border="0">
+
+					<tr>
+						<td class="list-row-1" colspan=4>Pasirink laukus, kurie bus klasëje, jø tipus ir eilës tvarkà.</td>
+					</tr>
+
+					<tr>
+						<td class="list-header" width="1%">Átraukti</td>
+						<td class="list-header">Vardas</td>
+						<td class="list-header">Control</td>
+						<td class="list-header">Numeris</td>
+	
+					</tr>
+
+					<loop name="field">
+					<tr>
+						<td class="list-row-{field.style}" align="center"><input type="checkbox" name="fields[]" value="{field.Field}" checked></td>
+						<td class="list-row-{field.style}"><b>{field.Field}</b> &nbsp;&nbsp; ({field.Type})</td>
+						<td class="list-row-{field.style}">{field.select}</td>
+						<td class="list-row-{field.style}"><input type="text" name="{field.Field}_number" value="{field.number}" size="2"></td>
+					</tr>
+
+					</loop name="field">
+
+				</table>
+				
+				</td>
+			</tr>
+			</table>
+			<!--end of DATA TABLE-->
+			
+			</td>
+		</tr>
+
+		<tr>
+		    <td class="border"><img src="{RELPATH}images/spacer.gif" width="1" height="4" border=0 alt=""></td>
+		</tr>
+		<tr>
+			<input type="hidden" name="table" value="{table_name}">
+			<input type="hidden" name="step" value="step2">
+		    <td class="border">&nbsp;<input type="submit" name="submit" value="{lang.edit.submit}" class="buttons">&nbsp;<input type="Reset" value="{lang.edit.reset}" class="buttons"></td>
+		</tr>
+
+		</table>
+
+		
+		<!--end of CONTENT TABLE-->
+
+		</td></tr></table>
+		</form>
+
+</block name="field_list">
+
+
+
+<block name="control_list">
+
+	<form method="post" name="edit_form" action="{G_PHP_SELF}" enctype="multipart/form-data">
+
+			<table cellspacing="0" cellpadding="2" border="0">
+			<tr>
+			    <td class="border">&nbsp;Lentelë {table_name}&nbsp;</td>
+			</tr>
+			</table>
+
+	
+		<table width="100%" cellspacing="0" cellpadding="3" border="0"><tr><td class="border">
+
+		<!--CONTENT TABLE-->
+		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tr>
+		    <td>
+			
+			<!--DATA TABLE-->
+			<table width="100%" cellspacing="0" cellpadding="1" border="0">
+			<tr>
+			    <td class="black-bg">
+				
+				<table width="100%" cellspacing="1" cellpadding="2" border="0">
+
+					<tr>
+						<td class="list-row-1" colspan=8>Parametrai.</td>
+					</tr>
+
+					<tr>
+						<td class="list-header">Vardas</td>
+						<td class="list-header">Apraðymas</td>
+						<td class="list-header">Default</td>
+						<td class="list-header">Required</td>
+						<td class="list-header">Listed</td>
+						<td class="list-header">Header</td>
+						<td class="list-header">Order</td>
+						<td class="list-header">Specific</td>
+					</tr>
+
+					<loop name="control">
+					<tr>
+						<td class="list-row-{control.style}"><b>{control.name}</b> ({control.control})</td>
+						<td class="list-row-{control.style}"><input type="text" name="{control.name}_descr" value="{control.name}" size="10"></td>
+						<td class="list-row-{control.style}"><input type="text" name="{control.name}_default" value="" size="5"></td>
+						<td class="list-row-{control.style}" align="center"><input type="checkbox" name="{control.name}_required"></td>
+						<td class="list-row-{control.style}" align="center"><input type="checkbox" name="{control.name}_list" checked></td>
+						<td class="list-row-{control.style}"><input type="text" name="{control.name}_header" value="{control.name}" size="10"></td>
+						<td class="list-row-{control.style}" align="center"><input type="checkbox" name="{control.name}_order" {control.order}></td>
+						<td class="list-row-{control.style}">
+							{control.specific}
+							<input type="hidden" name="{control.name}_control" value="{control.control}">
+						</td>
+
+					</tr>
+
+					</loop name="control">
+
+				</table>
+				
+				</td>
+			</tr>
+			</table>
+			<!--end of DATA TABLE-->
+			
+			</td>
+		</tr>
+
+		<tr>
+		    <td class="border"><img src="{RELPATH}images/spacer.gif" width="1" height="4" border=0 alt=""></td>
+		</tr>
+		<tr>
+			<input type="hidden" name="table" value="{table_name}">
+			<input type="hidden" name="field_list" value="{field_list}">
+			<input type="hidden" name="step" value="step3">
+		    <td class="border">&nbsp;<input type="submit" name="submit" value="{lang.edit.submit}" class="buttons">&nbsp;<input type="Reset" value="{lang.edit.reset}" class="buttons"></td>
+		</tr>
+
+		</table>
+
+		
+		<!--end of CONTENT TABLE-->
+
+		</td></tr></table>
+		</form>
+
+</block name="control_list">
