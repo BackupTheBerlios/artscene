@@ -1,7 +1,8 @@
 <b>Prisijungæ vartotojai:</b><br><br>
 <loop name="users">
-{users.username}<br>
+{users.username} - <a href="admin.php?page=users_online&logout={users.id}">logout</a><br>
 <noloop name="users">
 ðiuo metu po puslapá nenarðo uþsiregsitravæ vartotojai.<br>
 </noloop name="users">
 </loop name="users">
+<!-- $Id: admin_users_online.html,v 1.2 2005/01/10 09:00:31 pukomuko Exp $ -->

@@ -3,10 +3,6 @@
 	first admin page, just help
 	
 	Created: js, 2001.09.07
-	___________________________________________________________
-	This file is part of flexiUpdate, content control framework
-	Copyright (c) 2001 UAB "Alternatyvus valdymas"
-	http://www.avc.lt <info@avc.lt>
 */
 
 /*!
@@ -14,6 +10,7 @@
 pagrindinis control scriptas
 jam dodam parametrus o jis tada masto ka cia daryti 
 
+$Id: admin.php,v 1.2 2005/01/10 09:00:30 pukomuko Exp $
 */
 
 $RELPATH = '../';
@@ -32,6 +29,10 @@ $g_tpl->set_var('table_inner_name', 'help');
 switch ($page)
 {
 	case 'users_online': 
+		if (!empty($logout)) 
+		{
+			$g_db->query("DELETE FROM u_session WHERE userID='$logout'");
+		}
 		$g_tpl->set_file('temp', 'control/tpl/' . $g_theme_dir . 'admin_users_online.html');
 		$g_tpl->set_loop('users', $g_usr->list_online_users());
 		$g_tpl->process('form', 'temp', 2);
