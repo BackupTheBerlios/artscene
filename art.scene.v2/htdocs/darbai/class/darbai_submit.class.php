@@ -9,7 +9,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai_submit extends avColumn
 {
-	var $version = '$Id: darbai_submit.class.php,v 1.5 2004/09/19 05:03:21 pukomuko Exp $';
+	var $version = '$Id: darbai_submit.class.php,v 1.6 2004/09/19 05:05:17 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -57,8 +57,6 @@ class darbai_submit extends avColumn
 	{
 		global $url, $subject, $info, $file, $category, $thumbnail, $color, $g_user_id;
 
-		if ($error = $this->check_cannot_post()) return $error;
-
 		$this->tpl->set_file('temp', 'darbai/tpl/submit.html', 1);
 
 		if (empty($g_user_id)) return $this->tpl->process('out', 'not_logged_in');
@@ -68,6 +66,8 @@ class darbai_submit extends avColumn
 
 		if (!$this->result)
 		{
+			if ($error = $this->check_cannot_post()) return $error;
+
 			$this->tpl->set_var('error', $this->error);
 
 			isset($subject) || $subject = '';
