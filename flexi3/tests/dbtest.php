@@ -23,13 +23,13 @@ class dbTest extends PHPUnit_TestCase
 
 	function testSelectTrue()
 	{
-		$res = $this->db->select("SELECT * FROM u_users");
+		$res = $this->db->select("SELECT * FROM fu_users");
 		$this->assertTrue($res);
 	}
 
 	function testSelectResult()
 	{
-		$res = $this->db->select("SELECT * FROM u_users");
+		$res = $this->db->select("SELECT * FROM fu_users");
 		$this->assertEquals($res[0]['username'], 'admin');
 	}
 
@@ -38,8 +38,8 @@ class dbTest extends PHPUnit_TestCase
 	*/
 	function testNotEmpty()
 	{
-		$res = $this->db->select("SELECT * FROM u_users WHERE username='admin'");
-		$this->assertTrue(!$this->db->isEmpty());
+		$res = $this->db->select("SELECT * FROM fu_users WHERE username='admin'");
+		$this->assertTrue($res);
 	}
 
 	/**
@@ -47,8 +47,8 @@ class dbTest extends PHPUnit_TestCase
 	*/
 	function testEmpty()
 	{
-		$res = $this->db->select("SELECT * FROM u_users WHERE username='tokio tikrai nera'");
-		$this->assertTrue($this->db->isEmpty());
+		$res = $this->db->select("SELECT * FROM fu_users WHERE username='tokio tikrai nera'");
+		$this->assertTrue(!$res);
 	}
 	
 }
