@@ -11,7 +11,7 @@ include_once($RELPATH . 'darbai/class/darbai_sql.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.6 2004/09/29 00:57:01 pukomuko Exp $';
+	var $version = '$Id: darbai.class.php,v 1.5 2004/09/29 00:54:56 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -266,7 +266,7 @@ class darbai extends avColumn
 			$this->tpl->set_var('url', $GLOBALS['REQUEST_URI']);
 			$this->tpl->process('post_comment', 'post_comment_block');
 
-			if ($this->sql->has_voted_on($work) || $GLOBALS['g_user_id'] == $info['user_id'] || !$this->has_right_to_vote())
+			if ($this->has_voted_on($work) || $GLOBALS['g_user_id'] == $info['user_id'] || !$this->has_right_to_vote())
 			{
 				$this->tpl->set_var('vote_line', '');
 			}
