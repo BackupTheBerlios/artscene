@@ -11,7 +11,7 @@ include_once($RELPATH . 'darbai/class/darbai_sql.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.7 2004/09/29 01:00:00 pukomuko Exp $';
+	var $version = '$Id: darbai.class.php,v 1.8 2004/09/29 07:13:17 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -330,6 +330,8 @@ class darbai extends avColumn
 
 		$current = $info;
 		$current['nearlink'] = $this->work_self_link($info['id']);
+		$current['thumbnail']='placeholder.gif';
+
 
 		$near = array_merge($near_left, array($current),  $near_right);
 		for($i = 0; isset($near[$i]); $i++)
