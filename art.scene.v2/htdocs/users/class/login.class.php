@@ -28,7 +28,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class login extends avColumn
 {
-	var $version = '$Id: login.class.php,v 1.8 2005/01/11 00:09:52 pukomuko Exp $';
+	var $version = '$Id: login.class.php,v 1.9 2005/04/01 09:36:21 pukomuko Exp $';
 
 	var $table = 'u_users';
 
@@ -192,16 +192,23 @@ class login extends avColumn
 	}
 
 
-	function list_users( $letter = '*')
+	function list_users( $letter = '*', $search = '')
 	{
 		$where = '';
-		if ('*' == $letter)
+		if (!$search)
 		{
-			$where = "FIND_IN_SET(LOWER(SUBSTRING(username,1,1)), 'a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,x,y,w,z') < 1";
+			if ('*' == $letter)
+			{
+				$where = "FIND_IN_SET(LOWER(SUBSTRING(username,1,1)), 'a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,x,y,w,z') < 1";
+			}
+			else
+			{
+				$where = "'$letter' = LOWER(SUBSTRING(username,1,1))";
+			}
 		}
 		else
 		{
-			$where = "'$letter' = LOWER(SUBSTRING(username,1,1))";
+			$where = " username LIKE '%$search%' ";
 		}
 		return $this->db->cached_select('userlist', "SELECT u.id AS id, u.username AS username, DATE_FORMAT(u.lastlogin, '%Y.%m.%d %H:%i') AS lastlogin,
 				i.url AS url, i.icq AS icq
@@ -231,16 +238,20 @@ class login extends avColumn
 	*/
 	function show_users_list()
 	{
-		global $users_list_search, $g_usr, $user_letter;
+		global $users_list_search, $g_usr, $user_letter, $search, $menuname;
 		$this->tpl->set_file('temp', 'users/tpl/users_list.html');
 		
 
 		isset($user_letter) || $user_letter = '*';
+		isset($search) || $search = '';
 		$user_letter = urldecode($user_letter);
 		
+		$this->tpl->set_var('search', $search);
+		$this->tpl->set_var('menuname', $menuname);
+
 		$this->tpl->set_loop('letters', $this->get_first_user_letters());
 		
-		$this->tpl->set_loop('users', $this->list_users($user_letter));
+		$this->tpl->set_loop('users', $this->list_users($user_letter, $search));
 
 		return $this->tpl->process('out', 'temp', 2);
 

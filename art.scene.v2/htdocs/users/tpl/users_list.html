@@ -1,6 +1,22 @@
-<loop name="letters">
-<a href="page.{page};menuitem.{menuitem};user_letter.{letters.letter_url};">{letters.letter}</a> 
-</loop name="letters">
+<!-- $Id: users_list.html,v 1.2 2005/04/01 09:36:22 pukomuko Exp $ -->
+<table width="100%" border=0>
+<tr>
+	<td>
+	<loop name="letters">
+	<a href="page.{page};menuitem.{menuitem};user_letter.{letters.letter_url};">{letters.letter}</a> 
+	</loop name="letters">
+	</td>
+
+	<td align="right">
+		<form method=post action="{SCRIPT_NAME}">
+		<input type="text" name="search" value="{search}" size="8"  class="inputfield"><input type="submit" value="ieğkok" class="inputbutton2">
+		<input type="hidden" name="page" value="{page}">
+		<input type="hidden" name="menuname" value="{menuname}">
+		</form>
+	</td>
+</tr>
+</table>
+
 <br><br>
 <table border=0>
 	<tr>
