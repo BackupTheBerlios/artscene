@@ -9,7 +9,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai_submit extends avColumn
 {
-	var $version = '$Id: darbai_submit.class.php,v 1.2 2004/09/18 10:27:21 pukomuko Exp $';
+	var $version = '$Id: darbai_submit.class.php,v 1.3 2004/09/18 10:49:32 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -34,9 +34,12 @@ class darbai_submit extends avColumn
 				ORDER BY sort_number");
 	}
 
-	function show_submit()
-	{
-		global $url, $subject, $info, $file, $category, $thumbnail, $color, $g_user_id;
+
+	/**
+	* ar gali siøsti darbus?
+	*/
+	function check_cannot_post() {
+		global  $g_user_id;
 
 		$tmp = $this->db->get_array("SELECT COUNT(id) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND DATE_ADD(posted, INTERVAL 1 DAY) > NOW()");
 		if ($tmp['kiekis'] > 2 ) return 'ðiandien jau ádëjai tris darbus, lauk rytdienos.';
@@ -47,6 +50,14 @@ class darbai_submit extends avColumn
 			$tmp = $this->db->get_array("SELECT COUNT(id) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND category_id=5 AND DATE_ADD(posted, INTERVAL 1 DAY) > NOW()");
 			if ($tmp['kiekis'] > 1 ) return 'ðiandien jau ádëjai vienà fotografijà, lauk rytdienos.';
 		}
+		return false;
+	}
+
+	function show_submit()
+	{
+		global $url, $subject, $info, $file, $category, $thumbnail, $color, $g_user_id;
+
+		if ($error = $this->check_cannot_post()) return $error;
 
 		$this->tpl->set_file('temp', 'darbai/tpl/submit.html', 1);
 
@@ -108,10 +119,14 @@ class darbai_submit extends avColumn
 			$this->error .= 'reikia atsiøsti darbà<br>';
 		}
 
-
 		if (!isset($g_user_id))
 		{
 			$this->error .= 'reikia prisijungti prie sistemos<br>';
+		}
+
+		if ($error = $this->check_cannot_post()) 
+		{
+			$this->error .= $error;
 		}
 
 		if ($this->error) return true;
