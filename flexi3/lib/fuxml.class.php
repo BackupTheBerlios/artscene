@@ -56,7 +56,7 @@
 *		attributes
 *		children = array
 *
-*	@version $Id: fuxml.class.php,v 1.1 2003/03/20 17:55:31 pukomuko Exp $
+*	@version $Id: fuxml.class.php,v 1.2 2003/04/06 23:02:27 pukomuko Exp $
 */
 class fuXml
 {
@@ -345,7 +345,7 @@ class fuXml
 	*/
 	function writeTree($xmlDom = false)
 	{
-		$out = '<?xml version="1.0"?'.">\n";
+		$out = '<?xml version="1.0"?'.">\n<!-- <?php -->\n";
 		if (!$xmlDom) return $out;
 		
 		$out .= fuXml::writeTag($xmlDom, 0);
@@ -412,12 +412,12 @@ class fuXml
 		}
 		if ($oneliner) $out .= '/';
 		$out .= '>';
-		if ($newline) $out .= "\n";
+		if ($newline || $oneliner) $out .= "\n";
 
 		return $out;
 	}
 }
 
-cvs_id('$Id: fuxml.class.php,v 1.1 2003/03/20 17:55:31 pukomuko Exp $');
+cvs_id('$Id: fuxml.class.php,v 1.2 2003/04/06 23:02:27 pukomuko Exp $');
 
 ?>
