@@ -109,6 +109,19 @@ INSERT INTO `avfaq` (`id`, `question`, `answer`, `lang_id`, `posted`, `visible`,
 (123, 'jûs teigiate: "kai kas dingsta kai tik pamatom, \r\no like dingsta po 2sav jei balas maziau uz -1, kartais uz 0 kai maziau."\r\nmano darbas iðbuvo dvi dienas, sulaukë visai neblogø balø,o jûs emëte ie iðtrynëte :( taigi kaip èia suprasi, kodël? jei adminam nepatinka tsi jus imat ir trinat??? :(', '', 0, '2004-09-15', 0, 'Patris', 'patris@omni.lt'),
 (124, 'nepirma karta pastebiu, kad neleidzhia ideti foto kita diena, rasho kad ''...shiandien jau idejai lauk rytdienos...'' nors taip nera. taip atsitiko ir shiandien, nors fotke dejau vakar. kodel?', '', 0, '2004-09-20', 0, 'zhy', 'zhy@takas.lt');
 
+
+-- 
+-- Dumping data for table `avnewscategory`
+-- 
+
+INSERT INTO `avnewscategory` (`id`, `name`, `info`, `file`, `sort_number`) VALUES (1, 'art.scene', 'svetainës atnaujinimai, praneðimai apie vietinius ávykius', '', 1),
+(2, 'programos', 'programinë áranga ir kiti elektroniniai niekuèiai', '', 2),
+(4, 'renginiai', 'parodos, koncertai, televizijos laidos, viskas, kas vyksta lietuvëlëje ir ne tik', '', 3),
+(5, 'nuorodos', 'ádomesni puslapiai arba liuksusinio dizaino pavyzdþiai', '', 4),
+(6, 'pamàstymai', 'kas daros? kur link einame? kodël yra kaip yra? egocentriðkos blevyzgos', '', 5),
+(7, 'patarimai', '', '', 6),
+(8, 'iranga', 'naujienos ish hardware pasaulio', '', 1);
+
 -- 
 -- Dumping data for table `avnews`
 -- 
