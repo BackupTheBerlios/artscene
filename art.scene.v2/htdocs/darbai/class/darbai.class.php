@@ -11,7 +11,7 @@ include_once($RELPATH . 'darbai/class/darbai_sql.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.8 2004/09/29 07:13:17 pukomuko Exp $';
+	var $version = '$Id: darbai.class.php,v 1.9 2004/10/04 12:05:21 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -240,7 +240,7 @@ class darbai extends avColumn
 
 		if (!$info)
 		{
-			var_dump($info); exit;
+			//var_dump($info); exit;
 			redirect('http://art.scene.lt/process.php/page.simple;menuname.nowork'); 
 		}
 
