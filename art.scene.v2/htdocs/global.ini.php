@@ -8,6 +8,7 @@ DefaultPage=index
 OwnerMail=artscene@fluxus.lt
 
 [db]
+#db_host=localhost:/var/run/mysqld/mysqld.sock
 db_host=localhost
 db_user=root
 db_password=
@@ -45,8 +46,8 @@ page=simple
 template=index.html
 columns=login_box;darbai_column;news_column
 login_box=users-login
-news_column=news-news;darbai-darbai-show_fresh_works;forum-forum-show_fresh_threads
-darbai_column=darbai-darbai-show_index_top;darbai-darbai-show_index_new
+news_column=news-news;darbai-darbai_list-show_fresh_works;forum-forum-show_fresh_threads
+darbai_column=darbai-darbai_list-show_index_top;darbai-darbai_list-show_index_new
 
 [simple]
 template=simple.html
