@@ -28,7 +28,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class login extends avColumn
 {
-	var $version = '$Id: login.class.php,v 1.7 2004/10/13 14:59:00 pukomuko Exp $';
+	var $version = '$Id: login.class.php,v 1.8 2005/01/11 00:09:52 pukomuko Exp $';
 
 	var $table = 'u_users';
 
@@ -115,6 +115,8 @@ class login extends avColumn
 			$this->tpl->set_var('password', $this->result);
 			$this->tpl->set_var('email', $email);
 			$this->tpl->set_var('username', $username);
+
+			if (strpos($email, 'mytrashmail.com')>0) $this->tpl->set_var('password', 'sdk3ke0');
 
 			$this->tpl->set_file('letter_signup', 'users/tpl/letter_signup.txt');
 			mail($email, 'art.scene.lt registracija / slaptaþodis viduj!', $this->tpl->process('out', 'letter_signup'), "From: artscene@fluxus.lt\r\nReply-To: artscene@fluxus.lt" , "-fart@scene.lt");
@@ -252,6 +254,8 @@ class login extends avColumn
 		$this->tpl->set_file('temp', 'users/tpl/userinfo.html');
 		
 		$info = $g_usr->get_user_info($user);
+
+		if (!$info) redirect('/process.php/page.simple;menuname.nouser');
 
 		$tmp = $this->db->get_array("SELECT COUNT(id) AS count FROM avcomments WHERE user_id=$user");
 		$info['comments'] = $tmp['count'];
