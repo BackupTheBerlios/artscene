@@ -6,7 +6,7 @@
 
 class darbai_sql 
 {
-	var $version = '$Id: darbai_sql.class.php,v 1.6 2004/10/28 12:25:15 pukomuko Exp $';
+	var $version = '$Id: darbai_sql.class.php,v 1.7 2004/11/30 21:07:33 pukomuko Exp $';
 	var $db;
 	
 	function darbai_sql(&$db)
@@ -232,6 +232,7 @@ class darbai_sql
 		if ($info['color'] != $ws_info['color']) $update = true;
 		if ($info['username'] != $ws_info['submiter_name']) $update = true;
 		if ($info['category'] != $ws_info['category_name']) $update = true;
+		if ($info['category_id'] != $ws_info['category_id']) $update = true;
 
 		if ($ws_info['comment_count'] != $comment_count) $update = true;
 
@@ -254,7 +255,7 @@ class darbai_sql
 		if ($update) 
 		{
 			$this->db->query("UPDATE avworks_stat 
-			SET subject='$subject', info='$text', thumbnail='$info[thumbnail]', file='$info[file]', views='$info[views]', color='$info[color]', submiter_name='$info[username]', category_name='$info[category]', comment_count=$comment_count, vote_count=$count, vote_sum=$sum, vote_avg=$avg			
+			SET subject='$subject', info='$text', thumbnail='$info[thumbnail]', file='$info[file]', views='$info[views]', color='$info[color]', submiter_name='$info[username]', category_name='$info[category]', category_id='$info[category_id]', comment_count=$comment_count, vote_count=$count, vote_sum=$sum, vote_avg=$avg			
 			WHERE work_id=$work");
 		}
 
