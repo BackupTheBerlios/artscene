@@ -18,7 +18,7 @@
 *
 * 2003.03.20 major rewrite to have no adodb
 *
-* @version $Id: fudb.class.php,v 1.1 2003/03/20 17:55:31 pukomuko Exp $
+* @version $Id: fudb.class.php,v 1.2 2003/03/20 20:06:10 pukomuko Exp $
 * @todo values from ini, error reporting
 */
 class fuDb
@@ -104,7 +104,7 @@ class fuDb
 			$this->error($this->driver->errorMsg() . "<BR>$sql");
 			return false;
 		}
-		$this->resultRows = $this->driver->rowCount();
+		$this->resultRows = count($recordset);
 		
 		return $recordset;
 	}
@@ -124,7 +124,7 @@ class fuDb
 	* @return bool
 	* 
 	* fix'as MSSQL'ui. $recordset->NumRows() grazhindavo -1 kai nebuo irasu
-	*/
+
 	function isEmpty()
 	{
 		if(empty($this->resultRows) || $this->resultRows <= 0)
@@ -133,6 +133,7 @@ class fuDb
 			return false;
 		
 	}
+	*/
 	
 	/**
 	* get last insert id
@@ -159,6 +160,6 @@ class fuDb
 	}
 }
 
-cvs_id('$Id: fudb.class.php,v 1.1 2003/03/20 17:55:31 pukomuko Exp $');
+cvs_id('$Id: fudb.class.php,v 1.2 2003/03/20 20:06:10 pukomuko Exp $');
 
 ?>
