@@ -116,7 +116,7 @@ function html_build_date($name, $date = false)
 	}
 
 	$out = "<select name='". $name ."_year' class='inputyear'>";
-	for ($i = 0; $i < 5; $i++)
+	for ($i = 0; $i < 10; $i++)
 	{
 		$year = 2000 + $i;
 		if ($year == $tmp[0]) { $t = 'selected'; } else { $t = ''; }
