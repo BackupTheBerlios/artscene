@@ -80,12 +80,12 @@ class darbai_sql
 		$near_where = "";
 		switch ($order)
 		{
-			case 'mark': $order = " avgmark $kryptis, id $kryptis ";
-						 $near_where = " AND avgmark $zenklas $work_info[avgmark] "; break;
-			case 'summark': $order = " summark $kryptis, avgmark $kryptis, id $kryptis "; 
-							$near_where = " AND summark $zenklas $work_info[summark] "; break;
+			case 'mark': $order = " vote_avg $kryptis, id $kryptis ";
+						 $near_where = " AND vote_avg $zenklas $work_info[avgmark] AND w.work_id != $work_info[id]"; break;
+			case 'summark': $order = " vote_sum $kryptis, avgmark $kryptis, id $kryptis "; 
+							$near_where = " AND vote_sum $zenklas $work_info[summark] AND w.work_id != $work_info[id]"; break;
 			case 'views': $order = " w.views $kryptis, id $kryptis "; 
-						  $near_where = " AND views $zenklas $work_info[views] "; break;
+						  $near_where = " AND views $zenklas $work_info[views] AND w.work_id != $work_info[id] "; break;
 			case 'date':
 			default: $order = " id $kryptis ";
 					 $near_where = " AND work_id $zenklas $work_info[id] ";
@@ -126,8 +126,6 @@ class darbai_sql
 			ORDER BY $order
 			$limit";
 
-
-		
 		$result = $this->db->get_result( $statement );
 		//$result = $this->db->cached_select('works', $statement, array('avworks', 'avworkvotes', 'u_users','avworkcategory'), 6000);
 		if (isset($GLOBALS['bench'])) { echo "<br>checkpoint0: " . round((getmicrotime() - $ts), 2);}	
