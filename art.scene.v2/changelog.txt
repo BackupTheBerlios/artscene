@@ -1,3 +1,9 @@
+2004.10.19
+projekto kasdieniniai checkoutai gulasi i anonymous ftp:
+ftp://ftp.berlios.de/pub/artscene/snapshots/
+kiekvienas commitas dar gulasi ir i mailing list'a: artscene-cvs@lists.berlios.de
+o chia tik testuoju ar veikia meilai
+
 2004.09.28
 visi sql kiek reikia
 forumø tik nëra
