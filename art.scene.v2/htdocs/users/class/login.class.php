@@ -28,7 +28,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class login extends avColumn
 {
-	var $version = '$Id: login.class.php,v 1.3 2004/09/23 21:44:08 pukomuko Exp $';
+	var $version = '$Id: login.class.php,v 1.4 2004/09/28 22:43:50 pukomuko Exp $';
 
 	var $table = 'u_users';
 
@@ -253,9 +253,8 @@ class login extends avColumn
 		
 		$info = $g_usr->get_user_info($user);
 
-		$tmp = $this->db->get_array("SELECT COUNT(id) AS count, ROUND(AVG(LENGTH(info))) AS length FROM avcomments WHERE user_id=$user");
+		$tmp = $this->db->get_array("SELECT COUNT(id) AS count FROM avcomments WHERE user_id=$user");
 		$info['comments'] = $tmp['count'];
-		$info['length'] = $tmp['length'] ? $tmp['length'] : 0;
 
 		$tmp = $this->db->get_array("SELECT COUNT(id) AS count, sum(mark) AS sum_mark FROM avworkvotes WHERE user_id=$user");
 		$info['votes'] = $tmp['count'];
