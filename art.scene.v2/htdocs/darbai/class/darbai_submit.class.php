@@ -9,8 +9,9 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai_submit extends avColumn
 {
-	var $version = '$Id: darbai_submit.class.php,v 1.9 2004/10/28 12:43:45 pukomuko Exp $';
+	var $version = '$Id: darbai_submit.class.php,v 1.10 2005/01/10 09:38:02 pukomuko Exp $';
 	var $table = 'avworks';
+	var $submit_info_block = 'work.submit.info';
 
 	var $result = '';
 	var $error = '';
@@ -62,6 +63,8 @@ class darbai_submit extends avColumn
 		if (empty($g_user_id)) return $this->tpl->process('out', 'not_logged_in');
 
 
+		$submit_block = $this->db->get_array("SELECT * FROM avblock WHERE name='$this->submit_info_block'");
+		$this->tpl->set_var('submit_info', $submit_block['html']);
 
 
 		if (!$this->result)
@@ -88,14 +91,14 @@ class darbai_submit extends avColumn
 			$this->tpl->set_var('color', stripslashes(htmlchars($color)));
 			$this->tpl->set_loop('category', $list);
 			//$this->tpl->set_var('fi', stripslashes(htmlchars($keywords)));
-
+			
+			//$this->tpl->set_var('submit_info', '');
 			return $this->tpl->process('out', 'submit_form', 2);
 		}
 		else
 		{
 			return $this->tpl->process('out', 'thank_you');
 		}
-
 
 		return $this->tpl->process('out', 'submit_form', 1);
 	}
