@@ -248,10 +248,13 @@ class darbai_sql
 		$info['summark'] = $sum;
 		$info['avgmark'] = $avg;
 
+		$text = addslashes($info['info']);
+		$subject = addslashes($info['subject']);
+
 		if ($update) 
 		{
 			$this->db->query("UPDATE avworks_stat 
-			SET subject='$info[subject]', info='$info[info]', thumbnail='$info[thumbnail]', file='$info[file]', views='$info[views]', color='$info[color]', submiter_name='$info[username]', category_name='$info[category]', comment_count=$comment_count, vote_count=$count, vote_sum=$sum, vote_avg=$avg			
+			SET subject='$subject', info='$text', thumbnail='$info[thumbnail]', file='$info[file]', views='$info[views]', color='$info[color]', submiter_name='$info[username]', category_name='$info[category]', comment_count=$comment_count, vote_count=$count, vote_sum=$sum, vote_avg=$avg			
 			WHERE work_id=$work");
 		}
 
