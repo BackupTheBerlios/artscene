@@ -7,7 +7,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class darbai_cleanup extends avColumn
 {
-	var $version = '$Id: darbai_cleanup.class.php,v 1.3 2004/09/26 21:18:15 pukomuko Exp $';
+	var $version = '$Id: darbai_cleanup.class.php,v 1.4 2004/09/27 11:35:01 pukomuko Exp $';
 	var $table = 'avworks';
 
 
@@ -26,11 +26,12 @@ class darbai_cleanup extends avColumn
 			exit;
 		}
 
+		$work_info = $this->db->get_array("SELECT file, submiter, thumbnail FROM avworks w WHERE id = $work");
+		if (empty($work_info)) redirect($HTTP_REFERER);
+
 		if ( (in_array($g_usr->group_id, array(1, 4))) ||
-			 ($info['user_id'] == $g_user_id) )
+			 ($work_info['submiter'] == $g_user_id) )
 		{
-			$work_info = $this->db->get_array("SELECT file, thumbnail FROM avworks w WHERE id = $work");
-			if (empty($work_info)) redirect($HTTP_REFERER);
 
 			$this->delete_work($work, $work_info['file'], $work_info['thumbnail']);
 
