@@ -9,6 +9,7 @@
 -- 
 -- Database : `artscene`
 -- 
+-- $Id: create_tables.sql,v 1.2 2004/09/26 22:20:30 pukomuko Exp $
 
 -- --------------------------------------------------------
 
@@ -368,58 +369,6 @@ CREATE TABLE IF NOT EXISTS `polls_votes` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `id_2` (`id`)
-) TYPE=ISAM PACK_KEYS=1;
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `puko_comments`
--- 
-
-DROP TABLE IF EXISTS `puko_comments`;
-CREATE TABLE IF NOT EXISTS `puko_comments` (
-  `id` int(10) unsigned NOT NULL auto_increment,
-  `subject` varchar(200) NOT NULL default '',
-  `info` text NOT NULL,
-  `name` varchar(100) NOT NULL default '',
-  `email` varchar(100) NOT NULL default '',
-  `ip` varchar(40) NOT NULL default '',
-  `posted` datetime NOT NULL default '0000-00-00 00:00:00',
-  `pid` int(10) unsigned NOT NULL default '0',
-  PRIMARY KEY  (`id`)
-) TYPE=MyISAM;
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `puko_guestbook`
--- 
-
-DROP TABLE IF EXISTS `puko_guestbook`;
-CREATE TABLE IF NOT EXISTS `puko_guestbook` (
-  `id` int(11) unsigned NOT NULL auto_increment,
-  `posted` datetime NOT NULL default '0000-00-00 00:00:00',
-  `name` varchar(160) NOT NULL default '',
-  `email` varchar(160) NOT NULL default '',
-  `site` varchar(160) NOT NULL default '',
-  `info` text NOT NULL,
-  PRIMARY KEY  (`id`)
-) TYPE=ISAM PACK_KEYS=1;
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `puko_news`
--- 
-
-DROP TABLE IF EXISTS `puko_news`;
-CREATE TABLE IF NOT EXISTS `puko_news` (
-  `id` int(11) unsigned NOT NULL auto_increment,
-  `posted` datetime NOT NULL default '0000-00-00 00:00:00',
-  `subject` varchar(160) NOT NULL default '',
-  `info` text NOT NULL,
-  `category` tinyint(4) NOT NULL default '0',
-  PRIMARY KEY  (`id`)
 ) TYPE=ISAM PACK_KEYS=1;
 
 -- --------------------------------------------------------
