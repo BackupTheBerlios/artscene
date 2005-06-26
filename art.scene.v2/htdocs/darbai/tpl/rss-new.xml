@@ -5,6 +5,7 @@ xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
 xmlns:admin="http://webns.net/mvcb/"
 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<!-- $Id: rss-new.xml,v 1.2 2005/06/26 10:12:50 pukomuko Exp $ -->
 <channel>
 
 <title>art.scene.lt</title>
@@ -20,7 +21,7 @@ xmlns:content="http://purl.org/rss/1.0/modules/content/">
 <loop name="list">
 
 <item>
-<title>{list.subject} ({list.username})</title>
+<title>[{list.category}] {list.subject} ({list.username})</title>
 <description><![CDATA[{list.info} <br/> <br/> <img src="http://art.scene.lt/files/thumbs/{list.thumbnail}" /> 
 				<br/> <b>Autorius:</b> {list.username}]]></description>
 <dc:subject>{list.category}</dc:subject>

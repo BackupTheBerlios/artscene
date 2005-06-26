@@ -20,7 +20,7 @@ xmlns:content="http://purl.org/rss/1.0/modules/content/">
 <loop name="list">
 
 <item>
-<title>{list.subject} ({list.username})</title>
+<title>[{list.category}] {list.subject} ({list.username})</title>
 <description><![CDATA[{list.info}]]> <br/> <br/> <img src="http://art.scene.lt/files/thumbs/{list.thumbnail}" /> 
 				<br/> <b>Autorius:</b> {list.username}</description>
 <dc:subject>{list.category}</dc:subject>
