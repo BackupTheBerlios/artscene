@@ -11,7 +11,7 @@ include_once($RELPATH . 'darbai/class/darbai_sql.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.14 2005/01/12 21:58:08 pukomuko Exp $';
+	var $version = '$Id: darbai.class.php,v 1.15 2005/06/26 18:47:56 uiron Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -451,8 +451,7 @@ class darbai extends avColumn
 		$user_info = $this->db->get_array("SELECT * FROM u_user_info WHERE uid='$author'");
 		$this->db->clear_cache_name('workcomments');
 		
-		
-		if ($user_info['mail_comments'])
+		if ($user_info['mail_comments'] && $author!=$g_user_id)
 		{
 			$user = $this->db->get_array("SELECT * FROM u_users WHERE id='$author'");
 
@@ -464,7 +463,7 @@ class darbai extends avColumn
 			$g_tpl->set_var('username', $g_usr->username);
 			$g_tpl->set_var('info', undo_ubb($comment));
 			$g_tpl->set_var('date', date('Y.m.d'));
-
+			
 			mail($user['email'], 'komentaras apie tavo darbà', $g_tpl->process('','comment'), "MIME-Version: 1.0\nContent-Type: text/plain; charset=Windows-1257\nContent-Transfer-Encoding: 8bit\nFrom: art.scene automatas <art@scene.lt>\n", "-fart@scene.lt");
 
 
