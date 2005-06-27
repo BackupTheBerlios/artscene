@@ -28,7 +28,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class login extends avColumn
 {
-	var $version = '$Id: login.class.php,v 1.9 2005/04/01 09:36:21 pukomuko Exp $';
+	var $version = '$Id: login.class.php,v 1.10 2005/06/27 21:03:02 uiron Exp $';
 
 	var $table = 'u_users';
 
@@ -256,6 +256,18 @@ class login extends avColumn
 		return $this->tpl->process('out', 'temp', 2);
 
 	}
+	
+	/**
+	 * appends "http://" to a short form of a link
+	 */ 
+	function completeUri($uri){
+		$uri = trim($uri);
+		
+		if (!preg_match('/^[a-z]+:\/\//i',$uri))
+			return 'http://'.$uri;
+		
+		return $uri;
+	}
 
 
 	function show_userinfo()
@@ -265,6 +277,7 @@ class login extends avColumn
 		$this->tpl->set_file('temp', 'users/tpl/userinfo.html');
 		
 		$info = $g_usr->get_user_info($user);
+		$info['url'] = $this->completeUri($info['url']);
 
 		if (!$info) redirect('/process.php/page.simple;menuname.nouser');
 
