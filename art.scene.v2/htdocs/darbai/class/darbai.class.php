@@ -11,7 +11,7 @@ include_once($RELPATH . 'darbai/class/darbai_sql.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.15 2005/06/26 18:47:56 uiron Exp $';
+	var $version = '$Id: darbai.class.php,v 1.16 2005/06/28 06:06:59 uiron Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -332,23 +332,39 @@ class darbai extends avColumn
 	*/
 	function get_near_works($info, $category, $search, $user, $order, $count, $offset, $g_error, $g_user_id)
 	{
+		$numNear = 6;
+		
 		if (!empty($GLOBALS['bench'])) echo "darbai::get_near_works()";
 		$near = array();
 
-		$reverse = $this->sql->get_full_list($category, 0, 3, $search, $order, $user, 'back', $info);
-		if (!$reverse) $reverse = array();
-		$near_left = array_reverse($reverse);
-		$near_right = $this->sql->get_full_list($category, 0, 3, $search, $order, $user, 'forth', $info);
-
+		$near_left = (array)$this->sql->get_full_list($category, 0, $numNear, $search, $order, $user, 'back', $info);
+		$near_right = (array)$this->sql->get_full_list($category, 0, $numNear, $search, $order, $user, 'forth', $info);
+		
+		
 		$current = $info;
 		$current['nearlink'] = $this->work_self_link($info['id']);
 		$current['thumbnail']='placeholder.gif';
-
-
-		$near = array_merge($near_left, array($current),  $near_right);
-		for($i = 0; isset($near[$i]); $i++)
-		{
-			$near[$i]['nearlink'] = $this->work_self_link($near[$i]['id']);
+		
+		
+		$near[] = &$current;
+		$take_left = false;
+		while (count($near)<($numNear+1) && ($near_left || $near_right)){
+			$take_left = !$take_left;
+			 
+			if ($take_left)
+				$item = array_shift($near_left);
+			else
+				$item = array_shift($near_right);
+			
+			if (!$item)
+				continue;
+				
+			$item['nearlink'] = $this->work_self_link($item['id']);
+			
+			if ($take_left)
+				array_unshift($near,$item);
+			else
+				$near[] = $item;
 		}
 
 		return $near;
