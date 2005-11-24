@@ -115,8 +115,8 @@ class avIni
 
         $this->CURRENT_GROUP=false;
         $this->GROUPS=array();
-        $contents =& fread($fp, filesize($inifilename)); 
-        $ini_data =& split( "\n",$contents); 
+        $contents = fread($fp, filesize($inifilename)); 
+        $ini_data = split( "\n",$contents); 
          
         while( list($key, $data) = each($ini_data) ) 
         {	
@@ -148,7 +148,7 @@ class avIni
         } 
         elseif (!empty($data)) 
         {
-            $split_data =& split( "=", $data ); 
+            $split_data = split( "=", $data ); 
             $this->GROUPS[ $this->CURRENT_GROUP ][ $split_data[0] ] = $split_data[1]; 
         }
     }
