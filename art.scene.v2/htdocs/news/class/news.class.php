@@ -1,4 +1,7 @@
 <? 
+/*
+$Id: news.class.php,v 1.2 2005/11/26 16:21:45 pukomuko Exp $
+*/
 
 //!! news
 //! userside
@@ -419,6 +422,15 @@ class news extends avColumn
 
 		if ($this->error) return true;
 
+		$mail_text = "
+		
+$subject
+$info 
+http://art.scene.lt/control/
+		
+    
+    ";
+    
 		$info = do_ubb($info);
 		$text = do_ubb($text);
 
@@ -429,8 +441,8 @@ class news extends avColumn
 			VALUES ('$subject', '$info', '$text', NOW(), 0, $category, $g_user_id, '$keywords')");
 
 		$this->result = 'ok';
-
-		mail($this->ini->read_var('site', 'OwnerMail'), 'art.scene atsiusta naujiena', 'http://art.scene.lt/control/');
+		
+		mail("artscene-admin-talk@googlegroups.com", 'art.scene atsiusta naujiena', $mail_text, "MIME-Version: 1.0\nContent-Type: text/plain; charset=Windows-1257\nContent-Transfer-Encoding: 8bit\nFrom: art.scene automatas <pukomuko@gmail.com>\n");
 		return true;
 	}
 }

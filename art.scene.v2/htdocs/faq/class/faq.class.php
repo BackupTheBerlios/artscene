@@ -3,7 +3,9 @@
 	faq component
 	
 	Created: js, 2001.10.18
-	___________________________________________________________
+	
+	$Id: faq.class.php,v 1.2 2005/11/26 16:21:45 pukomuko Exp $
+  ___________________________________________________________
 	This file is part of flexiUpdate, content control framework
 	Copyright (c) 2001 UAB "Alternatyvus valdymas"
 	http://www.avc.lt <info@avc.lt>
@@ -94,8 +96,7 @@ class faq extends avColumn
 			$this->tpl->set_var('email', $email);
 			$this->tpl->set_var('question', $question);
 
-			mail($this->ini->read_var('site', 'OwnerMail'), 'naujas klausimas svetainëje', $this->tpl->process('temp', 'mail'));
-
+      mail("artscene-admin-talk@googlegroups.com", 'naujas klausimas svetainëje', $this->tpl->process('temp', 'mail'), "MIME-Version: 1.0\nContent-Type: text/plain; charset=Windows-1257\nContent-Transfer-Encoding: 8bit\nFrom: art.scene automatas <pukomuko@gmail.com>\n");
 		}
 
 		return true;
