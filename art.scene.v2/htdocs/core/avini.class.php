@@ -7,6 +7,7 @@
 	This file is part of flexiUpdate, content control framework
 	Copyright (c) 2001 UAB "Alternatyvus valdymas"
 	http://www.avc.lt <info@avc.lt>
+	$Id: avini.class.php,v 1.3 2005/11/26 16:18:29 pukomuko Exp $
 */
 
 /////////////////////////////////////////////////////////////////////////  
@@ -302,10 +303,10 @@ class avIni
     */
     function read_array( $group, $var_name )
     {
-        $var_value =& $this->read_var( $group, $var_name );
+        $var_value = $this->read_var( $group, $var_name );
         if ( $var_value )
         {
-            $var_array =& explode( ";", $var_value );
+            $var_array = explode( ";", $var_value );
             return $var_array;
         }
         else

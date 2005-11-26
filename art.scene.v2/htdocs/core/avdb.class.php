@@ -8,7 +8,7 @@
 	Copyright (c) 2001 UAB "Alternatyvus valdymas"
 	http://www.avc.lt <info@avc.lt>
 */
-
+// $Id: avdb.class.php,v 1.2 2005/11/26 16:18:29 pukomuko Exp $
 // js, 2003.01.20 cache
 // dzhibas, 2001.11.27 - fixed update_query bug with IDS
 // js, 2001.08.09 - global error hadler
@@ -113,7 +113,7 @@ class avDb
 
 		if ($print) { echo "<br><b>query: </b>" . htmlentities($q) . "<br>";}
 
-		($this->queryresult =& mysql_query($q, $this->connection)) or 
+		($this->queryresult = mysql_query($q, $this->connection)) or 
 				$this->error->error("<b>bad SQL query</b>: " . htmlentities($q) . "<br><b>". mysql_error() ."</b>", 'warning');
 
 		if (isset($GLOBALS['bench']))
@@ -170,7 +170,7 @@ class avDb
 
 		grazina informacija kaip ir get_result()
 	*/
-	function &cached_select($name, $select, $tables, $expires)
+	function cached_select($name, $select, $tables, $expires)
 	{
 		// TESTING!
 		// return $this->get_result($select);
