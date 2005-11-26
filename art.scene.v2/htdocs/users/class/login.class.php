@@ -2,21 +2,7 @@
 
 /*
 
-CREATE TABLE u_user_info (
-   id int(11) NOT NULL auto_increment,
-   uid int(11) NOT NULL,
-   lastname varchar(200) NOT NULL,
-	url varchar(200) NOT NULL,
-	icq varchar(200) NOT NULL,
-
-	mail_news tinyint(4) DEFAULT '0' NOT NULL,
-	mail_comments tinyint(4) DEFAULT '0' NOT NULL,
-
-	code varchar(33) NOT NULL,
-	reg_date timestamp(14),
-
-   PRIMARY KEY (id)
-);
+$Id: login.class.php,v 1.11 2005/11/26 16:32:14 pukomuko Exp $
 
 */
 
@@ -28,7 +14,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class login extends avColumn
 {
-	var $version = '$Id: login.class.php,v 1.10 2005/06/27 21:03:02 uiron Exp $';
+	var $version = '$Id: login.class.php,v 1.11 2005/11/26 16:32:14 pukomuko Exp $';
 
 	var $table = 'u_users';
 
@@ -52,7 +38,7 @@ class login extends avColumn
 		global $g_user_id, $g_user_name, $page, $g_usr, $g_sess, $cookie_user_name;
 
 		$this->tpl->set_var('users_page', $this->ini->read_var('users', 'page'));
-		$this->tpl->set_var('visitors_online', $g_sess->users_online('all'));
+		$this->tpl->set_var('visitors_online', $g_sess->users_online('all', 900));
 		$this->tpl->set_var('total_users', $g_usr->get_user_count());
 		
 		if (!empty($g_user_id)) // just user info, link to settings, messages
@@ -134,7 +120,7 @@ class login extends avColumn
 		global $g_usr;
 
 		$this->tpl->set_file('temp', 'users/tpl/online_list.html');
-		$this->tpl->set_loop('users', $g_usr->list_online_users());
+		$this->tpl->set_loop('users', $g_usr->list_online_users(900));
 		$this->tpl->set_var('anonymous_online', $this->tpl->get_var('visitors_online') - $this->tpl->get_var('users_online'));
 
 		return $this->tpl->process('out', 'temp', 2);
