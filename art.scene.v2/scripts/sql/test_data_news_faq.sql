@@ -111,18 +111,6 @@ INSERT INTO `avfaq` (`id`, `question`, `answer`, `lang_id`, `posted`, `visible`,
 
 
 -- 
--- Dumping data for table `avnewscategory`
--- 
-
-INSERT INTO `avnewscategory` (`id`, `name`, `info`, `file`, `sort_number`) VALUES (1, 'art.scene', 'svetainës atnaujinimai, praneðimai apie vietinius ávykius', '', 1),
-(2, 'programos', 'programinë áranga ir kiti elektroniniai niekuèiai', '', 2),
-(4, 'renginiai', 'parodos, koncertai, televizijos laidos, viskas, kas vyksta lietuvëlëje ir ne tik', '', 3),
-(5, 'nuorodos', 'ádomesni puslapiai arba liuksusinio dizaino pavyzdþiai', '', 4),
-(6, 'pamàstymai', 'kas daros? kur link einame? kodël yra kaip yra? egocentriðkos blevyzgos', '', 5),
-(7, 'patarimai', '', '', 6),
-(8, 'iranga', 'naujienos ish hardware pasaulio', '', 1);
-
--- 
 -- Dumping data for table `avnews`
 -- 
 
