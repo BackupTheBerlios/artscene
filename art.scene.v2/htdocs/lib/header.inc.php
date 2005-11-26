@@ -3,6 +3,8 @@
 	Admin side header 
 	
 	Created: js, 2001.08.13
+	
+	$Id: header.inc.php,v 1.2 2005/11/26 16:44:04 pukomuko Exp $
 	___________________________________________________________
 	This file is part of flexiUpdate, content control framework
 	Copyright (c) 2001 UAB "Alternatyvus valdymas"
@@ -15,23 +17,10 @@
 		* left just different part from user_header.inc.php
 */
 
-// Theme support
-if (empty($g_theme)) { $g_theme = $g_ini->read_var('site', 'Theme'); }
-
-if ($g_theme == "default" || !$g_theme) 
-{
-	$g_theme_dir = "";
-} 
-else 
-{
-	if ( file_exists($RELPATH.'/control/tpl/'.$g_theme.'/admin_page.html')) {
-		$g_theme_dir = $g_theme."/";
-	} else {
-		setcookie("g_theme", "default", time() + 360000000, "/");
-		$g_theme_dir = "";	
-	}
-}
-
+// Theme unsupport
+$g_theme = "default";
+$g_theme_dir = "";
+ 
 
 // Global templates
 $g_tpl->set_file('main', 'control/tpl/'.$g_theme_dir.'admin_page.html', 1);

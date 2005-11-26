@@ -1,29 +1,18 @@
 
 	<form method="post" name="edit_form" action="{G_PHP_SELF}" enctype="multipart/form-data">
 
-			<table cellspacing="0" cellpadding="2" border="0">
-			<tr>
-			    <td class="border">&nbsp;{header}&nbsp;</td>
-			</tr>
-			</table>
-
-	
-		<table width="100%" cellspacing="0" cellpadding="3" border="0"><tr><td class="border">
-
-		<!--CONTENT TABLE-->
-		<table width="100%" cellspacing="0" cellpadding="0" border="0">
-		<tr>
-		    <td>
-			
-			<!--DATA TABLE-->
-			<table width="100%" cellspacing="0" cellpadding="1" border="0">
-			<tr>
-			    <td class="black-bg">
-				
-				<table width="100%" cellspacing="1" cellpadding="2" border="0">
+<table cellpadding="2" cellspacing="0" border="0">
+<tr>
+	<td><img src="{RELPATH}control/im/naujas_header_openfolder.gif"></td>
+	<td><font size=2 face=verdana><b><a class="border" href="{G_PHP_SELF}?module={module}&table={table}&offset={offset}&order={order}&search={search}&pid={pid}&page=list">{header}</a></b></font></td>
+</tr>
+</table><img src="{RELPATH}control/im/pxl.gif" width="1" height="5" border="0"><table cellpadding="0" cellspacing="0" border="0" width="98%" bgcolor="black">
+<tr>
+	<td>
+	<table width="100%" cellspacing="1" cellpadding="2" border="0">
 
 					<tr>
-						<td class="list-row-1" width="10%">{lang.settings_theme}:</td>
+						<td class="list-row-1" width="10%"><font size=2>{lang.settings_theme}:</td>
 						<td class="list-row-1"><select name="theme">
 						<loop name="theme">
 							<option value="{theme.value}" {theme.selected}>{theme.name}</option>
@@ -31,7 +20,7 @@
 						</select></td>
 					</tr>
 					<tr>
-						<td class="list-row-1" width="10%">{lang.settings_language}:</td>
+						<td class="list-row-1" width="10%"><font size=2>{lang.settings_language}:</td>
 						<td class="list-row-1"><select name="language">
 						<loop name="language">
 							<option value="{language.value}" {language.selected}>{language.name}</option>
@@ -40,27 +29,15 @@
 					</tr>
 
 
-				</table>
-				
-				</td>
-			</tr>
-			</table>
-			<!--end of DATA TABLE-->
-			
-			</td>
-		</tr>
-		<tr>
-		    <td class="border"><img src="{RELPATH}images/spacer.gif" width="1" height="4" border=0 alt=""></td>
-		</tr>
-		<tr>
-		    <td class="border">&nbsp;<input type="submit" name="submit" value="{lang.edit.submit}" class="buttons">&nbsp;<input type="Reset" value="{lang.edit.reset}" class="buttons"></td>
-		</tr>
 		</table>
-
-		
-		<input type="hidden" name="filename" value="{filename}">
-		<input type="hidden" name="submit" value="1">
-		<!--end of CONTENT TABLE-->
-
-		</td></tr></table>
-		</form>
+	</td>
+</tr>
+</table><img src="{RELPATH}control/im/pxl.gif" width="1" height="10" border="0"><table cellpadding="0" cellspacing="0" border="0">
+<tr>
+	<td><input type="submit" name="submit" value="{lang.edit.submit}" style="font-size:11.5px;font-family:verdana;font-weight:bold;"><input type="hidden" name="submit" value="1">&nbsp;<input type="Reset" value="{lang.edit.reset}" style="font-size:11.5px;font-family:verdana;font-weight:bold;"></td>
+</tr>
+</table>
+<input type="hidden" name="filename" value="{filename}">
+<input type="hidden" name="submit" value="1">
+<!--end of CONTENT TABLE-->
+</form>

@@ -1,92 +1,65 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
-<html>
-<head>
-
-<meta http-equiv="content-type" content="text/html; charset=windows-1257">
-<link rel="stylesheet" href="{RELPATH}css/style.css" type="text/css">
  
-<title>{lang.login.header} || flexiUpdate</title>
+ <html>
+ <head>
  
-</head>
+ <meta http-equiv="content-type" content="text/html; charset=windows-1257">
+ <link rel="stylesheet" href="{RELPATH}css/naujas.css" type="text/css">
  
-<body topmargin="20" leftmargin="0" text="#000000" link="#000000">
+ <title>{lang.login.header}</title>
  
-<table align="center" cellspacing="0" cellpadding="0" border="0">
-<tr>
-	<td>
- 	
-	<form method=post action="{G_PHP_SELF}">
+ </head>
  
- 	<table cellspacing="0" cellpadding="2" border="0">
- 	<tr>
- 	    <td class="border">
- 	
-	   	<table cellpadding="0" cellspacing="0" border="0">
- 	   	<tr>
- 	   		<td class="border"><img src="../images/password.png" border="0"></td>
-			<td class="border">&nbsp;{lang.login.header}&nbsp;</td>
-		</tr>
- 		</table>
- 			    	
- 		</td>
- 		</tr>
- 	</table>
+ <body topmargin="20" leftmargin="0" bgcolor="#FFFFFF">
  
- 	
- 	<table width="100%" cellspacing="0" cellpadding="3" border="0">
-	<tr>
-		<td class="border">
- 
-	 	<!--CONTENT TABLE-->
- 		<table width="100%" cellspacing="0" cellpadding="0" border="0">
-	 	<tr>
- 		    <td>
- 			
- 			<!--DATA TABLE-->
-	 		<table width="100%" cellspacing="0" cellpadding="1" border="0">
-	 		<tr>
-	 		    <td class="black-bg">
-	 	
-				<table width="100%" cellspacing="1" cellpadding="2" border="0">
-				<tr>
-					<td class="list-row-1">{lang.login.username}:</td>
-					<td class="list-row-1"><input type="text" name="user_name" value="{last_user_name}"></td>
-				</tr> 
-	 			<tr>
-					<td class="list-row-0">{lang.login.password}:</td>
-					<td class="list-row-0"><input type="password" name="user_password"></td>
-				</tr>
-	 			</table>
-	 				
-	 			</td>
-	 		</tr>
-	 		</table>
- 			<!--end of DATA TABLE-->
- 			
+ <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%">
+ <tr>
+ 	<td align="center" valign="middle">
+ 		<form method=post action="{G_PHP_SELF}">
+ <table cellpadding="0" cellspacing="0" border="0" bgcolor="black" width="300">
+ <tr>
+ 	<td>
+ 		<table cellpadding="2" cellspacing="1" border="0" width="300">
+ 		<tr bgcolor="#B7D73B">
+ 			<td align="center">
+ 				<table cellpadding="0" cellspacing="0" border="0">
+ 				<tr>
+ 					<td><img src="{RELPATH}control/im/pxl.gif" width="5" height="1" border="0"><img src="{RELPATH}control/im/locked.gif" border="0"><img src="{RELPATH}control/im/pxl.gif" width="10" height="1" border="0"></td>
+ 					<td><font size=2><b>{lang.login.header}</b></td>
+ 				</tr>
+ 				</table>
  			</td>
  		</tr>
- 		<tr>
- 	    	<td class="border"><img src="../images/spacer.gif" width="1" height="4" border=0 alt=""></td>
+ 		<tr bgcolor="#CFE9AF">
+ 			<td>
+ 				<table cellpadding="4" cellspacing="0" border="0">
+					<tr>
+						<td><font size=2>{lang.login.username}:</td>
+						<td><input type="text" name="user_name" value="{last_user_name}"></td>
+					</tr>
+					
+					<tr>
+						<td><font size=2>{lang.login.password}:</td>
+						<td><input type="password" name="user_password"></td>
+					</tr>
+ 				</table>
+ 			</td>
  		</tr>
- 		<tr>
- 	 	   <td class="border" align="right">&nbsp;<input type="submit" name="submit" value="{lang.login.login}"></td>
-	 	</tr>
  		</table>
- 
- 		<!--end of CONTENT TABLE-->
-
- 
-	 	</td>
-	</tr>
-	</table>
-	</form>
- 
-	{error} 
- 	
  	</td>
-</tr>
-</table>
- 
-</body>
-</html>
+ </tr>
+ </table><img src="{RELPATH}control/im/pxl.gif" width="1" height="5" border="0"><table cellpadding="0" cellspacing="0" border="0" width="300">
+ <tr>
+ 	<td align="right">
+ 		<input type="submit" name="submit" value="{lang.login.login}" style="font-family:verdana;font-weight:bold;font-size:11.5px;">
+ 	</td>
+ </tr>
+ </table>
+ </form>
+ <font size=2><b>{error}</b></font>
+ 	</td>
+ </tr>
+ </table>
+ </body>
+ </html>
+
