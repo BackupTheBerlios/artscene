@@ -2,7 +2,7 @@
 
 /*
 
-$Id: login.class.php,v 1.12 2005/11/28 21:51:53 pukomuko Exp $
+$Id: login.class.php,v 1.13 2005/11/28 22:08:26 pukomuko Exp $
 
 */
 
@@ -14,7 +14,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class login extends avColumn
 {
-	var $version = '$Id: login.class.php,v 1.12 2005/11/28 21:51:53 pukomuko Exp $';
+	var $version = '$Id: login.class.php,v 1.13 2005/11/28 22:08:26 pukomuko Exp $';
 
 	var $table = 'u_users';
 
@@ -641,24 +641,28 @@ art.scene paðto automatas";
 
 	function get_draugeliai($user)
 	{
-		return $this->db->get_result("
+	  $statement = "
 			SELECT SUM(v.mark) AS suma, COUNT(v.id) AS kiekis, u.username, v.user_id
 			FROM avworkvotes v, avworks w, u_users u
 			WHERE v.user_id = u.id AND w.submiter='$user' AND w.id=v.work_id
 			GROUP BY v.user_id
 			ORDER BY suma DESC
-			LIMIT 5");
+			LIMIT 5";
+		
+		return $this->db->cached_select('draugeliai', $statement, array('avworkvotes', 'avworks', 'u_users'), 12000);
 	}
 
 	function get_saviakai($user)
 	{
-		return $this->db->get_result("
+	  $statement = "
 			SELECT SUM(v.mark) AS suma, COUNT(v.id) AS kiekis, u.username, w.submiter
 			FROM avworkvotes v, avworks w, u_users u
 			WHERE v.user_id = '$user' AND w.submiter=u.id AND w.id=v.work_id
 			GROUP BY w.submiter
 			ORDER BY suma DESC
-			LIMIT 5");
+			LIMIT 5";
+			
+		return $this->db->cached_select('saviakai', $statement, array('avworkvotes', 'avworks', 'u_users'), 12000);
 	}
 
 	function show_draugeliai()
