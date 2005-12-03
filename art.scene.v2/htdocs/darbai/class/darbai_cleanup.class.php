@@ -7,7 +7,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class darbai_cleanup extends avColumn
 {
-	var $version = '$Id: darbai_cleanup.class.php,v 1.9 2005/01/07 14:14:50 pukomuko Exp $';
+	var $version = '$Id: darbai_cleanup.class.php,v 1.10 2005/12/03 22:45:03 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $block_admin = 'work.deleted.admin';
@@ -67,11 +67,9 @@ class darbai_cleanup extends avColumn
 		if (!empty($block_name)) {
 
 			$block = $this->db->get_array("SELECT * FROM avblock WHERE name='$block_name'");
-
+      
 			$this->tpl->set_var('comment', $block['html']);
 			$this->tpl->set_var('work', $work_info);
-			
-
 
 			$comment = $this->tpl->process('', 'comment');
 			$subject = $block['title'];
@@ -79,6 +77,9 @@ class darbai_cleanup extends avColumn
 
 			$this->db->query("INSERT INTO avcomments (subject, info, posted, parent_id, table_name, user_id, new) 
 				VALUES ('$subject', '$comment', NOW(), $parent_id, 'u_users',1, 1)");
+				
+	    // user will be able to send work only next day
+	    $this->db->query("UPDATE u_users SET may_send_work_after=DATE_ADD( NOW( ) , INTERVAL 1 DAY )  WHERE id=$parent_id");
 		}
 
 			unlink( $g_ini->read_var('avworks', 'works_dir') . $image);
@@ -92,6 +93,8 @@ class darbai_cleanup extends avColumn
 
 			$this->db->query("DELETE FROM avcomments  WHERE table_name='avworks' AND parent_id = $work");
 			$this->db->query("DELETE FROM avworkvotes  WHERE  work_id = $work");
+			
+
 	}
 
 

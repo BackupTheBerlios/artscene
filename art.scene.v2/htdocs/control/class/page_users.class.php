@@ -1,5 +1,6 @@
 <? 
 //js, 2001.08.17
+// $Id: page_users.class.php,v 1.3 2005/12/03 22:45:02 pukomuko Exp $
 
 //!! admin
 //! vartotojai
@@ -15,6 +16,8 @@ include_once($RELPATH . 'control/class/avcselect.class.php');
 include_once($RELPATH . 'control/class/avctimestamp.class.php');
 include_once($RELPATH . 'control/class/avcactions.class.php');
 include_once($RELPATH . 'control/class/avchidden.class.php');
+include_once($RELPATH . 'control/class/avcdate.class.php');
+include_once($RELPATH . 'control/class/avcdatePlus.class.php');
 
 
 class page_users extends avTable
@@ -45,6 +48,9 @@ class page_users extends avTable
 		$this->controls[] = & new avcHidden( &$this, 'lasthost', $g_lang['users_lasthost'], '', 0, 1, 1, $g_lang['users_lasthost'], 1);
 		$this->controls[] = & new avcActions( &$this, '', '', '', 0, 0, 1, $g_lang['list_rowactions'], 0);
 
+    $this->controls[] = & new avcDatePlus( &$this, 'may_send_work_after', 'Darbai nuo', date('Y.m.d'), 1, 1, 0, 'temp', 1);
+    $this->controls[] = & new avcDatePlus( &$this, 'may_comment_after', 'Komentarai nuo', date('Y.m.d'), 1, 1, 0, 'temp', 1);
+    
 		$this->description = $g_lang['users_description'];
 	}
 

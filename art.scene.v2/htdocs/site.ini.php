@@ -3,16 +3,12 @@
 	First file to include in work scripts
 
 	Created: js, 2001.08.13
+	
+	$Id: site.ini.php,v 1.2 2005/12/03 22:45:01 pukomuko Exp $
 	___________________________________________________________
 	This file is part of flexiUpdate, content control framework
 	Copyright (c) 2001 UAB "Alternatyvus valdymas"
 	http://www.avc.lt <info@avc.lt>
-*/
-/*
-	CHANGES:
-	
-	2001.09.07 js
-		* moved common parts from headers
 */
 
 error_reporting(E_ALL);
@@ -24,6 +20,10 @@ error_reporting(E_ALL);
 	$TPLPATH="tpl/";
 	$LANGPATH = "lang/";
 
+// some constants
+
+  $SQL_DATE_FORMAT_LONG = '%Y.%m.%d %H:%s';
+  $SQL_DATE_FORMAT_SHORT = '%Y.%m.%d';
 
 //$bench = 1;
 

@@ -81,7 +81,8 @@ function avErrorHandler ($errno, $errstr, $errfile, $errline, $context)
 	puslapis: $errpage<br>
 	<b>bûtø labai smagu, jei atsiøstum ðià informacijà <a href='mailto:artscene@fluxus.lt?subject=error on art.scene'>paðtu</a> su prieraðu kà mëginai padaryti.</b>
 	<br><br>";
+	exit;
 }
 
-set_error_handler("avErrorHandler");
+//set_error_handler("avErrorHandler");
 ?>

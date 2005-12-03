@@ -3,29 +3,14 @@
 	User class 
 	
 	Created: nk, 2001.08.13
+	
+	$Id: avuser.class.php,v 1.2 2005/12/03 22:45:02 pukomuko Exp $
 	___________________________________________________________
 	This file is part of flexiUpdate, content control framework
 	Copyright (c) 2001 UAB "Alternatyvus valdymas"
 	http://www.avc.lt <info@avc.lt>
 */
 
-
-      
-/*	
-
-	CREATE TABLE u_users (
-	   id tinyint(4) NOT NULL auto_increment,
-	   username varchar(20) NOT NULL,
-	   password varchar(20) NOT NULL,
-	   group_id int(5) DEFAULT '0' NOT NULL,
-	   email varchar(50) not null,
-	   lastlogin timestamp not null,
-	   lasthost varchar(20) not null,
-	   PRIMARY KEY (id),
-	   UNIQUE id (id)
-	);
-
-*/
 
 
 //!! core lib
@@ -55,6 +40,9 @@ class avUser
 	var $lastlogin;
 	var $lasthost;
 	var $active;
+	
+	var $may_comment_after = false;
+	var $may_send_work_after = false;
 
 	
 	/*!
@@ -67,16 +55,26 @@ class avUser
 		$tmp = $this->get_info($id);
 		if ($tmp)
 		{
-			$this->id = $tmp['id'];
+		  $this->init_from_array($tmp);
+		}
+	}
+
+  /*!
+    Create all class fields from db info
+  */
+  function init_from_array($tmp)
+  {
+ 			$this->id = $tmp['id'];
 			$this->username = $tmp['username'];
 			$this->group_id = $tmp['group_id'];
 			$this->email = $tmp['email'];
 			$this->lastlogin = $tmp['lastlogin'];
 			$this->lasthost = $tmp['lasthost'];
 			$this->active = $tmp['active'];
-		}
-	}
-
+			$this->may_comment_after = $tmp['may_comment_after'];
+			$this->may_send_work_after = $tmp['may_send_work_after'];
+			
+  }
 
 	/*!
 		Inserts user into database
@@ -107,20 +105,14 @@ class avUser
 		
 		$password = md5($password);
 
-		$this->db->query("SELECT id, username, password, group_id, email, lastlogin, lasthost, active 
+		$this->db->query("SELECT *
 							FROM $this->table_name 
 							WHERE username='$username' AND password='$password' AND active!=0");
 
 		if ($this->db->not_empty())
 		{
-			$tmp = $this->db->get_array();
-			$this->id = $tmp['id'];
-			$this->username = $tmp['username'];
-			$this->group_id = $tmp['group_id'];
-			$this->email = $tmp['email'];
-			$this->lastlogin = $tmp['lastlogin'];
-			$this->lasthost = $tmp['lasthost'];
-			$this->active = $tmp['active'];
+		  $tmp = $this->db->get_array();
+			$this->init_from_array($tmp);
 
 			// get hostname
 			if (!empty($HTTP_SERVER_VARS['HTTP_X_FORWARDED_FOR']))
@@ -158,20 +150,13 @@ class avUser
 		if (empty($code)) return false;
 		
 
-		$this->db->query("SELECT id, username, password, group_id, email, lastlogin, lasthost, active 
+		$this->db->query("SELECT * 
 							FROM $this->table_name 
 							WHERE auto_login='$code' AND active!=0");
 
 		if ($this->db->not_empty())
 		{
-			$tmp = $this->db->get_array();
-			$this->id = $g_user_id = $tmp['id'];
-			$this->username = $tmp['username'];
-			$this->group_id = $tmp['group_id'];
-			$this->email = $tmp['email'];
-			$this->lastlogin = $tmp['lastlogin'];
-			$this->lasthost = $tmp['lasthost'];
-			$this->active = $tmp['active'];
+			$this->init_from_array($tmp);
 
 			// get hostname
 			if (!empty($HTTP_SERVER_VARS['HTTP_X_FORWARDED_FOR']))
@@ -211,7 +196,10 @@ class avUser
 	{
 		
 		if (!$id) { return false; }
-		$this->db->query("SELECT id, username, password, group_id, email, lastlogin, lasthost, active, forgotten_pass, auto_login
+		$this->db->query("SELECT *, 
+              DATE_FORMAT(lastlogin, '$GLOBALS[SQL_DATE_FORMAT_LONG]') AS lastlogin,
+		          DATE_FORMAT(may_comment_after, '$GLOBALS[SQL_DATE_FORMAT_SHORT]') AS may_comment_after,
+		          DATE_FORMAT(may_send_work_after, '$GLOBALS[SQL_DATE_FORMAT_SHORT]') AS may_send_work_after
 							FROM $this->table_name 
 							WHERE id=$id");
 		
@@ -226,7 +214,10 @@ class avUser
 	{
 		
 		if (!$id) { $id = $this->id; }
-		$this->db->query("SELECT *, DATE_FORMAT(reg_date, '%Y.%m.%d %H:%s') AS reg_date, DATE_FORMAT(lastlogin, '%Y.%m.%d %H:%s') AS lastlogin
+		$this->db->query("SELECT *, DATE_FORMAT(reg_date, '$GLOBALS[SQL_DATE_FORMAT_LONG]') AS reg_date, 
+              DATE_FORMAT(lastlogin, '$GLOBALS[SQL_DATE_FORMAT_LONG]') AS lastlogin,
+		          DATE_FORMAT(may_comment_after, '$GLOBALS[SQL_DATE_FORMAT_SHORT]') AS may_comment_after,
+		          DATE_FORMAT(may_send_work_after, '$GLOBALS[SQL_DATE_FORMAT_SHORT]') AS may_send_work_after
 							FROM u_user_info, $this->table_name u
 							WHERE uid=$id AND u.id=$id");
 		
@@ -378,6 +369,16 @@ class avUser
 		}
 
 	}
+	
+	function can_i_send_work() 
+	{
+	   return (time() > strtotimelt($this->may_send_work_after));
+  }
+  
+  function can_i_comment()
+  {
+    return (time() > strtotimelt($this->may_comment_after)); 
+  }
 
 } //end of class
 

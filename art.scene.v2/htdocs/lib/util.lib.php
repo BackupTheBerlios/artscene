@@ -1,8 +1,6 @@
 <? 
 /*
- *	Additional useful functions
- *	(C) "Alternatyvus Valdymas", 2001
- *	http://www.cav.lt, info@cav.lt
+ $Id: util.lib.php,v 1.3 2005/12/03 22:45:03 pukomuko Exp $
  */
 
 // dzhibas, 2001.07.23
@@ -29,7 +27,6 @@ function active_url($text,$class=""){
 		"<a href=\"mailto:\\1\"  $class target=\"_blank\">\\1</a>", $text);
 		return $text;
 }
-
 
 
 /*!
@@ -520,5 +517,13 @@ function rnd2($a)
 	return round($a*100)/100;
 }
 
+/*!
+  strtotime for lithuanian dates
+*/
+function strtotimelt($date)
+{
+  $date = str_replace(".",'-', $date);
+  return strtotime($date);
+}
 
 ?>

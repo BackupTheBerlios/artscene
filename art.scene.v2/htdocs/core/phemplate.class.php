@@ -31,6 +31,34 @@
 //---------------------------------------------------------------------------//
 // changes:
 //
+//	2005.08.05
+//		+ function set_vars
+//
+//	2004.04.21
+//		- warining on empty file
+//		* v1.10.1
+//
+//	2004.03.04
+//		+ TPL_LOOPOPT -> TPL_OPTLOOP
+//		+ TPL_PARSEDLOOP -> TPL_PARSEDLOOP
+//		* v1.10
+//
+//	2004.03.03
+//		+ TPL_LOOP_INNER_PARSED
+//		+ TPL_LOOP_INNER_OPTIONAL
+//		* v1.10beta2
+//
+//	2004.03.02
+//		+ TPL_STRIP_UTF_HEADER
+//		+ TPL_PARSEDLOOP
+//		+ TPL_LOOPOPT
+//		* v1.10beta
+//		+ utf header matching
+//
+//	2004.03.01
+//		- process() bugfix
+//		* v1.9.4
+//
 //	2003.10.20
 //		- parse() bugfix
 //		* v1.9.3
@@ -136,10 +164,16 @@ define('TPL_INCLUDE',	4);
 define('TPL_APPEND',	8);
 define('TPL_FINISH',	16);
 define('TPL_OPTIONAL',	32);
-define('TPL_LOOPOPT',	64);
+define('TPL_LOOP_INNER_PARSED',64);
+define('TPL_LOOP_INNER_OPTIONAL',	128);
+
+define('TPL_PARSEDLOOP', TPL_LOOP | TPL_LOOP_INNER_PARSED);
+define('TPL_OPTLOOP',	TPL_PARSEDLOOP | TPL_LOOP_INNER_OPTIONAL);
+
 
 define('TPL_BLOCK',		1);
 define('TPL_BLOCKREC',	2);
+define('TPL_STRIP_UTF_HEADER',	4);
 
 class phemplate
 {
@@ -249,6 +283,11 @@ class phemplate
 				return false;
 			}
 			$this->vars[$handle] = $this->read_file($filename);
+			if ($blocks & TPL_STRIP_UTF_HEADER)
+			{
+				$header = substr($this->vars[$handle], 0, 3);
+				if ("\xEF\xBB\xBF" == $header) $this->vars[$handle] = substr($this->vars[$handle], 3);
+			}
 			if ($blocks) { $this->extract_blocks($handle, $blocks & TPL_BLOCKREC); }
 			return true;
 
@@ -273,6 +312,18 @@ class phemplate
 			$this->vars[$var_name] = $var_value;
 		}
 	}
+
+	/**
+	*	set variables from array
+	*	@author Sebastian Wæglarczyk <sebastian.weglarczyk@interia.pl>
+	*/
+	function set_vars($vars_array)
+	{
+		foreach($vars_array as $key=>$value)
+		{
+			$this->set_var($key, $value);
+		}
+	}	
 
 	/**
 	*	tie value with variable
@@ -444,7 +495,7 @@ class phemplate
 					$new_code = '';
 
 					// clean <noloop... statement from loopcode
-					if ($noloop)
+					if ($noloop & TPL_NOLOOP)
 					{
 						
 						$nl_start_tag = strpos($loop_code, '<noloop name="'.$loop_name.'">');
@@ -467,29 +518,49 @@ class phemplate
 
 					if (is_array($loop_ar))
 					{
-						// repeat for every row in array
-						// for (reset($loop_ar); $row = current($loop_ar); next($loop_ar)) 
-						$ar_keys = array_keys($loop_ar);
-						$ar_size = count($ar_keys);
-						for($i = 0; ($i< $ar_size); $i++)
 
+						if ($noloop & TPL_LOOP_INNER_PARSED)
 						{
-							$temp_code = $loop_code;
+							for($i = 0; isset($loop_ar[$i]); $i++)
 
-							foreach( $loop_ar[$ar_keys[$i]] as $k=>$v)
 							{
-								$temp_code = str_replace( '{'. $loop_name. '.' .$k. '}', $v, $temp_code);
-							}
-							$new_code .= $temp_code;
+								$temp_code = $loop_code;
+								// rememeber loop variables
 
-						} // for loop
-						
-					} elseif ($noloop)
-					{	
+								$array_keys = array_keys($loop_ar[$i]);
+								$this->set_var($loop_name, $loop_ar[$i]);
+								if ($noloop & TPL_LOOP_INNER_OPTIONAL) $temp_code = $this->optional($loop_code);
+								$temp_code = $this->parse($temp_code);
+								$new_code .= $temp_code;
+
+								// cleanup loop variables for next generation
+								foreach ($array_keys as $key) unset($this->vars[$loop_name.'.'.$key]);
+
+							} // for loop
+						}
+						else
+						{
+							// repeat for every row in array
+							// for (reset($loop_ar); $row = current($loop_ar); next($loop_ar))
+							$ar_keys = array_keys($loop_ar);
+							$ar_size = count($ar_keys);
+							for($i = 0; ($i< $ar_size); $i++)
+							{
+								$temp_code = $loop_code;
+
+								foreach( $loop_ar[$ar_keys[$i]] as $k=>$v)
+								{
+									$temp_code = str_replace( '{'. $loop_name. '.' .$k. '}', $v, $temp_code);
+								}
+								$new_code .= $temp_code;
+							}
+						}
+					} elseif ($noloop & TPL_NOLOOP)
+					{
 							$new_code = $noloop_code;
 					}
-					
-					
+
+
 					$str = str_replace($start_tag.$org_loop_code.$end_tag, $new_code, $str);
 			} // if loop code
 			
@@ -667,13 +738,21 @@ class phemplate
 		if ($loop === 0) $loop = $this->parameters;
 		
 		$noloop = false;
-		if ($loop > 1)
+		$parsedloop = false;
+		$loopopt = false;
+		if ($loop > 2)
 		{
 			$noloop = $loop & TPL_NOLOOP;
 			$include = $loop & TPL_INCLUDE;
 			$append = $loop & TPL_APPEND;
 			$finish = $loop & TPL_FINISH;
 			$optional = $loop & TPL_OPTIONAL;
+			$parsedloop = $loop & TPL_LOOP_INNER_PARSED;
+			$loopopt = $loop & TPL_LOOP_INNER_OPTIONAL;
+		} 
+		else
+		{
+			$noloop = $loop & TPL_NOLOOP;
 		}
 		
 		if ($append and isset($this->vars[$target]))
@@ -689,9 +768,9 @@ class phemplate
 
 		if ($include) { $this->set_var($target, $this->include_files($target)); }
 
-		
-		if ($noloop) { $this->set_var($target, $this->parse_loops($target, 2)); }
-		elseif ($loop) { $this->set_var($target, $this->parse_loops($target)); }
+
+		if ($noloop) { $this->set_var($target, $this->parse_loops($target, TPL_NOLOOP | $loopopt | $parsedloop)); }
+		elseif ($loop) { $this->set_var($target, $this->parse_loops($target, $loopopt | $parsedloop)); }
 
 		if ($optional) { $this->set_var($target, $this->optional($this->get_var_silent($target))); }
 
@@ -718,8 +797,14 @@ class phemplate
 			return '';
 		}
 
-		$tmp = fread($fp = fopen($filename, 'r'), filesize($filename));
-		fclose($fp);
+		$tmp = false;
+		
+		$filesize = filesize($filename);
+		if ($filesize)
+		{
+			$tmp = fread($fp = fopen($filename, 'r'), $filesize);
+			fclose($fp);
+		}
 		return $tmp;
 	}
 

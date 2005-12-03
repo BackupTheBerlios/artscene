@@ -9,7 +9,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai_submit extends avColumn
 {
-	var $version = '$Id: darbai_submit.class.php,v 1.10 2005/01/10 09:38:02 pukomuko Exp $';
+	var $version = '$Id: darbai_submit.class.php,v 1.11 2005/12/03 22:45:03 pukomuko Exp $';
 	var $table = 'avworks';
 	var $submit_info_block = 'work.submit.info';
 
@@ -40,7 +40,7 @@ class darbai_submit extends avColumn
 	* ar gali siøsti darbus?
 	*/
 	function check_cannot_post() {
-		global  $g_user_id;
+		global  $g_user_id, $g_usr;
 
 		$tmp = $this->db->get_array("SELECT COUNT(id) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND DATE_ADD(posted, INTERVAL 1 DAY) > NOW()");
 		if ($tmp['kiekis'] > 2 ) return 'per ğias 24 valandas jau ádëjai tris darbus, lauk rytdienos.';
@@ -51,6 +51,11 @@ class darbai_submit extends avColumn
 			$tmp = $this->db->get_array("SELECT COUNT(id) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND  DATE_ADD(posted, INTERVAL 18 HOUR) > NOW()");
 			if ($tmp['kiekis'] > 0 ) return 'per ğias 18 valandø jau ádëjai vienà darbà, lauk rytdienos.';
 		}
+		
+		if (!$g_usr->can_i_send_work())
+		{
+		  return "darbus galësi siøsti tik nuo " . $g_usr->may_send_work_after;
+    }
 		return false;
 	}
 

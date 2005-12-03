@@ -11,7 +11,7 @@ include_once($RELPATH . 'darbai/class/darbai_sql.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.16 2005/06/28 06:06:59 uiron Exp $';
+	var $version = '$Id: darbai.class.php,v 1.17 2005/12/03 22:45:03 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -220,7 +220,7 @@ class darbai extends avColumn
 	*/
 	function show_item()
 	{
-		global $work, $category, $search, $user, $order, $count, $offset, $g_error, $g_user_id;
+		global $work, $category, $search, $user, $order, $count, $offset, $g_error, $g_user_id, $g_usr;
 		
 		isset($work) || redirect('/');
 
@@ -263,8 +263,17 @@ class darbai extends avColumn
 
 		if (!empty($GLOBALS['g_user_id']))
 		{
-			$this->tpl->set_var('url', $GLOBALS['REQUEST_URI']);
-			$this->tpl->process('post_comment', 'post_comment_block');
+		  if ($g_usr->can_i_comment())
+		  {
+			   $this->tpl->set_var('url', $GLOBALS['REQUEST_URI']);
+			   $this->tpl->process('post_comment', 'post_comment_block');
+			}
+			else
+			{
+			   // komentuoti negali
+			   $message = 'Komentuoti galësi nuo '. $g_usr->may_comment_after;
+			   $this->tpl->set_var('post_comment', $message);
+      }
 
 			if ($this->sql->has_voted_on($work, &$my_vote))
 			{
@@ -438,6 +447,10 @@ class darbai extends avColumn
 			$this->error .= 'reikia prisijungti prie sistemos<br>';
 		}
 
+    if (!$g_usr->can_i_comment())
+    {
+      $this->error .= 'ðiuo metu negali komentuoti';
+    }
 		if ($this->error) return true;
 
 		$comment = do_ubb($comment);

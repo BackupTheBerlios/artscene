@@ -2,7 +2,7 @@
 
 /*
 
-$Id: login.class.php,v 1.13 2005/11/28 22:08:26 pukomuko Exp $
+$Id: login.class.php,v 1.14 2005/12/03 22:45:07 pukomuko Exp $
 
 */
 
@@ -14,7 +14,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class login extends avColumn
 {
-	var $version = '$Id: login.class.php,v 1.13 2005/11/28 22:08:26 pukomuko Exp $';
+	var $version = '$Id: login.class.php,v 1.14 2005/12/03 22:45:07 pukomuko Exp $';
 
 	var $table = 'u_users';
 
@@ -263,7 +263,19 @@ class login extends avColumn
 		$this->tpl->set_file('temp', 'users/tpl/userinfo.html');
 		
 		$info = $g_usr->get_user_info($user);
+		
 		$info['url'] = $this->completeUri($info['url']);
+		
+		
+		if (time() < strtotimelt($info['may_comment_after']) )
+		{
+		  $info['comment_after'] = 1;
+    }
+		
+		if (time() < strtotimelt($info['may_send_work_after']) )
+		{
+		  $info['send_work_after'] = 1;
+    }		
 
 		if (!$info) redirect('/process.php/page.simple;menuname.nouser');
 
@@ -284,7 +296,7 @@ class login extends avColumn
 			$this->tpl->set_var('nonactive', 'atjungtas');
 		}
 
-		return $this->tpl->process('out', 'temp');
+		return $this->tpl->process('out', 'temp', TPL_OPTIONAL);
 	}
 
 	/*!
