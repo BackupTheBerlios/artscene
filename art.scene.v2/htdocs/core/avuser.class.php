@@ -4,7 +4,7 @@
 	
 	Created: nk, 2001.08.13
 	
-	$Id: avuser.class.php,v 1.2 2005/12/03 22:45:02 pukomuko Exp $
+	$Id: avuser.class.php,v 1.3 2005/12/05 12:43:29 pukomuko Exp $
 	___________________________________________________________
 	This file is part of flexiUpdate, content control framework
 	Copyright (c) 2001 UAB "Alternatyvus valdymas"
@@ -111,7 +111,7 @@ class avUser
 
 		if ($this->db->not_empty())
 		{
-		  $tmp = $this->db->get_array();
+			$tmp = $this->db->get_array();
 			$this->init_from_array($tmp);
 
 			// get hostname
@@ -156,6 +156,7 @@ class avUser
 
 		if ($this->db->not_empty())
 		{
+			$tmp = $this->db->get_array();
 			$this->init_from_array($tmp);
 
 			// get hostname
