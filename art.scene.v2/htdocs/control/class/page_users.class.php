@@ -1,6 +1,6 @@
 <? 
 //js, 2001.08.17
-// $Id: page_users.class.php,v 1.3 2005/12/03 22:45:02 pukomuko Exp $
+// $Id: page_users.class.php,v 1.4 2005/12/06 08:29:07 pukomuko Exp $
 
 //!! admin
 //! vartotojai
@@ -17,7 +17,7 @@ include_once($RELPATH . 'control/class/avctimestamp.class.php');
 include_once($RELPATH . 'control/class/avcactions.class.php');
 include_once($RELPATH . 'control/class/avchidden.class.php');
 include_once($RELPATH . 'control/class/avcdate.class.php');
-include_once($RELPATH . 'control/class/avcdatePlus.class.php');
+include_once($RELPATH . 'control/class/avcdateplus.class.php');
 
 
 class page_users extends avTable
