@@ -1,6 +1,6 @@
 <? 
 /*
-$Id: news.class.php,v 1.2 2005/11/26 16:21:45 pukomuko Exp $
+$Id: news.class.php,v 1.3 2005/12/22 12:11:37 pukomuko Exp $
 */
 
 //!! news
@@ -55,7 +55,7 @@ class news extends avColumn
 
 		return $this->db->get_result("SELECT *, DATE_FORMAT(posted, '%Y.%m.%d') as posted 
 					FROM $this->table 
-					WHERE id!=$id AND visible!=0 AND ($where) ");
+					WHERE id!='$id' AND visible!=0 AND ($where) ");
 	}
 
 	/*!
@@ -184,7 +184,7 @@ class news extends avColumn
 	{
 		$limit = " LIMIT $offset, $count ";
 		$where = "";
-		if ($category) {$where .= " AND n.category_id = $category "; }
+		if ($category) {$where .= " AND n.category_id = '$category'"; }
 		if ($search) { $where .= " AND (n.subject LIKE '%$search%' OR n.info LIKE '%$search%' OR n.full_text LIKE '%$search%') "; }
 
 		$statement = "SELECT n.id AS id, n.subject AS subject, n.info AS info, n.file AS file, DATE_FORMAT(n.posted, '%Y.%m.%d') AS posted, LENGTH(n.full_text) AS read_more, category_id,
@@ -206,7 +206,7 @@ class news extends avColumn
 	function get_full_list_count($category = false, $search = false)
 	{
 		$where = "";
-		if ($category) {$where .= " AND category_id = $category "; }
+		if ($category) {$where .= " AND category_id = '$category' "; }
 		if ($search) { $where .= " AND (subject LIKE '%$search%' OR info LIKE '%$search%' OR full_text LIKE '%$search%') "; }
 		$tmp = $this->db->get_array("SELECT COUNT(*) as count FROM avnews  WHERE visible!=0 $where" );
 		return $tmp['count'];
@@ -254,7 +254,7 @@ class news extends avColumn
 
 	function get_user_headlines($user)
 	{
-		return $this->db->get_result("SELECT id, subject, DATE_FORMAT(posted, '%Y.%m.%d') AS posted FROM avnews WHERE visible!=0 AND submiter=$user ORDER BY posted desc, id desc ");
+		return $this->db->get_result("SELECT id, subject, DATE_FORMAT(posted, '%Y.%m.%d') AS posted FROM avnews WHERE visible!=0 AND submiter='$user' ORDER BY posted desc, id desc ");
 	}
 
 
@@ -301,14 +301,14 @@ class news extends avColumn
 	{
 		return $this->db->get_array("SELECT n.id AS id, subject, DATE_FORMAT(posted, '%Y.%m.%d') AS posted, n.info AS info, full_text, keywords, u.username AS username, nc.name AS category, n.file,  category_id, submiter
 			FROM avnews n, u_users u, avnewscategory nc
-			WHERE n.id=$id AND n.visible!=0 AND n.submiter=u.id AND n.category_id=nc.id");
+			WHERE n.id='$id' AND n.visible!=0 AND n.submiter=u.id AND n.category_id=nc.id");
 	}
 
 	function get_comments($pid)
 	{
 		return $this->db->get_result("SELECT c.subject AS subject, u.username AS username, user_id, c.info AS info, DATE_FORMAT(posted, '%Y.%m.%d') AS posted
 			FROM avcomments c, u_users u
-			WHERE c.parent_id=$pid AND c.user_id=u.id AND c.table_name='avnews'
+			WHERE c.parent_id='$pid' AND c.user_id=u.id AND c.table_name='avnews'
 			ORDER BY posted ASC, c.id ASC");
 	}
 
@@ -340,7 +340,7 @@ class news extends avColumn
 		// patikrinam kad nebutu netyciom dubliu
 
 		$this->db->query("SELECT * FROM avcomments
-			WHERE table_name='$this->table' AND parent_id=$parent_id AND subject='$subject' AND info='$comment' LIMIT 1");
+			WHERE table_name='$this->table' AND parent_id='$parent_id' AND subject='$subject' AND info='$comment' LIMIT 1");
 
 		if ($this->db->not_empty())
 		{
@@ -350,7 +350,7 @@ class news extends avColumn
 		if ($this->error) return true;
 
 		$this->db->query("INSERT INTO avcomments (subject, info, posted, parent_id, table_name, user_id) 
-			VALUES ('$subject', '$comment', NOW(), $parent_id, '$this->table', $g_user_id)");
+			VALUES ('$subject', '$comment', NOW(), '$parent_id', '$this->table', $g_user_id)");
 		
 		$this->db->clear_cache_name('newslist');
 
