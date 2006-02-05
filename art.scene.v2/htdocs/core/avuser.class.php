@@ -4,7 +4,7 @@
 	
 	Created: nk, 2001.08.13
 	
-	$Id: avuser.class.php,v 1.3 2005/12/05 12:43:29 pukomuko Exp $
+	$Id: avuser.class.php,v 1.4 2006/02/05 15:28:18 pukomuko Exp $
 	___________________________________________________________
 	This file is part of flexiUpdate, content control framework
 	Copyright (c) 2001 UAB "Alternatyvus valdymas"
@@ -202,7 +202,7 @@ class avUser
 		          DATE_FORMAT(may_comment_after, '$GLOBALS[SQL_DATE_FORMAT_SHORT]') AS may_comment_after,
 		          DATE_FORMAT(may_send_work_after, '$GLOBALS[SQL_DATE_FORMAT_SHORT]') AS may_send_work_after
 							FROM $this->table_name 
-							WHERE id=$id");
+							WHERE id='$id'");
 		
 		return $this->db->get_array();	
 
@@ -220,7 +220,7 @@ class avUser
 		          DATE_FORMAT(may_comment_after, '$GLOBALS[SQL_DATE_FORMAT_SHORT]') AS may_comment_after,
 		          DATE_FORMAT(may_send_work_after, '$GLOBALS[SQL_DATE_FORMAT_SHORT]') AS may_send_work_after
 							FROM u_user_info, $this->table_name u
-							WHERE uid=$id AND u.id=$id");
+							WHERE uid='$id' AND u.id='$id'");
 		
 		return $this->db->get_array();	
 
@@ -236,11 +236,11 @@ class avUser
 		if (!$this->id) return false;
 		$this->db->query("SELECT id, name, info, menu
 							FROM u_group
-							WHERE id=$this->group_id");
+							WHERE id='$this->group_id'");
 		} else {
 			$this->db->query("SELECT id, name, info, menu
 							FROM u_group
-							WHERE id=$groupID");
+							WHERE id='$groupID'");
 		}
 		
 		return $this->db->get_array();	

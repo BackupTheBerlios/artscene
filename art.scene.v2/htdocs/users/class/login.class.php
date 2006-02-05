@@ -2,7 +2,7 @@
 
 /*
 
-$Id: login.class.php,v 1.14 2005/12/03 22:45:07 pukomuko Exp $
+$Id: login.class.php,v 1.15 2006/02/05 15:23:25 pukomuko Exp $
 
 */
 
@@ -14,7 +14,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class login extends avColumn
 {
-	var $version = '$Id: login.class.php,v 1.14 2005/12/03 22:45:07 pukomuko Exp $';
+	var $version = '$Id: login.class.php,v 1.15 2006/02/05 15:23:25 pukomuko Exp $';
 
 	var $table = 'u_users';
 
@@ -279,10 +279,10 @@ class login extends avColumn
 
 		if (!$info) redirect('/process.php/page.simple;menuname.nouser');
 
-		$tmp = $this->db->get_array("SELECT COUNT(id) AS count FROM avcomments WHERE user_id=$user");
+		$tmp = $this->db->get_array("SELECT COUNT(id) AS count FROM avcomments WHERE user_id='$user'");
 		$info['comments'] = $tmp['count'];
 
-		$tmp = $this->db->get_array("SELECT COUNT(id) AS count, sum(mark) AS sum_mark FROM avworkvotes WHERE user_id=$user");
+		$tmp = $this->db->get_array("SELECT COUNT(id) AS count, sum(mark) AS sum_mark FROM avworkvotes WHERE user_id='$user'");
 		$info['votes'] = $tmp['count'];
 		$info['sum_mark'] = $tmp['sum_mark'] ? $tmp['sum_mark'] : 0;
 
@@ -331,7 +331,7 @@ class login extends avColumn
 		if (isset($auto_login)) 
 		{
 			$code = $g_sess->gencode();
-			$this->db->query("UPDATE u_users SET auto_login='$code' WHERE id=$g_user_id");
+			$this->db->query("UPDATE u_users SET auto_login='$code' WHERE id='$g_user_id'");
 			setcookie("fygne_vietoj_passwordo", $code, time() + 3600*24*30, '/');
 		}
 		
@@ -644,7 +644,7 @@ art.scene pağto automatas";
 
 		$pass = md5($newpass);
 
-		$this->db->query("UPDATE u_users SET forgotten_pass='', password='$pass' WHERE id=$user_id");
+		$this->db->query("UPDATE u_users SET forgotten_pass='', password='$pass' WHERE id='$user_id'");
 
 		$this->result = true;
 
@@ -694,11 +694,11 @@ art.scene pağto automatas";
 	{
 		$tmp = $this->db->get_array("SELECT COUNT(c.id) AS kiek
 			FROM avcomments c
-			WHERE c.parent_id=$user AND c.table_name='u_users'");
+			WHERE c.parent_id='$user' AND c.table_name='u_users'");
 
 		$tmp1 = $this->db->get_array("SELECT COUNT(c.id) AS kiek
 			FROM avcomments c
-			WHERE c.parent_id=$user AND c.table_name='u_users' AND c.new=1");
+			WHERE c.parent_id='$user' AND c.table_name='u_users' AND c.new=1");
 		
 		$result = array('unread'=>$tmp1['kiek'], 'total'=>$tmp['kiek']);
 
