@@ -2,7 +2,7 @@
 
 /*
 
-$Id: login.class.php,v 1.15 2006/02/05 15:23:25 pukomuko Exp $
+$Id: login.class.php,v 1.16 2006/02/05 15:34:08 pukomuko Exp $
 
 */
 
@@ -14,7 +14,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class login extends avColumn
 {
-	var $version = '$Id: login.class.php,v 1.15 2006/02/05 15:23:25 pukomuko Exp $';
+	var $version = '$Id: login.class.php,v 1.16 2006/02/05 15:34:08 pukomuko Exp $';
 
 	var $table = 'u_users';
 
@@ -264,6 +264,12 @@ class login extends avColumn
 		
 		$info = $g_usr->get_user_info($user);
 		
+		if (!$info)
+		{
+			//var_dump($info); exit;
+			redirect('http://art.scene.lt/process.php/page.simple;menuname.nouser'); 
+		}
+				
 		$info['url'] = $this->completeUri($info['url']);
 		
 		
