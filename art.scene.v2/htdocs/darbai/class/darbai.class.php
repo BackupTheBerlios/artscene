@@ -11,7 +11,7 @@ include_once($RELPATH . 'darbai/class/darbai_sql.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.18 2006/02/05 15:20:08 pukomuko Exp $';
+	var $version = '$Id: darbai.class.php,v 1.19 2006/03/02 12:27:16 uiron Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -406,11 +406,12 @@ class darbai extends avColumn
 		if (empty($g_user_id)) return false;
 		if (!isset($g_usr)) return false;
 
+		// nebalsuotoju grupe
+		if (7 == $g_usr->group_id) return false;
+
 		// praleidziam adminus ir kitus zmogiukus
 		if (2 != $g_usr->group_id) return true;
 
-		// nebalsuotoju grupe
-		if (7 == $g_usr->group_id) return false;
 
 		// ar turim darba senesni uz savaite
 		$tmp = $this->db->get_array("SELECT COUNT(id) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND category_id!=5 AND DATE_SUB(NOW(), INTERVAL 7 DAY) > posted ");
