@@ -11,7 +11,7 @@ include_once($RELPATH . 'darbai/class/darbai_sql.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.19 2006/03/02 12:27:16 uiron Exp $';
+	var $version = '$Id: darbai.class.php,v 1.20 2006/03/06 21:53:47 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
