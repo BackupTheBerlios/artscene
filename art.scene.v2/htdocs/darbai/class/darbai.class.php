@@ -11,7 +11,7 @@ include_once($RELPATH . 'darbai/class/darbai_sql.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.21 2006/03/07 16:17:32 uiron Exp $';
+	var $version = '$Id: darbai.class.php,v 1.22 2006/03/07 21:16:27 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -261,6 +261,16 @@ class darbai extends avColumn
 
 		$this->tpl->set_var('comment_error', $this->error);
 
+
+		// near works line
+		$near = $this->get_near_works($info, $category, $search, $user, $order, $count, $offset, $g_error, $g_user_id, $next_work);
+
+		$this->tpl->set_var('works_thumbs_url', $this->ini->read_var('avworks', 'thumbnails_url'));
+		$this->tpl->set_loop('near', $near);
+		
+		$this->tpl->set_var('nextwork', $next_work);
+		$this->tpl->set_var('admin_options','');
+		
 		if (!empty($GLOBALS['g_user_id']))
 		{
 		  if ($g_usr->can_i_comment())
@@ -273,26 +283,12 @@ class darbai extends avColumn
 			   // komentuoti negali
 			   $message = 'Komentuoti galësi nuo '. $g_usr->may_comment_after;
 			   $this->tpl->set_var('post_comment', $message);
-      }
-      
-      
-      
+			}
+
 			// adminams ir deletomiotams: darbo trynimas
 			if ($g_usr->group_id==1 || $g_usr->group_id==4){
-				
-				// susirandam sekanti darba
-				$nextWork = (array)$this->sql->get_full_list($category, 0, 1, $search, $order, $user, 'forth', $info);
-				if (count($nextWork)!=1)
-					$this->tpl->set_var('nextwork','noavail');
-					else $this->tpl->set_var('nextwork',$nextWork[0]['id']);
-					
 				$this->tpl->process('admin_options','admin_delete');
 			}
-			else
-				$this->tpl->set_var('admin_options','');
-			
-      
-      
 
 			if ($this->sql->has_voted_on($work, &$my_vote))
 			{
@@ -346,19 +342,13 @@ class darbai extends avColumn
 			$this->tpl->process('work_file', 'image_file');
 		}
 		
-		// near works line
-		$near = $this->get_near_works($info, $category, $search, $user, $order, $count, $offset, $g_error, $g_user_id);
-
-		$this->tpl->set_var('works_thumbs_url', $this->ini->read_var('avworks', 'thumbnails_url'));
-		$this->tpl->set_loop('near', $near);
-		
 		return $this->tpl->process('out', 'temp', 2);
 	}
 
 	/**
 	* gràþina gretimø darbø eilutæ
 	*/
-	function get_near_works($info, $category, $search, $user, $order, $count, $offset, $g_error, $g_user_id)
+	function get_near_works($info, $category, $search, $user, $order, $count, $offset, $g_error, $g_user_id, &$next_work)
 	{
 		$numNear = 6;
 		
@@ -368,6 +358,18 @@ class darbai extends avColumn
 		$near_left = (array)$this->sql->get_full_list($category, 0, $numNear, $search, $order, $user, 'back', $info);
 		$near_right = (array)$this->sql->get_full_list($category, 0, $numNear, $search, $order, $user, 'forth', $info);
 		
+		if (!empty($near_right)) 
+		{
+			$next_work = $near_right[0]['id'];
+		}
+		elseif (!empty($near_left))
+		{
+			$next_work = $near_left[0]['id'];
+		}
+		else
+		{
+			$next_work="noavail";
+		}
 		
 		$current = $info;
 		$current['nearlink'] = $this->work_self_link($info['id']);
