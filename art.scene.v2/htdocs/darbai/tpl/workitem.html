@@ -7,7 +7,7 @@
 <img src="../dot.gif" width="25" height="3" border=0 alt="">
 
 
-<!-- $Id: workitem.html,v 1.6 2006/03/07 16:17:34 uiron Exp $ -->
+<!-- $Id: workitem.html,v 1.7 2006/03/07 21:11:12 pukomuko Exp $ -->
 
 <script>
 
@@ -62,6 +62,11 @@ function original()
 	fitObj.style.display = "inline";
 	var orgObj = document.getElementById("org");
 	orgObj.style.display = "none";
+}
+
+function delete_ask() 
+{
+	return confirm('tikrai trinti?');
 }
 
 </script>
@@ -317,6 +322,7 @@ nori dalyvauti diskusijose? pareikðti savo nuomonæ, balsuoti uþ pieðinius? velka
 
 <block name="admin_delete">
 	<br />
-	<a class="thread" href="http://artscene.v2/process.php/page.simple;menuname.delete_work;work.{item.id};nextwork.{nextwork}" style="color:red;">trinti</a>
+	<br />
+	<a class="thread" onclick="return delete_ask();" href="/process.php/page.simple;menuname.delete_work;work.{item.id};nextwork.{nextwork}" style="color:red;">trinti</a>
 </block name="admin_delete">
 	
