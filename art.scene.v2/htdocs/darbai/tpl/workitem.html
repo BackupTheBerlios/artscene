@@ -7,7 +7,7 @@
 <img src="../dot.gif" width="25" height="3" border=0 alt="">
 
 
-<!-- $Id: workitem.html,v 1.5 2005/11/24 21:57:28 pukomuko Exp $ -->
+<!-- $Id: workitem.html,v 1.6 2006/03/07 16:17:34 uiron Exp $ -->
 
 <script>
 
@@ -47,9 +47,9 @@ function fit_to_window()
 	wpObj.style.display = "inline";
 
 	var orgObj = document.getElementById("org");
-	orgObj.style.visibility = "visible";
+	orgObj.style.display = "inline";
 	var fitObj = document.getElementById("fit");
-	fitObj.style.visibility = "hidden";
+	fitObj.style.display = "none";
 
 }
 
@@ -59,9 +59,9 @@ function original()
    wpObj.style.width = wp_w;
    wpObj.style.height = wp_h;
 	var fitObj = document.getElementById("fit");
-	fitObj.style.visibility = "visible";
+	fitObj.style.display = "inline";
 	var orgObj = document.getElementById("org");
-	orgObj.style.visibility = "hidden";
+	orgObj.style.display = "none";
 }
 
 </script>
@@ -100,7 +100,8 @@ function original()
 		perþiûrëjo: {item.views}<br>
 		balsavo: {item.votes}<br>
 		balai:&nbsp;<b>{item.summark}</b>,&nbsp;{item.avgmark}<br>
-		<a id="fit" href="javascript:fit_to_window();" class="thread">sumaþinti</a> <a id="org" href="javascript:original();" style="visibility: hidden" class="thread">originalas</a>
+		<a id="fit" href="javascript:fit_to_window();" class="thread">sumaþinti</a> <a id="org" href="javascript:original();" style="display: none;" class="thread">originalas</a>
+		{admin_options}
 		</td>
 		<td class="table-light" width="80%" valign="top">{item.info}</td>
 	</tr>
@@ -312,3 +313,10 @@ nori dalyvauti diskusijose? pareikðti savo nuomonæ, balsuoti uþ pieðinius? velka
 
 
 </block name="voted_block">
+
+
+<block name="admin_delete">
+	<br />
+	<a class="thread" href="http://artscene.v2/process.php/page.simple;menuname.delete_work;work.{item.id};nextwork.{nextwork}" style="color:red;">trinti</a>
+</block name="admin_delete">
+	

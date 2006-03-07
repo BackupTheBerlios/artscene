@@ -7,7 +7,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class darbai_cleanup extends avColumn
 {
-	var $version = '$Id: darbai_cleanup.class.php,v 1.10 2005/12/03 22:45:03 pukomuko Exp $';
+	var $version = '$Id: darbai_cleanup.class.php,v 1.11 2006/03/07 16:17:33 uiron Exp $';
 	var $table = 'avworks';
 
 	var $block_admin = 'work.deleted.admin';
@@ -44,7 +44,19 @@ class darbai_cleanup extends avColumn
 
 			$this->db->clear_cache_tables(array('avworkvotes', 'avworks', 'avcomments'));
 		}
-		redirect($HTTP_REFERER);
+		
+		
+		$returnURI = $HTTP_REFERER;
+		// jei trinant darbus nurodytas sekantis darbas, kuri reikia rodyti
+		// po trynimo, ten ir keliaujam.
+      	if (isset($GLOBALS['nextwork'])){
+      		if ($GLOBALS['nextwork']=='noavail')
+      			$returnURI = 'http://art.scene.lt/';
+      		else
+      			$returnURI = preg_replace('/work\.\d+/','work.'.$GLOBALS['nextwork'],$returnURI);
+      	}
+
+		redirect($returnURI);
 	}
 
 

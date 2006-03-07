@@ -11,7 +11,7 @@ include_once($RELPATH . 'darbai/class/darbai_sql.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.20 2006/03/06 21:53:47 pukomuko Exp $';
+	var $version = '$Id: darbai.class.php,v 1.21 2006/03/07 16:17:32 uiron Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -274,6 +274,25 @@ class darbai extends avColumn
 			   $message = 'Komentuoti galësi nuo '. $g_usr->may_comment_after;
 			   $this->tpl->set_var('post_comment', $message);
       }
+      
+      
+      
+			// adminams ir deletomiotams: darbo trynimas
+			if ($g_usr->group_id==1 || $g_usr->group_id==4){
+				
+				// susirandam sekanti darba
+				$nextWork = (array)$this->sql->get_full_list($category, 0, 1, $search, $order, $user, 'forth', $info);
+				if (count($nextWork)!=1)
+					$this->tpl->set_var('nextwork','noavail');
+					else $this->tpl->set_var('nextwork',$nextWork[0]['id']);
+					
+				$this->tpl->process('admin_options','admin_delete');
+			}
+			else
+				$this->tpl->set_var('admin_options','');
+			
+      
+      
 
 			if ($this->sql->has_voted_on($work, &$my_vote))
 			{
