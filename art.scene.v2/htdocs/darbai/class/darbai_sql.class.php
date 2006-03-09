@@ -6,7 +6,7 @@
 
 class darbai_sql 
 {
-	var $version = '$Id: darbai_sql.class.php,v 1.9 2006/02/05 15:20:08 pukomuko Exp $';
+	var $version = '$Id: darbai_sql.class.php,v 1.10 2006/03/09 12:47:24 pukomuko Exp $';
 	var $db;
 	
 	function darbai_sql(&$db)
@@ -41,7 +41,7 @@ class darbai_sql
 	*/
 	function get_category_info($id)
 	{
-		return $this->db->get_array("SELECT * FROM avworkcategory WHERE id=$id");
+		return $this->db->get_array("SELECT * FROM avworkcategory WHERE id='$id'");
 	}
 
 	/**
@@ -105,7 +105,7 @@ class darbai_sql
 			$join = "LEFT JOIN avworkvotes v ON (w.work_id = v.work_id)";
 		} elseif ($category) 
 		{ 
-			$where .= " AND w.category_id = $category "; 
+			$where .= " AND w.category_id = '$category' "; 
 		}
 
 		if ($user && ('favourites' != $category) ) { $where .= " AND w.submiter = '$user' "; }
