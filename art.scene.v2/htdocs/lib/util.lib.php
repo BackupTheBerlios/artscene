@@ -1,6 +1,6 @@
 <? 
 /*
- $Id: util.lib.php,v 1.3 2005/12/03 22:45:03 pukomuko Exp $
+ $Id: util.lib.php,v 1.4 2006/03/29 14:27:45 uiron Exp $
  */
 
 // dzhibas, 2001.07.23
@@ -381,6 +381,75 @@ function get_query()
 
 
 
+
+/** removes "http://", if link is of form http://www.something */
+function shortenWWWUri($uri){
+	if (substr($uri,0,10)=='http://www')
+		return substr($uri,7);
+	return $uri;
+}
+
+/**
+ *  callback for replacing url bbcodes with html markup
+ */
+function callbackReplaceUris($matches){
+	if ($matches[1]){
+		// custom url tag
+		if ($matches[2])
+			$uri = $matches[3];
+		else
+			$uri = $matches[4];
+			
+		$title = $matches[4];
+	}
+	else {
+		$uri = $matches[5];
+	}
+	
+	$newPage = true;
+
+	// append "http", if user forgot to
+	if (!strpos($uri,'://'))
+		$uri='http://'.$uri;
+	
+	// if no link title is assumed, set it to uri
+	if (!isset($title) || trim($title)=='')
+		$title = shortenWWWUri($uri);
+		
+	return '<a href="'.$uri.'" '.
+		'title="atidaryti '.shortenWWWUri($uri).($newPage?' naujame puslapyje':'').'" '.
+		($newPage?'target="_blank"':'').'>'.$title.'</a>';
+}
+
+
+
+
+
+/** callback for replacing email bbcodes with html markup
+ * @access private */
+function callbackReplaceEmails($matches){
+	if ($matches[1]){
+		// custom email
+		if ($matches[2])
+			$email = $matches[3];
+		else
+			$email = $matches[4];
+			
+		$title = $matches[4];
+	}
+	else { 
+		$email = $matches[5];
+		$title = $email;
+	}
+	
+	return '<a href="mailto:'.$email.'" title="siusti laiðkà á '.$email.'">'.$title.'</a>';
+}
+
+define('REG_EXP_URI','(https?\:\/\/|www\.)[^\s\]\,\:\.\;\?\!\-]+([\,\:\.\;\?\!\-][^\s\]\,\:\.\;\?\!\-]+)*'); 
+define('REG_EXP_EMAIL','[^\s\]]+@[^\s\]]+');
+
+
+
 /*!
 	make html from bb code
 */
@@ -397,12 +466,21 @@ function do_ubb ($article)
 	$article = str_replace("[/i]","</i>",$article);
 	$article=eregi_replace("\\[img=([^\\[]*)\\]","<img src=\"\\1\">",$article);
 
-	$article=eregi_replace("\\[url=([^\\[]*)\\]([^\\[]*)\\[/url\\]","<a target=\"_new\" href=\"\\1\">\\2</a>",$article);
-	$article=eregi_replace("\\[url\\]([^\\[]*)\\[/url\\]","<a target=\"_new\" href=\"\\1\">\\1</a>",$article);
+
+//	$article=eregi_replace("\\[url=([^\\[]*)\\]([^\\[]*)\\[/url\\]","<a target=\"_new\" href=\"\\1\">\\2</a>",$article);
+//	$article=eregi_replace("\\[url\\]([^\\[]*)\\[/url\\]","<a target=\"_new\" href=\"\\1\">\\1</a>",$article);
+	$urlTag = '\[url(=([^\]]+))?\]([^[]*)\[\/?url\]';
+	$article = preg_replace_callback('/('.$urlTag.')|('.REG_EXP_URI.')/ui', 'callbackReplaceUris', $article);
+
+//	$article=eregi_replace("\\[email=([^\\[]*)\\]([^\\[]*)\\[/email\\]","<a href=\"mailto:\\1\">\\2</a>",$article);
+	$emailTag = '\[email(=([^\]]+))?\]([^]]+)\[\/?email\]';
+	$article = preg_replace_callback('/('.$emailTag.')|('.REG_EXP_EMAIL.')/ui','callbackReplaceEmails',$article);
+
+
+
 
 	$article=eregi_replace("\\[icq=([^\\[]*)\\]([^\\[]*)\\[/icq\\]","<a href=\"http://wwp.icq.com/scripts/Search.dll?to=\\1\">\\2</a>",$article);
 	$article=eregi_replace("\\[colour=([^\\[]*)\\]([^\\[]*)\\[/colour\\]","<font color=\\1>\\2</font>",$article);
-	$article=eregi_replace("\\[email=([^\\[]*)\\]([^\\[]*)\\[/email\\]","<a href=\"mailto:\\1\">\\2</a>",$article);
 	$article=eregi_replace("quote\\]","quote]",$article);  // make lower case
 	$article=str_replace("[quote]\r\n","<blockquote><smallfont>",$article);
 	$article=str_replace("[quote]","<blockquote><smallfont>",$article);
