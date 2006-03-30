@@ -9,7 +9,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai_submit extends avColumn
 {
-	var $version = '$Id: darbai_submit.class.php,v 1.12 2006/03/30 11:47:36 uiron Exp $';
+	var $version = '$Id: darbai_submit.class.php,v 1.13 2006/03/30 14:52:55 uiron Exp $';
 	var $table = 'avworks';
 	var $submit_info_block = 'work.submit.info';
 
@@ -279,9 +279,12 @@ class darbai_submit extends avColumn
 			$this->error .= 'nepavyko padaryti maşo paveiksliuko<br>';
 		}
 
+
+		$thumb_subfolder=$work_subfolder;
 		// jei problemos, dedam default
 		if ($this->error || empty($thumbnail_name))
 		{
+			$thumb_subfolder='';
 			$thumbnail_name = 'nothumbnail.gif';
 		}
 
@@ -296,7 +299,7 @@ class darbai_submit extends avColumn
 		$color = clean_hex($color);
 
 		$this->db->query("INSERT INTO avworks (subject, info, posted, thumbnail, file, submiter, category_id, color, file_size)
-							VALUES ('$subject', '$info', NOW(), '$work_subfolder$thumbnail_name', '$work_subfolder$work_name', $g_user_id, $category, '$color', $work_size)");
+							VALUES ('$subject', '$info', NOW(), '$thumb_subfolder$thumbnail_name', '$work_subfolder$work_name', $g_user_id, $category, '$color', $work_size)");
 
 		// TODO: update avworks_stat
 		$last_id = $this->db->get_insert_id();
