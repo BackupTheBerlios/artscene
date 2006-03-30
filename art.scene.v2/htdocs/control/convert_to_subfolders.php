@@ -14,7 +14,7 @@
  * 
  * 
  * konfiguracija reikes pasikopijuoti ish global.ini
- * kol baisu, kad kas nors sugrius, nusirodyti TEST_MODE=false 
+ * kol baisu, kad kas nors sugrius, nusirodyti TEST_MODE=true 
  * 
  */
 
@@ -131,7 +131,7 @@ function convertWork($work){
 	}
 	
 	if ($work->thumbnail!=DEFAULT_THUMB && file_exists(DIR_THUMBS.$work->thumbnail) && !copy(DIR_THUMBS.$work->thumbnail,DIR_THUMBS.$subdir.$work->thumbnail)){
-		error('nesikopijuoja'.$work->thumbnail);
+		error('nesikopijuoja '.$work->thumbnail);
 		return false;
 	}
 	
