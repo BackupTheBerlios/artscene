@@ -9,7 +9,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai_submit extends avColumn
 {
-	var $version = '$Id: darbai_submit.class.php,v 1.11 2005/12/03 22:45:03 pukomuko Exp $';
+	var $version = '$Id: darbai_submit.class.php,v 1.12 2006/03/30 11:47:36 uiron Exp $';
 	var $table = 'avworks';
 	var $submit_info_block = 'work.submit.info';
 
@@ -142,6 +142,8 @@ class darbai_submit extends avColumn
 
 		$work_name = $GLOBALS['work_name'];
 		$work_size = $GLOBALS['work_size'];
+		
+		$work_subfolder = date('Y-m').'/';
 
 		$work_types = array('gif', 'jpg', 'png', 'swf');
 		$work_type = substr($work_name, strlen($work_name) - 3, 3);
@@ -181,13 +183,21 @@ class darbai_submit extends avColumn
 
 		// kopijuojam darba!
 		$work_name = clean_name($work_name);
-		$work_dest = $this->ini->read_var('avworks', 'works_dir') . $work_name;
+		$work_dest = $this->ini->read_var('avworks', 'works_dir').$work_subfolder;
 
-		while (file_exists($work_dest)) 
+		while (file_exists($work_dest.$work_name)) 
 		{ 
 			$work_name = "_".$work_name;
-			$work_dest = $this->ini->read_var('avworks', 'works_dir') . $work_name;
 		}
+
+		// TODO: antras mkDir parametras - teisiu flagai, po defaultu padarys 777
+		if (!is_dir($work_dest) && !mkdir($work_dest)) {
+			// einam lauk, jei neturim kur dëti darbo.
+			$this->error .= 'turim problemø iðsaugant darbà serveryje, nesusikuria reikiamas folderis.<br>';
+			return true;
+		}
+		
+		$work_dest .= $work_name;
 		
 		copy($work, $work_dest);
 		unlink($work);
@@ -198,7 +208,13 @@ class darbai_submit extends avColumn
 		if ($thumbnail != 'none')
 		{
 			// vadinam taip pat kaip darba, kad nereiktu tikrinti dublikatu
-			$thumb_dest = $this->ini->read_var('avworks', 'thumbnails_dir') . $work_name . '.jpg';
+			$thumb_dest = $this->ini->read_var('avworks', 'thumbnails_dir').$work_subfolder;
+			if (!is_dir($thumb_dest) && !mkdir($thumb_dest)) {
+				$this->error .= 'turim problemø iðsaugant darbà serveryje, nesusikuria reikiamas folderis.<br>';
+			}
+			$thumb_dest .= $work_name.'.jpg';
+
+
 			$exec_src = $this->ini->read_var('avworks', 'convert_exec') ." -sample ". $this->thumb_x ."x". $this->thumb_y ." $thumbnail jpg:$thumb_dest";
 			exec($exec_src);
 
@@ -228,7 +244,12 @@ class darbai_submit extends avColumn
 			&& ($category != $this->flash_category) )
 		{
 			// vadinam taip pat kaip darba, kad nereiktu tikrinti dublikatu
-			$thumb_dest = $this->ini->read_var('avworks', 'thumbnails_dir') . $work_name . '.jpg';
+			$thumb_dest = $this->ini->read_var('avworks', 'thumbnails_dir').$work_subfolder;
+			if (!is_dir($thumb_dest) && !mkdir($thumb_dest)) {
+				$this->error .= 'turim problemø iðsaugant darbà serveryje, nesusikuria reikiamas folderis.<br>';
+			}
+			$thumb_dest .= $work_name.'.jpg';
+
 			$exec_src = $this->ini->read_var('avworks', 'convert_exec') ." -sample ". $this->thumb_x ."x". $this->thumb_y ." $work_dest jpg:$thumb_dest";
 			exec($exec_src);
 
@@ -275,7 +296,7 @@ class darbai_submit extends avColumn
 		$color = clean_hex($color);
 
 		$this->db->query("INSERT INTO avworks (subject, info, posted, thumbnail, file, submiter, category_id, color, file_size)
-							VALUES ('$subject', '$info', NOW(), '$thumbnail_name', '$work_name', $g_user_id, $category, '$color', $work_size)");
+							VALUES ('$subject', '$info', NOW(), '$work_subfolder$thumbnail_name', '$work_subfolder$work_name', $g_user_id, $category, '$color', $work_size)");
 
 		// TODO: update avworks_stat
 		$last_id = $this->db->get_insert_id();
