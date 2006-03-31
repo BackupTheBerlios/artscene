@@ -1,6 +1,6 @@
 <? 
 /*
- $Id: util.lib.php,v 1.4 2006/03/29 14:27:45 uiron Exp $
+ $Id: util.lib.php,v 1.5 2006/03/31 19:52:01 uiron Exp $
  */
 
 // dzhibas, 2001.07.23
@@ -467,9 +467,18 @@ function do_ubb ($article)
 	$article=eregi_replace("\\[img=([^\\[]*)\\]","<img src=\"\\1\">",$article);
 
 
+
+
+	// TODO: nelabai grazus workaroundas 
+	// preg_match atsisako dirbti su lietuviska stringo koduote
+	// dirbam konvertuodami i UTF8 ir atgal. 
+	// su situo lietuviskai, rusiskai komentuoti lyg ir leidzia po senovei.
+	$article = utf8_encode($article);
+
+
 //	$article=eregi_replace("\\[url=([^\\[]*)\\]([^\\[]*)\\[/url\\]","<a target=\"_new\" href=\"\\1\">\\2</a>",$article);
 //	$article=eregi_replace("\\[url\\]([^\\[]*)\\[/url\\]","<a target=\"_new\" href=\"\\1\">\\1</a>",$article);
-	$urlTag = '\[url(=([^\]]+))?\]([^[]*)\[\/?url\]';
+	$urlTag = '\[url(=([^\]]+))?\]([^\[]*)\[\/?url\]';
 	$article = preg_replace_callback('/('.$urlTag.')|('.REG_EXP_URI.')/ui', 'callbackReplaceUris', $article);
 
 //	$article=eregi_replace("\\[email=([^\\[]*)\\]([^\\[]*)\\[/email\\]","<a href=\"mailto:\\1\">\\2</a>",$article);
@@ -477,6 +486,7 @@ function do_ubb ($article)
 	$article = preg_replace_callback('/('.$emailTag.')|('.REG_EXP_EMAIL.')/ui','callbackReplaceEmails',$article);
 
 
+	$article = utf8_decode($article);
 
 
 	$article=eregi_replace("\\[icq=([^\\[]*)\\]([^\\[]*)\\[/icq\\]","<a href=\"http://wwp.icq.com/scripts/Search.dll?to=\\1\">\\2</a>",$article);
