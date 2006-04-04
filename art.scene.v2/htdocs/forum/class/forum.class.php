@@ -10,7 +10,7 @@
  *			(atsiþvelgt á tai kad tai gali bûti nuoroda)
  *			[url] classname ;)
  *
- * @id		$Id: forum.class.php,v 1.1 2004/08/04 22:48:29 pukomuko Exp $
+ * @id		$Id: forum.class.php,v 1.2 2006/04/04 14:04:47 uiron Exp $
  */
 
 include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
@@ -140,10 +140,9 @@ class forum extends avColumn
 
 	function get_thread($id)
 	{
-		$mas = $this->db->get_array("SELECT *
+		return $this->db->get_array("SELECT *
 				FROM {$this->tbthread_list}
 				WHERE id='{$id}'");
-		return $mas;
 	}
 	
 	function get_post($id)
@@ -294,12 +293,14 @@ class forum extends avColumn
 		$this->tpl->set_file('file_post_list', 'forum/tpl/forum_post_list.html', 1);
 
 		$this->tpl->set_var('delete', '');
+		$this->tpl->set_var('vip', '');
 
 		$mas = $this->get_posts((int)$thread_id);
 		
 		$cnt = count($mas);
 
 		$forum_info = $this->get_forum_by_thread($thread_id);
+		$thread_info = $this->get_thread($thread_id);
 
 		if ($cnt == 0)
 			return $this->userErr->Out("Tokios temos nëra.  Pasitikrinkit URL!");
@@ -312,7 +313,7 @@ class forum extends avColumn
 			
 			$mas[$x]['body']= do_ubb(($mas[$x]['body']),"ForumLink");
 			if (empty($mas[$x]['subject']))
-				$mas[$x]['subject'] = do_ubb (htmlspecialchars($mas[$x]['thread_name']));
+				$mas[$x]['subject'] = $x!=0?'':do_ubb (htmlspecialchars($mas[$x]['thread_name']));
 			else
 				$mas[$x]['subject'] = do_ubb (htmlspecialchars($mas[$x]['subject']));
 			
@@ -332,12 +333,18 @@ class forum extends avColumn
 
 		if ($this->is_admin())
 		{
-			$this->tpl->set_var('delete', '| <a href="page.simple;menuname.forum;forum.'. $forum_info['id'] .";tid.$thread_id;event.delete_thread\">trinti</a>");
+			$this->tpl->set_var('delete', ' | <a href="page.simple;menuname.forum;forum.'. $forum_info['id'] .";tid.$thread_id;event.delete_thread\">trinti</a>");
+			
+			$vip_title= (int)$thread_info['vip']==0?'normalus':'vip';
+			$this->tpl->set_var('vip', 'Statusas: <a href="page.simple;menuname.forum;forum.'. $forum_info['id'] .";tid.$thread_id;event.viptoggle_thread\">$vip_title</a>");
 		}
 
 
 		if (!isset($this->user->id)||empty($this->user->id)) {
 			$this->tpl->set_var('infotext',$this->tpl->process('PleaseLogin','PleaseLogin'));
+		} else 
+		if ($thread_info['vip']==1 && !$this->is_admin()) {
+			$this->tpl->set_var('infotext',$this->tpl->process('PleaseLogin','VipThread'));
 		} else {
 			if ($this->post_error != '') {
 				$this->tpl->set_var('postext',htmlspecialchars(stripslashes($GLOBALS['subject'])));
@@ -393,6 +400,23 @@ class forum extends avColumn
 		$this->db->query("DELETE FROM forum_post_list WHERE thread_id='$tid' ");
 		$this->db->query("DELETE FROM forum_thread_list WHERE id='$tid' ");
 	}
+	
+	function event_viptoggle_thread()
+	{
+		global $g_user_id, $tid;
+		if (!$this->is_admin()) return true;
+		if (empty($tid)) return true;
+		
+		$tinfo = $this->get_thread($tid);
+		
+		$newWipStatus = $tinfo['vip']==1?0:1;
+		
+
+		$this->db->query("update forum_thread_list set vip=$newWipStatus WHERE id='$tid' ");
+		redirect('page.simple;menuname.forum;thread.'.$tid);
+	}
+	
+	
 
 	function event_submit_post(){
 		global $url;
