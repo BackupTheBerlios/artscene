@@ -7,7 +7,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class darbai_cleanup extends avColumn
 {
-	var $version = '$Id: darbai_cleanup.class.php,v 1.11 2006/03/07 16:17:33 uiron Exp $';
+	var $version = '$Id: darbai_cleanup.class.php,v 1.12 2006/04/04 11:34:55 uiron Exp $';
 	var $table = 'avworks';
 
 	var $block_admin = 'work.deleted.admin';
@@ -90,8 +90,11 @@ class darbai_cleanup extends avColumn
 			$this->db->query("INSERT INTO avcomments (subject, info, posted, parent_id, table_name, user_id, new) 
 				VALUES ('$subject', '$comment', NOW(), $parent_id, 'u_users',1, 1)");
 				
-	    // user will be able to send work only next day
-	    $this->db->query("UPDATE u_users SET may_send_work_after=DATE_ADD( NOW( ) , INTERVAL 1 DAY )  WHERE id=$parent_id");
+
+		    // gales siusti darba tik sekancia diena 
+			// taip pat, registruojam trynima prie userinfo
+			$col_name = $send_comment==1?'del_works_admin':'del_works_system';
+		    $this->db->query("UPDATE u_users SET $col_name=$col_name+1, may_send_work_after=DATE_ADD(NOW(),INTERVAL 1 DAY)  WHERE id=$parent_id");
 		}
 
 			unlink( $g_ini->read_var('avworks', 'works_dir') . $image);
