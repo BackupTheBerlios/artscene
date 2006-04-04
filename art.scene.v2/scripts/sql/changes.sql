@@ -2,3 +2,7 @@
 ALTER TABLE `u_users` 
 	ADD `del_works_admin` INT UNSIGNED NOT NULL DEFAULT '0',
 	ADD `del_works_system` INT UNSIGNED NOT NULL DEFAULT '0';
+
+--2006 04 04	
+ALTER TABLE `forum_thread_list` 
+	ADD `vip` TINYINT UNSIGNED NOT NULL DEFAULT '0';	
