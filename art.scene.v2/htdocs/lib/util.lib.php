@@ -1,6 +1,6 @@
 <? 
 /*
- $Id: util.lib.php,v 1.5 2006/03/31 19:52:01 uiron Exp $
+ $Id: util.lib.php,v 1.6 2006/04/11 15:08:19 uiron Exp $
  */
 
 // dzhibas, 2001.07.23
@@ -445,7 +445,7 @@ function callbackReplaceEmails($matches){
 	return '<a href="mailto:'.$email.'" title="siusti laiðkà á '.$email.'">'.$title.'</a>';
 }
 
-define('REG_EXP_URI','(https?\:\/\/|www\.)[^\s\]\,\:\.\;\?\!\-]+([\,\:\.\;\?\!\-][^\s\]\,\:\.\;\?\!\-]+)*'); 
+define('REG_EXP_URI','(https?\:\/\/|www\.)[^\s\]\,\:\.\;\?\!\-]+([\,\:\.\;\?\!\-]+[^\s\]\,<>\:\.\;\?\!\-]+)*'); 
 define('REG_EXP_EMAIL','[^\s\]]+@[^\s\]]+');
 
 
