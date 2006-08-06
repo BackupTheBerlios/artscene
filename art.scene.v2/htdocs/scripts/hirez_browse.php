@@ -47,12 +47,12 @@ kopijavimo ritë pas mrfrost'à (c) 1999 <salna@ktl.mii.lt>
 <BODY bgcolor="#000000" text="#C5C0B7" link="#ADBCCD" vlink="#B39595">
 <span class="iheader">
 <? echo $info["name"]?></span><br>
-<span class="ilink"><a href="http://art.scene.lt" class="ilink">art.scene</a> &gt;&gt; <a href="hirez.php3" class="ilink">senoji pieðiniø galerija</a></span><br><br>
+<span class="ilink"><a href="http://art.scene.lt" class="ilink">art.scene</a> &gt;&gt; <a href="hirez.php" class="ilink">senoji pieðiniø galerija</a></span><br><br>
 
     
-<?    if ( $atgal ) { echo "&lt; <a class=\"navig\" href=\"hirez_browse.php3?iid=".$atgal."\">atgal</a> | "; }
+<?    if ( $atgal ) { echo "&lt; <a class=\"navig\" href=\"hirez_browse.php?iid=".$atgal."\">atgal</a> | "; }
     else { echo "&lt; atgal | ";}
-    if ( $pirmyn ) { echo "<a class=\"navig\" href=\"hirez_browse.php3?iid=".$pirmyn."\">pirmyn</a> &gt; | ";}
+    if ( $pirmyn ) { echo "<a class=\"navig\" href=\"hirez_browse.php?iid=".$pirmyn."\">pirmyn</a> &gt; | ";}
     else { echo "pirmyn &gt; | ";}
     
 ?>
@@ -129,7 +129,7 @@ echo StripSlashes($info["descr"]);
 
 <table cellspacing="0" cellpadding="0" border="0"><tr><td bgcolor="#A6A090"><!--baltas krastas-->
 <table width="100%" cellspacing="1" border="0"><tr><td  bgcolor="#2C2B2A">
-  <form method=POST action="submit_hirez_talk.php3" enctype="multipart/form-data">
+  <form method=POST action="submit_hirez_talk.php" enctype="multipart/form-data">
   <?        
       echo "<input type=hidden name=iid value=$iid>";
 	  echo "<input type=hidden name=pname value=\"".$info["name"]."\">";
@@ -159,9 +159,9 @@ echo StripSlashes($info["descr"]);
 </td></tr></table>
 <br>
 <?
-if ( $atgal ) { echo "<a href=\"hirez_browse.php3?iid=".$atgal."\">atgal</a> | "; }
+if ( $atgal ) { echo "<a href=\"hirez_browse.php?iid=".$atgal."\">atgal</a> | "; }
     else { echo "atgal | ";}
-    if ( $pirmyn ) { echo "<a href=\"hirez_browse.php3?iid=".$pirmyn."\">pirmyn</a> | ";}
+    if ( $pirmyn ) { echo "<a href=\"hirez_browse.php?iid=".$pirmyn."\">pirmyn</a> | ";}
     else { echo "pirmyn | ";}
     
 ?><a href="/i_galerija.php">galerija</a> 

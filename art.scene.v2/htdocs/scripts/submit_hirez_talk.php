@@ -43,6 +43,6 @@ Dël bet kokiø klaidø raðykite á <a href="mailto:artscene@fluxus.lt">artscene@flu
 	
 
 	// jeigu atejom iki cia, galim siusti laiska
-	$zinute = "Autorius:   $realname\nE-mail:     $email\nPiesinys:   $iid $pname\nKomentaras: $comment\nhttp://artscene.fluxus.lt/scripts/hirez_browse.php3?iid=$iid\n\npaðto automatas"; 
+	$zinute = "Autorius:   $realname\nE-mail:     $email\nPiesinys:   $iid $pname\nKomentaras: $comment\nhttp://artscene.fluxus.lt/scripts/hirez_browse.php?iid=$iid\n\npaðto automatas"; 
 //	mail("artscene@fluxus.lt","naujas:atsiliepimas", $zinute, "From:artscene@fluxus.lt\r\nReply-to:artscene@fluxus.lt");
 ?>

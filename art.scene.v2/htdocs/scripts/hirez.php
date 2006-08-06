@@ -39,16 +39,16 @@ kopijavimo ritë pas mrfrost'à (c) 1999 <salna@ktl.mii.lt>
 	$pirmyn = $page + 1;
 	
     if ( $atgal == 1 ) { echo "<a href=\"/i_galerija.php\">atgal</a> [ "; }
-    else { echo "<a href=\"hirez.php3?page=".$atgal."\">atgal</a> [ "; }
+    else { echo "<a href=\"hirez.php?page=".$atgal."\">atgal</a> [ "; }
     
 	echo "<a href=\"/i_galerija.php\">1</a> / ";
 	
     for ( $i = 2; $i<$i_pages; $i++ ) {
 	if ($i==$page) {echo $i." / ";}
-	else { echo "<a href=\"hirez.php3?page=".$i."\">$i</a> / ";}
+	else { echo "<a href=\"hirez.php?page=".$i."\">$i</a> / ";}
     } //for
     if ($page==$i_pages) { echo $page." ] pirmyn";}
-    else { echo "<a href=\"hirez.php3?page=".$i_pages."\">$i_pages</a> ] <a href=\"hirez.php3?page=".$pirmyn."\">pirmyn</a>";}
+    else { echo "<a href=\"hirez.php?page=".$i_pages."\">$i_pages</a> ] <a href=\"hirez.php?page=".$pirmyn."\">pirmyn</a>";}
     
     
 ?>
@@ -73,7 +73,7 @@ if ($i_seek) mysql_data_seek($result, $i_seek);
 <tr>
 	<td rowspan="3" bgcolor="#2C2B2A" width="80" align="center">
 	<?
-	  echo "	<a href=\"hirez_browse.php3?iid=".$row["id"]."\"><img src=\"/hirez/thumbs/".$row["thumbnail"]."\" border=0 alt=\"".$row["id"]."\"></a>";
+	  echo "	<a href=\"hirez_browse.php?iid=".$row["id"]."\"><img src=\"/hirez/thumbs/".$row["thumbnail"]."\" border=0 alt=\"".$row["id"]."\"></a>";
 	?></td>
 	<td bgcolor="#2C2B2A" width="100%">
 	
@@ -127,14 +127,14 @@ if ($i_seek) mysql_data_seek($result, $i_seek);
 <?
 
  if ( $atgal == 1 ) { echo "<a href=\"/i_galerija.php\">atgal</a> [ "; }
-    else { echo "<a href=\"hirez.php3?page=".$atgal."\">atgal</a> [ "; }
+    else { echo "<a href=\"hirez.php?page=".$atgal."\">atgal</a> [ "; }
     
 	echo "<a href=\"/i_galerija.php\">1</a> / ";
 	
     for ( $i = 2; $i<$i_pages; $i++ ) { 
 	if ($i==$page) {echo $i." / ";}
-	else { echo "<a href=\"hirez.php3?page=".$i."\">$i</a> / ";}
+	else { echo "<a href=\"hirez.php?page=".$i."\">$i</a> / ";}
     } //for
     if ($page==$i_pages) { echo $page." ] pirmyn";}
-    else { echo "<a href=\"hirez.php3?page=".$i_pages."\">$i_pages</a> ] <a href=\"hirez.php3?page=".$pirmyn."\">pirmyn</a>";}
+    else { echo "<a href=\"hirez.php?page=".$i_pages."\">$i_pages</a> ] <a href=\"hirez.php?page=".$pirmyn."\">pirmyn</a>";}
 ?>

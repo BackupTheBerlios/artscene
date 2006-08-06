@@ -48,12 +48,12 @@
 		
 		èia geresni darbai pakliuvæ á art.scene iki 2001 þiemos.<br><br>
 
-<? include("scripts/in_galerija_hirez.php3"); ?>
+<? include("scripts/in_galerija_hirez.php"); ?>
 
 <br>
 <span class="title">pagal autoriø</span><br>
 <br>
-<? include("scripts/in_hirez_names.php3"); ?>
+<? include("scripts/in_hirez_names.php"); ?>
 <br>
 
 

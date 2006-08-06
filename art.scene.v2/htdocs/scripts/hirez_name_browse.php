@@ -51,15 +51,15 @@ kopijavimo ritë pas mrfrost'à (c) 1999 <salna@ktl.mii.lt>
 </HEAD>
 <BODY bgcolor="#000000" text="#C5C0B7" link="#ADBCCD" vlink="#B39595">
 <span class="iheader">
-<? echo $info["name"]?></span> <? echo "<a href='hirez_name.php3?vardas=". htmlspecialchars($vardas) ."'>$vardas</a>" ?><br>
+<? echo $info["name"]?></span> <? echo "<a href='hirez_name.php?vardas=". htmlspecialchars($vardas) ."'>$vardas</a>" ?><br>
 <span class="ilink"><a href="http://art.scene.lt" class="ilink">art.scene</a> &gt;&gt; <a href="/i_galerija.php" class="ilink">senoji pieðiniø galerija</a></span><br><br>
 
     
 <?
 // tm 000809 + htmlspecialchars()
-    if ( $atgal ) { echo "&lt; <a class=\"navig\" href=\"hirez_name_browse.php3?iid=".$atgal."&vardas=".htmlspecialchars($vardas)."\">atgal</a> | "; }
+    if ( $atgal ) { echo "&lt; <a class=\"navig\" href=\"hirez_name_browse.php?iid=".$atgal."&vardas=".htmlspecialchars($vardas)."\">atgal</a> | "; }
     else { echo "&lt; atgal | ";}
-    if ( $pirmyn ) { echo "<a class=\"navig\" href=\"hirez_name_browse.php3?iid=".$pirmyn."&vardas=".htmlspecialchars($vardas)."\">pirmyn</a> &gt; | ";}
+    if ( $pirmyn ) { echo "<a class=\"navig\" href=\"hirez_name_browse.php?iid=".$pirmyn."&vardas=".htmlspecialchars($vardas)."\">pirmyn</a> &gt; | ";}
     else { echo "pirmyn &gt; | ";}
     
 ?>
@@ -136,7 +136,7 @@ echo StripSlashes($info["descr"]);
 Tavo komentaras:
 <table cellspacing="0" cellpadding="0" border="0"><tr><td bgcolor="#A6A090"><!--baltas krastas-->
 <table width="100%" cellspacing="1" border="0"><tr><td  bgcolor="#2C2B2A">
-  <form method=POST action="submit_hirez_talk.php3" enctype="multipart/form-data">
+  <form method=POST action="submit_hirez_talk.php" enctype="multipart/form-data">
   <?        
       echo "<input type=hidden name=iid value=$iid>";
 	  echo "<input type=hidden name=pname value=\"".$info["name"]."\">";
@@ -166,9 +166,9 @@ Tavo komentaras:
 </td></tr></table>
 <br>
 <?
-if ( $atgal ) { echo "<a href=\"hirez_name_browse.php3?iid=".$atgal."&vardas=$vardas\">atgal</a> | "; }
+if ( $atgal ) { echo "<a href=\"hirez_name_browse.php?iid=".$atgal."&vardas=$vardas\">atgal</a> | "; }
     else { echo "atgal | ";}
-    if ( $pirmyn ) { echo "<a href=\"hirez_name_browse.php3?iid=".$pirmyn."&vardas=$vardas\">pirmyn</a> | ";}
+    if ( $pirmyn ) { echo "<a href=\"hirez_name_browse.php?iid=".$pirmyn."&vardas=$vardas\">pirmyn</a> | ";}
     else { echo "pirmyn | ";}
     
 ?><a href="/i_galerija.html">galerija</a> 

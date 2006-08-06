@@ -21,9 +21,9 @@
 	
     for ( $i = 2; $i<$i_pages; $i++ ) {
 		if ($i==$page) {echo $i." / ";}
-		else { echo "<a href=\"/scripts/hirez.php3?page=".$i."\">$i</a> / ";}
+		else { echo "<a href=\"/scripts/hirez.php?page=".$i."\">$i</a> / ";}
     } //for
-    echo "<a href=\"/scripts/hirez.php3?page=$i_pages\">$i_pages</a> ] <a href=\"/scripts/hirez.php3\">pirmyn</a>";
+    echo "<a href=\"/scripts/hirez.php?page=$i_pages\">$i_pages</a> ] <a href=\"/scripts/hirez.php\">pirmyn</a>";
     
     
 ?>
@@ -42,7 +42,7 @@
 <tr>
 	<td rowspan="3" class="table-dark" width="80" align="center">
 	<?
-	  echo "	<a href=\"/scripts/hirez_browse.php3?iid=".$row["id"]."\"><img src=\"/hirez/thumbs/".$row["thumbnail"]."\" border=0 alt=\"".$row["id"]."\"></a>";
+	  echo "	<a href=\"/scripts/hirez_browse.php?iid=".$row["id"]."\"><img src=\"/hirez/thumbs/".$row["thumbnail"]."\" border=0 alt=\"".$row["id"]."\"></a>";
 	?></td>
 	<td  class="table-dark" width="100%">
 	

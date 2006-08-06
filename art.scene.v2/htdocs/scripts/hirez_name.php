@@ -51,7 +51,7 @@ echo "$vardas PIEÐINIØ GALERIJA";
 
 // tm 000809 pridejau htmlspecialchars()
 
-	  echo "	<a href=\"hirez_name_browse.php3?iid=".$row["id"]."&vardas=".htmlspecialchars($vardas)."\"><img src=\"/hirez/thumbs/".$row["thumbnail"]."\" border=0 alt=\"".$row["id"]."\"></a>";
+	  echo "	<a href=\"hirez_name_browse.php?iid=".$row["id"]."&vardas=".htmlspecialchars($vardas)."\"><img src=\"/hirez/thumbs/".$row["thumbnail"]."\" border=0 alt=\"".$row["id"]."\"></a>";
 	?></td>
 	<td bgcolor="#2C2B2A" width="100%">
 	

@@ -27,7 +27,7 @@
 
 // tm 000809 + htmlspecialchars
 echo "<tr>\n";
-echo "	<td class=\"table-dark\"><a href=\"/scripts/hirez_name.php3?vardas=".htmlspecialchars($row[0])."\">$row[0]</td>\n";
+echo "	<td class=\"table-dark\"><a href=\"/scripts/hirez_name.php?vardas=".htmlspecialchars($row[0])."\">$row[0]</td>\n";
 echo "	<td class=\"table-dark\" align=\"right\"><span class=\"textj\">$row[1]</span></td>\n";
 echo "</tr>\n\n";
 
