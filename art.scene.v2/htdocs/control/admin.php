@@ -10,7 +10,7 @@
 pagrindinis control scriptas
 jam dodam parametrus o jis tada masto ka cia daryti 
 
-$Id: admin.php,v 1.2 2005/01/10 09:00:30 pukomuko Exp $
+$Id: admin.php,v 1.3 2006/10/09 14:04:09 pukomuko Exp $
 */
 
 $RELPATH = '../';
@@ -29,6 +29,7 @@ $g_tpl->set_var('table_inner_name', 'help');
 switch ($page)
 {
 	case 'users_online': 
+		check_permission('page_users_list');
 		if (!empty($logout)) 
 		{
 			$g_db->query("DELETE FROM u_session WHERE userID='$logout'");
