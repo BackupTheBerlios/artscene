@@ -42,7 +42,7 @@ include_once($RELPATH . 'control/class/avchidden.class.php');
 
 class avWorks_delete_log extends avTable
 {
-	var $version = '$Id-ar pakeis?$';
+	var $version = '$Id-ar pakis?$';
 
 	function avWorks_delete_log()
 	{
