@@ -7,7 +7,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class darbai_cleanup extends avColumn
 {
-	var $version = '$Id: darbai_cleanup.class.php,v 1.12 2006/04/04 11:34:55 uiron Exp $';
+	var $version = '$Id: darbai_cleanup.class.php,v 1.13 2006/11/08 22:47:07 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $block_admin = 'work.deleted.admin';
@@ -29,7 +29,8 @@ class darbai_cleanup extends avColumn
 			exit;
 		}
 
-		$work_info = $this->db->get_array("SELECT file, submiter, thumbnail, subject FROM avworks w WHERE id = $work");
+		$work_info = $this->db->get_array("SELECT *, vote_count as vcount, vote_avg as avgmark, vote_sum as summark, submiter as user_id FROM avworks_stat w WHERE work_id = $work");
+		
 		if (empty($work_info)) redirect($HTTP_REFERER);
 
 		if ( (in_array($g_usr->group_id, array(1, 4))) ||
@@ -68,7 +69,7 @@ class darbai_cleanup extends avColumn
 	*/
 	function delete_work($work, $image, $thumb, $send_comment, $work_info)
 	{
-		global $g_ini;
+		global $g_ini, $g_user_id;
 
 		$block_name = '';
 		switch ($send_comment) {
@@ -97,6 +98,8 @@ class darbai_cleanup extends avColumn
 		    $this->db->query("UPDATE u_users SET $col_name=$col_name+1, may_send_work_after=DATE_ADD(NOW(),INTERVAL 1 DAY)  WHERE id=$parent_id");
 		}
 
+		$user_id =  isset($g_user_id) ?  $g_user_id : 1;
+		
 			unlink( $g_ini->read_var('avworks', 'works_dir') . $image);
 			if ('nothumbnail.gif' != $thumb)
 			{
@@ -109,7 +112,8 @@ class darbai_cleanup extends avColumn
 			$this->db->query("DELETE FROM avcomments  WHERE table_name='avworks' AND parent_id = $work");
 			$this->db->query("DELETE FROM avworkvotes  WHERE  work_id = $work");
 			
-
+		$this->db->query("INSERT INTO avworks_delete_log (admin_id, posted, work_submiter, work_subject, work_posted, work_votecount, work_summark, work_avgmark, work_category) 
+				VALUES ('$user_id', NOW(), '$work_info[user_id]', '$work_info[subject]', '$work_info[posted]', '$work_info[vcount]', '$work_info[summark]', '$work_info[avgmark]', '$work_info[category_id]')");
 	}
 
 
@@ -142,7 +146,7 @@ class darbai_cleanup extends avColumn
 
 		// savaites nepakilo virs 1.5 vidurkis
 		$badworks = $this->db->get_result("SELECT COUNT(v.id) AS vcount, SUM(v.mark) AS summark, AVG(v.mark) AS avgmark,
-			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS submiter,  thumbnail,  w.file as file
+			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS submiter,  w.submiter AS user_id, category_id, thumbnail,  w.file as file
 			FROM avworkvotes v, avworks w, u_users u
 			WHERE v.work_id=w.id AND u.id=w.submiter AND
 				DATE_SUB( NOW(), INTERVAL 7 DAY ) > w.posted
@@ -185,7 +189,7 @@ class darbai_cleanup extends avColumn
 	
 		// fotografijos per savaite mazesnes uz 3 
 		$badworks = $this->db->get_result("SELECT COUNT(v.id) AS vcount, SUM(v.mark) AS summark, AVG(v.mark) AS avgmark,
-			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS submiter,  thumbnail,  w.file as file
+			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS submiter,  thumbnail, w.submiter AS user_id, category_id,  w.file as file
 			FROM avworkvotes v, avworks w, u_users u
 			WHERE v.work_id=w.id AND u.id=w.submiter AND w.category_id=5 AND
 				DATE_SUB( NOW(), INTERVAL 7 DAY ) > w.posted
@@ -208,7 +212,7 @@ class darbai_cleanup extends avColumn
 		
 		// per diena foto neperlipo per 2
 		$badworks = $this->db->get_result("SELECT COUNT(v.id) AS vcount, SUM(v.mark) AS summark, AVG(v.mark) AS avgmark,
-			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS submiter, thumbnail,  w.file as file
+			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS submiter, w.submiter AS user_id, category_id, thumbnail,  w.file as file
 			FROM avworkvotes v, avworks w, u_users u
 			WHERE v.work_id=w.id AND u.id=w.submiter AND w.category_id=5 AND
 				DATE_SUB( NOW(), INTERVAL 1 DAY ) > w.posted
