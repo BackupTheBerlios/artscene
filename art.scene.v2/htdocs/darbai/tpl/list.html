@@ -1,4 +1,4 @@
-<!-- $Id: list.html,v 1.4 2004/09/29 00:05:26 pukomuko Exp $ -->
+<!-- $Id: list.html,v 1.5 2006/11/08 19:06:38 pukomuko Exp $ -->
 <table border="0" width="100%" cellpadding=0 cellspacing=0>
 <tr>
 	<td align="left" valign="top">
@@ -94,7 +94,7 @@ dydis: {item.filesize} kb<br>
 </block name="user_item_description">
 
 <block name="delete_url">
-<a href="page.simple;menuname.delete_work;work.{item.id}">trinti</a>
+<a onclick="return delete_ask();" style="color: red;" href="page.simple;menuname.delete_work;work.{item.id}">trinti</a>
 </block name="delete_url">
 
 
