@@ -7,7 +7,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class darbai_cleanup extends avColumn
 {
-	var $version = '$Id: darbai_cleanup.class.php,v 1.13 2006/11/08 22:47:07 pukomuko Exp $';
+	var $version = '$Id: darbai_cleanup.class.php,v 1.14 2006/11/16 01:00:28 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $block_admin = 'work.deleted.admin';
@@ -126,7 +126,7 @@ class darbai_cleanup extends avColumn
 		
 		// per diena neishlipo ish minuso
 		$badworks = $this->db->get_result("SELECT COUNT(v.id) AS vcount, SUM(v.mark) AS summark, AVG(v.mark) AS avgmark,
-			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS submiter, thumbnail,  w.file as file
+			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS user_id, category_id, thumbnail,  w.file as file
 			FROM avworkvotes v, avworks w, u_users u
 			WHERE v.work_id=w.id AND u.id=w.submiter AND
 				DATE_SUB( NOW(), INTERVAL 1 DAY ) > w.posted
@@ -167,7 +167,7 @@ class darbai_cleanup extends avColumn
 
 		// bet kokio senumo jei balsavo daugiau kaip 3 ir -æ visi 
 		$badworks = $this->db->get_result("SELECT COUNT(v.id) AS vcount, SUM(v.mark) AS summark, AVG(v.mark) AS avgmark,
-			w.id AS id, subject, w.submiter AS user_id, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS submiter, category_id, thumbnail,  w.file as file
+			w.id AS id, subject, w.submiter AS user_id, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS user_id, category_id, thumbnail,  w.file as file
 			FROM avworkvotes v, avworks w, u_users u
 			WHERE v.work_id=w.id AND u.id=w.submiter
 			GROUP BY w.id
