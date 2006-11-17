@@ -7,7 +7,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class darbai_cleanup extends avColumn
 {
-	var $version = '$Id: darbai_cleanup.class.php,v 1.14 2006/11/16 01:00:28 pukomuko Exp $';
+	var $version = '$Id: darbai_cleanup.class.php,v 1.15 2006/11/17 21:44:02 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $block_admin = 'work.deleted.admin';
@@ -29,7 +29,7 @@ class darbai_cleanup extends avColumn
 			exit;
 		}
 
-		$work_info = $this->db->get_array("SELECT *, vote_count as vcount, vote_avg as avgmark, vote_sum as summark, submiter as user_id FROM avworks_stat w WHERE work_id = $work");
+		$work_info = $this->db->get_array("SELECT *, vote_count as vcount, vote_avg as avgmark, vote_sum as summark, submiter, category_id FROM avworks_stat w WHERE work_id = $work");
 		
 		if (empty($work_info)) redirect($HTTP_REFERER);
 
@@ -113,7 +113,7 @@ class darbai_cleanup extends avColumn
 			$this->db->query("DELETE FROM avworkvotes  WHERE  work_id = $work");
 			
 		$this->db->query("INSERT INTO avworks_delete_log (admin_id, posted, work_submiter, work_subject, work_posted, work_votecount, work_summark, work_avgmark, work_category) 
-				VALUES ('$user_id', NOW(), '$work_info[user_id]', '$work_info[subject]', '$work_info[posted]', '$work_info[vcount]', '$work_info[summark]', '$work_info[avgmark]', '$work_info[category_id]')");
+				VALUES ('$user_id', NOW(), '$work_info[submiter]', '$work_info[subject]', '$work_info[posted]', '$work_info[vcount]', '$work_info[summark]', '$work_info[avgmark]', '$work_info[category_id]')");
 	}
 
 
@@ -126,7 +126,7 @@ class darbai_cleanup extends avColumn
 		
 		// per diena neishlipo ish minuso
 		$badworks = $this->db->get_result("SELECT COUNT(v.id) AS vcount, SUM(v.mark) AS summark, AVG(v.mark) AS avgmark,
-			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS user_id, category_id, thumbnail,  w.file as file
+			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS submiter, category_id, thumbnail,  w.file as file
 			FROM avworkvotes v, avworks w, u_users u
 			WHERE v.work_id=w.id AND u.id=w.submiter AND
 				DATE_SUB( NOW(), INTERVAL 1 DAY ) > w.posted
@@ -146,7 +146,7 @@ class darbai_cleanup extends avColumn
 
 		// savaites nepakilo virs 1.5 vidurkis
 		$badworks = $this->db->get_result("SELECT COUNT(v.id) AS vcount, SUM(v.mark) AS summark, AVG(v.mark) AS avgmark,
-			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS submiter,  w.submiter AS user_id, category_id, thumbnail,  w.file as file
+			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS submiter,  category_id, thumbnail,  w.file as file
 			FROM avworkvotes v, avworks w, u_users u
 			WHERE v.work_id=w.id AND u.id=w.submiter AND
 				DATE_SUB( NOW(), INTERVAL 7 DAY ) > w.posted
@@ -167,7 +167,7 @@ class darbai_cleanup extends avColumn
 
 		// bet kokio senumo jei balsavo daugiau kaip 3 ir -æ visi 
 		$badworks = $this->db->get_result("SELECT COUNT(v.id) AS vcount, SUM(v.mark) AS summark, AVG(v.mark) AS avgmark,
-			w.id AS id, subject, w.submiter AS user_id, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS user_id, category_id, thumbnail,  w.file as file
+			w.id AS id, subject, w.submiter AS submiter, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username,  category_id, thumbnail,  w.file as file
 			FROM avworkvotes v, avworks w, u_users u
 			WHERE v.work_id=w.id AND u.id=w.submiter
 			GROUP BY w.id
@@ -189,7 +189,7 @@ class darbai_cleanup extends avColumn
 	
 		// fotografijos per savaite mazesnes uz 3 
 		$badworks = $this->db->get_result("SELECT COUNT(v.id) AS vcount, SUM(v.mark) AS summark, AVG(v.mark) AS avgmark,
-			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS submiter,  thumbnail, w.submiter AS user_id, category_id,  w.file as file
+			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS submiter,  thumbnail, category_id,  w.file as file
 			FROM avworkvotes v, avworks w, u_users u
 			WHERE v.work_id=w.id AND u.id=w.submiter AND w.category_id=5 AND
 				DATE_SUB( NOW(), INTERVAL 7 DAY ) > w.posted
@@ -212,7 +212,7 @@ class darbai_cleanup extends avColumn
 		
 		// per diena foto neperlipo per 2
 		$badworks = $this->db->get_result("SELECT COUNT(v.id) AS vcount, SUM(v.mark) AS summark, AVG(v.mark) AS avgmark,
-			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS submiter, w.submiter AS user_id, category_id, thumbnail,  w.file as file
+			w.id AS id, subject, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, u.id AS submiter, category_id, thumbnail,  w.file as file
 			FROM avworkvotes v, avworks w, u_users u
 			WHERE v.work_id=w.id AND u.id=w.submiter AND w.category_id=5 AND
 				DATE_SUB( NOW(), INTERVAL 1 DAY ) > w.posted
