@@ -10,7 +10,7 @@
  *			(atsişvelgt á tai kad tai gali bûti nuoroda)
  *			[url] classname ;)
  *
- * @id		$Id: forum.class.php,v 1.2 2006/04/04 14:04:47 uiron Exp $
+ * @id		$Id: forum.class.php,v 1.3 2007/11/25 23:29:12 pukomuko Exp $
  */
 
 include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
@@ -43,7 +43,7 @@ class forum extends avColumn
 
 	function is_admin()
 	{
-		if ((6==$this->user->id) || (12==$this->user->id))
+		if ($this->user->group_id==1)
 		{
 			return true;
 		}
