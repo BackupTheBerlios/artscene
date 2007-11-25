@@ -3,10 +3,8 @@
 	Main file for userside
 
 	Created: js, 2001.09.04
-	___________________________________________________________
-	This file is part of flexiUpdate, content control framework
-	Copyright (c) 2001 UAB "Alternatyvus valdymas"
-	http://www.avc.lt <info@avc.lt>
+	__________________________________________________________
+	$Id: process.php,v 1.2 2007/11/25 23:49:08 pukomuko Exp $
 */
 
 /*!
@@ -50,6 +48,10 @@ include_once($RELPATH . $LIBPATH . 'user_header.inc.php');
 if (substr($REQUEST_URI, - strlen('/process.php')) == '/process.php') redirect ('process.php/');
 
 //if ($_SERVER['HTTP_HOST'] != 'art.scene.lt') redirect('http://art.scene.lt/process.php/page.simple;menuname.address');
+
+if ($_SERVER['REMOTE_ADDR'] == '78.62.16.145') die("This IP is temporary suspended. Please contact art@scene.lt");
+//if ($_SERVER['REMOTE_ADDR'] == '217.28.248.89') die("This IP is temporary suspended. Please contact art@scene.lt");
+
 
 if (isset($GLOBALS['bench'])) { echo "<br>checkpoint[headers]: " . round((getmicrotime() - $pradedam),2);}
 
