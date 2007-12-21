@@ -4,7 +4,7 @@
 
 	Created: js, 2001.08.13
 	
-	$Id: site.ini.php,v 1.2 2005/12/03 22:45:01 pukomuko Exp $
+	$Id: site.ini.php,v 1.3 2007/12/21 23:46:02 pukomuko Exp $
 	___________________________________________________________
 	This file is part of flexiUpdate, content control framework
 	Copyright (c) 2001 UAB "Alternatyvus valdymas"
@@ -46,7 +46,8 @@ $g_ini = & new avIni($RELPATH . 'global.ini.php');
 
 if (isset($GLOBALS['bench'])) { echo "<br>checkpoint[ini]: " . round((getmicrotime() - $pradedam),2); }
 
-if (empty($lang)) { $lang = $g_ini->read_var('site', 'Language'); }
+if (empty($lang) || ($lang != 'lt' && $lang != 'en') ) { $lang = $g_ini->read_var('site', 'Language'); }
+$lang = clean_name($lang);
 include_once($RELPATH . $LANGPATH . $lang . '.inc.php');
 
 
@@ -64,7 +65,8 @@ $g_tpl = & new phemplate($RELPATH, 'keep');
 $g_tpl->set_error_handler(&$g_error);
 
 $g_tpl->set_var('RELPATH', $RELPATH);
-$g_tpl->set_var('G_PHP_SELF', $PHP_SELF);
+//$g_tpl->set_var('G_PHP_SELF', $PHP_SELF);
+$g_tpl->set_var('G_PHP_SELF', $_SERVER["PHP_SELF"]);
 $g_tpl->set_var('lang', $g_lang);
 
 $avms_version = '2.1';
