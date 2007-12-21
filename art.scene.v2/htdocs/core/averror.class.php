@@ -2,10 +2,8 @@
 /*
 	Global error header 	
 	Created: js, 2001.08.13
+	$Id: averror.class.php,v 1.4 2007/12/21 23:23:23 pukomuko Exp $
 	___________________________________________________________
-	This file is part of flexiUpdate, content control framework
-	Copyright (c) 2001 UAB "Alternatyvus valdymas"
-	http://www.avc.lt <info@avc.lt>
 */
 
 
@@ -71,18 +69,27 @@ class avError
 // error handler function
 function avErrorHandler ($errno, $errstr, $errfile, $errline, $context) 
 {
+  global $g_user_id, $g_user_name;
 	if (!error_reporting()) return false;
 	$errpage = $GLOBALS['REQUEST_URI'];
-	echo "<br>
+	$text = "<br>
 	<b>atsipraðome, bet sistemoje ávyko klaida</b>:<br>
 	<font color='#CC0000'>$errstr</font>
 	<br>
 	failas: $errfile [$errline]<br>
 	puslapis: $errpage<br>
-	<b>bûtø labai smagu, jei atsiøstum ðià informacijà <a href='mailto:artscene@fluxus.lt?subject=error on art.scene'>paðtu</a> su prieraðu kà mëginai padaryti.</b>
+	g_user_id: $g_user_id<br>
+	g_user_name: $g_user_name<br>
 	<br><br>";
-	exit;
+
+	if (isset($GLOBALS['bench'])) { echo $text; }
+	else { 
+		mail('salna@ktl.mii.lt', 'klaida ant art.scene.lt', $text);
+		echo "<b>atsipraðome, bet sistemoje ávyko klaida</b>: ";
+		echo "<font color='#CC0000'>$errno</font><br>";		
+	}
 }
 
-//set_error_handler("avErrorHandler");
+
+set_error_handler("avErrorHandler");
 ?>
