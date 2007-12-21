@@ -9,7 +9,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai_list extends avColumn
 {
-	var $version = '$Id: darbai_list.class.php,v 1.3 2004/10/05 13:40:25 pukomuko Exp $';
+	var $version = '$Id: darbai_list.class.php,v 1.4 2007/12/21 23:23:46 pukomuko Exp $';
 
 	var $table = 'avworks';
 
@@ -43,11 +43,26 @@ class darbai_list extends avColumn
 
 	function get_top($limit = 4)
 	{
-		$statement = "SELECT COUNT(v.id) AS vcount, SUM(v.mark) AS summark, AVG(v.mark) AS avgmark,
+/*		$statement = "SELECT COUNT(v.id) AS vcount, SUM(v.mark) AS summark, AVG(v.mark) AS avgmark,
 			w.id AS id, subject, w.submiter AS user_id, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted,  u.username AS username, wc.name AS category, category_id, thumbnail
 			FROM avworkvotes v, avworks w, u_users u, avworkcategory wc
 			WHERE v.work_id=w.id AND u.id=w.submiter AND w.category_id=wc.id AND
 				DATE_SUB( NOW(), INTERVAL 7 DAY ) < v.posted
+			GROUP BY w.id
+			ORDER BY summark DESC, avgmark DESC, w.score DESC
+			LIMIT $limit
+		";
+*/
+		// plusam plusam optimizuojam /tm
+		$statement = "SELECT COUNT(v.id) AS vcount, SUM(v.mark) AS summark, AVG(v.mark) AS avgmark,
+				w.id AS id, subject, w.submiter AS user_id, 
+				DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted, 
+				u.username AS username, wc.name AS category, category_id, thumbnail
+			FROM avworkvotes v
+				LEFT JOIN avworks w ON v.work_id=w.id 
+				LEFT JOIN u_users u ON u.id=w.submiter
+				LEFT JOIN avworkcategory wc ON w.category_id=wc.id
+			WHERE DATE_SUB( NOW(), INTERVAL 7 DAY ) < v.posted
 			GROUP BY w.id
 			ORDER BY summark DESC, avgmark DESC, w.score DESC
 			LIMIT $limit
@@ -135,12 +150,22 @@ class darbai_list extends avColumn
 
 	function get_fresh_works($count)
 	{
-		$sql = "SELECT w.id AS id, w.subject, w.submiter AS user_id, w.thumbnail, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted, u.username AS username, DATE_FORMAT(max(c.posted), '%Y.%m.%d %H:%i') as last_post
+/*		$sql = "SELECT w.id AS id, w.subject, w.submiter AS user_id, w.thumbnail, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted, u.username AS username, DATE_FORMAT(max(c.posted), '%Y.%m.%d %H:%i') as last_post
 			FROM avcomments c, avworks w, u_users u
 			WHERE c.table_name='avworks' AND w.id=c.parent_id AND w.submiter=u.id
 			GROUP BY w.id
 			ORDER BY last_post DESC 
+			LIMIT $count"; */
+		// optimizuojam optimizuojam, nemiegam /tm
+		$sql = "SELECT w.id AS id, w.subject, w.submiter AS user_id, w.thumbnail, DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted, u.username AS username, DATE_FORMAT(max(c.posted), '%Y.%m.%d %H:%i') as last_post
+			FROM avcomments c
+				RIGHT JOIN avworks w ON c.parent_id=w.id AND c.table_name='avworks'
+				LEFT JOIN u_users u ON u.id=w.submiter
+			GROUP BY w.id
+			ORDER BY last_post DESC 
 			LIMIT $count";
+
+
 
 		return $this->db->cached_select('comments', $sql, array('avworks', 'u_users','avcomments'), 6000);
 	}
