@@ -9,7 +9,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai_submit extends avColumn
 {
-	var $version = '$Id: darbai_submit.class.php,v 1.13 2006/03/30 14:52:55 uiron Exp $';
+	var $version = '$Id: darbai_submit.class.php,v 1.14 2008/07/26 21:25:49 pukomuko Exp $';
 	var $table = 'avworks';
 	var $submit_info_block = 'work.submit.info';
 
@@ -42,13 +42,13 @@ class darbai_submit extends avColumn
 	function check_cannot_post() {
 		global  $g_user_id, $g_usr;
 
-		$tmp = $this->db->get_array("SELECT COUNT(id) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND DATE_ADD(posted, INTERVAL 1 DAY) > NOW()");
+		$tmp = $this->db->get_array("SELECT COUNT(*) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND DATE_ADD(posted, INTERVAL 1 DAY) > NOW()");
 		if ($tmp['kiekis'] > 2 ) return 'per ðias 24 valandas jau ádëjai tris darbus, lauk rytdienos.';
 
 		// tiems kurie neturi devyniø darbø senesniø uþ savaitæ
-		$tmp = $this->db->get_array("SELECT COUNT(id) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND DATE_SUB(NOW(), INTERVAL 7 DAY) > posted ");
+		$tmp = $this->db->get_array("SELECT COUNT(*) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND DATE_SUB(NOW(), INTERVAL 7 DAY) > posted ");
 		if ($tmp['kiekis'] < 9 ) {
-			$tmp = $this->db->get_array("SELECT COUNT(id) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND  DATE_ADD(posted, INTERVAL 18 HOUR) > NOW()");
+			$tmp = $this->db->get_array("SELECT COUNT(*) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND  DATE_ADD(posted, INTERVAL 18 HOUR) > NOW()");
 			if ($tmp['kiekis'] > 0 ) return 'per ðias 18 valandø jau ádëjai vienà darbà, lauk rytdienos.';
 		}
 		
@@ -142,8 +142,6 @@ class darbai_submit extends avColumn
 
 		$work_name = $GLOBALS['work_name'];
 		$work_size = $GLOBALS['work_size'];
-		
-		$work_subfolder = date('Y-m').'/';
 
 		$work_types = array('gif', 'jpg', 'png', 'swf');
 		$work_type = substr($work_name, strlen($work_name) - 3, 3);
@@ -183,21 +181,13 @@ class darbai_submit extends avColumn
 
 		// kopijuojam darba!
 		$work_name = clean_name($work_name);
-		$work_dest = $this->ini->read_var('avworks', 'works_dir').$work_subfolder;
+		$work_dest = $this->ini->read_var('avworks', 'works_dir') . $work_name;
 
-		while (file_exists($work_dest.$work_name)) 
+		while (file_exists($work_dest)) 
 		{ 
 			$work_name = "_".$work_name;
+			$work_dest = $this->ini->read_var('avworks', 'works_dir') . $work_name;
 		}
-
-		// TODO: antras mkDir parametras - teisiu flagai, po defaultu padarys 777
-		if (!is_dir($work_dest) && !mkdir($work_dest)) {
-			// einam lauk, jei neturim kur dëti darbo.
-			$this->error .= 'turim problemø iðsaugant darbà serveryje, nesusikuria reikiamas folderis.<br>';
-			return true;
-		}
-		
-		$work_dest .= $work_name;
 		
 		copy($work, $work_dest);
 		unlink($work);
@@ -208,13 +198,7 @@ class darbai_submit extends avColumn
 		if ($thumbnail != 'none')
 		{
 			// vadinam taip pat kaip darba, kad nereiktu tikrinti dublikatu
-			$thumb_dest = $this->ini->read_var('avworks', 'thumbnails_dir').$work_subfolder;
-			if (!is_dir($thumb_dest) && !mkdir($thumb_dest)) {
-				$this->error .= 'turim problemø iðsaugant darbà serveryje, nesusikuria reikiamas folderis.<br>';
-			}
-			$thumb_dest .= $work_name.'.jpg';
-
-
+			$thumb_dest = $this->ini->read_var('avworks', 'thumbnails_dir') . $work_name . '.jpg';
 			$exec_src = $this->ini->read_var('avworks', 'convert_exec') ." -sample ". $this->thumb_x ."x". $this->thumb_y ." $thumbnail jpg:$thumb_dest";
 			exec($exec_src);
 
@@ -244,12 +228,7 @@ class darbai_submit extends avColumn
 			&& ($category != $this->flash_category) )
 		{
 			// vadinam taip pat kaip darba, kad nereiktu tikrinti dublikatu
-			$thumb_dest = $this->ini->read_var('avworks', 'thumbnails_dir').$work_subfolder;
-			if (!is_dir($thumb_dest) && !mkdir($thumb_dest)) {
-				$this->error .= 'turim problemø iðsaugant darbà serveryje, nesusikuria reikiamas folderis.<br>';
-			}
-			$thumb_dest .= $work_name.'.jpg';
-
+			$thumb_dest = $this->ini->read_var('avworks', 'thumbnails_dir') . $work_name . '.jpg';
 			$exec_src = $this->ini->read_var('avworks', 'convert_exec') ." -sample ". $this->thumb_x ."x". $this->thumb_y ." $work_dest jpg:$thumb_dest";
 			exec($exec_src);
 
@@ -279,12 +258,9 @@ class darbai_submit extends avColumn
 			$this->error .= 'nepavyko padaryti maþo paveiksliuko<br>';
 		}
 
-
-		$thumb_subfolder=$work_subfolder;
 		// jei problemos, dedam default
 		if ($this->error || empty($thumbnail_name))
 		{
-			$thumb_subfolder='';
 			$thumbnail_name = 'nothumbnail.gif';
 		}
 
@@ -299,7 +275,7 @@ class darbai_submit extends avColumn
 		$color = clean_hex($color);
 
 		$this->db->query("INSERT INTO avworks (subject, info, posted, thumbnail, file, submiter, category_id, color, file_size)
-							VALUES ('$subject', '$info', NOW(), '$thumb_subfolder$thumbnail_name', '$work_subfolder$work_name', $g_user_id, $category, '$color', $work_size)");
+							VALUES ('$subject', '$info', NOW(), '$thumbnail_name', '$work_name', $g_user_id, $category, '$color', $work_size)");
 
 		// TODO: update avworks_stat
 		$last_id = $this->db->get_insert_id();
