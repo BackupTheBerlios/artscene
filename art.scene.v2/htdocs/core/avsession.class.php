@@ -233,7 +233,7 @@ class avSession
 		if (!$sesscode) return 0;
 
 		$this->db->query("INSERT INTO $this->session_table 
-					VALUES ('$sesscode', ".time().", '".$GLOBALS['REMOTE_ADDR']."', NULL, '$GLOBALS[REQUEST_URI]')");
+					VALUES ('$sesscode', ".time().", '".$_SERVER['REMOTE_ADDR']."', NULL, '$_SERVER[REQUEST_URI]')");
 		
 		setcookie("session",$sesscode, false, "/");
 		 

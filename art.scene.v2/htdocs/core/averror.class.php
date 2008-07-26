@@ -2,7 +2,7 @@
 /*
 	Global error header 	
 	Created: js, 2001.08.13
-	$Id: averror.class.php,v 1.4 2007/12/21 23:23:23 pukomuko Exp $
+	$Id: averror.class.php,v 1.5 2008/07/26 21:08:11 pukomuko Exp $
 	___________________________________________________________
 */
 
@@ -71,7 +71,7 @@ function avErrorHandler ($errno, $errstr, $errfile, $errline, $context)
 {
   global $g_user_id, $g_user_name;
 	if (!error_reporting()) return false;
-	$errpage = $GLOBALS['REQUEST_URI'];
+	$errpage = $_SERVER["REQUEST_URI"];
 	$text = "<br>
 	<b>atsipraðome, bet sistemoje ávyko klaida</b>:<br>
 	<font color='#CC0000'>$errstr</font>
@@ -84,7 +84,7 @@ function avErrorHandler ($errno, $errstr, $errfile, $errline, $context)
 
 	if (isset($GLOBALS['bench'])) { echo $text; }
 	else { 
-		mail('salna@ktl.mii.lt', 'klaida ant art.scene.lt', $text);
+		mail('pukomuko@gmail.com', 'klaida ant art.scene.lt', $text);
 		echo "<b>atsipraðome, bet sistemoje ávyko klaida</b>: ";
 		echo "<font color='#CC0000'>$errno</font><br>";		
 	}
