@@ -9,7 +9,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai_list extends avColumn
 {
-	var $version = '$Id: darbai_list.class.php,v 1.4 2007/12/21 23:23:46 pukomuko Exp $';
+	var $version = '$Id: darbai_list.class.php,v 1.5 2008/07/26 21:12:02 pukomuko Exp $';
 
 	var $table = 'avworks';
 
