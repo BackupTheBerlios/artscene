@@ -2,7 +2,7 @@
 
 /*
 
-$Id: login.class.php,v 1.16 2006/02/05 15:34:08 pukomuko Exp $
+$Id: login.class.php,v 1.17 2008/07/26 21:27:02 pukomuko Exp $
 
 */
 
@@ -14,7 +14,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class login extends avColumn
 {
-	var $version = '$Id: login.class.php,v 1.16 2006/02/05 15:34:08 pukomuko Exp $';
+	var $version = '$Id: login.class.php,v 1.17 2008/07/26 21:27:02 pukomuko Exp $';
 
 	var $table = 'u_users';
 
@@ -55,7 +55,7 @@ class login extends avColumn
 			$this->tpl->set_var('cookie_user_name', $cookie_user_name);
 
 			$this->tpl->set_var('error', $this->error);
-			$this->tpl->set_var('url', $GLOBALS['REQUEST_URI']);
+			$this->tpl->set_var('url', $_SERVER['REQUEST_URI']);
 
 			$this->tpl->set_file('temp', 'users/tpl/login_form.html');
 			return $this->tpl->process('out', 'temp', 2);
@@ -285,10 +285,10 @@ class login extends avColumn
 
 		if (!$info) redirect('/process.php/page.simple;menuname.nouser');
 
-		$tmp = $this->db->get_array("SELECT COUNT(id) AS count FROM avcomments WHERE user_id='$user'");
+		$tmp = $this->db->get_array("SELECT COUNT(*) AS count FROM avcomments WHERE user_id='$user'");
 		$info['comments'] = $tmp['count'];
 
-		$tmp = $this->db->get_array("SELECT COUNT(id) AS count, sum(mark) AS sum_mark FROM avworkvotes WHERE user_id='$user'");
+		$tmp = $this->db->get_array("SELECT COUNT(*) AS count, sum(mark) AS sum_mark FROM avworkvotes WHERE user_id='$user'");
 		$info['votes'] = $tmp['count'];
 		$info['sum_mark'] = $tmp['sum_mark'] ? $tmp['sum_mark'] : 0;
 

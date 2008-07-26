@@ -11,7 +11,7 @@ include_once($RELPATH . 'darbai/class/darbai_sql.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.22 2006/03/07 21:16:27 pukomuko Exp $';
+	var $version = '$Id: darbai.class.php,v 1.23 2008/07/26 21:24:43 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -435,11 +435,11 @@ class darbai extends avColumn
 
 
 		// ar turim darba senesni uz savaite
-		$tmp = $this->db->get_array("SELECT COUNT(id) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND category_id!=5 AND DATE_SUB(NOW(), INTERVAL 7 DAY) > posted ");
+		$tmp = $this->db->get_array("SELECT COUNT(*) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND category_id!=5 AND DATE_SUB(NOW(), INTERVAL 7 DAY) > posted ");
 		if ($tmp['kiekis'] < 1 ) {
 
 			// ar turim tris fotkes senesnes uz savaite
-			$tmp = $this->db->get_array("SELECT COUNT(id) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND category_id=5 AND DATE_SUB(NOW(), INTERVAL 7 DAY) > posted ");
+			$tmp = $this->db->get_array("SELECT COUNT(*) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND category_id=5 AND DATE_SUB(NOW(), INTERVAL 7 DAY) > posted ");
 			if ($tmp['kiekis'] < 3 ) return false;
 		}
 
