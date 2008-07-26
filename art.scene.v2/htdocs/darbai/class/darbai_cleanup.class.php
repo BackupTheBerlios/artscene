@@ -7,7 +7,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class darbai_cleanup extends avColumn
 {
-	var $version = '$Id: darbai_cleanup.class.php,v 1.15 2006/11/17 21:44:02 pukomuko Exp $';
+	var $version = '$Id: darbai_cleanup.class.php,v 1.16 2008/07/26 21:23:58 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $block_admin = 'work.deleted.admin';
@@ -90,7 +90,54 @@ class darbai_cleanup extends avColumn
 
 			$this->db->query("INSERT INTO avcomments (subject, info, posted, parent_id, table_name, user_id, new) 
 				VALUES ('$subject', '$comment', NOW(), $parent_id, 'u_users',1, 1)");
-				
+
+			// $this->db->query("UPDATE $tbl SET c_last_post=NOW() , c_count=c_count+1 WHERE id=$parent_id");
+			// $this->db->query("UPDATE $tbl t, avcomments c SET t.c_last_post=MAX(c.posted), t.c_count=COUNT(c.id) 
+			//	WHERE t.id=$parent_id AND c.parent_id=t.id";
+
+			// CREATE TEMPORARY TABLE tmpCount AS
+			// SELECT u.id AS id, MAX(c.posted) AS c_last_post, COUNT(c.id) AS c_count 
+			//	FROM avcomments c LEFT JOIN u_users u ON u.id=c.parent_id WHERE table_name='u_users' GROUP BY id;
+			// UPDATE u_users u, tmpCount c SET u.c_last_post=c.c_last_post, u.c_count=c.c_count WHERE c.id=u.id;
+			// DROP TEMPORARY TABLE tmpCount; 
+			// 
+
+
+
+			// // refreshinti skaitliukus 1 teiblui //
+			// CREATE TEMPORARY TABLE tmpCount AS
+			// SELECT z.id AS id, MAX(c.posted) AS c_last_post, COUNT(c.id) AS c_count
+			// 	FROM avcomments c LEFT JOIN avworks z ON z.id=c.parent_id WHERE table_name='avworks' GROUP BY id;
+			// UPDATE avworks z, tmpCount c SET z.c_last_post=c.c_last_post, z.c_count=c.c_count WHERE c.id=z.id;
+			// DROP TEMPORARY TABLE tmpCount;
+			//
+
+			/* // refreshinti viena //
+			   SELECT @last:=MAX(c.posted), @count:=COUNT(c.id) FROM avcomments c 
+			   	WHERE table_name='u_users' AND c.parent_id=4600;
+			   UPDATE u_users SET c_last_post=@last, c_count=@count WHERE id=4600;
+			   
+			   $this->db->update_cc_one('avcomments','u_users',4600);
+
+			   // +1 comment //
+			   
+			   UPDATE $table SET c_last_post=@now, c_count=c_count+1;
+
+
+			*/
+
+			/* // gauti paskutinius komentuotus darbus
+			   SELECT w.id AS id, w.subject, w.submiter AS user_id, w.thumbnail, 
+			   		DATE_FORMAT(w.posted, '%Y.%m.%d') AS posted, u.username AS username, 
+					DATE_FORMAT(w.c_last_post, '%Y.%m.%d %H:%i') as last_post 
+				FROM avworks w LEFT JOIN u_users u ON u.id=w.submiter 
+				GROUP BY w.id 
+				ORDER BY w.c_last_post 
+				DESC LIMIT 10;
+
+			*/
+
+
 
 		    // gales siusti darba tik sekancia diena 
 			// taip pat, registruojam trynima prie userinfo
