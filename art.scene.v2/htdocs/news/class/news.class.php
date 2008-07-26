@@ -1,6 +1,6 @@
 <? 
 /*
-$Id: news.class.php,v 1.3 2005/12/22 12:11:37 pukomuko Exp $
+$Id: news.class.php,v 1.4 2008/07/26 21:33:28 pukomuko Exp $
 */
 
 //!! news
@@ -187,12 +187,26 @@ class news extends avColumn
 		if ($category) {$where .= " AND n.category_id = '$category'"; }
 		if ($search) { $where .= " AND (n.subject LIKE '%$search%' OR n.info LIKE '%$search%' OR n.full_text LIKE '%$search%') "; }
 
-		$statement = "SELECT n.id AS id, n.subject AS subject, n.info AS info, n.file AS file, DATE_FORMAT(n.posted, '%Y.%m.%d') AS posted, LENGTH(n.full_text) AS read_more, category_id,
+/*		$statement = "SELECT n.id AS id, n.subject AS subject, n.info AS info, n.file AS file, DATE_FORMAT(n.posted, '%Y.%m.%d') AS posted, LENGTH(n.full_text) AS read_more, category_id,
 			u.id AS user_id, u.username AS username,
 			nc.name AS category,
 			COUNT(c.id) AS comments
 			FROM avnews n LEFT JOIN avcomments c ON (c.table_name='avnews' AND c.parent_id=n.id), u_users u, avnewscategory nc
 			WHERE n.visible!=0 AND n.submiter=u.id AND n.category_id=nc.id  $where  
+			GROUP BY n.id
+			ORDER BY n.posted DESC, id DESC 
+			$limit";
+*/
+		// optimizuojam optimizuojam, nemiegam /tm
+		$statement = "SELECT n.id AS id, n.subject AS subject, n.info AS info, n.file AS file, DATE_FORMAT(n.posted, '%Y.%m.%d') AS posted, LENGTH(n.full_text) AS read_more, category_id,
+			u.id AS user_id, u.username AS username,
+			nc.name AS category,
+			COUNT(c.id) AS comments
+			FROM avnews n 
+				LEFT JOIN avcomments c ON (c.table_name='avnews' AND c.parent_id=n.id)
+				LEFT JOIN u_users u ON n.submiter=u.id
+				LEFT JOIN avnewscategory nc ON n.category_id=nc.id 
+			WHERE n.visible=1 $where  
 			GROUP BY n.id
 			ORDER BY n.posted DESC, id DESC 
 			$limit";
