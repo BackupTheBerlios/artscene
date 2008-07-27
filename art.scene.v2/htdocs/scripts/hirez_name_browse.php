@@ -133,37 +133,7 @@ echo StripSlashes($info["descr"]);
 ;}//while
  if (!$i) {echo "Þiûrovø atsiliepimø dar nëra <br><br>";}
 ?>
-Tavo komentaras:
-<table cellspacing="0" cellpadding="0" border="0"><tr><td bgcolor="#A6A090"><!--baltas krastas-->
-<table width="100%" cellspacing="1" border="0"><tr><td  bgcolor="#2C2B2A">
-  <form method=POST action="submit_hirez_talk.php" enctype="multipart/form-data">
-  <?        
-      echo "<input type=hidden name=iid value=$iid>";
-	  echo "<input type=hidden name=pname value=\"".$info["name"]."\">";
-	  echo "<input type=hidden name=pmail value=\"".$pimail."\">";
-  ?>
-<table>
-<tr>
-	<td align="RIGHT"><span class="text">*vardas/nikas:</span><br></td>
-	<td><input type=text name=realname size=50></td>
-</tr>
-<tr>
-	<td align="RIGHT"><span class="text">emailas:</span></td>
-	<td><input type=text name=email size=50></td>
-</tr>
 
-</table>
-
-  
-      
-     <span class="text"> *komentaras:<br>
-      <div align="right"><textarea name=comment COLS=60 ROWS=6></textarea><br><br></div>
-	  	  
-      <div align="right"> <input type=submit value="siøsti">  <input type=reset value="iðtrinti"></div>
-</span>
-    </form>
-</td></tr></table>
-</td></tr></table>
 <br>
 <?
 if ( $atgal ) { echo "<a href=\"hirez_name_browse.php?iid=".$atgal."&vardas=$vardas\">atgal</a> | "; }
