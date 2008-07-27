@@ -9,7 +9,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai_submit extends avColumn
 {
-	var $version = '$Id: darbai_submit.class.php,v 1.14 2008/07/26 21:25:49 pukomuko Exp $';
+	var $version = '$Id: darbai_submit.class.php,v 1.15 2008/07/27 17:54:22 lthnnpwr Exp $';
 	var $table = 'avworks';
 	var $submit_info_block = 'work.submit.info';
 
@@ -229,7 +229,7 @@ class darbai_submit extends avColumn
 		{
 			// vadinam taip pat kaip darba, kad nereiktu tikrinti dublikatu
 			$thumb_dest = $this->ini->read_var('avworks', 'thumbnails_dir') . $work_name . '.jpg';
-			$exec_src = $this->ini->read_var('avworks', 'convert_exec') ." -sample ". $this->thumb_x ."x". $this->thumb_y ." $work_dest jpg:$thumb_dest";
+			$exec_src = $this->ini->read_var('avworks', 'convert_exec') ." -resize ". $this->thumb_x ."x". $this->thumb_y ." $work_dest jpg:$thumb_dest";
 			exec($exec_src);
 
 			$thumbnail_name = $work_name . '.jpg';
