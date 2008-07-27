@@ -63,7 +63,7 @@ kopijavimo ritë pas mrfrost'à (c) 1999 <salna@ktl.mii.lt>
     else { echo "pirmyn &gt; | ";}
     
 ?>
-<a href="/i_galerija.html">galerija</a><br>
+<a href="/i_galerija.php">galerija</a><br>
 <br>
 
 
