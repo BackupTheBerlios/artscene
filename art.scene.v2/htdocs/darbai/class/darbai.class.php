@@ -11,7 +11,7 @@ include_once($RELPATH . 'darbai/class/darbai_sql.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.23 2008/07/26 21:24:43 pukomuko Exp $';
+	var $version = '$Id: darbai.class.php,v 1.24 2008/08/09 19:57:15 lthnnpwr Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -527,6 +527,8 @@ class darbai extends avColumn
 	/**
 	* paspaudus ant balsavimo
 	* tas popupas kur issoka tai sita funkcija
+	* 
+	* 20080729  - updatinu popup'à á AJAX'à (alias)
 	*/
 	function event_work_vote()
 	{
@@ -537,7 +539,7 @@ class darbai extends avColumn
 
 		if (empty($parent_id) || empty($g_user_id))
 		{
-			$error = "trûksta duomenø. ($parent_id, $g_user_id)";
+			$error = "balsuoti gali tik prisijungæ vartotojai.";
 		}
 		elseif($this->sql->own_work($parent_id))
 		{

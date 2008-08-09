@@ -7,7 +7,7 @@
 <img src="../dot.gif" width="25" height="3" border=0 alt="">
 
 
-<!-- $Id: workitem.html,v 1.8 2006/11/08 19:06:38 pukomuko Exp $ -->
+<!-- $Id: workitem.html,v 1.9 2008/08/09 19:57:16 lthnnpwr Exp $ -->
 
 <script>
 
@@ -242,15 +242,15 @@ nori dalyvauti diskusijose? pareikðti savo nuomonæ, balsuoti uþ pieðinius? velka
 
 <block name="vote_block">
 
-
 <script>
-	function vote(id, mark)
-	{
-		openWindow('http://art.scene.lt/process.php/page.workinfo;event.work_vote;parent_id.'+ id +';mark.' + mark, 'process', 300, 250, 1);
-		var vlObj = document.getElementById("vote_line");
-		vlObj.style.visibility = "hidden";
+	function vote(id, mark){
+		$.get('/process.php/page.workinfo;event.work_vote;parent_id.'+ id +';mark.' + mark, function(data){
+			var voteline = document.getElementById("vote_line");
+			voteline.innerHTML = data;
+		});
 	}
 </script>
+
 <div id="vote_line">
 <table cellpadding = 0>
 <tr>
