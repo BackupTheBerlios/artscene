@@ -1,6 +1,6 @@
 <? 
 /*
- $Id: util.lib.php,v 1.8 2006/05/23 13:08:39 pukomuko Exp $
+ $Id: util.lib.php,v 1.9 2008/11/24 21:04:25 pukomuko Exp $
  */
 
 // dzhibas, 2001.07.23
@@ -609,6 +609,7 @@ function rnd2($a)
 */
 function strtotimelt($date)
 {
+  if (empty($date)) return strtotime("+1 week");
   $date = str_replace(".",'-', $date);
   return strtotime($date);
 }
