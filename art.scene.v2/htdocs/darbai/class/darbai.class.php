@@ -11,7 +11,7 @@ include_once($RELPATH . 'darbai/class/darbai_sql.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.25 2008/08/09 21:13:53 lthnnpwr Exp $';
+	var $version = '$Id: darbai.class.php,v 1.26 2008/11/25 06:15:50 lthnnpwr Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -474,7 +474,7 @@ class darbai extends avColumn
       $this->error .= 'ðiuo metu negali komentuoti';
     }
 		if ($this->error) return true;
-
+		$comment = wordwrap($comment, 40, " ", true); // [alias] skaidom ilgus piktybiðkus þodþius
 		$comment = do_ubb($comment);
 		$subject = htmlchars($subject);
 
@@ -537,6 +537,8 @@ class darbai extends avColumn
 		$this->tpl->set_file('temp', 'darbai/tpl/vote.html', 1);
 		$error = false;
 
+		header('Content-Type: text/html; charset=windows-1257'); // |alias| negraþiai darau, bet kitaip neiðeina -- ir perkeliu virs visu pranesimu
+
 		if (empty($parent_id) || empty($g_user_id))
 		{
 			$error = "balsuoti gali tik prisijungæ vartotojai.";
@@ -572,7 +574,6 @@ class darbai extends avColumn
 		$this->db->query("UPDATE avworks_stat SET vote_count = vote_count + 1, vote_sum = vote_sum + $mark, vote_avg = ROUND(vote_sum/vote_count, 1) WHERE work_id='$parent_id'");
 		// TODO: ar perskaièiuoti AVG ?
 		$this->db->clear_cache_tables('avworkvotes');
-		header('Content-Type: text/html; charset=windows-1257'); // |alias| negraþiai darau, bet kitaip neiðeina
 		$this->tpl->set_var('message', 'Aèiû, kad balsuoji.');
 		echo $this->tpl->process('', 'temp', 1);
 		exit();
