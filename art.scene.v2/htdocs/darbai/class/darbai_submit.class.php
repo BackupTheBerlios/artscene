@@ -9,7 +9,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai_submit extends avColumn
 {
-	var $version = '$Id: darbai_submit.class.php,v 1.15 2008/07/27 17:54:22 lthnnpwr Exp $';
+	var $version = '$Id: darbai_submit.class.php,v 1.16 2008/11/27 01:17:45 lthnnpwr Exp $';
 	var $table = 'avworks';
 	var $submit_info_block = 'work.submit.info';
 
@@ -199,7 +199,7 @@ class darbai_submit extends avColumn
 		{
 			// vadinam taip pat kaip darba, kad nereiktu tikrinti dublikatu
 			$thumb_dest = $this->ini->read_var('avworks', 'thumbnails_dir') . $work_name . '.jpg';
-			$exec_src = $this->ini->read_var('avworks', 'convert_exec') ." -sample ". $this->thumb_x ."x". $this->thumb_y ." $thumbnail jpg:$thumb_dest";
+			$exec_src = $this->ini->read_var('avworks', 'convert_exec') ." -resize ". $this->thumb_x ."x". $this->thumb_y ." $thumbnail jpg:$thumb_dest";
 			exec($exec_src);
 
 			$thumbnail_name = $work_name . '.jpg';
@@ -269,9 +269,10 @@ class darbai_submit extends avColumn
 
 		isset($color) || $color = '';
 		isset($info) || $info = '';
-
-		$info = do_ubb($info);
-		$subject = htmlchars($subject);
+		
+		//wordwrap($comment, 30, " ", true)
+		$info = wordwrap(do_ubb($info), 30, " ", true);
+		$subject = wordwrap(htmlchars($subject), 20, " ", true);
 		$color = clean_hex($color);
 
 		$this->db->query("INSERT INTO avworks (subject, info, posted, thumbnail, file, submiter, category_id, color, file_size)

@@ -11,7 +11,7 @@ include_once($RELPATH . 'darbai/class/darbai_sql.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.26 2008/11/25 06:15:50 lthnnpwr Exp $';
+	var $version = '$Id: darbai.class.php,v 1.27 2008/11/27 01:17:45 lthnnpwr Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -474,7 +474,7 @@ class darbai extends avColumn
       $this->error .= 'ðiuo metu negali komentuoti';
     }
 		if ($this->error) return true;
-		$comment = wordwrap($comment, 40, " ", true); // [alias] skaidom ilgus piktybiðkus þodþius
+		$comment = wordwrap($comment, 30, " ", true); // [alias] skaidom ilgus piktybiðkus þodþius
 		$comment = do_ubb($comment);
 		$subject = htmlchars($subject);
 
