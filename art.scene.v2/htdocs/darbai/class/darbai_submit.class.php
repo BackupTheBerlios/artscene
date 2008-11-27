@@ -9,7 +9,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai_submit extends avColumn
 {
-	var $version = '$Id: darbai_submit.class.php,v 1.16 2008/11/27 01:17:45 lthnnpwr Exp $';
+	var $version = '$Id: darbai_submit.class.php,v 1.17 2008/11/27 02:05:34 lthnnpwr Exp $';
 	var $table = 'avworks';
 	var $submit_info_block = 'work.submit.info';
 
@@ -270,9 +270,10 @@ class darbai_submit extends avColumn
 		isset($color) || $color = '';
 		isset($info) || $info = '';
 		
-		//wordwrap($comment, 30, " ", true)
-		$info = wordwrap(do_ubb($info), 30, " ", true);
-		$subject = wordwrap(htmlchars($subject), 20, " ", true);
+		//wordwrap($comment, 30, " ", true) // senas variantas
+		//smartWrap($text,30); // naujas variantas
+		$info = smartWrap(do_ubb($info), 30);
+		$subject = wordwrap(htmlchars($subject), 20, " ", true); // cia html'o nebus, todel standartinis wordwrap
 		$color = clean_hex($color);
 
 		$this->db->query("INSERT INTO avworks (subject, info, posted, thumbnail, file, submiter, category_id, color, file_size)

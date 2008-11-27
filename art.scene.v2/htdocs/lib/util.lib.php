@@ -1,6 +1,6 @@
 <? 
 /*
- $Id: util.lib.php,v 1.9 2008/11/24 21:04:25 pukomuko Exp $
+ $Id: util.lib.php,v 1.10 2008/11/27 02:05:35 lthnnpwr Exp $
  */
 
 // dzhibas, 2001.07.23
@@ -380,6 +380,34 @@ function get_query()
 }
 
 
+/** smart wrap - ignoring the anchor's hrefs */
+function smartWrap($text,$max){
+	$text = explode(" ",$text);
+	$out = "";
+	foreach ($text as $value){
+	    if (strlen($value) > $max)
+	    {   
+	        $length = strlen($value);
+	       
+	        $repeats = $length / $max;
+			
+			// jei ne link'o href fragmentas - skaidom
+			if(!preg_match('/href=/i',$value))	       
+	        for ($i=0; $i<$repeats; $i++){       
+	            $str = substr ($value,($i*$max),$max);
+	            $out .= "".$str." ";
+	        } else {
+				// jei href'as - paliekam ji ramybeje
+				$out .= $value;
+			}
+	       
+	    } else {
+			// sumuojam
+		    $out .= $value." ";   
+	    }   
+	}
+	return $out;
+}
 
 
 /** removes "http://", if link is of form http://www.something */
