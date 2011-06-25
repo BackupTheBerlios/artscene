@@ -7,7 +7,7 @@
 <img src="../dot.gif" width="25" height="3" border=0 alt="">
 
 
-<!-- $Id: workitem.html,v 1.9 2008/08/09 19:57:16 lthnnpwr Exp $ -->
+<!-- $Id: workitem.html,v 1.10 2011/06/25 12:12:47 pukomuko Exp $ -->
 
 <script>
 
@@ -125,6 +125,14 @@ function original()
 <br>
 </td>
 <td valign="top"><br>
+
+	<script>
+		function showVotes() {
+			$('#votesTable').show('slow');
+		}
+	</script>
+	<div id="showVotes"><a id="showVotesLink" class="news-title" name="showVotesLink" href="#showVotesLink" onClick="showVotes(); return false;">baluotojai</a></div>
+	<div id="votesTable">
 	<table border=0 cellspacing=1 cellpadding=1 width="100%">
 	<loop name="voting">
 
@@ -137,6 +145,7 @@ function original()
 		</noloop name="voting">
 	</loop name="voting">
 	</table>
+	</div>
 </td></tr>
 </table>
 <img src="../dot.gif" width="25" height="3" border=0 alt="">
