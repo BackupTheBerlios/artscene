@@ -9,7 +9,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai_submit extends avColumn
 {
-	var $version = '$Id: darbai_submit.class.php,v 1.18 2009/04/19 21:35:35 pukomuko Exp $';
+	var $version = '$Id: darbai_submit.class.php,v 1.19 2011/06/25 12:15:09 pukomuko Exp $';
 	var $table = 'avworks';
 	var $submit_info_block = 'work.submit.info';
 
@@ -42,19 +42,12 @@ class darbai_submit extends avColumn
 	function check_cannot_post() {
 		global  $g_user_id, $g_usr;
 
-		// administratoriai gali dëti darbus be limito.
-		if (in_array($g_usr->group_id, array(1)))
-		{
-			return false;
-		}
-		
 		$tmp = $this->db->get_array("SELECT COUNT(*) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND DATE_ADD(posted, INTERVAL 1 DAY) > NOW()");
 		if ($tmp['kiekis'] > 2 ) return 'per ğias 24 valandas jau ádëjai tris darbus, lauk rytdienos.';
 
-		// tiems kurie neturi dviejø darbø senesniø uş savaitæ
+		// tiems kurie neturi devyniø darbø senesniø uş savaitæ
 		$tmp = $this->db->get_array("SELECT COUNT(*) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND DATE_SUB(NOW(), INTERVAL 7 DAY) > posted ");
-		if ($tmp['kiekis'] < 2 ) 
-		{
+		if ($tmp['kiekis'] < 9 ) {
 			$tmp = $this->db->get_array("SELECT COUNT(*) AS kiekis  FROM avworks WHERE submiter='$g_user_id' AND  DATE_ADD(posted, INTERVAL 18 HOUR) > NOW()");
 			if ($tmp['kiekis'] > 0 ) return 'per ğias 18 valandø jau ádëjai vienà darbà, lauk rytdienos.';
 		}
@@ -62,7 +55,7 @@ class darbai_submit extends avColumn
 		if (!$g_usr->can_i_send_work())
 		{
 		  return "darbus galësi siøsti tik nuo " . $g_usr->may_send_work_after;
-		}
+    }
 		return false;
 	}
 
