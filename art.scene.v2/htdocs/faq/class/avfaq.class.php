@@ -54,18 +54,18 @@ class avFaq extends avTable
 		$this->parent = 'page_language';
 		$this->parent_module = 'control';
 
-		$this->controls[] = & new avcId( &$this, 'id', '', '0', 0, 1, 1, '', 0);
-		$this->controls[] = & new avcTextArea( &$this, 'question', $g_lang['faq_question'], '', 1, 1, 1, $g_lang['faq_question'], 0, 40, 5);
-		$this->controls[] = & new avcTextArea_bbcode( &$this, 'answer', $g_lang['faq_answer'], '', 0, 1, 1, $g_lang['faq_answer'], 0, 40, 10);
-		$this->controls[] = & new avcDate( &$this, 'posted', $g_lang['date'], date('Y.m.d'), 1, 1, 1, $g_lang['date'], 1);
+		$this->controls[] = new avcId( &$this, 'id', '', '0', 0, 1, 1, '', 0);
+		$this->controls[] = new avcTextArea( &$this, 'question', $g_lang['faq_question'], '', 1, 1, 1, $g_lang['faq_question'], 0, 40, 5);
+		$this->controls[] = new avcTextArea_bbcode( &$this, 'answer', $g_lang['faq_answer'], '', 0, 1, 1, $g_lang['faq_answer'], 0, 40, 10);
+		$this->controls[] = new avcDate( &$this, 'posted', $g_lang['date'], date('Y.m.d'), 1, 1, 1, $g_lang['date'], 1);
 
-		$this->controls[] = & new avcText( &$this, 'name', $g_lang['faq_name'], '', 0, 1, 1, $g_lang['faq_name'], 1, 40);
-		$this->controls[] = & new avcText( &$this, 'email', $g_lang['faq_email'], '', 0, 1, 0, '', 1, 40);
+		$this->controls[] = new avcText( &$this, 'name', $g_lang['faq_name'], '', 0, 1, 1, $g_lang['faq_name'], 1, 40);
+		$this->controls[] = new avcText( &$this, 'email', $g_lang['faq_email'], '', 0, 1, 0, '', 1, 40);
 
-//		$this->controls[] = & new avcDbSelect( &$this, 'lang_id', 'lang', '', 1, 1, 1, 'Kalba', 1, 'languages', 'id', 'lang_name');
+//		$this->controls[] = new avcDbSelect( &$this, 'lang_id', 'lang', '', 1, 1, 1, 'Kalba', 1, 'languages', 'id', 'lang_name');
 
-		$this->controls[] = & new avcSelect( &$this, 'visible', $g_lang['faq_visible'], 0, 0, 1, 1, $g_lang['faq_visible'], 1, array('0'=>$g_lang['no'], '1'=>$g_lang['yes']));
-		$this->controls[] = & new avcActions( &$this, 'actions', '', '', 0, 0, 1, $g_lang['action'], 0);
+		$this->controls[] = new avcSelect( &$this, 'visible', $g_lang['faq_visible'], 0, 0, 1, 1, $g_lang['faq_visible'], 1, array('0'=>$g_lang['no'], '1'=>$g_lang['yes']));
+		$this->controls[] = new avcActions( &$this, 'actions', '', '', 0, 0, 1, $g_lang['action'], 0);
 
 
 		$this->description = $g_lang['faq_description'];

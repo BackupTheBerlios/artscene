@@ -33,7 +33,7 @@ class avcDbText extends avcDbSelect
 	*/
 	function avcDbText(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $s_table, $c_value, $c_name, $s_order = '', $empty = 'none')
 	{
-		$this->constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $s_table, $c_value, $c_name, $s_order, $empty);
+		parent::__construct(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $s_table, $c_value, $c_name, $s_order, $empty);
 	}
 
 	/*!

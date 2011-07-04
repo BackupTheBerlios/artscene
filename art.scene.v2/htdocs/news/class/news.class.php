@@ -1,6 +1,6 @@
 <? 
 /*
-$Id: news.class.php,v 1.4 2008/07/26 21:33:28 pukomuko Exp $
+$Id: news.class.php,v 1.5 2011/07/04 21:00:47 pukomuko Exp $
 */
 
 //!! news
@@ -285,7 +285,7 @@ class news extends avColumn
 
 		if (!empty($GLOBALS['g_user_id']))
 		{
-			$this->tpl->set_var('url', $GLOBALS['REQUEST_URI']);
+			$this->tpl->set_var('url', $_SERVER['REQUEST_URI']);
 			$this->tpl->process('post_comment', 'post_comment_block');
 		}
 		else

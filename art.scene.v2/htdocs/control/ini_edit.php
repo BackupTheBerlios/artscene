@@ -17,7 +17,7 @@ include_once($RELPATH . $LIBPATH . 'header.inc.php');
 check_permission('ini_edit_view');
 
 $g_tpl->set_var('table_inner_name', 'ini_edit');
-$g_ini = & new avIni($RELPATH . 'global.ini.php', true);
+$g_ini = new avIni($RELPATH . 'global.ini.php', true);
 
 if (isset($submit))
 {

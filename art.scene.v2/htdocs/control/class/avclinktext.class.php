@@ -34,19 +34,20 @@ class avcLinkText extends avcText
 	*/
 	function avcLinkText(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $size, $link, $link_module='')
 	{
-		$this->constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $size, $link, $link_module);
+		$this->constructor_overloaded(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $size, $link, $link_module);
 	}
 	
-	function constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $size, $link, $link_module='')
+	function constructor_overloaded(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $size, $link, $link_module='')
 	{
 		global $module;
-		avcText::constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $size);
+		parent::avcText(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $size);
 		$this->link = $link;
 		if (empty($link_module))
 		{
 			$link_module = $module;
 		}
 		$this->link_module = $link_module;
+		
 	}
 
 

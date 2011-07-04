@@ -9,7 +9,7 @@ class avNavigator
 		$this->template = $template;
 	}
 
-	function show($offset, $count, $ipp, $class, &$caller, $function, $step = false, $window = false)
+	static function show($offset, $count, $ipp, $class, &$caller, $function, $step = false, $window = false)
 	{
 
 		$current_page = floor($offset / $ipp) + 1;

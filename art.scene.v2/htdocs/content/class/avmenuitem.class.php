@@ -63,58 +63,58 @@ class avmenuitem extends avTable
 		$this->default_order = 'sort_number';
 
          
-        $this->controls[] = & new avcId( &$this, 'id', 'id', '',  
+        $this->controls[] = new avcId( &$this, 'id', 'id', '',  
                 0, 1, 1, 'id', 0 ); 
          
 		if (!empty($GLOBALS['pid']))
 		{
-	        $this->controls[] = & new avcText( &$this, 'name', $g_lang['menuitem_name'], '',  
+	        $this->controls[] = new avcText( &$this, 'name', $g_lang['menuitem_name'], '',  
 		            0, 1, 1, $g_lang['menuitem_name'], 1 , 40); 
 		}
 		else
 		{
-	        $this->controls[] = & new avcLinkText( &$this, 'name', $g_lang['menuitem_name'], '',  
+	        $this->controls[] = new avcLinkText( &$this, 'name', $g_lang['menuitem_name'], '',  
 		            0, 1, 1, $g_lang['menuitem_name'], 1 , 40, 'avmenuitem'); 
 		}
 
-		$this->controls[] = & new avcText( &$this, 'iname', $g_lang['menuitem_iname'], '',  
+		$this->controls[] = new avcText( &$this, 'iname', $g_lang['menuitem_iname'], '',  
 	            0, 1, 1, $g_lang['menuitem_iname'], 1 , 40); 
 
-	    $this->controls[] = & new avcSelect( &$this, 'page', $g_lang['menuitem_page'], '',  
+	    $this->controls[] = new avcSelect( &$this, 'page', $g_lang['menuitem_page'], '',  
 	            0, 1, 1, $g_lang['menuitem_page'], 1 , $this->list_pages()); 
 			 
-        $this->controls[] = & new avcImage( &$this, 'file', $g_lang['menuitem_image'], '',  
+        $this->controls[] = new avcImage( &$this, 'file', $g_lang['menuitem_image'], '',  
                 0, 1, 0, 'file', 1 , $g_ini->read_var('avnews', 'image_dir'), $g_ini->read_var('avnews', 'image_url'), 110, 210); 
          
-        $this->controls[] = & new avcSelect( &$this, 'type', $g_lang['menuitem_type'], '2',  
+        $this->controls[] = new avcSelect( &$this, 'type', $g_lang['menuitem_type'], '2',  
                 0, 1, 1, $g_lang['menuitem_type'], 1, array('1'=>'nuoroda', '2'=>'html', '3'=>'blokas', '4'=>'failas', '5'=>'komponentas') ); 
          
-        $this->controls[] = & new avcText( &$this, 'link', $g_lang['menuitem_link'], '',  
+        $this->controls[] = new avcText( &$this, 'link', $g_lang['menuitem_link'], '',  
                 0, 1, 0, $g_lang['menuitem_link'], 1 , 40); 
          
-        $this->controls[] = & new avcTextArea( &$this, 'html', $g_lang['menuitem_html'], '',  
+        $this->controls[] = new avcTextArea( &$this, 'html', $g_lang['menuitem_html'], '',  
                 0, 1, 0, $g_lang['menuitem_html'], 1 , 60, 20); 
          
-        $this->controls[] = & new avcDbSelect( &$this, 'block_id', $g_lang['menuitem_block'], '',  
+        $this->controls[] = new avcDbSelect( &$this, 'block_id', $g_lang['menuitem_block'], '',  
                 0, 1, 0, $g_lang['menuitem_block'], 1 , 'avblock', 'name', 'title', '', '0'); 
          
-        $this->controls[] = & new avcText( &$this, 'include', $g_lang['menuitem_include'], '',  
+        $this->controls[] = new avcText( &$this, 'include', $g_lang['menuitem_include'], '',  
                 0, 1, 0, $g_lang['menuitem_include'], 1 , 40); 
          
-        $this->controls[] = & new avcText( &$this, 'column_id', $g_lang['menuitem_component'], '',  
+        $this->controls[] = new avcText( &$this, 'column_id', $g_lang['menuitem_component'], '',  
                 0, 1, 0, $g_lang['menuitem_component'], 1 , 40); 
          
-        $this->controls[] = & new avcDbSelect( &$this, 'pid', $g_lang['menuitem_parent'], '',  
+        $this->controls[] = new avcDbSelect( &$this, 'pid', $g_lang['menuitem_parent'], '',  
                 0, 1, 1, $g_lang['menuitem_parent'], 1 , 'menuitem', 'id', 'name', '', '0'); 
 
-        $this->controls[] = & new avcText( &$this, 'sort_number', $g_lang['menuitem_sort'], '1',  
+        $this->controls[] = new avcText( &$this, 'sort_number', $g_lang['menuitem_sort'], '1',  
                 0, 1, 1, $g_lang['menuitem_sort'], 1 , 5); 
 		
-		$this->controls[] = & new avcSelect( &$this, 'visible', $g_lang['menuitem_visible'], 1, 0, 1, 1, 
+		$this->controls[] = new avcSelect( &$this, 'visible', $g_lang['menuitem_visible'], 1, 0, 1, 1, 
 		$g_lang['menuitem_visible'], 1, array('0'=>'ne', '1'=>'taip'));
 
          
-        $this->controls[] = & new avcActions( &$this, '', '', '',  
+        $this->controls[] = new avcActions( &$this, '', '', '',  
                 0, 0, 1, $g_lang['action'], 0 ); 
          
          

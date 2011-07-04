@@ -22,7 +22,7 @@ if (isset($submit))
 		if (file_exists($RELPATH.'/lang/'.$language.'.inc.php')) {
 			setcookie("lang", $language, time() + 360000000, "/");
 		}
-		redirect($GLOBALS['SCRIPT_NAME']);
+		redirect($_SERVER['SCRIPT_NAME']);
 	}
 }
 

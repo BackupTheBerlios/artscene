@@ -4,7 +4,7 @@
 
 	Created: js, 2001.09.04
 	__________________________________________________________
-	$Id: process.php,v 1.2 2007/11/25 23:49:08 pukomuko Exp $
+	$Id: process.php,v 1.3 2011/07/04 21:00:47 pukomuko Exp $
 */
 
 /*!
@@ -41,11 +41,10 @@ $pradedam = getmicrotime();
 
 $RELPATH = './';
 
-
 include_once($RELPATH . 'site.ini.php');
 include_once($RELPATH . $LIBPATH . 'user_header.inc.php');
 
-if (substr($REQUEST_URI, - strlen('/process.php')) == '/process.php') redirect ('process.php/');
+if (substr($_SERVER['REQUEST_URI'] , - strlen('/process.php')) == '/process.php') redirect ('process.php/');
 
 //if ($_SERVER['HTTP_HOST'] != 'art.scene.lt') redirect('http://art.scene.lt/process.php/page.simple;menuname.address');
 
@@ -64,7 +63,7 @@ if (empty($g_user_id) && isset($HTTP_COOKIE_VARS['fygne_vietoj_passwordo']))
 	}
 }
 
-$g_tpl->set_var('SCRIPT_NAME', $GLOBALS['SCRIPT_NAME'] . '/');
+$g_tpl->set_var('SCRIPT_NAME', $_SERVER['SCRIPT_NAME'] . '/');
 
 isset($page) || $page = $g_ini->read_var('site', 'DefaultPage');
 
@@ -97,7 +96,7 @@ foreach ($columns as $column)
 		if (empty($names[2])) { $names[2] = 'show_output'; }
 		if (empty($names[3])) { $names[3] = ''; }
 
-		$table[$index]['table'] = & new $names[1]();
+		$table[$index]['table'] = new $names[1]();
 		$table[$index]['table_name'] = $names[1];
 		$table[$index]['method'] = $names[2];
 		$table[$index]['param'] = $names[3];
@@ -114,7 +113,10 @@ for ($index = 0; isset($table[$index]['table']); $index++)
 {
 	$ts = getmicrotime();
 	$g_tpl->set_var($table[$index]['column'], $g_tpl->get_var_silent($table[$index]['column']) . $table[$index]['table']->$table[$index]['method']($table[$index]['param']) ); // :)
-	if (isset($GLOBALS['bench'])) { echo "<br>checkpoint[".$table[$index]['table_name']."]: " . round((getmicrotime() - $ts),2);}	
+	if (isset($GLOBALS['bench'])) { 
+		echo "<br>checkpoint[".$table[$index]['table_name']."-".$table[$index]['method']."]: " . 
+			round((getmicrotime() - $ts),2);
+	}	
 }
 
 

@@ -7,7 +7,7 @@
 	This file is part of flexiUpdate, content control framework
 	Copyright (c) 2001 UAB "Alternatyvus valdymas"
 	http://www.avc.lt <info@avc.lt>
-	$Id: avini.class.php,v 1.3 2005/11/26 16:18:29 pukomuko Exp $
+	$Id: avini.class.php,v 1.4 2011/07/04 21:00:49 pukomuko Exp $
 */
 
 /////////////////////////////////////////////////////////////////////////  
@@ -117,7 +117,7 @@ class avIni
         $this->CURRENT_GROUP=false;
         $this->GROUPS=array();
         $contents = fread($fp, filesize($inifilename)); 
-        $ini_data = split( "\n",$contents); 
+        $ini_data = explode( "\n",$contents); 
          
         while( list($key, $data) = each($ini_data) ) 
         {	
@@ -143,13 +143,13 @@ class avIni
         if ( $tmp_index>-1 && ord( $data[$tmp_index] ) == 13 )
             $data = substr( $data, 0, strlen($data) - 1 );
 
-        if( ereg( "\[([[:alnum:]]+)\]", $data, $out ) )
+        if( preg_match( '/\[(.+)\]/', $data, $out ) )
         {
             $this->CURRENT_GROUP = strtolower( $out[1] ); 
         } 
         elseif (!empty($data)) 
         {
-            $split_data = split( "=", $data ); 
+            $split_data = explode( "=", $data ); 
             $this->GROUPS[ $this->CURRENT_GROUP ][ $split_data[0] ] = $split_data[1]; 
         }
     }
@@ -344,15 +344,15 @@ class avIni
       loaded from the site.ini file. This can be overidden by supplying $type and $file.
       If the ini-file object does not exist it is created before returning.
     */
-    function &globalINI( $file = false )
+    static function &globalINI( $file = false )
     {
-		global $RELPATH;
+		global $RELPATH, $g_ini;
 		empty($file) && $file = $RELPATH . 'global.ini.php';
-        $ini =& $GLOBALS['g_ini'];
+        $ini =& $g_ini;
 
         if ( get_class( $ini ) != 'avini' )
         {
-            $ini = & new avIni( $file );
+            $ini =  new avIni( $file );
         }
         return $ini;
     }

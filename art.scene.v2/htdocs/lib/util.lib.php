@@ -1,6 +1,6 @@
 <? 
 /*
- $Id: util.lib.php,v 1.10 2008/11/27 02:05:35 lthnnpwr Exp $
+ $Id: util.lib.php,v 1.11 2011/07/04 21:00:48 pukomuko Exp $
  */
 
 // dzhibas, 2001.07.23
@@ -60,33 +60,33 @@ function redirect($page)
 // js, 2001.07.10
 function htmlchars($s)
 {
-	$s = ereg_replace("'","&#039;", htmlspecialchars($s));
+	$s = @ereg_replace("'","&#039;", htmlspecialchars($s));
 	return $s;
 }
 
 // js, 2001.11.06
 function clean_username($name)
 {
-	return ereg_replace("[^0-9a-zA-Z_]","",$name);
+	return @ereg_replace("[^0-9a-zA-Z_]","",$name);
 }
 
 
 // js, 2001.07.10
 function clean_name($name)
 {
-	return ereg_replace("[^0-9a-zA-Z_.]","",$name);
+	return preg_replace("/[^0-9a-zA-Z_.]/","",$name);
 }
 
 // js, 2001.11.22
 function clean_number($name)
 {
-	return ereg_replace("[^0-9]","",$name);
+	return @ereg_replace("[^0-9]","",$name);
 }
 
 // js, 2001.11.22
 function clean_hex($name)
 {
-	return ereg_replace("[^0-9a-fA-F]","",$name);
+	return @ereg_replace("[^0-9a-fA-F]","",$name);
 }
 
 // js, 2001.11.07
@@ -94,7 +94,7 @@ function clean_hex($name)
 function valid_email($email)
 {
 	$email_regular_expression = "^([-!#\$%&'*+./0-9=?A-Z^_`a-z{|}~ ])+@([-!#\$%&'*+/0-9=?A-Z^_`a-z{|}~ ]+\\.)+[a-zA-Z]{2,4}\$";
-	return (eregi($email_regular_expression, $email) != 0);
+	return (@eregi($email_regular_expression, $email) != 0);
 }
 
 /*!
@@ -105,7 +105,7 @@ function valid_email($email)
 */
 function html_build_date($name, $date = false)
 {
-	$tmp = split('[-. ]', $date);
+	$tmp = preg_split('/[-. ]/', $date);
 
 	for ($i = 0; $i < 3; $i++)
 	{
@@ -316,7 +316,7 @@ function is_permission($pm_name)
 function decode_url( $whattodo = "global" ) 
 {
 	
-	//$url = substr(strrchr($GLOBALS['REQUEST_URI'],'/'),1);
+	//$url = substr(strrchr($_SERVER['REQUEST_URI'],'/'),1);
 	
 	$url = get_query();
 	$url = explode(";",$url);
@@ -353,11 +353,11 @@ function decode_url( $whattodo = "global" )
 */
 function get_query()
 {
-	$request = $GLOBALS['REQUEST_URI'];
+	$request = $_SERVER['REQUEST_URI'];
 	
-	if ( is_int(strpos($request, $GLOBALS['SCRIPT_NAME'])) )
+	if ( is_int(strpos($request, $_SERVER['SCRIPT_NAME'])) )
 	{
-		$request = str_replace($GLOBALS['SCRIPT_NAME'], '', $request);
+		$request = str_replace($_SERVER['SCRIPT_NAME'], '', $request);
 
 		if ($request) 
 		{
@@ -369,7 +369,7 @@ function get_query()
 
 	} else
 	{
-		if ( strlen($request) > (strlen(dirname($GLOBALS['SCRIPT_NAME'])) + 1) )
+		if ( strlen($request) > (strlen(dirname($_SERVER['SCRIPT_NAME'])) + 1) )
 		{	
 			return  substr($request, 2 + strlen(dirname($request)), strlen($request));
 		} else
@@ -491,7 +491,7 @@ function do_ubb ($article)
 	$article = str_replace("[/b]","</b>",$article);
 	$article = str_replace("[i]","<i>",$article);
 	$article = str_replace("[/i]","</i>",$article);
-	$article=eregi_replace("\\[img=([^\\[]*)\\]","<img src=\"\\1\">",$article);
+	$article=@eregi_replace("\\[img=([^\\[]*)\\]","<img src=\"\\1\">",$article);
 
 
 
@@ -516,9 +516,9 @@ function do_ubb ($article)
 	$article = utf8_decode($article);
 
 
-	$article=eregi_replace("\\[icq=([^\\[]*)\\]([^\\[]*)\\[/icq\\]","<a href=\"http://wwp.icq.com/scripts/Search.dll?to=\\1\">\\2</a>",$article);
-	$article=eregi_replace("\\[colour=([^\\[]*)\\]([^\\[]*)\\[/colour\\]","<font color=\\1>\\2</font>",$article);
-	$article=eregi_replace("quote\\]","quote]",$article);  // make lower case
+	$article=@eregi_replace("\\[icq=([^\\[]*)\\]([^\\[]*)\\[/icq\\]","<a href=\"http://wwp.icq.com/scripts/Search.dll?to=\\1\">\\2</a>",$article);
+	$article=@eregi_replace("\\[colour=([^\\[]*)\\]([^\\[]*)\\[/colour\\]","<font color=\\1>\\2</font>",$article);
+	$article=@eregi_replace("quote\\]","quote]",$article);  // make lower case
 	$article=str_replace("[quote]\r\n","<blockquote><smallfont>",$article);
 	$article=str_replace("[quote]","<blockquote><smallfont>",$article);
 	$article=str_replace("[/quote]\r\n","</smallfont></blockquote>",$article);
@@ -542,11 +542,11 @@ function undo_ubb ($article)
 	$article = str_replace("<i>","[i]",$article);
 	$article = str_replace("</i>","[/i]",$article);
 
-	$article=eregi_replace("\\<img src=\"([^>\[]*)\"\\>" ,"[img=\\1]",$article);
+	$article=@eregi_replace("\\<img src=\"([^>\[]*)\"\\>" ,"[img=\\1]",$article);
 
 	$article=preg_replace("/\\<a target=\"_new\" href=\"(.*?)\"\\>([^<\[]*)<\/a>/i","[url=\\1]\\2[/url]",$article);
-	$article=eregi_replace("\\<font color=([^>\[]*)\\>([^<\[]*)</font>" ,"[colour=\\1]\\2[/colour]",$article);
-	$article=eregi_replace("\\<a href=\"mailto:([^\\[]*)\"\\>([^<\[]*)</a>","[email=\\1]\\2[/email]",$article);
+	$article=@eregi_replace("\\<font color=([^>\[]*)\\>([^<\[]*)</font>" ,"[colour=\\1]\\2[/colour]",$article);
+	$article=@eregi_replace("\\<a href=\"mailto:([^\\[]*)\"\\>([^<\[]*)</a>","[email=\\1]\\2[/email]",$article);
 	$article=str_replace("<blockquote><smallfont>","[quote]",$article);
 	$article=str_replace("</smallfont></blockquote>","[/quote]",$article);
 
@@ -578,7 +578,8 @@ function genpass( $length = 8 )
 */
 function get_language_select($current)
 {
-	$handle = opendir($GLOBALS['RELPATH'] . 'lang/');
+	global $RELPATH;
+	$handle = opendir($RELPATH . 'lang/');
 	readdir($handle); // .
 	readdir($handle); // ..
 
@@ -600,7 +601,8 @@ function get_language_select($current)
 */
 function get_theme_select($current)
 {
-	$handle = opendir($GLOBALS['RELPATH'] . 'control/tpl/');
+	global $RELPATH;
+	$handle = opendir($RELPATH . 'control/tpl/');
 	readdir($handle); // .
 	readdir($handle); // ..
 
@@ -612,7 +614,7 @@ function get_theme_select($current)
 
 	while( $file = readdir($handle) )
 	{
-		if (is_dir($GLOBALS['RELPATH'] . 'control/tpl/' . $file))
+		if (is_dir($RELPATH . 'control/tpl/' . $file))
 		{
 			$out[$index]['value'] = $file;
 			$out[$index]['name'] = $file;

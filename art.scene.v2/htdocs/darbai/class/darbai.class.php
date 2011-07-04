@@ -11,7 +11,7 @@ include_once($RELPATH . 'darbai/class/darbai_sql.class.php');
 
 class darbai extends avColumn
 {
-	var $version = '$Id: darbai.class.php,v 1.28 2008/11/27 02:05:34 lthnnpwr Exp $';
+	var $version = '$Id: darbai.class.php,v 1.29 2011/07/04 21:00:48 pukomuko Exp $';
 	var $table = 'avworks';
 
 	var $result = '';
@@ -24,7 +24,7 @@ class darbai extends avColumn
 	function darbai()
 	{
 		avColumn::constructor();
-		$this->sql =& new darbai_sql(&$this->db);
+		$this->sql = new darbai_sql(&$this->db);
 	}
 
 	function show_list()
@@ -275,7 +275,7 @@ class darbai extends avColumn
 		{
 		  if ($g_usr->can_i_comment())
 		  {
-			   $this->tpl->set_var('url', $GLOBALS['REQUEST_URI']);
+			   $this->tpl->set_var('url', $_SERVER['REQUEST_URI']);
 			   $this->tpl->process('post_comment', 'post_comment_block');
 			}
 			else

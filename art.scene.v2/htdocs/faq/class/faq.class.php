@@ -4,7 +4,7 @@
 	
 	Created: js, 2001.10.18
 	
-	$Id: faq.class.php,v 1.2 2005/11/26 16:21:45 pukomuko Exp $
+	$Id: faq.class.php,v 1.3 2011/07/04 21:00:49 pukomuko Exp $
   ___________________________________________________________
 	This file is part of flexiUpdate, content control framework
 	Copyright (c) 2001 UAB "Alternatyvus valdymas"
@@ -61,7 +61,7 @@ class faq extends avColumn
 		$this->tpl->set_loop('list_index', $list);
 		$this->tpl->set_loop('list', $list);
 		
-		$this->tpl->set_var('url', $GLOBALS['REQUEST_URI']);
+		$this->tpl->set_var('url', $_SERVER['REQUEST_URI']);
 		$this->tpl->set_var('menuitem', $GLOBALS['menuitem']);
 		$this->tpl->set_file('faq', 'faq/tpl/faq_list.html', 1);
 

@@ -28,10 +28,10 @@ class page_modules extends avTable
 
 		$this->name = 'u_module';
 
-		$this->controls[] = & new avcId( &$this, 'id', '', '0', 0, 1, 1, '', 0);
-		$this->controls[] = & new avcLinkText( &$this, 'name', $g_lang['name'], '', 1, 1, 1, $g_lang['name'], 1, 20, 'page_permissions');
-		$this->controls[] = & new avcText( &$this, 'info', $g_lang['info'], '', 1, 1, 1, $g_lang['info'], 1, 40);
-		$this->controls[] = & new avcActions( &$this, 'info', 'info', '', 0, 0, 1, $g_lang['list_rowactions'], 0);
+		$this->controls[] = new avcId( &$this, 'id', '', '0', 0, 1, 1, '', 0);
+		$this->controls[] = new avcLinkText( &$this, 'name', $g_lang['name'], '', 1, 1, 1, $g_lang['name'], 1, 20, 'page_permissions');
+		$this->controls[] = new avcText( &$this, 'info', $g_lang['info'], '', 1, 1, 1, $g_lang['info'], 1, 40);
+		$this->controls[] = new avcActions( &$this, 'info', 'info', '', 0, 0, 1, $g_lang['list_rowactions'], 0);
 
 		$this->description = $g_lang['modules_description'];
 	}

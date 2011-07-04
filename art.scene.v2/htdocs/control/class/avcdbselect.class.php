@@ -40,11 +40,6 @@ class avcDbSelect extends avControl
 	*/
 	function avcDbSelect(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $s_table, $c_value, $c_name, $s_order = '', $empty = 'none')
 	{
-		$this->constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $s_table, $c_value, $c_name, $s_order, $empty);
-	}
-	
-	function constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $s_table, $c_value, $c_name, $s_order, $empty)
-	{
 		avControl::constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order);
 		$this->visible = true;
 
@@ -54,7 +49,7 @@ class avcDbSelect extends avControl
 		$this->s_order = $s_order;
 		$this->empty = $empty;
 	}
-
+	
 
 	/*!
 		name form control	

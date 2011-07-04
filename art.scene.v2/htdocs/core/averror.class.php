@@ -2,7 +2,7 @@
 /*
 	Global error header 	
 	Created: js, 2001.08.13
-	$Id: averror.class.php,v 1.5 2008/07/26 21:08:11 pukomuko Exp $
+	$Id: averror.class.php,v 1.6 2011/07/04 21:00:49 pukomuko Exp $
 	___________________________________________________________
 */
 
@@ -81,6 +81,9 @@ function avErrorHandler ($errno, $errstr, $errfile, $errline, $context)
 	g_user_id: $g_user_id<br>
 	g_user_name: $g_user_name<br>
 	<br><br>";
+
+	// echo $text;
+	// debug_print_backtrace();	
 
 	if (isset($GLOBALS['bench'])) { echo $text; }
 	else { 

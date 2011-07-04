@@ -64,70 +64,70 @@ class avcBrowser_type extends avControl
 	
 	function which_os($ua)
     {
-	if (eregi("Mac", $ua))
+	if (@eregi("Mac", $ua))
 	{
 		$os = "MacOS";
 		$osimg = "mac";
 	}
-	else if (eregi("windows nt", $ua))
+	else if (@eregi("windows nt", $ua))
 	{
 		$os = "Windows NT";
 		$osimg = "windows";
 	}
 	
-	else if (eregi("winnt", $ua))
+	else if (@eregi("winnt", $ua))
 	{
 		$os = "Windows NT";
 		$osimg = "windows";
 	}
-	else if (eregi("windows 98", $ua))
+	else if (@eregi("windows 98", $ua))
 	{
 		$os = "Windows 98";
 		$osimg = "windows";
 	}
-	else if (eregi("win98", $ua))
+	else if (@eregi("win98", $ua))
 	{
 		$os = "Windows 98";
 		$osimg = "windows";
 	}
-	else if (eregi("windows 95", $ua))
+	else if (@eregi("windows 95", $ua))
 	{
 		$os = "Windows 95";
 		$osimg = "windows";
 	}
-	else if (eregi("win95", $ua))
+	else if (@eregi("win95", $ua))
 	{
 		$os = "Windows 95";
 		$osimg = "windows";
 	}
-	else if (eregi("Linux ([0-9.]+)", $ua, $regs))
+	else if (@eregi("Linux ([0-9.]+)", $ua, $regs))
 	{
 		$os = "Linux ".$regs[1];
 		$osimg = "linux";
 	}
-	else if (eregi("Linux", $ua, $regs))
+	else if (@eregi("Linux", $ua, $regs))
 	{
 		$os = "Linux";
 		$osimg = "linux";
 	}
 
-	else if (eregi("mdk for ([0-9]\.[0-9])", $ua, $regs))
+	else if (@eregi("mdk for ([0-9]\.[0-9])", $ua, $regs))
 	{
 		$os = "Linux MDK ".$regs[1];
 		$osimg = "linux";
 	}
-	else if (eregi("mdk", $ua, $regs))
+	else if (@eregi("mdk", $ua, $regs))
 	{
 		$os = "Linux MDK";
 		$osimg = "linux";
 	}
-	else if (eregi("win|windows", $ua))
+	else if (@eregi("win|windows", $ua))
 	{
 		$os = "Windows";
 		$osimg = "windows";
 	}
 
-	else if (eregi("konqueror/(([0-9]*\.[0-9]*\.[0-9]*)|([0-9]*\.[0-9]*))", $ua, $regs))
+	else if (@eregi("konqueror/(([0-9]*\.[0-9]*\.[0-9]*)|([0-9]*\.[0-9]*))", $ua, $regs))
 	{
 		$os = "Linux ?";
 		$osimg = "linux";
@@ -142,24 +142,24 @@ class avcBrowser_type extends avControl
 
 function which_browser($ua)
 {
-	if (eregi("msie ([0-9.]+)", $ua, $regs))
+	if (@eregi("msie ([0-9.]+)", $ua, $regs))
 	{
 		$browser = "Explorer ".$regs[1];
 		$browserimg = "explorer";
 	}
-	else if (eregi("konqueror/([0-9.]+)", $ua, $regs))
+	else if (@eregi("konqueror/([0-9.]+)", $ua, $regs))
 	{
 		$browser = "Konqueror ".$regs[1];
 		$browserimg = "konqueror";
 	}
-	else if (eregi("netscape([0-9]*/[0-9.]+)", $ua, $regs))
+	else if (@eregi("netscape([0-9]*/[0-9.]+)", $ua, $regs))
 	{
 		$browser = "Netscape ".$regs[1];
 		$browserimg = "navigator";
 	}
-	else if (eregi("^mozilla/([0-9].?.[0-9][0-9]|[0-9].?.[0-9]|[0-9])", $ua, $regs))
+	else if (@eregi("^mozilla/([0-9].?.[0-9][0-9]|[0-9].?.[0-9]|[0-9])", $ua, $regs))
 	{
-		if( eregi(" (m[0-9]*)", $ua, $regs2)|| eregi("gecko", $ua))
+		if (@eregi(" (m[0-9]*)", $ua, $regs2)|| eregi("gecko", $ua))
 		{
 			$browser = "Mozilla ".$regs[1];
 			$browserimg = "mozilla";
@@ -170,32 +170,32 @@ function which_browser($ua)
 			$browserimg = "navigator";
 		}
 	}
-	else if (eregi("mozilla .([0-9]*)", $ua, $regs))
+	else if (@eregi("mozilla .([0-9]*)", $ua, $regs))
 	{
 		$browser = "Mozilla ".$regs[1];
 		$browserimg = "mozilla";
 	}
-	else if (eregi("Opera/([0-9.]+)", $ua, $regs))
+	else if (@eregi("Opera/([0-9.]+)", $ua, $regs))
 	{
 		$browser = "Opera ".$regs[1];
 		$browserimg = "opera";
 	}
-	else if (eregi("Lynx/([0-9.]+)", $ua, $regs))
+	else if (@eregi("Lynx/([0-9.]+)", $ua, $regs))
 	{
 		$browser = "Lynx ".$regs[1];
 		$browserimg = "lynx";
 	}
-	else if (eregi("(^[a-zA-Z]+)/([0-9.]+)", $ua, $regs))
+	else if (@eregi("(^[a-zA-Z]+)/([0-9.]+)", $ua, $regs))
 	{
 		$browser = $regs[1]." ".$regs[2];
 		$browserimg = "question";
 	}
-	else if (eregi("(^[a-zA-Z]+) ([0-9.]+)", $ua, $regs))
+	else if (@eregi("(^[a-zA-Z]+) ([0-9.]+)", $ua, $regs))
 	{
 		$browser = $regs[1]." ".$regs[2];
 		$browserimg = "question";
 	}
-	else if (eregi("(^[a-zA-Z]+)", $ua, $regs))
+	else if (@eregi("(^[a-zA-Z]+)", $ua, $regs))
 	{
 		$browser = $regs[1];
 		$browserimg = "question";

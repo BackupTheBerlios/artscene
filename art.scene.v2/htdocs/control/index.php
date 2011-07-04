@@ -40,7 +40,7 @@ if (!$g_sess->userID)
 		}
 		else 
 		{
-			$g_usr = & new avUser();
+			$g_usr = new avUser();
 
 			$rez = $g_usr->login_user($user_name, $user_password);
 

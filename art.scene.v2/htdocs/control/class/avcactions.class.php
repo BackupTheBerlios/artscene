@@ -36,7 +36,7 @@ class avcActions extends avControl
 	
 	function constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order)
 	{
-		avControl::constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order);
+		parent::constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order);
 		$this->visible = false;
 	}
 

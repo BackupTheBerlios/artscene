@@ -35,19 +35,12 @@ class avcTextArea_html extends avControl
 	function avcTextArea_html(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $cols, $rows)
 	{
 
-		$this->constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $cols, $rows);
-
-	}
-	
-	function constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $cols, $rows)
-	{
 		avControl::constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order);
 		$this->cols = $cols;
 		$this->rows = $rows;
 		$this->visible = true;
 	}
-
-
+	
 	/*!
 		show form control
 		overwrites 'temp' handle in template

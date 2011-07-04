@@ -34,11 +34,6 @@ class avcImage extends avControl
 	*/
 	function avcImage(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $dir, $url, $xsize = false, $ysize = false)
 	{
-		$this->constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $dir, $url, $xsize, $ysize);
-	}
-
-	function constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $dir, $url, $xsize = false, $ysize = false)
-	{
 		avControl::constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order);
 		$this->visible = true;
 

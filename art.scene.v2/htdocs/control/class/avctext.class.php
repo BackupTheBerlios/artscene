@@ -28,18 +28,12 @@ class avcText extends avControl
 	/*!
 		\param $size - size of input field
 	*/
-	function avcText(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $size)
+	function avcText($table, $name, $description, $default, $required, $quered, $list, $header, $order, $size)
 	{
-		$this->constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $size);
-	}
-	
-	function constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $size)
-	{
-		avControl::constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order);
+		$this->constructor($table, $name, $description, $default, $required, $quered, $list, $header, $order);
 		$this->size = $size;
 		$this->visible = true;
 	}
-
 
 	/*!
 		show form control	

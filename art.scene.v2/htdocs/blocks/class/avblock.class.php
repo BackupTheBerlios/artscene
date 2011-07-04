@@ -30,7 +30,7 @@ include_once($RELPATH . 'control/class/avcactions.class.php');
 
 class avBlock extends avTable
 {
-	var $version = '$Id: avblock.class.php,v 1.4 2005/01/10 09:38:12 pukomuko Exp $';
+	var $version = '$Id: avblock.class.php,v 1.5 2011/07/04 21:00:48 pukomuko Exp $';
 
 	function avBlock()
 	{
@@ -45,19 +45,19 @@ class avBlock extends avTable
 
 		$this->name = 'avblock';
 
-		$this->controls[] = & new avcId( &$this, 'id', '', '0', 0, 1, 1, '', 0);
-		$this->controls[] = & new avcText( &$this, 'name', $g_lang['name'], '', 1, 1, 1, $g_lang['name'], 1, 40);
-		$this->controls[] = & new avcText( &$this, 'title', $g_lang['blocks_title'], '', 1, 1, 1, $g_lang['blocks_title'], 1, 40);
+		$this->controls[] = new avcId( &$this, 'id', '', '0', 0, 1, 1, '', 0);
+		$this->controls[] = new avcText( &$this, 'name', $g_lang['name'], '', 1, 1, 1, $g_lang['name'], 1, 40);
+		$this->controls[] = new avcText( &$this, 'title', $g_lang['blocks_title'], '', 1, 1, 1, $g_lang['blocks_title'], 1, 40);
 		
 
-		$this->controls[] = & new avcTextArea( &$this, 'html', $g_lang['blocks_html'], '', 1, 1, 0, $g_lang['blocks_html'], 1, 70, 40);	
+		$this->controls[] = new avcTextArea( &$this, 'html', $g_lang['blocks_html'], '', 1, 1, 0, $g_lang['blocks_html'], 1, 70, 40);	
 		
 		
-		$this->controls[] = & new avcText( &$this, 'template', $g_lang['blocks_template'], 'block.html', 1, 1, 1, $g_lang['blocks_template'], 1, 40);
+		$this->controls[] = new avcText( &$this, 'template', $g_lang['blocks_template'], 'block.html', 1, 1, 1, $g_lang['blocks_template'], 1, 40);
 		
-		$this->controls[] = & new avcSelect( &$this, 'visible', $g_lang['blocks_visible'], 1, 0, 1, 1, $g_lang['blocks_visible'], 1, array('0'=>$g_lang['no'], '1'=>$g_lang['yes']));
+		$this->controls[] = new avcSelect( &$this, 'visible', $g_lang['blocks_visible'], 1, 0, 1, 1, $g_lang['blocks_visible'], 1, array('0'=>$g_lang['no'], '1'=>$g_lang['yes']));
 
-		$this->controls[] = & new avcActions( &$this, 'actions', '', '', 0, 0, 1, $g_lang['action'], 0);
+		$this->controls[] = new avcActions( &$this, 'actions', '', '', 0, 0, 1, $g_lang['action'], 0);
 
 
 		$this->description = $g_lang['blocks'];

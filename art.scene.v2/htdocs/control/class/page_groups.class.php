@@ -30,12 +30,12 @@ class page_groups extends avTable
 
 		$this->name = 'u_group';
 
-		$this->controls[] = & new avcId( &$this, 'id', '', '0', 0, 1, 1, 'id', 0);
-		$this->controls[] = & new avcLinkText( &$this, 'name', $g_lang['name'], '', 1, 1, 1, $g_lang['name'], 1, 20, 'page_users');
-		$this->controls[] = & new avcText( &$this, 'info', $g_lang['info'], '', 1, 1, 1, $g_lang['info'], 1, 40);
-		$this->controls[] = & new avcText( &$this, 'menu', $g_lang['groups_menu'], '', 1, 1, 0, $g_lang['groups_menu'], 1, 40);
-		$this->controls[] = & new avcCheckGroup( &$this, 'permissions', $g_lang['groups_permissions']);
-		$this->controls[] = & new avcActions( &$this, '', '', '', 0, 0, 1, $g_lang['list_rowactions'], 0);
+		$this->controls[] = new avcId( &$this, 'id', '', '0', 0, 1, 1, 'id', 0);
+		$this->controls[] = new avcLinkText( &$this, 'name', $g_lang['name'], '', 1, 1, 1, $g_lang['name'], 1, 20, 'page_users');
+		$this->controls[] = new avcText( &$this, 'info', $g_lang['info'], '', 1, 1, 1, $g_lang['info'], 1, 40);
+		$this->controls[] = new avcText( &$this, 'menu', $g_lang['groups_menu'], '', 1, 1, 0, $g_lang['groups_menu'], 1, 40);
+		$this->controls[] = new avcCheckGroup( &$this, 'permissions', $g_lang['groups_permissions']);
+		$this->controls[] = new avcActions( &$this, '', '', '', 0, 0, 1, $g_lang['list_rowactions'], 0);
 
 		$this->description = $g_lang['groups_description'];
 

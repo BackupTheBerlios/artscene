@@ -2,7 +2,7 @@
 
 /*
 
-$Id: login.class.php,v 1.17 2008/07/26 21:27:02 pukomuko Exp $
+$Id: login.class.php,v 1.18 2011/07/04 21:00:48 pukomuko Exp $
 
 */
 
@@ -14,7 +14,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 
 class login extends avColumn
 {
-	var $version = '$Id: login.class.php,v 1.17 2008/07/26 21:27:02 pukomuko Exp $';
+	var $version = '$Id: login.class.php,v 1.18 2011/07/04 21:00:48 pukomuko Exp $';
 
 	var $table = 'u_users';
 
@@ -140,7 +140,7 @@ class login extends avColumn
 
 		global $g_usr, $g_user_id, $g_user_name, $oldpass, $newpass, $newpass2, $email, $lastname, $webpage, $icq, $mail_news, $mail_comments, $mail_works;
 		
-		if (empty($g_user_id)) { redirect($GLOBALS['SCRIPT_NAME'] . '/'); }
+		if (empty($g_user_id)) { redirect($_SERVER['SCRIPT_NAME'] . '/'); }
 
 		if (empty($email)) // get info from db
 		{

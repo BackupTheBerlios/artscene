@@ -6,7 +6,7 @@ include_once($RELPATH . $COREPATH . 'avcolumn.class.php');
 */
 class messages extends avColumn
 {
-	var $version = '$Id: messages.class.php,v 1.3 2004/09/23 21:44:08 pukomuko Exp $';
+	var $version = '$Id: messages.class.php,v 1.4 2011/07/04 21:00:48 pukomuko Exp $';
 
 	var $table = 'blah';
 
@@ -101,7 +101,7 @@ class messages extends avColumn
 				$this->tpl->set_var('comment', $comment);
 				$this->tpl->set_var('subject', $subject);
 				$this->tpl->set_var('error_str', $this->error);
-				$this->tpl->set_var('url', $GLOBALS['REQUEST_URI']);
+				$this->tpl->set_var('url', $_SERVER['REQUEST_URI']);
 				return $this->tpl->process('out', 'send_msg');
 			}
 		}
@@ -195,7 +195,7 @@ class messages extends avColumn
 		$this->tpl->set_var('subject', $subject);
 
 		$this->tpl->set_var('error_str', $this->error);
-		$this->tpl->set_var('url', $GLOBALS['REQUEST_URI']);
+		$this->tpl->set_var('url', $_SERVER['REQUEST_URI']);
 
 		return $this->tpl->process('out', 'reply_msg');
 		

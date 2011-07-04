@@ -4,14 +4,14 @@
 
 	Created: js, 2001.08.13
 	
-	$Id: site.ini.php,v 1.3 2007/12/21 23:46:02 pukomuko Exp $
+	$Id: site.ini.php,v 1.4 2011/07/04 21:00:47 pukomuko Exp $
 	___________________________________________________________
 	This file is part of flexiUpdate, content control framework
 	Copyright (c) 2001 UAB "Alternatyvus valdymas"
 	http://www.avc.lt <info@avc.lt>
 */
 
-error_reporting(E_ALL);
+error_reporting(E_ALL & ~(E_NOTICE | E_DEPRECATED | E_STRICT));
 
 
 // Path config
@@ -27,6 +27,11 @@ error_reporting(E_ALL);
 
 //$bench = 1;
 
+foreach($_REQUEST as $key => $obj) {
+    if (!isset($GLOBALS[$key])) $GLOBALS[$key] = $obj;
+}
+  $PHP_SELF = $_SERVER['PHP_SELF'];
+
 include_once($RELPATH . $COREPATH . "averror.class.php");
 include_once($RELPATH . $COREPATH . "avdb.class.php");
 include_once($RELPATH . $COREPATH . "avini.class.php");
@@ -38,11 +43,11 @@ include_once($RELPATH . $LIBPATH  . "util.lib.php");
 
 if (isset($GLOBALS['bench'])) { echo "<br>checkpoint[includes]: " . round((getmicrotime() - $pradedam),2); }
 
-$g_error = & new avError('report');
+$g_error = new avError('report');
 
 if (isset($GLOBALS['bench'])) { echo "<br>checkpoint[error]: " . round((getmicrotime() - $pradedam),2); }
 
-$g_ini = & new avIni($RELPATH . 'global.ini.php');
+$g_ini = new avIni($RELPATH . 'global.ini.php');
 
 if (isset($GLOBALS['bench'])) { echo "<br>checkpoint[ini]: " . round((getmicrotime() - $pradedam),2); }
 
@@ -53,15 +58,15 @@ include_once($RELPATH . $LANGPATH . $lang . '.inc.php');
 
 if (isset($GLOBALS['bench'])) { echo "<br>checkpoint[lang]: " . round((getmicrotime() - $pradedam),2); }
 
-$g_db = & new avDb();
+$g_db = new avDb();
 
 if (isset($GLOBALS['bench'])) { echo "<br>checkpoint[db]: " . round((getmicrotime() - $pradedam),2); }
 
-$g_sess = & new avSession ();
+$g_sess = new avSession ();
 
 if (isset($GLOBALS['bench'])) { echo "<br>checkpoint[session]: " . round((getmicrotime() - $pradedam),2); }
 
-$g_tpl = & new phemplate($RELPATH, 'keep');
+$g_tpl = new phemplate($RELPATH, 'keep');
 $g_tpl->set_error_handler(&$g_error);
 
 $g_tpl->set_var('RELPATH', $RELPATH);
@@ -76,7 +81,7 @@ $g_tpl->set_var('users_online', $g_sess->users_online("registered"));
 
 if (empty($g_user_id) || !$g_sess->userID) { $g_user_id = false; }
 
-$g_usr = & new avUser($g_user_id);
+$g_usr = new avUser($g_user_id);
 
 
 

@@ -42,7 +42,7 @@ include_once($RELPATH . 'control/class/avchidden.class.php');
 
 class avWorks_delete_log extends avTable
 {
-	var $version = '$Id: avworks_delete_log.class.php,v 1.4 2006/11/08 22:54:52 pukomuko Exp $';
+	var $version = '$Id: avworks_delete_log.class.php,v 1.5 2011/07/04 21:00:48 pukomuko Exp $';
 
 	function avWorks_delete_log()
 	{
@@ -57,20 +57,20 @@ class avWorks_delete_log extends avTable
 
 		$this->name = 'avworks_delete_log';
 
-		$this->controls[] = & new avcId( &$this, 'id', '', '0', 0, 1, 0, '', 0);
-		$this->controls[] = & new avcDbText( &$this, 'admin_id', 'Trynikas', '', 1, 1, 1, 'Trynikas', 1, 'u_users', 'id', 'username');
+		$this->controls[] = new avcId( &$this, 'id', '', '0', 0, 1, 0, '', 0);
+		$this->controls[] = new avcDbText( &$this, 'admin_id', 'Trynikas', '', 1, 1, 1, 'Trynikas', 1, 'u_users', 'id', 'username');
 		
-		$this->controls[] = & new avcDate( &$this, 'posted', $g_lang['news_date'], date('Y.m.d'), 1, 1, 1, $g_lang['news_date'], 1);		
+		$this->controls[] = new avcDate( &$this, 'posted', $g_lang['news_date'], date('Y.m.d'), 1, 1, 1, $g_lang['news_date'], 1);		
 
 
-		$this->controls[] = & new avcDbSelect( &$this, 'work_category', 'Kategorija', '', 1, 1, 1, 'Kategorija', 1, 'avworkcategory', 'id', 'name');
-		$this->controls[] = & new avcDbText( &$this, 'work_submiter', 'Autorius', $GLOBALS['g_user_id'], 1, 1, 1, 'Autorius', 1, 'u_users', 'id', 'username');
-		$this->controls[] = & new avcHidden( &$this, 'work_subject', 'Pavadinimas', '', 0, 1, 1, 'Pavadinimas', 1);
-		$this->controls[] = & new avcDate( &$this, 'work_posted', 'Atsiustas', date('Y.m.d'), 1, 1, 1, 'Atsiustas', 1);		
+		$this->controls[] = new avcDbSelect( &$this, 'work_category', 'Kategorija', '', 1, 1, 1, 'Kategorija', 1, 'avworkcategory', 'id', 'name');
+		$this->controls[] = new avcDbText( &$this, 'work_submiter', 'Autorius', $GLOBALS['g_user_id'], 1, 1, 1, 'Autorius', 1, 'u_users', 'id', 'username');
+		$this->controls[] = new avcHidden( &$this, 'work_subject', 'Pavadinimas', '', 0, 1, 1, 'Pavadinimas', 1);
+		$this->controls[] = new avcDate( &$this, 'work_posted', 'Atsiustas', date('Y.m.d'), 1, 1, 1, 'Atsiustas', 1);		
 
-		$this->controls[] = & new avcHidden( &$this, 'work_votecount', 'Balsai', '', 0, 1, 1, 'Balsai', 1);
-		$this->controls[] = & new avcHidden( &$this, 'work_summark', 'Suma', 0, 0, 1, 1, 'Suma', 1);
-		$this->controls[] = & new avcHidden( &$this, 'work_avgmark', 'Vid.', 0, 0, 1, 1, 'Vid.', 1);
+		$this->controls[] = new avcHidden( &$this, 'work_votecount', 'Balsai', '', 0, 1, 1, 'Balsai', 1);
+		$this->controls[] = new avcHidden( &$this, 'work_summark', 'Suma', 0, 0, 1, 1, 'Suma', 1);
+		$this->controls[] = new avcHidden( &$this, 'work_avgmark', 'Vid.', 0, 0, 1, 1, 'Vid.', 1);
 
 		$this->description = 'Darbø trynimai';
 

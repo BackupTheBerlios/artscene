@@ -21,12 +21,12 @@ class usage
 
 	function usage($startyear = '2001')
 	{
-		global $g_db, $g_tpl;
+		global $g_db, $g_tpl, $RELPATH;
 		$this->startyear = $startyear;
 
 		$this->db = & $g_db;
 		//$this->tpl = & $g_tpl;
-		$this->tpl = new avTemplate($GLOBALS['RELPATH']);
+		$this->tpl = new avTemplate($RELPATH);
 
 	}
 

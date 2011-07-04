@@ -48,7 +48,7 @@ class menuitem extends avColumn
 
 		$names = explode('-', $this->info['column_id']);
 		include_once($RELPATH . $names[0] . '/class/' . $names[1] . '.class.php');
-		$this->component = & new $names[1]('component');
+		$this->component = new $names[1]('component');
 	}
 
 	/*!
@@ -97,7 +97,7 @@ class menuitem extends avColumn
 			}
 			else
 			{
-				$list[$i]['url'] = $GLOBALS['SCRIPT_NAME'] . '/page.' . $list[$i]['page'] . ';menuitem.' . $list[$i]['id'];
+				$list[$i]['url'] = $_SERVER['SCRIPT_NAME'] . '/page.' . $list[$i]['page'] . ';menuitem.' . $list[$i]['id'];
 			}
 		}
 		
@@ -154,7 +154,7 @@ class menuitem extends avColumn
 			}
 			else
 			{
-				$list[$i]['url'] = $GLOBALS['SCRIPT_NAME'] . '/page.' . $GLOBALS['page'] . ';menuitem.' . $list[$i]['id'];
+				$list[$i]['url'] = $_SERVER['SCRIPT_NAME'] . '/page.' . $GLOBALS['page'] . ';menuitem.' . $list[$i]['id'];
 			}
 		}
 		
@@ -213,7 +213,7 @@ class menuitem extends avColumn
 
 					include_once($RELPATH . 'blocks/class/block.class.php');
 
-					$table = & new block();
+					$table =  new block();
 					
 					return $table->show($this->info['block_id']);
 	

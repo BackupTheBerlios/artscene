@@ -35,17 +35,12 @@ class avcTextArea_bbcode extends avControl
 	*/
 	function avcTextArea_bbcode(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $cols, $rows)
 	{
-		$this->constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $cols, $rows);
-	}
-	
-	function constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $cols, $rows)
-	{
 		avControl::constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order);
 		$this->cols = $cols;
 		$this->rows = $rows;
 		$this->visible = true;
 	}
-
+	
 
 	/*!
 		show form control

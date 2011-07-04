@@ -4,7 +4,7 @@
 	
 	Created: nk, 2001.08.13
 	
-	$Id: avuser.class.php,v 1.4 2006/02/05 15:28:18 pukomuko Exp $
+	$Id: avuser.class.php,v 1.5 2011/07/04 21:00:49 pukomuko Exp $
 	___________________________________________________________
 	This file is part of flexiUpdate, content control framework
 	Copyright (c) 2001 UAB "Alternatyvus valdymas"
@@ -132,7 +132,7 @@ class avUser
 							WHERE id=$this->id");
 			
 			//Inserted to logging users who logins into administrator site
-			$sql = "INSERT INTO u_user_log (username,logindate,host,browser) VALUES ('{$tmp['username']}',NOW(),'{$host}','{$GLOBALS['HTTP_USER_AGENT']}')";
+			$sql = "INSERT INTO u_user_log (username,logindate,host,browser) VALUES ('{$tmp['username']}',NOW(),'{$host}','{$_SERVER['HTTP_USER_AGENT']}')";
 			$this->db->query($sql);			
 			
 			return $tmp;
@@ -177,7 +177,7 @@ class avUser
 							WHERE id=$this->id");
 			
 			//Inserted to logging users who logins into administrator site
-			$sql = "INSERT INTO u_user_log (username,logindate,host,browser) VALUES ('{$tmp['username']}',NOW(),'[auto]$host','{$GLOBALS['HTTP_USER_AGENT']}')";
+			$sql = "INSERT INTO u_user_log (username,logindate,host,browser) VALUES ('{$tmp['username']}',NOW(),'[auto]$host','{$_SERVER['HTTP_USER_AGENT']}')";
 			$this->db->query($sql);			
 			
 			return $tmp;
@@ -195,12 +195,13 @@ class avUser
 	*/
 	function get_info($id)
 	{
+		global $SQL_DATE_FORMAT_LONG, $SQL_DATE_FORMAT_SHORT;
 		
 		if (!$id) { return false; }
 		$this->db->query("SELECT *, 
-              DATE_FORMAT(lastlogin, '$GLOBALS[SQL_DATE_FORMAT_LONG]') AS lastlogin,
-		          DATE_FORMAT(may_comment_after, '$GLOBALS[SQL_DATE_FORMAT_SHORT]') AS may_comment_after,
-		          DATE_FORMAT(may_send_work_after, '$GLOBALS[SQL_DATE_FORMAT_SHORT]') AS may_send_work_after
+              DATE_FORMAT(lastlogin, '$SQL_DATE_FORMAT_LONG') AS lastlogin,
+		          DATE_FORMAT(may_comment_after, '$SQL_DATE_FORMAT_SHORT') AS may_comment_after,
+		          DATE_FORMAT(may_send_work_after, '$SQL_DATE_FORMAT_SHORT') AS may_send_work_after
 							FROM $this->table_name 
 							WHERE id='$id'");
 		
@@ -213,12 +214,13 @@ class avUser
 	*/
 	function get_user_info($id = false)
 	{
+		global $SQL_DATE_FORMAT_LONG, $SQL_DATE_FORMAT_SHORT;
 		
 		if (!$id) { $id = $this->id; }
-		$this->db->query("SELECT *, DATE_FORMAT(reg_date, '$GLOBALS[SQL_DATE_FORMAT_LONG]') AS reg_date, 
-              DATE_FORMAT(lastlogin, '$GLOBALS[SQL_DATE_FORMAT_LONG]') AS lastlogin,
-		          DATE_FORMAT(may_comment_after, '$GLOBALS[SQL_DATE_FORMAT_SHORT]') AS may_comment_after,
-		          DATE_FORMAT(may_send_work_after, '$GLOBALS[SQL_DATE_FORMAT_SHORT]') AS may_send_work_after
+		$this->db->query("SELECT *, DATE_FORMAT(reg_date, '$SQL_DATE_FORMAT_LONG') AS reg_date, 
+              DATE_FORMAT(lastlogin, '$SQL_DATE_FORMAT_LONG') AS lastlogin,
+		          DATE_FORMAT(may_comment_after, '$SQL_DATE_FORMAT_SHORT') AS may_comment_after,
+		          DATE_FORMAT(may_send_work_after, '$SQL_DATE_FORMAT_SHORT') AS may_send_work_after
 							FROM u_user_info, $this->table_name u
 							WHERE uid='$id' AND u.id='$id'");
 		

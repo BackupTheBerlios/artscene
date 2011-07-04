@@ -48,7 +48,7 @@ include_once($RELPATH . 'control/class/avchidden.class.php');
 
 class avWorks extends avTable
 {
-	var $version = '$Id: avworks.class.php,v 1.4 2004/11/30 23:14:46 pukomuko Exp $';
+	var $version = '$Id: avworks.class.php,v 1.5 2011/07/04 21:00:48 pukomuko Exp $';
 
 	function avWorks()
 	{
@@ -67,25 +67,25 @@ class avWorks extends avTable
 
 
 
-		$this->controls[] = & new avcId( &$this, 'id', '', '0', 0, 1, 1, '', 0);
-		$this->controls[] = & new avcLinkText( &$this, 'subject', $g_lang['news_subject'], '', 1, 1, 1, $g_lang['news_subject'], 1, 50, 'avcomments');
-		$this->controls[] = & new avcTextArea_bbcode( &$this, 'info', 'Apraðymas', '', 1, 1, 0, 'Apraðymas', 1, 50, 10);
-		$this->controls[] = & new avcDate( &$this, 'posted', $g_lang['news_date'], date('Y.m.d'), 1, 1, 1, $g_lang['news_date'], 1);
+		$this->controls[] = new avcId( &$this, 'id', '', '0', 0, 1, 1, '', 0);
+		$this->controls[] = new avcLinkText( &$this, 'subject', $g_lang['news_subject'], '', 1, 1, 1, $g_lang['news_subject'], 1, 50, 'avcomments');
+		$this->controls[] = new avcTextArea_bbcode( &$this, 'info', 'Apraðymas', '', 1, 1, 0, 'Apraðymas', 1, 50, 10);
+		$this->controls[] = new avcDate( &$this, 'posted', $g_lang['news_date'], date('Y.m.d'), 1, 1, 1, $g_lang['news_date'], 1);
 
 
-		$this->controls[] = & new avcDbSelect( &$this, 'category_id', $g_lang['news_category'], '', 1, 1, 1, $g_lang['news_category'], 1, 'avworkcategory', 'id', 'name');
-		$this->controls[] = & new avcDbText( &$this, 'submiter', $g_lang['news_author'], $GLOBALS['g_user_id'], 1, 1, 1, $g_lang['news_author'], 1, 'u_users', 'id', 'username');
+		$this->controls[] = new avcDbSelect( &$this, 'category_id', $g_lang['news_category'], '', 1, 1, 1, $g_lang['news_category'], 1, 'avworkcategory', 'id', 'name');
+		$this->controls[] = new avcDbText( &$this, 'submiter', $g_lang['news_author'], $GLOBALS['g_user_id'], 1, 1, 1, $g_lang['news_author'], 1, 'u_users', 'id', 'username');
 
 
-		$this->controls[] = & new avcImage( &$this, 'thumbnail', 'Thumbnail', '', 0, 1, 0, $g_lang['news_image'], 1, $g_ini->read_var('avworks', 'thumbnails_dir'), $g_ini->read_var('avworks', 'thumbnails_url'), 110, 210);
+		$this->controls[] = new avcImage( &$this, 'thumbnail', 'Thumbnail', '', 0, 1, 0, $g_lang['news_image'], 1, $g_ini->read_var('avworks', 'thumbnails_dir'), $g_ini->read_var('avworks', 'thumbnails_url'), 110, 210);
 
-		$this->controls[] = & new avcHidden( &$this, 'file', 'Failas', '', 0, 1, 0, 'Failas', 1);
-		$this->controls[] = & new avcHidden( &$this, 'views', 'Perþiûros', 0, 0, 1, 1, 'Perþiûros', 1);
-		$this->controls[] = & new avcHidden( &$this, 'score', 'Score', 0, 0, 1, 1, 'Score', 1);
+		$this->controls[] = new avcHidden( &$this, 'file', 'Failas', '', 0, 1, 0, 'Failas', 1);
+		$this->controls[] = new avcHidden( &$this, 'views', 'Perþiûros', 0, 0, 1, 1, 'Perþiûros', 1);
+		$this->controls[] = new avcHidden( &$this, 'score', 'Score', 0, 0, 1, 1, 'Score', 1);
 
-		$this->controls[] = & new avcText( &$this, 'color', 'Spalva', '', 0, 1, 1, 'Spalva', 1, 60);
+		$this->controls[] = new avcText( &$this, 'color', 'Spalva', '', 0, 1, 1, 'Spalva', 1, 60);
 
-		$this->controls[] = & new avcActions( &$this, 'actions', '', '', 0, 0, 1, 'Veiksmai', 0);
+		$this->controls[] = new avcActions( &$this, 'actions', '', '', 0, 0, 1, 'Veiksmai', 0);
 
 		$this->description = 'Darbai';
 

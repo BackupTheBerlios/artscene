@@ -10,7 +10,7 @@
 pagrindinis control scriptas
 jam dodam parametrus o jis tada masto ka cia daryti 
 
-$Id: admin.php,v 1.3 2006/10/09 14:04:09 pukomuko Exp $
+$Id: admin.php,v 1.4 2011/07/04 21:00:48 pukomuko Exp $
 */
 
 $RELPATH = '../';
@@ -41,7 +41,7 @@ switch ($page)
 
 	case 'usage':
 		include_once('usage/usage.class.php');
-		$usage = & new usage();
+		$usage = new usage();
 		$g_tpl->set_var('temp', $usage->show_output());
 		$g_tpl->process('form', 'temp');
 		break;

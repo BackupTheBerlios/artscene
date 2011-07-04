@@ -32,17 +32,11 @@ class avcSelect extends avControl
 	*/
 	function avcSelect(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $values)
 	{
-		$this->constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $values);
-	}
-	
-	function constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order, $values)
-	{
 		avControl::constructor(&$table, $name, $description, $default, $required, $quered, $list, $header, $order);
 		$this->visible = true;
 
 		$this->s_values = $values;
 	}
-
 
 	/*!
 		rodo selecta aktyvus tas kur value sutampa

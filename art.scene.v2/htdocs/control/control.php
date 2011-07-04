@@ -32,7 +32,7 @@ $table = clean_name($table);
 if (!file_exists($RELPATH . $module . '/class/' . $table . '.class.php')) { redirect('/'); }
 include_once($RELPATH . $module . '/class/' . $table . '.class.php');
 
-$handler = & new $table();
+$handler = new $table();
 
 if (empty($pid)) 
 { 
@@ -50,7 +50,6 @@ else
 	$parent->load($pid);
 
 	$g_tpl->set_var('back', $parent->back());
-	//$g_tpl->set_var('back', "<a class='border' href='$PHP_SELF?module=$parent_module&table=$parent_name&page=list'>". $parent->controls[1]->value .'</a> :: ');
 }
 
 
@@ -104,7 +103,7 @@ switch ($page)
 				if ($handler->validate())
 				{
 					$handler->change();
-					redirect($PHP_SELF . "?module=$module&table=$table&offset=$offset&order=$order&search=$search&pid=$pid&page=list");
+					redirect($_SERVER['PHP_SELF'] . "?module=$module&table=$table&offset=$offset&order=$order&search=$search&pid=$pid&page=list");
 				}
 			}
 			else

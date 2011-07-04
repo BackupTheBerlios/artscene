@@ -62,34 +62,34 @@ class avNews extends avTable
 
 
 
-		$this->controls[] = & new avcId( &$this, 'id', '', '0', 0, 1, 1, '', 0);
-		$this->controls[] = & new avcLinkText( &$this, 'subject', $g_lang['news_subject'], '', 1, 1, 1, $g_lang['news_subject'], 1, 50, 'avcomments');
-		$this->controls[] = & new avcTextArea( &$this, 'info', $g_lang['news_info'], '', 1, 1, 0, $g_lang['news_info'], 1, 50, 10);
-		$this->controls[] = & new avcTextArea_bbcode( &$this, 'full_text', $g_lang['news_full_text'], '', 0, 1, 0, '', 1, 40, 25);
-		$this->controls[] = & new avcDate( &$this, 'posted', $g_lang['news_date'], date('Y.m.d'), 1, 1, 1, $g_lang['news_date'], 1);
+		$this->controls[] = new avcId( &$this, 'id', '', '0', 0, 1, 1, '', 0);
+		$this->controls[] = new avcLinkText( &$this, 'subject', $g_lang['news_subject'], '', 1, 1, 1, $g_lang['news_subject'], 1, 50, 'avcomments');
+		$this->controls[] = new avcTextArea( &$this, 'info', $g_lang['news_info'], '', 1, 1, 0, $g_lang['news_info'], 1, 50, 10);
+		$this->controls[] = new avcTextArea_bbcode( &$this, 'full_text', $g_lang['news_full_text'], '', 0, 1, 0, '', 1, 40, 25);
+		$this->controls[] = new avcDate( &$this, 'posted', $g_lang['news_date'], date('Y.m.d'), 1, 1, 1, $g_lang['news_date'], 1);
 
-		$this->controls[] = & new avcText( &$this, 'keywords', $g_lang['news_keywords'], '', 0, 0, 1, $g_lang['news_keywords'], 1, 40, 'avcomments');
+		$this->controls[] = new avcText( &$this, 'keywords', $g_lang['news_keywords'], '', 0, 0, 1, $g_lang['news_keywords'], 1, 40, 'avcomments');
 
-		$this->controls[] = & new avcDbSelect( &$this, 'category_id', $g_lang['news_category'], '', 1, 1, 1, $g_lang['news_category'], 1, 'avnewscategory', 'id', 'name');
+		$this->controls[] = new avcDbSelect( &$this, 'category_id', $g_lang['news_category'], '', 1, 1, 1, $g_lang['news_category'], 1, 'avnewscategory', 'id', 'name');
 
-		$this->controls[] = & new avcDbSelect( &$this, 'submiter', $g_lang['news_author'], $GLOBALS['g_user_id'], 1, 1, 1, $g_lang['news_author'], 1, 'u_users', 'id', 'username');
+		$this->controls[] = new avcDbSelect( &$this, 'submiter', $g_lang['news_author'], $GLOBALS['g_user_id'], 1, 1, 1, $g_lang['news_author'], 1, 'u_users', 'id', 'username');
 
-//		$this->controls[] = & new avcImage( &$this, 'file', $g_lang['news_image'], '', 0, 1, 0, $g_lang['news_image'], 1, $g_ini->read_var('avnews', 'image_dir'), $g_ini->read_var('avnews', 'image_url'), 110, 210);
+//		$this->controls[] = new avcImage( &$this, 'file', $g_lang['news_image'], '', 0, 1, 0, $g_lang['news_image'], 1, $g_ini->read_var('avnews', 'image_dir'), $g_ini->read_var('avnews', 'image_url'), 110, 210);
 
-		$this->controls[] = & new avcText( &$this, 'file', 'Paveiksliukas', '', 0, 1, 1, 'Failas', 1, 40);
+		$this->controls[] = new avcText( &$this, 'file', 'Paveiksliukas', '', 0, 1, 1, 'Failas', 1, 40);
 
 		
-//		$this->controls[] = & new avcHidden( &$this, 'visible', 'Patvirtinta', 0, 0, 1, 1, 'Patvirtinta', 1);
+//		$this->controls[] = new avcHidden( &$this, 'visible', 'Patvirtinta', 0, 0, 1, 1, 'Patvirtinta', 1);
 
 
 		if ('list' == $page) // is_permission('avnews_auth') ||
 		{
-			$this->controls[] = & new avcDbSelect( &$this, 'authorizer', 'Tvirtintojas', $GLOBALS['g_user_id'], 1, 1, 1, 'Tvirtintojas', 1, 'u_users', 'id', 'username');
-			$this->controls[] = & new avcDate( &$this, 'auth_date', 'Tvirtinimo data', date('Y.m.d'), 1, 1, 1, 'Tvirt. data', 1);
-			$this->controls[] = & new avcSelect( &$this, 'visible', 'Patvirtinta', 1, 0, 1, 1, 'Patvirtinta', 1, array('0'=>'ne', '1'=>'taip'));
+			$this->controls[] = new avcDbSelect( &$this, 'authorizer', 'Tvirtintojas', $GLOBALS['g_user_id'], 1, 1, 1, 'Tvirtintojas', 1, 'u_users', 'id', 'username');
+			$this->controls[] = new avcDate( &$this, 'auth_date', 'Tvirtinimo data', date('Y.m.d'), 1, 1, 1, 'Tvirt. data', 1);
+			$this->controls[] = new avcSelect( &$this, 'visible', 'Patvirtinta', 1, 0, 1, 1, 'Patvirtinta', 1, array('0'=>'ne', '1'=>'taip'));
 		}
 
-		$this->controls[] = & new avcActions( &$this, 'actions', '', '', 0, 0, 1, 'Veiksmai', 0);
+		$this->controls[] = new avcActions( &$this, 'actions', '', '', 0, 0, 1, 'Veiksmai', 0);
 
 		if (empty($pid))
 		{
