@@ -9,7 +9,7 @@ include_once($RELPATH . $COREPATH . 'avnavigator.class.php');
 
 class darbai_submit extends avColumn
 {
-	var $version = '$Id: darbai_submit.class.php,v 1.19 2011/06/25 12:15:09 pukomuko Exp $';
+	var $version = '$Id: darbai_submit.class.php,v 1.20 2011/07/04 21:20:10 pukomuko Exp $';
 	var $table = 'avworks';
 	var $submit_info_block = 'work.submit.info';
 
@@ -122,6 +122,8 @@ class darbai_submit extends avColumn
 			$this->error .= 'reikia kategorijos<br>';
 		}
 
+		$work = $_FILES['work'];
+		
 		if (empty($work) || 'none' == $work)
 		{
 			$this->error .= 'reikia atsiøsti darbà<br>';
@@ -140,8 +142,8 @@ class darbai_submit extends avColumn
 		if ($this->error) return true;
 
 
-		$work_name = $GLOBALS['work_name'];
-		$work_size = $GLOBALS['work_size'];
+		$work_name = $_FILES['work']['name'];
+		$work_size = $_FILES['work']['size'];
 
 		$work_types = array('gif', 'jpg', 'png', 'swf');
 		$work_type = substr($work_name, strlen($work_name) - 3, 3);
@@ -153,8 +155,8 @@ class darbai_submit extends avColumn
 
 		if ($thumbnail != '' && $thumbnail != 'none')
 		{
-			$thumb_name = $GLOBALS['thumbnail_name'];
-			$thumb_size = $GLOBALS['thumbnail_size'];
+			$thumb_name = $_FILES['thumbnail']['name'];
+			$thumb_size = $_FILES['thumbnail']['size'];
 
 			$thumb_types = array('gif', 'jpg', 'png');
 			$thumb_type = substr($thumb_name, strlen($thumb_name) - 3, 3);
@@ -172,7 +174,7 @@ class darbai_submit extends avColumn
 			$this->error .= 'per maþas darbo failas, limitas 10kb<br>';
 		}
 
-		if ( ($this->flash_category != $category) && ($work_size > 307200) )
+		if ( ($this->flash_category != $category) && ($work_size > 30720000) )
 		{
 			$this->error .= 'per didelis darbo failas, limitas 300kb<br>';
 		}
@@ -189,6 +191,7 @@ class darbai_submit extends avColumn
 			$work_dest = $this->ini->read_var('avworks', 'works_dir') . $work_name;
 		}
 		
+		$work = $_FILES['work']['tmp_name'];
 		copy($work, $work_dest);
 		unlink($work);
 
@@ -198,6 +201,7 @@ class darbai_submit extends avColumn
 		if ($thumbnail != 'none')
 		{
 			// vadinam taip pat kaip darba, kad nereiktu tikrinti dublikatu
+			$thumbnail = $_FILES['thumbnail']['tmp_name'];
 			$thumb_dest = $this->ini->read_var('avworks', 'thumbnails_dir') . $work_name . '.jpg';
 			$exec_src = $this->ini->read_var('avworks', 'convert_exec') ." -resize ". $this->thumb_x ."x". $this->thumb_y ." $thumbnail jpg:$thumb_dest";
 			exec($exec_src);
